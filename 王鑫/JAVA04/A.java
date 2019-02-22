@@ -1,11 +1,19 @@
-// 输出计算100+101+102+...+200之和
+//2.1 买桃子
 
-public class A{
-	public static void main(String[] args){
-		int i=100 , sum=0;
-		do{
-			sum+=i++;
-		}while(i<=200);
-		System.out.print("100+101+102....+200="+sum);
+import java.util.Scanner;
+
+public class A {
+	public static void main(String[] arge){
+		Scanner input = new Scanner(System.in);
+		System.out.println("请输入你购买的桃子数量：");
+		int n = input.nextInt();
+		if(n<3){
+			System.out.println(n);
+		}else if(n>=3&&n<=5){
+			System.out.println(n+1);
+		}else{
+			System.out.println(n+2);
+		}
+		
 	}
 }

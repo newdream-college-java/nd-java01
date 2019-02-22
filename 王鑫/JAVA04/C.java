@@ -1,12 +1,33 @@
-//编程使用while循环输出：100，95，90，...,5。
+import java.util.Scanner;
 
 public class C{
 	public static void main(String[] arge){
-		int i=100;
-		while(i>5){
-		System.out.print(i+"，");
-		i-=5;
+		Scanner input = new Scanner(System.in);
+		System.out.print("请输入星期数：");
+		int n = input.nextInt();
+		switch(n){
+		case 1:	
+			System.out.println("星期一");
+			break;
+		case 2:	
+			System.out.println("星期一");
+			break;
+		case 3:	
+			System.out.println("星期一");
+			break;
+		case 4:	
+			System.out.println("星期一");
+			break;
+		case 5:	
+			System.out.println("星期一");
+			break;
+		case 6:	
+			System.out.println("星期一");
+			break;
+		case 7:	
+			System.out.println("星期一");
+			break;
+		default:System.out.println("输入错误");
 		}
-		System.out.print(i);
 	}
 }
