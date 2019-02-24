@@ -1,0 +1,10 @@
+#mac files
+*.DS_Store
+#java project files 
+*.class
+bin/
+/bin
+*.log
+
+
+
