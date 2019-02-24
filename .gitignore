@@ -1,3 +1,4 @@
+
 #mac files
 *.DS_Store
 #java project files 
@@ -5,6 +6,3 @@
 bin/
 /bin
 *.log
-
-
-
