@@ -7,7 +7,7 @@ public class I{
 		while(i<=3){
 			System.out.println("请输入会员号（4位整数）：");
 			int sum=input.nextInt();
-			if(sum<10000){
+			if(sum<10000&&sum>=1000){
 			System.out.println("请输入会员生日（月/日（两位整数表示））：");
 			String a=input.next();
 			System.out.println("请输入会员积分：");
