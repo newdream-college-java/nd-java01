@@ -1,0 +1,71 @@
+import java.util.Scanner;
+public class zy7{
+	public static void main(String[] args){
+		Scanner input=new Scanner(System.in);
+		System.out.println("请输入一个数字");
+		int a=input.nextInt();
+		
+		while(a!=0){
+			if(a==1){
+				System.out.println(a+"MON");
+				System.out.println("要退出请输入0，不要推出请继续输入");
+				a=input.nextInt();	
+				if(a==0){
+					break;
+				}			
+			}
+			if(a==2){
+				System.out.println(a+"TUE");
+				System.out.println("要退出请输入0，不要推出请继续输入");
+				a=input.nextInt();	
+				if(a==0){
+					break;
+				}			
+			}			
+			if(a==3){
+				System.out.println(a+"WED");
+				System.out.println("要退出请输入0，不要推出请继续输入");
+				a=input.nextInt();	
+				if(a==0){
+					break;
+				}			
+			}			
+			if(a==4){
+				System.out.println(a+"THU");
+				System.out.println("要退出请输入0，不要推出请继续输入");
+				a=input.nextInt();	
+				if(a==0){
+					break;
+				}		
+			}
+			if(a==5){
+				System.out.println(a+"FRI");
+				System.out.println("要退出请输入0，不要推出请继续输入");
+				a=input.nextInt();
+				if(a==0){
+					break;
+				}				
+			}
+			if(a==6){
+				System.out.println(a+"SAT");
+				System.out.println("要退出请输入0，不要推出请继续输入");
+				a=input.nextInt();	
+				if(a==0){
+					break;
+				}			
+			}
+			if(a==7){
+				System.out.println(a+"SUN");
+				System.out.println("要退出请输入0，不要推出请继续输入");
+				a=input.nextInt();	
+				if(a==0){
+					break;
+				}			
+			}
+			if(a>=8||a<0){
+				System.out.println("错误重新输入");
+				a=input.nextInt();
+			}
+		}
+	}	
+}
