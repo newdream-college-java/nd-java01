@@ -28,7 +28,7 @@ public class G{
 			}
 		}sum++;
 		System.out.println(year+"年"+month+"月1号是星期"+sum%7);
-		System.out.println("\t\t日\t一\t二\t三\t四\t五\t六");
+		System.out.println("日\t一\t二\t三\t四\t五\t六");
 		for(int i=1;i<=sum%7;i++){
 			System.out.print("\t");
 		}
@@ -48,7 +48,7 @@ public class G{
 		
 		for(int i=1;i<=day;i++){
 			System.out.print(i+"\t");
-		if((sum+i)%7==6){
+		if((sum+i)%7==0){
 			System.out.print("\n");
 		}
 
