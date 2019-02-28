@@ -20,7 +20,17 @@ target/
 
 
 #myeclipse  idea local files
-*/.settings/
+**/.settings/  #任何目录下的.settings/下的文件
+**/.settings
+
+*.classpath #忽略所有以.classpath文件结尾的文件
+*.project
+*.log
+**/*.class
+
+bin/                #表示忽略当前路径下的bin文件夹，该文件夹下的所有内容都会被忽略，不忽略 bin 文件
+/bin                #忽略根目录下的bin文件
+
 */.idea/
 .idea/
 gradlew
