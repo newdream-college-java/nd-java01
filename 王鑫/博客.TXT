@@ -1,0 +1,3 @@
+二分查找：http://blog.sina.com.cn/s/blog_17e02b6f90102yiz5.html
+
+插入查找：http://blog.sina.com.cn/s/blog_17e02b6f90102yiz3.html
