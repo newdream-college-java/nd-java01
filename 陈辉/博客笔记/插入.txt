@@ -1,0 +1,58 @@
+/先找位置，在插入，或者先插入，在移动，方法是死的，人是活的
+import java.util.Arrays;
+public class A08{
+public static void main(String[]args){
+String []arr={“lsland”,“Ocean”,“Pretty”,“Sun”,“0”};
+//String []ar =new String[]{lsland",“Ocean”,“Pretty”,“Sun”,“0”};
+System.out.print(“原数组为：lsland+Ocean\t+Pretty+Sun”);
+System.out.print(“升序后为：”);
+Arrays.sort(arr); //直接排序原来的数组
+for(int i=0;i<arr.length;i++){
+if(arr[i]“0”){
+continue;
+}
+System.out.print(arr[i]);
+}
+System.out.println();
+String po=“Ready”; //定义一个变量储存要插入的字符串
+int mm=-1;
+System.out.print(“插入后：”);
+for(int i=0;i<arr.length;i++){
+if(po.compareToIgnoreCase(arr[i])<0){ //字符之间的比较，不区分大小写，比较方式与compareTo()相同
+mm=i;
+break;
+}
+}
+if(mm-1){
+for(int i=0;i<arr.length-2;i++){
+arr[i]=arr[i+1];
+}
+arr[arr.length-1]=po;
+}else if (mm==0){
+arr[mm]=po;
+}else{
+for(int i=0;i<mm-1;i++){
+arr[i]=arr[i+1];
+}
+arr[mm-1]=po;
+}
+for(int i=0;i<arr.length;i++){
+System.out.print(arr[i]);
+}
+}
+}
+插入排序的思路
+将原有的数组看为两块，一块是已经排好序的（我们叫有序区），一块是待排序的（我们叫无序区），不断地从无序区中取出其第一个元素，搜寻该元素应该放在有序区的哪个位置，并将该元素放入该位置，完成这个步骤后，有序区长度+1，无序区长度-1，直至无序区长度为0，即无序区中不再有元素，排序就完成啦。
+不难发现，排好序的数组除头尾之外，某个元素的后一个元素一定大于或者等于该元素，该元素的前一个元素一定小于等于该元素。从这个想法中可以提炼出来搜寻合适位置存放插入元素的方法，我们可以从有序区的最后一个元素，即已排序的最大元素，开始与插入元素比较，若插入元素比该元素小，那么插入元素的插入位置一定在最后一个元素之前，紧接着再将插入元素与有序区的倒数第二个元素比较，若插入元素比倒数第二个元素小，那么插入元素插入的位置将在倒数第二个元素之前…依次类推，当插入元素比与之比较的元素小的时候，停止比较，插入元素的位置则在此元素之后。
+
+找到合适的位置之后，我们将有序区内该位置及该位置之后的元素都往右移一位，这样就将该位置空出来了，再将插入元素插入其中。
+文字表述较为抽象，我们用图形来说明一下直接插入排序的过程，下面将对数组{8,3,2,7,4,5}进行排序：
+
+首先确定有序区和无序区，由于一个元素无论如何排放都可以看做有序的，那么我们将第一个元素作为有序区，其余的作为无序区
+
+接着，我们开始进行插入操作，每次插入都是选用无序区的第一个元素，如上图，确定好有序区和无序区后，即可确定即将插入的元素，即是原有数组的第二个元素，现将插入元素放入有序区，再搜寻合适位置
+--------------------- 
+作者：氤启 
+来源：CSDN 
+原文：https://blog.csdn.net/mouserat11/article/details/88166527 
+版权声明：本文为博主原创文章，转载请附上博文链接！
