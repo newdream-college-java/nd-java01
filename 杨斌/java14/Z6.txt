@@ -1,0 +1,7 @@
+public void Teacher2（String name）不是构造方法
+
+正确为：
+public	Teacher2(String name)｛
+
+｝
+
