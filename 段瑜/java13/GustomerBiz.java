@@ -1,12 +1,9 @@
 package ื๗าต;
 
-import java.util.Scanner;
-
 public class GustomerBiz {
 	String[] names=new String[5];
 	 String yn;
 	public void show(String name){
-		Scanner input=new Scanner(System.in);
 		boolean falg=false;
 		for (int i = 0; i < names.length; i++) {
 			if(names[i]==null){

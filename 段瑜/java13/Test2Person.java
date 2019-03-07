@@ -3,11 +3,17 @@ package 作业;
 import java.util.Scanner;
 
 public class Test2Person {
-	Person sj=new Person();
+	String names;
+	String sexs;
+	int ages;
+	public void show1(String name,String sex,int age){
+		names=name;
+		sexs=sex;
+		ages=age;
+	}
+	
 	public void show(){
-		sj.name="张三";
-		sj.sex="男";
-		sj.age=18;
-		System.out.println("姓名："+sj.name+"\n性别："+sj.sex+"\n年龄："+sj.age);
+		System.out.println("————————人员信息————————————");
+		System.out.println("姓名："+names+"\n性别："+sexs+"\n年龄："+ages);
 	}
 }
