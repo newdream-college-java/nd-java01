@@ -1,0 +1,7 @@
+1   c
+2   b
+3   d
+4   b
+5  public void Teacher2(String name)不是构造方法，构造方法结构是 public 加类名
+修改为    public Teacher2(String name)
+6  c   
