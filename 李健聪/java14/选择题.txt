@@ -1,0 +1,6 @@
+1.B
+2.B
+3.A  
+4.B
+5.C
+6.class Teacher2与类名不同 不是构造方法  Teacher2不可以new对象
