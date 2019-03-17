@@ -1,0 +1,9 @@
+1.7 使用cry-catch 是将小的放上面，最大的下面，应该吧Exception和nullpointerExceptin交换即可。
+
+1.8  程序运行上面没有出错，但是在书写上面应该在方法foo中将if(i==1)改成if(i！=1)
+
+1.9_1 A try严格来说共分为4种，try-catch,try-finally,try-catch-finally,try-catch....-finall这四种，而第二种刚好符合。
+
+1.9_2 A 因为try中检查是否有异常，如果有就交给catch处理，没有就顺序往下执行，如果有finally就执行finally。
+
+1.9_3 A,D 借鉴1.9_1中解析只有A，D符合，但是D不常用其主要还是要看项目需求。
