@@ -1,0 +1,1 @@
+接口Utility没有写抽象方法 void use();
