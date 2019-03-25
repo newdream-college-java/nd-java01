@@ -3,7 +3,9 @@ package Test2019_3_24_z22;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -35,6 +37,15 @@ public class Enter_3 extends JFrame implements ActionListener{
 		add(jl2);
 		add(jtf);
 		add(jtf2);
+		jb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(jtf.getText().equals(jtf2.getText())){
+					JOptionPane.showMessageDialog(null,"登陆成功","消息框",JOptionPane.PLAIN_MESSAGE);
+				}else{
+					JOptionPane.showMessageDialog(null, "账户与密码不匹配","消息框",JOptionPane.PLAIN_MESSAGE);
+				}
+			}
+});
 		//addActionListener
 		jb.addActionListener(this);
 		jb2.addActionListener(this);
