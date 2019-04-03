@@ -1,0 +1,5 @@
+B
+D 	数td的个数
+D
+B	cellsapacing是文字和单元格的举例，cellpadding是单元格之间的举例
+A
