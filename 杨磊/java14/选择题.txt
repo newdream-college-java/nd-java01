@@ -1,8 +1,0 @@
-1.C 
-2.B
-3.A
-4.A
-5.C
-6.Teacher2里面public void Teacher2(){}不是构造方法
-去掉void才是构造方法
-新建对象t2才可以调用有参构造方法
