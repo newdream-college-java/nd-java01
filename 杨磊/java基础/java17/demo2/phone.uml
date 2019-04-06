@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_qb8akM37EdqwVrslYOdUDA" name="phone">
+  <packagedElement xmi:type="uml:Package" xmi:id="_JVRO8ElZEem_cd3PUaiLzg" name="com">
+    <packagedElement xmi:type="uml:Package" xmi:id="_JVRO8UlZEem_cd3PUaiLzg" name="nd">
+      <packagedElement xmi:type="uml:Package" xmi:id="_JVRO8klZEem_cd3PUaiLzg" name="yl">
+        <packagedElement xmi:type="uml:Package" xmi:id="_JVR2AElZEem_cd3PUaiLzg" name="demo2">
+          <packagedElement xmi:type="uml:Class" xmi:id="_JVR2AUlZEem_cd3PUaiLzg" name="Phone" isAbstract="true">
+            <ownedAttribute xmi:id="_JWwcsElZEem_cd3PUaiLzg" name="brand" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:id="_JWxq0ElZEem_cd3PUaiLzg" name="type" visibility="private">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            </ownedAttribute>
+            <ownedOperation xmi:id="_JWyR4ElZEem_cd3PUaiLzg" name="getBrand" visibility="public">
+              <ownedParameter xmi:id="_JWyR4UlZEem_cd3PUaiLzg" name="return" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_JWzgAElZEem_cd3PUaiLzg" name="setBrand" visibility="public">
+              <ownedParameter xmi:id="_JWzgAUlZEem_cd3PUaiLzg" name="brand">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_JW0HEElZEem_cd3PUaiLzg" name="getType" visibility="public">
+              <ownedParameter xmi:id="_JW0HEUlZEem_cd3PUaiLzg" name="return" direction="return">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_JW0uIElZEem_cd3PUaiLzg" name="setType" visibility="public">
+              <ownedParameter xmi:id="_JW0uIUlZEem_cd3PUaiLzg" name="type">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              </ownedParameter>
+            </ownedOperation>
+            <ownedOperation xmi:id="_JW18QElZEem_cd3PUaiLzg" name="print" visibility="public" isAbstract="true"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_JVSdEElZEem_cd3PUaiLzg" name="Old">
+            <ownedOperation xmi:id="_JW2jUElZEem_cd3PUaiLzg" name="message" visibility="public" isAbstract="true"/>
+            <ownedOperation xmi:id="_JW2jUUlZEem_cd3PUaiLzg" name="phone" visibility="public" isAbstract="true"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_JVSdEUlZEem_cd3PUaiLzg" name="NPhone" clientDependency="_JW2jUklZEem_cd3PUaiLzg">
+            <generalization xmi:id="_JW2jU0lZEem_cd3PUaiLzg" general="_JVR2AUlZEem_cd3PUaiLzg"/>
+            <interfaceRealization xmi:id="_JW2jUklZEem_cd3PUaiLzg" name="New" supplier="_JVUSQUlZEem_cd3PUaiLzg" client="_JVSdEUlZEem_cd3PUaiLzg" contract="_JVUSQUlZEem_cd3PUaiLzg"/>
+            <ownedOperation xmi:id="_JW2jVElZEem_cd3PUaiLzg" name="message" visibility="public"/>
+            <ownedOperation xmi:id="_JW3xcElZEem_cd3PUaiLzg" name="phone" visibility="public"/>
+            <ownedOperation xmi:id="_JW4YgElZEem_cd3PUaiLzg" name="music" visibility="public"/>
+            <ownedOperation xmi:id="_JW4_kElZEem_cd3PUaiLzg" name="mp4" visibility="public"/>
+            <ownedOperation xmi:id="_JW6NsElZEem_cd3PUaiLzg" name="photo" visibility="public"/>
+            <ownedOperation xmi:id="_JW60wElZEem_cd3PUaiLzg" name="surf" visibility="public"/>
+            <ownedOperation xmi:id="_JW7b0ElZEem_cd3PUaiLzg" name="print" visibility="public"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_JVTrMElZEem_cd3PUaiLzg" name="Test">
+            <ownedOperation xmi:id="_JW8C4ElZEem_cd3PUaiLzg" name="main" visibility="public" isStatic="true">
+              <ownedParameter xmi:id="_JW8C4UlZEem_cd3PUaiLzg" name="args">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JW8C4klZEem_cd3PUaiLzg" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JW8C40lZEem_cd3PUaiLzg"/>
+              </ownedParameter>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_JVUSQElZEem_cd3PUaiLzg" name="OPhone" clientDependency="_JW9RAElZEem_cd3PUaiLzg">
+            <generalization xmi:id="_JW9RAUlZEem_cd3PUaiLzg" general="_JVR2AUlZEem_cd3PUaiLzg"/>
+            <interfaceRealization xmi:id="_JW9RAElZEem_cd3PUaiLzg" name="Old" supplier="_JVSdEElZEem_cd3PUaiLzg" client="_JVUSQElZEem_cd3PUaiLzg" contract="_JVSdEElZEem_cd3PUaiLzg"/>
+            <ownedOperation xmi:id="_JW94EElZEem_cd3PUaiLzg" name="message" visibility="public"/>
+            <ownedOperation xmi:id="_JW-fIElZEem_cd3PUaiLzg" name="phone" visibility="public"/>
+            <ownedOperation xmi:id="_JW_GMElZEem_cd3PUaiLzg" name="print" visibility="public"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_JVUSQUlZEem_cd3PUaiLzg" name="New">
+            <ownedOperation xmi:id="_JW_tQElZEem_cd3PUaiLzg" name="message" visibility="public" isAbstract="true"/>
+            <ownedOperation xmi:id="_JW_tQUlZEem_cd3PUaiLzg" name="phone" visibility="public" isAbstract="true"/>
+            <ownedOperation xmi:id="_JW_tQklZEem_cd3PUaiLzg" name="music" visibility="public" isAbstract="true"/>
+            <ownedOperation xmi:id="_JW_tQ0lZEem_cd3PUaiLzg" name="mp4" visibility="public" isAbstract="true"/>
+            <ownedOperation xmi:id="_JW_tRElZEem_cd3PUaiLzg" name="photo" visibility="public" isAbstract="true"/>
+            <ownedOperation xmi:id="_JW_tRUlZEem_cd3PUaiLzg" name="surf" visibility="public" isAbstract="true"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
