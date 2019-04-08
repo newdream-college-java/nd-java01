@@ -1,0 +1,102 @@
+<!-- 练习3：需求说明
+1.人人网注册页面：注册邮箱、密码、姓名和验证码最多能容纳的字符数分别是50、16、8和5
+2.默认中，性别中的男处于选中状态
+3.生日下拉列表中的1991年10月30日处于默认状态
+4.提交按钮使用素材中的图片替代
+5.提示：为实现页面美观，可以使用表格进行布局 -->
+<html>
+	<head>
+		<title>人人网注册页面</title>
+		<meta http-equiv="content-type" content=""/>
+		<meta name="keyword" content=""/>
+		<meta name="description" content=""/>
+	</head>
+	<body>
+		<h4>免费开通人人网账号</h4>
+		<table cellpadding="5">
+			<tr>
+				<td align="right">注册邮箱：</td>
+				<td align="left" colspan="2"><input type="text" size="20" maxlength="50"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td align="left" colspan="2">你还就可以使用<a href="">账号</a>注册，或者<a href="">手机号</a>注册</td>
+			</tr>
+			<tr>
+				<td align="right">创建密码：</td>
+				<td align="left" colspan="2"><input type="password" size="15" maxlength="16"/></td>
+			</tr>
+			<tr>
+				<td align="right">真实姓名：</td>
+				<td align="left" colspan="2"><input type="text" size="15" maxlength="8"/></td>
+			</tr>
+			<tr>
+				<td align="right">性别：</td>
+				<td align="left" colspan="2"><input type="radio" name="sex" checked="checked"/>男<input type="radio" name="sex"/>女</td>
+			</tr>
+			<tr>
+				<td align="right">生日：</td>
+				<td align="left" colspan="2">
+					<select>
+					<option selected="selected">1991</option>
+					<option>1992</option>
+					<option>1993</option>
+					<option>1994</option>
+					<option>1995</option>
+					<option>1996</option>
+				</select>
+				年
+				<select>
+					<option>01</option>
+					<option>02</option>
+					<option>03</option>
+					<option>04</option>
+					<option>05</option>
+					<option>06</option>
+					<option>07</option>
+					<option>08</option>
+					<option>09</option>
+					<option selected="selected">10</option>
+					<option>11</option>
+					<option>12</option>
+				</select>
+				月
+				<select>
+					<option>01</option>
+					<option>02</option>
+					<option>03</option>
+					<option>04</option>
+					<option>05</option>
+					<option>06</option>
+					<option>07</option>
+					<option selected="selected">30</option>
+				</select>
+				日
+				</td>
+			</tr>
+			<tr>
+				<td align="right">我现在：</td>
+				<td align="left" colspan="2">
+					<select>
+						<option selected="selected">正在上学</option>
+						<option>正在工作</option>
+						<option>待业中</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td align="left"><img src="images\练习3：人人网注册页面\图片素材\verycode.gif" alt="图片加载失败" title="验证码"/></td>
+				<td align="left"><a href="">看不清换一张？</a></td>
+			</tr>
+			<tr>
+				<td align="right">验证码：</td>
+				<td align="left" colspan="2"><input type="text" size="20" maxlength="5"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="2" align="left"><img src="images\练习3：人人网注册页面\图片素材\btn_reg.gif" alt="图片加载失败" title="点击注册"/></td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!-- 需求说明
+1.阿里巴巴用户注册界面：电子邮箱、会员登录名、密码最多能容纳的字符数是32，
+	验证码最多能容纳5个字符
+2.默认情况下，会员身份的“买家”处于选中状态
+3.提交按钮使用素材中的图片代替
+4.提示：为实现页面美观，可以使用表格进行页面布局 -->
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<meta name="keyword" content=""/>
+		<meta name="description" content="">
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td align="right">电子邮箱：</td>
+				<td colspan="4" align="left"><input type="text" size="25" maxlength="32"/></td>
+			</tr>
+			<tr>
+				<td align="right">会员登录名：</td>
+				<td colspan="4" align="left"><input type="text" size="25" maxlength="32"/></td>
+			</tr>
+			<tr>
+				<td align="right">密码：</td>
+				<td colspan="4" align="left"><input type="password" size="25" maxlength="32"/></td>
+			</tr>
+			<tr>
+				<td align="right">再次输入密码：</td>
+				<td colspan="4" align="left"><input type="password" size="25" maxlength="32"/></td>
+			</tr>
+			<tr>
+				<td align="right">会员身份：</td>
+					<td align="left" colspan="3">
+						<input type="radio" name="status" checked="checked" />买家
+						<input type="radio" name="status"/>卖家
+						<input type="radio" name="status"/>两者都是
+					</td>
+			</tr>
+			<tr>
+				<td align="right">验证码：</td>
+				<td align="left"><input type="text" size="15" maxlength="5"/></td>
+				<td ><img src="images\练习2：阿里巴巴注册页面\图片素材\verycode.gif" alt="图片加载失败" title="验证码"/></td>
+				<td align="left"><a href="">看不清？换一张</a></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="4" align="left">
+					<img src="images\练习2：阿里巴巴注册页面\图片素材\btn_reg.gif" alt="图片加载失败"
+					title="agree"/>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td colspan="4" align="left">
+					<textarea rows="5" cols="50" dir="ltr">欢迎阅读阿里巴巴（阿里巴巴）服务条款协议（下称“本协议”），您应该在使用服务之前认真阅读本协议全部内容，且对本协议中加粗字体显示的内容，阿里巴巴督促您认真阅读。本协议阐述之条款和条件适用您使用阿里巴巴中文网站（所涉域名为：alibaba.com.cn、alibaba.cn、1688.com,下同），所提供的在全球企业间（B-To-B）电子市场（e-market）进行贸易和交易
+					</textarea>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
