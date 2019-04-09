@@ -1,0 +1,55 @@
+<!-- 实现如图所示电子产品调查表表单：月份下拉选项为1~12月，日下拉选项
+为1~30日，是否查看过我们的在线产品目录：默认选择是 -->
+<html>
+	<head>
+		<title>电子产品调查问卷</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<meta name="keyword" content=""/>
+		<meta name="description" content=""/>
+	</head>
+	<body>
+		<form action="" method="post">
+			<h1><span style="color:red;">American Methic</span><span style="color:blue;"> 电子产品调查问卷</span></h1>
+			<p>请输入您的姓名：<input type="text" size="10"/></p>
+			<p>请输入您的购买日期：<input type="text" size="6"/>年
+				<select>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+				</select>月
+				<select>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+				</select>日
+			</p>
+			<p>请输入您的邮件地址：<input type="email" size="20"/></p>
+			<p>您是否查看过我们的在线产品目录？<input type="radio" checked="checked" name="look"/>是
+											<input type="radio" name="look"/>否</p>
+			<p>如果查看过，您对哪些产品有兴趣购买？（选择提供的产品）<br/>
+				<input type="checkbox" name="interest"/>大屏幕电视机
+				<input type="checkbox" name="interest"/>音频设备
+				<input type="checkbox" name="interest"/>视频设备
+				<input type="checkbox" name="interest"/>相机
+				</p>
+			<p>在填写订单之前，您还有什么问题、意见或者建议吗？<br/>
+				<textarea cols="30" rows="5" style="overflow-y: scroll;">您的输入:</textarea></p>
+			<p>
+				<input type="button" value="提交"/>
+				<input type="button" value="重置"/>
+			</p>
+		</form>
+	</body>
+</html>

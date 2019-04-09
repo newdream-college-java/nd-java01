@@ -1,0 +1,54 @@
+<!-- 实现简单求职页面：浏览按钮使用文本域；感兴趣职位默认选中“web 设计”；默认勾选
+“我认真阅读并接受以上协议”；提交按钮默认失效 -->
+<html>
+	<head>
+		<title>表单小结</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<meta name="keyword" content=""/>
+		<meta name="description" content=""/>
+	</head>
+	<body>
+		<form action="" method="post">
+			<h1>申请表</h1>
+			<table>
+				<tr>
+					<td align="right">姓名：</td>
+					<td><input type="text" size="20"/></td>
+				</tr>
+				<tr>
+					<td align="right">密码：</td>
+					<td><input type="password" size="20"/></td>
+				</tr>
+				<tr>
+					<td align="right">照片：</td>
+					<td><input type="file"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">感兴趣的职位：</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="radio" name="work" checked="checked"/>Web 设计
+						<input type="radio" name="work"/>Web 开发</td>
+				</tr>
+				<tr>
+					<td align="right">协议：</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<textarea clos="20" rows="4" style="overflow:scroll;">求职信息必须真实、准确，本网站只负责向企业推荐</textarea>
+					</td>
+				</tr>
+				<tr><td colspan="2"><input type="checkbox" checked="checked" name="read"/>
+				我认真阅读并接受以上协议。</td></tr>
+				<tr><td align="right">经验：</td></tr>
+				<tr><td colspan="2">
+					<select><option>无经验</option></select>
+				</td></tr>
+				<tr><td colspan="2">
+					<input type="button" disabled="disabled" value="提交"/>
+					<input type="button" value="重置"/>
+				</td></tr>
+			</table>
+		</form>
+	</body>
+</html>
