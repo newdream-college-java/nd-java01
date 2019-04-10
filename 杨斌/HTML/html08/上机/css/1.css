@@ -1,0 +1,72 @@
+.cctv{
+	width: 736px;
+	height: 559px;
+	overflow: hidden;
+	background: url(../images/adver-01.jpg) center 5px no-repeat;
+	position: relative;
+	
+}
+.cctv .cctv2 {
+	width: 628px;
+	margin: 0px auto;
+	padding-top: 80px;
+	height: 200px;
+	overflow:hidden; 
+}
+.cctv .cctv2 dt{
+	float: left;
+	width: 285px;
+}
+.cctv .cctv2 dd p{ 
+	font-size: 12px;
+	line-height: 22px;
+	text-indent: 2em;
+	font-family: "微软雅黑"；
+}
+.cctv .cctv2 dd p span{
+	color: red;
+	font-weight: bold;
+}
+.cctv .cctv2 dd img {
+	margin-top: 0px;
+	display: inline;
+	position: relative;
+	top: -5px;
+}
+.cctv .stu02 dl{
+	height: 135px;
+	overflow: hidden;
+	border: 1px #d1d1d1 solid;
+	background-color: white;
+	padding: 5px;
+}
+.cctv .stu01 {
+	width: 490px;
+	height: 158px;
+	border: 1px #d1d1d1 solid;
+	margin-left: 53px;
+	background-color: white;
+}
+.cctv .stu01 dt, .cctv .stu02 dt{
+	float: left;
+	width: 203px;
+}
+.cctv .stu02{
+	position: absolute;
+	right: 30px;
+	bottom:-11px;
+	width: 440px;
+
+}
+.cctv .stu01 dl dd p,.cctv .stu02 dl dd p{
+	font-size: 12px;
+	line-height: 22px;
+	text-indent: 2em;
+	font-family: "微软雅黑"；
+}
+.cctv .stu01 dl dd p span,.cctv .stu02 dl dd p span{
+	font-weight: bold;
+	color: red;
+}
+
+
