@@ -1,0 +1,61 @@
+#bd{
+	align: center;
+	border: double 20px #E0E0E0;
+	text-indent: 2em;
+	width: 70%;
+	height: 549px;
+	background: url("../../../img/上机练习_8/adver-01.jpg");
+}
+font{
+	color: red;
+}
+/*上半盒子开始*/
+#bd .up .t1{
+	padding-top: 55px;
+	padding-left: 15px;
+}
+#bd .up .t2{
+	padding-left: 330px;
+	padding-top: 0px;
+}
+#bd .up p{
+	padding-left: 320px;
+	margin-top: -194px;
+}
+.fc{
+	color: red;
+}
+/*上半盒子结束*/
+
+/*下半盒子开始*/
+#down{
+	background-color: white;
+	margin-left: 48px;
+	height: 147.25px;
+	width: 600.95px;
+}
+#bd #down img{
+	float: left;
+	padding-right: 35px;
+}
+#bd #down .whx{
+	padding-top: 0px;
+	padding-bottom: 80px;
+}
+/*尾部盒子结束*/
+#foot{
+	background-color: white;
+	margin-left: 290px;
+	margin-top: -53px;
+	height: 140.25px;
+	width: 448.95px;
+}
+#bd #foot img{
+	float: left;
+	padding-right: 35px;
+}
+#bd #foot .whx{
+	padding-top: 0px;
+	padding-bottom: 80px;
+}
+/*尾部盒子结束*/
