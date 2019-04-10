@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>下啦列表菜单</title>
+	<style type="text/css">
+	.menu dl{
+		float: left;
+		width: 110px;
+		position: relative;
+	}
+	.menu dt{
+		background: url("03 上机作业素材/练习3：制作下拉列表菜单/网页素材/image/centerMenuBg.png") no-repeat;
+		height: 36px;
+		padding-top: 13px;
+		text-align: center;
+		color: #fff;
+		font-size: 14px;
+		font-weight: bold;
+
+	}
+	.menu dt a{
+		text-decoration: none;
+		color: #fff;
+		font-size: 14px;
+		font-weight: 900;
+	}
+	.menu dd{
+		background:url("03 上机作业素材/练习3：制作下拉列表菜单/网页素材/secondBgj.gif") repeat-y;
+		width: 80px;
+		padding-left: 10px;
+		/*下啦效果*/
+		display: none;
+		position: absolute;
+		z-index: 1;
+		left: 15px;
+		top: 36px;
+	}
+	.menu dd a{
+		text-decoration: none;
+		font-size: 12px;
+		line-height: 25px;
+		display:block;
+	}
+	.menu dd a:hover{
+		background-color: orange;
+	}
+	.menu dl:hover dd{
+		display:block;
+	}
+	</style>
+</head>
+<body>
+	<div class="menu">
+		<dl>
+			<dt>
+				<a href="#">中心信息</a>
+			</dt>
+			<dd>
+				<a href="#">中心介绍</a>
+				<a href="#">荣誉奖项</a>
+				<a href="#">中心环境</a>
+				<a href="#">中心地址</a>
+				<a href="#">联系我们</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="#">新闻动态</a>
+			</dt>
+			<dd>
+				<a href="#">行业新闻</a>
+				<a href="#">中心新闻</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<a href="#">课程介绍</a>
+			</dt>
+		</dl>
+	</div>
+</body>
+</html>
