@@ -1,0 +1,56 @@
+.a{
+	font-size:16px;
+	color: #fff;
+	text-indent: 1em;
+	line-height: 30px;
+	background-color: #518700;
+	background-image: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/bang.gif");
+	background-repeat: no-repeat;
+	background-position-x:100px;
+	background-position-y:3px;
+}
+ul{
+	background-color: #f3f4df;
+	font-size:12px;
+	line-height: 28px;
+	list-style-type:none;
+	
+	
+}
+a{
+	color: #1a66b3;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;/*出现下划线*//
+}
+.t1{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no01.gif")10px 5px no-repeat;
+}
+.t2{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no02.gif")10px 5px no-repeat;
+}
+.t3{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no03.gif")10px 5px no-repeat;
+}
+.t4{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no04.gif")10px 5px no-repeat;
+}
+.t5{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no05.gif")10px 5px no-repeat;
+}
+.t6{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no06.gif")10px 5px no-repeat;
+}
+.t7{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no07.gif")10px 5px no-repeat;
+}
+.t8{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no08.gif")10px 5px no-repeat;
+}
+.t9{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no09.gif")10px 5px no-repeat;
+}
+.t{
+	background: url("../第5章素材/03 上机作业素材/练习5：制作畅销书排行榜/image/book_no10.gif")10px 5px no-repeat;
+}

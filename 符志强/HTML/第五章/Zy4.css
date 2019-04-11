@@ -1,0 +1,30 @@
+.a{
+	font-size: 18px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 35px;
+	background-color: #0f7cbf;
+	text-indent: 1em;
+}
+.a1{
+	font-size:14px;
+	font-weight: bold;
+	line-height: 30px;
+	background-color: #e4f1fa;
+}
+.a2{
+	color: #0f7cbf;
+	text-decoration: none;/*去掉下划线*/
+}
+a:hover{
+	text-decoration: underline;/*出现下划线*//
+}
+.b{
+	font-size:12px;
+	line-height: 28px;
+	
+}
+.c{
+	color:#666666;
+	text-decoration: none;
+}
