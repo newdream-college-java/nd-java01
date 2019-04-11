@@ -1,0 +1,58 @@
+.a{
+	
+	background: url("img/adver-01.jpg") center 5px no-repeat;
+	width: 736px;
+	height: 559px;
+	overflow: hidden;
+	position: relative;
+	border: 1px #d1d1d1 solid;
+}
+.b{
+	width: 620px;
+	margin: 0px auto;
+	padding-top: 80px;
+	height: 200px;
+	overflow: hidden;
+}
+.b dt{
+	float: left;
+	width: 285px;
+}
+p{
+	font-size: 12px;
+	line-height: 18px;
+	text-indent: 2em;
+	font-family: "微软雅黑";
+}
+.c dl{
+	height: 135px;
+	overflow: hidden;
+	border: 1px #d1d1d1 solid;
+	background-color: white;
+	padding: 5px;
+}
+.c{
+	padding: 0px 0px 0px 50px;
+	width: 500px;	
+}
+.d dl{
+	height: 135px;
+	overflow: hidden;
+	border: 1px #d1d1d1 solid;
+	background-color: white;
+	padding: 5px;
+}
+.d{
+	position: absolute;
+	right: 30px;
+	bottom: 10px;
+	width: 440px;
+}
+.c dt, .d dt{
+	float: left;
+	width: 190px;
+}
+span{
+	color: red;
+	font-weight: bold;
+}
