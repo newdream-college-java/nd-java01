@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>申请表</title>
+		<meta http-equiv=Content-Type content="text/html;charset=utf-8"/>
+	</head>
+	<body>
+		<h2>申请表</h2>
+		<form enctype="multipart/form-data" action="1.html" method="POST">
+			<table>
+				<tr>
+					<td align="right">姓名</td>
+					<td><input type="text" /></td>
+				</tr>
+				<tr>
+					<td align="right">教育程度</td>
+					<td><input type="checkbox" name="xueli" id="shuoshi" value="shuoshi" checked="checked"/>
+						<label for="shuoshi">硕士</label>
+						<input type="checkbox" name="xueli" id="boshi" value="boshi" />
+						<label for="boshi">博士</label>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">性别</td>
+					<td><input type="radio" value="男" name="sex" checked="checked" id="man"/>
+						<label for="man">男</label>
+						<input type="radio" value="女" name="sex" id="woman"/>
+						<label for="woman">女</label>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">月薪</td>
+					<td>
+						<input type="text" size="5"/>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">附注</td>
+					<td><textarea placeholder="请在这里键入附注"></textarea></td>
+				</tr>
+				<tr>
+					<td align="right">国籍</td>
+					<td>
+						<select>
+							<option>美国</option>
+							<option selected="selected">澳大利亚</option>
+							<option>日本</option>
+							<option>新加坡</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="提交" />
+			<input type="reset" value="重置" />
+					
+		</form>
+	</body>
+</html>

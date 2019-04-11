@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<title>新浪微博资料修改页面</title>
+		<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+	</head>
+	<body>
+		<form enctype="multipart/form-data" action="1.html" method="POST">
+			<table width="400" height="530" cellpadding="0" cellspacing="0" align="center">
+				<tr>
+					<td align="right">*昵称：</td>
+					<td><input type="text" name="username" value=""></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">真实姓名：</td>
+					<td><input type="text" name="name" value=""></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">*所在地：</td>
+					<td>
+						<select name="ads">
+							<option value="1" selected="selected">北京市</option>
+						</select>
+						<select name="adg">
+							<option value="1" selected="selected">海淀区</option>
+						</select>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">*性别：</td>
+					<td>
+						<input type="radio" name="sex" value="男" id="man" checked="checked">
+						<label for="man">男</label>
+						<input type="radio" name="sex" value="女" id="woman">
+						<label for="woman">女</label>
+						<input type="radio" name="sex" value="保密" id="baomi">
+						<label for="baomi">男</label>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">生日：</td>
+					<td>
+						<select name="year">
+							<option value="" selected="selected"></option>
+							<option value="1">2000</option>
+							<option value="2">2010</option>
+						</select>年
+						<select name="month">
+							<option value="" selected="selected"></option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+						</select>月
+						<select name="day">
+							<option value="" selected="selected"></option>
+							<option value="1">20</option>
+							<option value="2">21</option>
+						</select>日
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">博客地址</td>
+					<td><input type="text" name="emali" value=""></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">常用邮箱：</td>
+					<td>
+						<input type="text" name="ema" value=" " disabled="disabled">不可修改
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">QQ：</td>
+					<td><input type="text" name="qq" value=""></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">MSN:</td>
+					<td><input type="text" name="msn" value=""></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">一句话介绍：</td>
+					<td colspan="2">
+						<textarea name="yjh" cols="25" rows="5"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td align="right"></td>
+					<td colspan="2">以下信息，可作为通过客服取回账号的依据 </td>
+				</tr>
+				<tr>
+					<td align="right">证件类型：</td>
+					<td>
+						<select name="zj">
+							<option value="1" selected="selested">身份证</option>
+							<option value="2">学生证 </option>
+						</select>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right">证件号码：</td>
+					<td><input type="text" name="num" value=""></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="image" src="images/btn_save.gif"></td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+			<table width="835" height="130" cellpadding="0" cellspacing="0" align="center">
+				<tr>
+					<td>帮助 意见反馈 微博认证及合作 开放平台 微博招聘 新浪网导航 不良信息举报</td>
+					<td>新浪公司 版权所有 </td>
+				</tr>
+				<tr>
+					<td>客服电话：400 690 0000 提示音后按1键（按当地市话标准计费）</td>
+					<td>
+						语言：<select name="lag">
+									<option value="1" selected="selected">简体中文</option>
+								</select>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
