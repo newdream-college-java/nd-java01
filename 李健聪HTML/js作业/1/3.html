@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<script type="text/javascript">
+			var sum=prompt("请输入打印的行数");
+			var kg=20;
+			var h=1;
+			for(var i=1;i<=sum;i++){
+				
+				if(i<(sum/2)){
+					for(var j=kg;j>0;j--){
+					document.write("&nbsp;&nbsp;");
+					}
+					kg-=1;
+					for(var j=1;j<=h;j++){
+					document.write("*&nbsp;&nbsp;");
+					}
+					h++;
+				}else{
+					for(var j=0;j<kg;j++){
+						document.write("&nbsp;&nbsp;");
+					}
+					for(var j=h-1;j>=0;j--){
+						document.write("*&nbsp;&nbsp;");
+					}
+					kg+=1;
+					h--;
+				}
+				document.write("<br />");
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
