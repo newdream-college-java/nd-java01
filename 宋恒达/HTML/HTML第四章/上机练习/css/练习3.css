@@ -1,0 +1,10 @@
+@charset "utf-8";
+h1{
+	font-size: 20px;
+}
+.content{
+	color: green;
+}
+#translationTitle{
+	color: blue;
+}
