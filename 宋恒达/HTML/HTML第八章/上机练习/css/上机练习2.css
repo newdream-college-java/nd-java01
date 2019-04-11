@@ -1,0 +1,20 @@
+@charset "utf-8";
+.adImage{
+	width: 100%;
+}
+ul{
+	list-style-type: none;
+}
+.container ul li{
+	float:left;
+	margin: 5px;
+}
+.container ul{
+	float: right;
+	position: relative;
+	bottom:57px;
+}
+.button{
+	background-color: white;
+	border:1px gray solid;
+}

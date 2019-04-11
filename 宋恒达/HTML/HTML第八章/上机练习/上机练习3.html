@@ -1,0 +1,34 @@
+<!-- 指导3 训练要点
+使用position设置相对定位和绝对定位；只有z-index设置层级堆叠
+
+需求说明
+制作下拉列表导航菜单：实现下拉列表导航菜单；当鼠标放在一级菜单上时，
+显示对应的二级菜单;当鼠标离开对应的一级菜单或者二级菜单时，下拉列表消失；
+使用相对定位与绝对定位相结合的方法 实现下拉菜单，二级菜单紧贴着对应的一级菜单下方
+且二级菜单与对应的一级菜单的背景图片左侧对齐
+ -->
+<html>
+	<head>
+		<title>下拉列表菜单页面</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content="" />
+		<link rel="stylesheet" type="text/css" href="css/上机练习3.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<ul>
+				<li><input type="button" value="中心信息" class="info"/></li>
+				<li><input type="button" value="新闻动态" class="news"/></li>
+				<li><input type="button" value="课程介绍" class="lesson"/></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="second">
+			<ul>
+				<li><a href="">行业新闻</a></li>
+				<li><a href="">中心新闻</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

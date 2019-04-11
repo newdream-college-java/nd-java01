@@ -1,0 +1,57 @@
+@charset "utf-8";
+*{
+	margin:0px auto;
+	padding:0px;
+}
+.container{
+	width: 860px;
+	overflow: auto;
+	padding-top:100px;
+	background: url(../images/上机作业素材/练习1-经济半小时专题报道/图片素材/adver-01.jpg) left top no-repeat;
+	background-size: 100%;
+}
+.cctv{
+	margin-left: 45px;
+}
+dt,dd{
+	float: left;
+}
+dl dd img{
+	margin-top: 10px;
+}
+dd{
+	padding: 10px;
+	padding-left: 20px;
+}
+.cctv-2,.cctv-3{
+	float: left;
+	width: 618px;
+	padding: 5px;
+	overflow: auto;
+	background: white;
+	border:1px gray solid;
+}
+.cctv-3{
+	width: 518px;
+	padding: 5px;
+	overflow: auto;
+	background: white;
+	border:1px gray solid;
+	float: right;
+	position: relative;
+	bottom:20px;
+	margin-right: 68px;
+}
+.cctv-1 dl dd{
+	width: 472px;
+}
+.cctv-2 dl dd{
+    width: 400px;
+}
+.cctv-3 dl dd{
+	width: 282px;
+}
+
+.clear{
+	clear: both;
+}

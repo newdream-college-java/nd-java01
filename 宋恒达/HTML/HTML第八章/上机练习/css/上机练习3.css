@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container ul li {
+	float: left;
+	margin-left: 20px;
+}
+
+.container ul li input {
+	background-color: blue;
+	color: white;
+	border-radius: 5px;
+}
+
+.second {
+	border: 1px blue solid;
+	position: absolute;
+	left: 162px;
+	top: 35px;
+	z-index: -5;
+}
+.clear{
+	clear:both;
+}
+.second ul{
+	margin:0px auto;
+	pading:0px;
+}
+.second ul li input{
+	pading:0px;
+}
