@@ -1,0 +1,90 @@
+*,body{
+	margin:0px;
+	padding:0px;
+}
+
+/*cctv开始*/
+.cctv{
+	/*设置容器的宽和高*/
+	width:726px;
+        height:549px;
+	background:url("adver-01.jpg")center 5px no-repeat;
+	position:relative;
+	}
+.cctv .cctv2{
+/*border:red 1px solid;*/
+	/* 设置内容居中*/
+	margin:0px auto;
+	/*设置那内容宽*/
+	width:650px;
+	/* 设置内容高*/
+	height:200px;
+	/*设置内容鱼边框的内距离*/
+	padding-top: 70px;
+	overflow:hidden;
+	}
+/*设置dt浮动*/
+/*为什么设置dt浮动？浮动后不是在规则里面吗还能设置它的宽度？*/
+.cctv .cctv2 dt{
+	float:left;
+	width: 294px;
+	}
+
+.cctv .cctv2  p{
+	font-size:12px;
+	line-height:22px;
+	text-indent:2em;
+	font-family:"微软雅黑";
+	}
+/*图片离顶部的距离*/
+.cctv .cctv2 dd img{
+	margin-top:10px;
+	display:inline;
+	}
+/*优化*/
+.cctv  p span{ font-weight:bold;color:#F00;}
+div{
+	border:red 1px solid;
+}
+/*学生stu01开始*/
+.cctv .stu01{
+	border: #d1d1d1 1px solid;
+	height: 150px;
+	
+	background:white;
+	margin-right: 181px;
+	}
+.cctv .stu01 dt{
+	float:left;
+	width: 201px;
+	margin-left: 6px;
+	}
+/*学生stu02开始*/
+.cctv .stu02{
+/*使用绝对位置要设置父类相对位置 ，以父类的距离设置自己的位置*/
+	position: absolute;
+	right:30px;
+	bottom:10px;
+	width:440px;
+	border: #d1d1d1 1px solid
+	/*border: #d1d1d1 1px solid;
+	height: 150px;
+	margin-left:  200px;
+	background:white;
+	margin-top: -37px;
+	margin-bottom: 20px;*/
+	}
+.cctv .stu02 dl{
+/*设置内容的高*/
+	height:135px;
+/*设置背景可以在dl也可以在stu02只不过优化在dl可以省略stu01的在一起*/
+	background:white;
+	overflow:hidden;
+	padding:5px;
+	}
+.cctv .stu02 dt{
+	float:left;
+	/*设置dt的宽度使得文字挤过去*/
+	width:200px;
+	}
+/**/
