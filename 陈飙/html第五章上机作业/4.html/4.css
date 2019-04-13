@@ -1,0 +1,32 @@
+h2{
+	font-size:18px;
+	color:white;
+	font-weight:bold;
+	line-height:35px;
+	background:#0f7cbf;
+	text-indent:1em;
+}
+
+h3{
+	font-size:14px;
+	font-weight:bold;
+	line-height:30px;
+	background:#e4f1fa;
+}
+
+a{
+	color:#0f7cbf;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+
+.A{
+	font-size:12px;
+	line-height:20px;
+	color:#666666;
+}
+.A:hover{
+ 	color:#f60;
+}
