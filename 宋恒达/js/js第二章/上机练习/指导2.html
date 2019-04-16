@@ -1,0 +1,43 @@
+<!-- 制作12进制的时钟特效
+训练要点
+Date对象的使用；setInterval()方法的使用
+需求说明
+制作显示年、月、日、星期几，并且显示上午（AM）和下午（PM）的12进制的时钟
+如图： -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+</head>
+<body>
+	<h1>你好，欢迎访问新梦想商城</h1>
+	<div id="clock"></div>
+	<script type="text/javascript">
+		function getTime(){
+			var clock=document.getElementById("clock");
+			var date=new Date();
+			var year=date.getFullYear();
+			var month=date.getMonth()+1;
+			var days=date.getDate();
+			var week=date.getDay()+1;
+			var hour=date.getHours();
+			var minute=date.getMinutes();
+			var seconds=date.getSeconds();
+			var a;
+			if(hour>12){
+				a="PM";
+			}else{
+				a="AM";
+			}
+			hour=hour-12;
+			clock.innerHTML="<h1>"+year+"年"+month+"月"+days+"日"+"&nbsp;"+hour+":"+minute+":"+seconds+"&nbsp;"+a+"&nbsp;"+"星期"+week+"</h1>";
+		}
+		window.setInterval(function(){
+			getTime();
+		},1000);
+	</script>
+</body>
+</html>

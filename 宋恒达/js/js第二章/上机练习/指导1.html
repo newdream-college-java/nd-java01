@@ -1,0 +1,90 @@
+<!-- 使用open方法弹出窗口；使用alert方法提示信息；
+使用close方法关闭窗口，使用confirm方法进行方法确认
+需求说明：
+购物车界面有提交订单和全屏显示两个按钮。打开购物车页面时自动弹出
+广告页面，广告页面带有关闭链接，实现关闭广告页面的功能。 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<style type="text/css">
+		table{
+			width:600px;
+			height:200px;
+		}
+		table td{
+			text-align: center;
+		}
+		tr td input{
+			margin: 0px 10px;
+		}
+	</style>
+</head>
+<body>
+	<table border="1" align="center">
+		<tr>
+			<td colspan="5">简易购物车</td>
+		</tr>
+		<tr>
+			<th>商品名称</th>
+			<th>数量（件）</th>
+			<th>单价（元）</th>
+			<th>运费（元）</th>
+			<th>合计（元）</th>
+		</tr>
+		<tr>
+			<td>诺基亚N95</td>
+			<td>1</td>
+			<td>2200</td>
+			<td>20</td>
+			<td>2400</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<input type="submit" value="提交订单" id="submitA" onclick="confirmA()"/>
+				<input type="button" value="全屏显示" id="fullB" onclick="fullDisplay()" />
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		window.onload=function(){
+			window.open("指导1-window.html","广告窗口","width=100,top=700,left=1300,resizable=no,height=100");
+		}
+		function confirmA(){
+			if(	window.confirm("你本次购买的信息如下：\n\n\n商品名称：诺基亚N95；\n商品数量：1件；\n商品单价：2200；\n运费:20元；\n\n\n费用总计：2400元；\n\n\n请确认以上信息是否有误")){
+					alert("您的订单已提交");
+			}
+		}
+		//全屏显示
+		function fullDisplay(){
+			 if (document.fullscreenElement ||
+                document.mozFullScreenElement ||
+                document.webkitFullscreenElement ||
+                document.msFullscreenElement) {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        } else {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.body.msRequestFullscreen) {
+                document.documentElement.body.msRequestFullscreen();
+            }
+        }
+}
+	</script>
+</body>
+</html>

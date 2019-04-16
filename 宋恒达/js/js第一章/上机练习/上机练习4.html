@@ -1,0 +1,44 @@
+<!-- 循环的使用：prompt的使用
+根据prompt()方法提示的行数绘制菱形 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+			<script type="text/javascript">
+			var length=prompt("javaScript 请输入打印的行数","5");
+			var star=1;
+			var kg=length;
+			for(var i=0;i<(length*2-1);i++){
+				if(i<length-1){
+				for(var j=1;j<=kg;j++){
+					document.write("&nbsp;&nbsp;&nbsp;&nbsp;")
+				}
+				for(var k=1;k<=star;k++){
+					document.write("*");
+					document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+				}
+				document.write("<br/>");
+				star++;
+				kg--;
+				}else{
+					for(var j=1;j<=kg;j++){
+						document.write("&nbsp;&nbsp;&nbsp;&nbsp;")
+					}
+					for(var k=1;k<=star;k++){
+						document.write("*");
+						document.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+					}
+						document.write("<br/>");
+						star--;
+						kg++;
+				}
+			}
+		</script>
+	</head>
+<body>
+
+</body>
+</html>
