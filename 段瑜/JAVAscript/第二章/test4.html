@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		document.write("欢迎来到新梦想学院<br>")
+		function s(){
+			var a=new Date();
+			var year=a.getYear()+1900;
+			var month=a.getMonth()+1;
+			var date=a.getDate();
+			var week=a.getDay();
+			var hour=a.getHours();
+			var minutes=a.getMinutes();
+			var secondes=a.getSeconds();
+			var b;
+			document.getElementById("box").innerHTML="今天日期："+year+"年"+month+"月"+date+"日<br>现在时间："+hour+"时"+minutes+"分"+secondes+"秒";
+			
+		}
+		var interval=setInterval("s()",1000);
+	</script>
+</head>
+<body onload="s()">	
+	<div id="box"></div>
+
+</body>
+</html>

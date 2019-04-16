@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function tijiao(){
+			open("zy01.html","","height=300,width=180,toolbar='yes',location=0,resizable=0");
+
+		}
+		function quanping(){
+			window.open("zy02.html");
+		}
+		window.onload=tijiao();
+	</script>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<td colspan="5" align="center">简易购物车</td>
+		</tr>
+		<tr>
+			<td align="center">商品名称</td>
+			<td align="center">数量（件）</td>
+			<td align="center">单价（元）</td>
+			<td align="center">运费（元）</td>
+			<td align="center">合计（元）</td>
+		</tr>
+		<tr>
+			<td align="center">诺基亚N95</td>
+			<td align="center">1</td>
+			<td align="center">2200</td>
+			<td align="center">20</td>
+			<td align="center">2400</td>
+		</tr>
+		<tr>
+			<td colspan="5" align="center">
+				<button onclick="tijiao()">提交订单</button>
+				<button onclick="quanping()">全屏显示</button>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

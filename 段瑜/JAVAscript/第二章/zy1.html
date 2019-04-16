@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function showPhote(){
+			var a=prompt("请输入第一个数！");
+			var b=prompt("请输入第二个数！");
+			var c=prompt("请输入运算符！"); 
+			var sum;
+			if(c=="+"){
+				sum=a+b;
+				prompt(sum);
+			}else if(c=="-"){
+				sum=a-b;
+				prompt(sum);
+			}else if(c=="*"){
+				sum=a*b;
+				prompt(sum);
+			}else if(c=="/"){
+				sum=a/b;
+				prompt(sum);
+			}
+		}
+	</script>
+</head>
+<body>
+	<button onclick="showPhote()">计算运算结果</button>
+</body>
+</html>

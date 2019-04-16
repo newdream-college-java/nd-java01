@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function s(){
+			var a=new Date();
+			var year=a.getYear()+1900;
+			var month=a.getMonth();
+			var date=a.getDate();
+			var week=a.getDay();
+			var hour=a.getHours();
+			var minutes=a.getMinutes();
+			var secondes=a.getSeconds();
+			var b;
+			if(hour<=12){
+				b="AM";
+			}else{
+				b="PM";
+			}
+			document.getElementById("box").innerHTML=year+"年"+month+"月"+date+"日&nbsp;&nbsp;&nbsp;&nbsp;"+hour+"时"+minutes+"分"+secondes+"秒"+b+"&nbsp;&nbsp;&nbsp;&nbsp;星期："+week;
+			
+		}
+		var interval=setInterval("s()",1000);
+	</script>
+</head>
+<body onload="s()">	
+	<div id="box"></div>
+
+</body>
+</html>
