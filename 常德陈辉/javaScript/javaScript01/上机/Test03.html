@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var num=prompt("请输入行数：");
+			var xx=1;
+			var kg=num-1;
+			for (var i=1;i<num+num;i++) {
+				for(var j=kg;j>0;j--){
+					document.write("&nbsp;&nbsp;&nbsp;");
+				}
+				for(var j=0;j<xx;j++){
+					document.write("*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+				}
+				document.write("<br />");
+				if(i<num){
+					xx+=1;
+					kg-=1;
+				}else{
+					xx-=1;
+					kg+=1;
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

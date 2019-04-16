@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function showTime(){
+				var a=new Date();
+			var b=a.getFullYear();//年
+			var c=a.getMonth()+1;//月
+			var d=a.getDate();//日
+			var e=a.getDay();//星期
+			var f=a.getHours();//时
+			var g=a.getMinutes();//分
+			var h=a.getSeconds();//秒
+			switch(e){
+				case 0:
+					e="日";
+					break;
+				case 1:
+					e="一";
+					break;
+				case 2:
+					e="二";
+					break;
+				case 3:
+					e="三";
+					break;
+				case 4:
+					e="四";
+					break;
+				case 5:
+					e="五";
+					break;
+				case 6:
+					e="六";
+					break;
+			}
+			var i=document.getElementById("shiJian");
+			if(f>12){
+				i.innerHTML=b+"年"+c+"月"+d+"日"+(f-12)+":"+g+":"+h+"PM 星期"+e;
+			}else{
+				i.innerHTML=b+"年"+c+"月"+d+"日"+f+":"+g+":"+h+"PM 星期"+e;
+			}
+			
+			setTimeout("showTime()",1000);//延时器
+			}
+			
+		</script>
+	</head>
+	<body onload="showTime()">
+		<h1>你好，欢迎访问新梦想商城！</h1>
+		<h1 id="shiJian"></h1>
+	</body>
+</html>
