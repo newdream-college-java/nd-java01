@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+			var sum=0;
+			var a = 1;
+			var b = 1;
+			var count = 2;
+
+			for(var i = 2 ; i<10; i++){
+				count = a+b;
+				a = b;
+				b =count;
+				document.write("    "+count);
+				sum+=b;
+			}
+				sum=sum+2;
+				document.write("<br>结果为："+sum);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
