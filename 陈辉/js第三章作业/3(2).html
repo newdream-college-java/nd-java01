@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		p{
+			padding-left: 19px;
+			background: url(images/fold.gif) 0px 3px no-repeat;
+		}
+		ul{
+			list-style-type: none;
+			padding-bottom: 10px;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		li{
+			margin-top: 10px;
+		}
+		.l1{
+			padding-left: 19px;
+			background: url(images/fclose.gif) 0px 2px no-repeat;
+		}
+		.l1 li{
+			padding-left: 19px;
+			background: url(images/doc.gif) -13px 1px no-repeat;
+		}
+	</style>
+	<script type="text/javascript">
+		function show(){
+			var cd1=document.getElementById("q1");
+			if(cd1.style.display=="none"){
+				cd1.style.display="block";
+			}else{
+				cd1.style.display="none"
+			}
+			
+		}
+		function show2(){
+			var cd2=document.getElementById("q2");
+			if(cd2.style.display=="none"){
+				cd2.style.display="block";
+			}else{
+				cd2.style.display="none";
+			}
+		}
+	</script>
+</head>
+<body>
+	<p>树形菜单</p>
+		<ul>
+			<li class="l1"><a href="javascript:show();">文学艺术</a>
+				<ul id="q1">
+					<li>先锋写作</li>
+					<li>小说散文</li>
+					<li>诗风词韵</li>
+				</ul>
+			</li>
+			<li class="l1"><a href="javascript:show2()">贴图专区</a>
+				<ul id="q2">
+					<li>真我风采</li>
+					<li>视频贴图</li>
+					<li>行行摄摄</li>
+					<li>Flash贴图</li>
+				</ul>
+			</li>
+		</ul>
+</body>
+</html> 
