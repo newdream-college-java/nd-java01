@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	a{
+		text-decoration: none;
+		color: #000;
+	}
+	</style>
+	<script type="text/javascript">
+		function sOH1(){
+				var img1=document.getElementById("b1");
+				if(img1.style.display=="none"){
+					img1.style.display="inline";
+				}else{
+					img1.style.display="none";
+				}
+
+		}
+		function sOH2(){
+			var img2=document.getElementById("b2");
+				if(img2.style.display=="none"){
+					img2.style.display="inline";
+				}else{
+					img2.style.display="none";
+				}
+		}
+		function sOH3(){
+			var bos=document.getElementById("b");
+				if(bos.style.display=="none"){
+					bos.style.display="inline";
+				}else{
+					bos.style.display="none";
+				}
+		}
+	</script>
+</head>
+<body>
+	<a href="#" onclick="sOH3()"><img src="../上机作业素材/练习2：制作树形菜单/images/fold.gif">树形菜单：</a>
+	<dl id="b">
+		<dd><a href="#" onclick="sOH1()"><img src="../上机作业素材/练习2：制作树形菜单/images/fclose.gif">文学艺术</a>
+			<dl id="b1">
+				<dd><img src="../上机作业素材/练习2：制作树形菜单/images/doc.gif">先锋写作</dd>
+				<dd><img src="../上机作业素材/练习2：制作树形菜单/images/doc.gif">小说散文</dd>
+				<dd><img src="../上机作业素材/练习2：制作树形菜单/images/doc.gif">诗风词韵</dd>
+			</dl>
+		</dd>
+		<dd><a href="#" onclick="sOH2()"><img src="../上机作业素材/练习2：制作树形菜单/images/fclose.gif">贴图专区</a>
+		<dl id="b2">
+			<dd><img src="../上机作业素材/练习2：制作树形菜单/images/doc.gif">真我风采</dd>
+			<dd><img src="../上机作业素材/练习2：制作树形菜单/images/doc.gif">视频贴图</dd>
+			<dd><img src="../上机作业素材/练习2：制作树形菜单/images/doc.gif">行行摄摄</dd>
+			<dd><img src="../上机作业素材/练习2：制作树形菜单/images/doc.gif">Flash贴图</dd>
+		</dl>
+		</dd>
+	</dl>
+</body>
+</html>
