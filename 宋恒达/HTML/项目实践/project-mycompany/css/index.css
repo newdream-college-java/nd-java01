@@ -1,0 +1,288 @@
+@charset "utf-8";
+
+/* 清除所有标签外边距并居中和内边距 */
+* {
+	margin: 0px auto;
+	padding: 0px;
+	font-size: 14px;
+}
+
+.container {
+	position: relative;
+	width: 1200px;
+}
+
+/* 清除所有无序列表前标 */
+ul {
+	list-style-type: none;
+}
+
+/* 清除所有超链接下划线 */
+a {
+	text-decoration: none;
+}
+
+/* 头部部分开始 */
+.header {}
+
+/* 头部导航部分开始 */
+.header .nav {
+	width: 923px;
+	background: url(../images/index/logo.gif) no-repeat;
+}
+
+.header .nav ul {
+	margin-top: 56px;
+	float: right;
+}
+
+.header .nav ul li {
+	float: left;
+}
+
+.header .nav ul li a {
+	color: #A0A0A1;
+	margin-left: 35px;
+}
+
+.header .nav ul li a:hover,
+.header .nav ul li .homePage {
+	color: #59CAF4;
+	text-decoration: underline;
+}
+
+/* 头部导航部分结束 */
+/* 头部部分结束 */
+/* 底部部分开始 */
+.footer {
+	width: 947px;
+}
+
+.footer hr {
+	margin: 15px 0px;
+}
+
+/* 底部部分左半部分开始 */
+.footer .footerLeft {
+	float: left;
+}
+
+.footer .footerLeft p {
+	font-size: 16px;
+	color: #A0A0A1;
+}
+
+.footer .footerLeft p span {
+	color: #7BB0CF;
+}
+
+/* 底部部分左半部分结束 */
+/* 底部部分右半部分开始 */
+.footer .footerRight {
+	float: right;
+}
+
+.footer .footerRight p {
+	color: #A0A0A1;
+	font-size: 16px;
+	text-align: right;
+}
+
+.footer .footerRight p span {
+	color: #7BB0CF;
+}
+
+/* 底部部分右半部分结束 */
+/* 底部部分结束 */
+/* 清除浮动样式 */
+/* 轮播图部分开始 */
+/* 主体部分开始 */
+.mainContent {
+	margin-top: 13px;
+}
+
+/* 轮播图部分开始 */
+/* 轮播图图片部分开始 */
+.mainContent .banner {
+	width: 100%;
+	padding: 13px 0px;
+	background-color: #59CAF4;
+	text-align: center;
+	position: relative;
+}
+
+.mainContent .banner #bannerImage {
+	overflow: hidden;
+	width:5730px;
+	/* width:3710px; */
+	height: 320px;
+	position: relative;
+}
+
+.mainContent .banner #bannerImage img {
+	border: 5px white solid;
+	float: left;
+}
+
+/* 轮播图图片部分结束 */
+/* 轮播图按钮部分开始 */
+.mainContent .banner .bannerButton {
+	width: 968px;
+	position: absolute;
+	bottom: 15px;
+	left: 129px;
+}
+
+.mainContent .banner .bannerButton ul li {
+	float: left;
+}
+
+.mainContent .banner .bannerButton ul li input {
+	background-color: #59CAF4;
+	border-top: 2px white solid;
+	border-bottom: 2px white solid;
+}
+
+.mainContent .banner .bannerButton ul li input:hover {
+	background-color: #3272CA;
+	cursor: pointer;
+}
+
+.mainContent .banner .bannerButton ul li #bannerButton1 {
+	width: 185px;
+	height: 41px;
+}
+
+.mainContent .banner .bannerButton ul li #bannerButton2 {
+	width: 184px;
+	height: 41px;
+	margin-left: 4px;
+}
+
+.mainContent .banner .bannerButton ul li #bannerButton3,
+#bannerButton4 {
+	width: 185px;
+	height: 41px;
+	margin-left: 4px;
+}
+
+.mainContent .banner .bannerButton ul li #bannerButton5 {
+	width: 185px;
+	height: 41px;
+	margin-left: 5px;
+}
+
+/* introduce开始 */
+.container .mainContent .introduce {
+	width: 947px;
+}
+
+.container .mainContent .introduce .deploma,
+.companyIntroduce,
+.productionNews,
+.businessIdea {
+	float: left;
+	margin-right:75px;
+}
+
+/* deploma开始 */
+.deploma {
+	width: 120px;
+	padding-top: 40px;
+}
+
+.deploma .deplomaImage {
+	float: left;
+	position: relative;
+}
+
+.deploma .deplomaImage .deplomaButtonList {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+.deploma .deplomaImage .deplomaButtonList ul li {
+	float: left;
+	margin-left: ;
+}
+
+.deploma .deplomaImage .deplomaButtonList ul li input {
+	background-color: #59CAF4;
+	margin-left: 5px;
+}
+.deploma .deplomaImage .deplomaButtonList ul li input:active{
+	background-color: #3272CA;
+}
+/* deploma结束 */
+/*companyIntroduce开始*/
+.companyIntroduce{
+	margin-top:20px;
+	width:246px;
+	background:url(../images/index/title_profile.gif) left top no-repeat;
+	padding-top:60px;
+	
+}
+.companyIntroduce p{
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+.companyIntroduce h2 a{
+	color:#7BB0CF;
+}
+/*companyIntroduce结束*/
+/* productionNews开始 */
+.productionNews{
+	margin-top:20px;
+	width:146px;
+	background:url(../images/index/title_products.gif) left top no-repeat;
+	padding-top:60px;
+}
+.productionNews ul{
+	list-style-image: url(../images/index/gt.gif) ;
+	list-style-position: inside;
+}
+.productionNews ul li{
+	margin-top:16px;
+}
+.productionNews ul li hr{
+	border: 1px #DFE2DF dotted;
+}
+.productionNews ul li a{
+	color: black;
+	font-size: 16px;
+}
+/* productionNews结束 */
+/* businessIdea开始 */
+.businessIdea{
+	float: left;
+	margin-top:20px;
+	width:135px;
+	background:url(../images/index/title_products.gif) left top no-repeat;
+}
+.businessIdea .idea{
+	width: 100%;
+	padding-top:60px;
+	background:url(../images/index/title_philosophy.gif) left top no-repeat;
+	margin-bottom: 40px;
+}
+.businessIdea .idea p,.businessIdea .important p{
+	font-size: 16px;
+}
+.businessIdea .important{
+	width: 100%;
+	padding-top:60px;
+	background:url(../images/index/title_corevalues.gif) left top no-repeat;
+}
+/* businessIdea结束 */
+/* introduce结束 */
+/* 轮播图按钮部分结束 */
+/* 轮播图部分结束 */
+/* 主体部分结束 */
+/* 轮播图部分结束 */
+
+.clear {
+	clear: both;
+}
+
+/* 清除浮动样式 */

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>人才招聘</title>
+		<link rel="stylesheet" type="text/css" href="css/joinus.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div id="time" style="position: absolute;top:5px;right: 5px; font-size: 18px;color: blue;"></div>
+			<!-- 头部开始 -->
+			<div class="header">
+				<!-- 头部导航部分开始 -->
+				<div class="nav">
+					<ul>
+						<li><a href="index.html">首页</a></li>
+						<li><a href="overview.html">公司概况</a></li>
+						<li><a href="products.html">产品资讯</a></li>
+						<li><a href="message.html">在线留言</a></li>
+						<li><a href="joinus.html" class="joinusTo">人才招聘</a></li>
+						<li><a href="contactus.html">联系我们</a></li>
+					</ul>
+					<!-- 用来清除浮动开始 -->
+					<div class="clear"></div>
+					<!-- 用来清除浮动结束 -->
+				</div>
+				<!-- 头部导航部分结束 -->
+			</div>
+			<!-- 头部结束 -->
+			<!-- 主体内容开始 -->
+			<div class="mainContent">
+				<!-- 轮播图开始 -->
+				<div class="banner">
+					<div class="bannerImage">
+						<img src="images/banner/banner4.gif" alt="加载图片失败" title="banner3" />
+					</div>
+
+				</div>
+				<!-- introduce开始 -->
+				<div class="introduce">
+					<!-- productionNews开始 -->
+					<div class="productionNews">
+						<ul>
+							<li><a href="#">屏蔽箱及RF高频测试</a>
+								<hr />
+							</li>
+							<li><a href="#">ICT治具</a>
+								<hr />
+							</li>
+							<li><a href="#">FCT治具</a>
+								<hr />
+							</li>
+							<li><a href="#">测试系统</a>
+								<hr />
+							</li>
+							<li><a href="#">自动化设备</a>
+								<hr />
+							</li>
+						</ul>
+					</div>
+					<!-- introduce结束 -->
+					<!-- productionNews结束 -->
+					<!-- contactusOverview开始 -->
+					<div class="contactusOverview">
+						<div class="contactusOverViewTop">
+							<p>地址：深圳市宝安区观澜街道办竹村福庭</p>
+						</div>
+						<div class="contactusOverViewbottom">
+							<p>工业区13栋</p>
+							<p>电话：0755-</p>
+							<p>29825916</p>
+							<P>传真：0755-</p>
+							<p>29825957</p>
+							<p>Email：</p>
+							<p>shenzhen@welltest.cn</p>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<!-- contactusOverview结束 -->
+					<!-- situation开始 -->
+					<div class="situation">
+						<h1 class="hLeft">人才招聘</h1>
+						<p class="hRight">首页&nbsp;&gt;&nbsp;人才招聘</p>
+						<div class="clear"></div>
+						<hr />
+						<p class="joinust">深圳市精泰达科技有限公司专注于治具的制作及测试系统、自动化设备的开发，全方位配合企业
+							生产线的实际需要，提供一站式的制程整体解决方案。因业务需要，特诚聘如下人士：</p>
+						<h1 class="jounus1">一.项目经理（2名）</h1>
+						<span class="jounus2">要求：</span>
+						<ol class="jounus3">
+							<li>3年以上工作经验</li>
+							<li>熟悉的HTML&&CSS JAVA</li>
+							<li>良好的沟通表达能力</li>
+						</ol>
+						<div class="clear"></div>
+						<h1 class="jounus1">五.Java软件开发工程师</h1>
+						<span class="jounus2">要求：</span>
+						<ol class="jounus3">
+							<li>1年以上工作经验</li>
+							<li>熟悉的HTML&&CSS JAVA</li>
+						</ol>
+						<div class="clear"></div>
+						<p>联系电话：0755-298259 16#608 李先生</p>
+					</div>
+					<!-- situation结束 -->
+					<!-- 主体内容结束 -->
+				</div>
+				<script type="text/javascript">
+					function getTime() {
+						// 得到系统时间并显示
+						var date = new Date();
+						var date1 = date.toLocaleString();
+						var div1 = document.getElementById("time");
+						div1.innerHTML=date1;
+					}
+					setInterval(function(){
+						getTime();
+					},100);
+				</script>
+	</body>
+</html>

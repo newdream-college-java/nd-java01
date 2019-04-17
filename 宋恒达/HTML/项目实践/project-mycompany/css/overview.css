@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+/* 清除所有标签外边距并居中和内边距 */
+* {
+	margin: 0px auto;
+	padding: 0px;
+	font-size: 14px;
+}
+
+.container {
+	position: relative;
+	width: 1200px;
+}
+
+/* 清除所有无序列表前标 */
+ul {
+	list-style-type: none;
+}
+
+/* 清除所有超链接下划线 */
+a {
+	text-decoration: none;
+}
+
+/* 头部部分开始 */
+.header {}
+
+/* 头部导航部分开始 */
+.header .nav {
+	width: 923px;
+	background: url(../images/index/logo.gif) no-repeat;
+}
+
+.header .nav ul {
+	margin-top: 56px;
+	float: right;
+}
+
+.header .nav ul li {
+	float: left;
+}
+
+.header .nav ul li a {
+	color: #A0A0A1;
+	margin-left: 35px;
+}
+
+.header .nav ul li a:hover,
+.header .nav ul li .overView {
+	color: #59CAF4;
+	text-decoration: underline;
+}
+
+/* 头部导航部分结束 */
+/* 头部部分结束 */
+.clear {
+	clear: both;
+}
+
+/* 清除浮动样式 */
+/* 主体内容开始 */
+.mainContent {
+	margin-top: 13px;
+}
+
+.mainContent .banner {
+	width: 100%;
+	padding: 13px 0px;
+	background-color: #59CAF4;
+	text-align: center;
+}
+
+.mainContent .banner .bannerImage {
+	width: 950px;
+}
+
+.mainContent .banner .bannerImage img {
+	border: 5px white solid;
+}
+/* introduce开始 */
+.introduce {
+	position: relative;
+}
+
+.introduce .productionNews {
+	margin-top: 20px;
+	width: 226px;
+	background: url(../images/index/title_products.gif) left top no-repeat;
+	padding-top: 60px;
+	float: left;
+}
+
+.introduce .productionNews ul {
+	list-style-image: url(../images/index/gt.gif);
+	list-style-position: inside;
+}
+
+.introduce .productionNews ul li {
+	margin-top: 16px;
+}
+
+.introduce .productionNews ul li hr {
+	border: 1px #DFE2DF dotted;
+}
+
+.introduce .productionNews ul li a {
+	color: black;
+	font-size: 26px;
+}
+/* introduce结束 */
+/* .contactusOverview开始 */
+.contactusOverview {
+	width: 214px;
+	background: url(../images/overview/title_contactus.gif) left top no-repeat;
+	padding-top: 60px;
+	position: absolute;
+	top: 422px;
+}
+
+.contactusOverview .contactusOverViewTop {
+	width: 183px;
+	text-align: right;
+	float: left;
+}
+
+.contactusOverview .contactusOverViewTop p {
+	font-size: 26px;
+}
+
+.contactusOverview .contactusOverViewbottom {
+	width: 179px;
+	float: left;
+	text-align:left;
+}
+
+.contactusOverview .contactusOverViewbottom p {
+	font-size: 26px;
+}
+/* .contactusOverview结束 */
+/* situation开始 */
+.situation{
+	margin-top: 15px;
+	width:782px;
+	float: left;
+	margin-left:40px;
+}
+.situation .hLeft{
+	font-size: 26px;
+	color: blue;
+	float:left;
+}
+.situation .hRight{
+	font-size: 26px;
+	color: #A0A0A1;
+	font-weight: 100px;
+	float:right;
+}
+.situation hr{
+	margin-top: 15px;
+	margin-bottom: 40px;
+}
+.situation img{
+	margin-right:40px;
+	margin-bottom:40px;
+}
+.situation .text{
+	display: outline;
+	float: right;
+}
+.situation .text span{
+	margin-top: 40px;
+	font-size: 26px;
+	text-indent: 2em;
+}
+.situation .content1{
+	font-size:26px;
+	text-indent:10em;
+}
+.situation .content2{
+	font-size:26px;
+	text-indent:2em;
+}
+/* situation结束 */
+/* 主体内容结束 */
