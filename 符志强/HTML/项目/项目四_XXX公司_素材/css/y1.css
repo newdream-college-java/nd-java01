@@ -1,0 +1,124 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/*设置页面显示的大小和位置*/
+#zhu{
+	width: 900px;
+	
+	margin: 0px auto;	/*外边距为0像素  居中显示*/
+}
+/*上框架*/
+.shanghezi{
+	background-image: url("../images/logo.gif");	/*插入图片*/
+	background-repeat-x:no-repeat; 
+	background-position: 50px;					/*不平埔*/
+	height: 80px;
+	width:100%;
+}
+.shanghezi ul{
+	margin-left:320px;
+}
+.shanghezi ul li{
+	font-weight: bold;
+	float: left;
+	margin-left: 30px;
+	list-style-type: none;
+	margin-top: 50px;
+}
+/*上框架超链接*/
+a{
+	color: #000;
+	text-decoration: none;
+}
+.aa:visited{
+	color: #48b3e7;
+}
+/*中上框架*/
+.zhongshang{
+	width:100%;
+	background-color: #57c6f3;
+}
+.zhong .zhongshang img{
+	margin-left:50px;
+}
+.zhong .zhongshang .s ul li{
+	float: left;
+	margin-left: 101px;
+	list-style-type: none;
+	color: #fff;
+	position:relative;
+	right: -8px;
+    top: 199px;
+}
+/*中下框架*/
+.zhongxia{
+	height: 366px;
+	width:100%;
+}
+.zhongxia .zhongxia1{
+	margin-left:50px;
+	float: left;
+	height: 305px;
+	width: 118px;
+	padding-top: 60px;
+}
+.zhongxia .zhongxia2{
+	float: left;
+	height: 365px;
+	width: 300px;
+	margin-left: 20px;
+}
+.chaolianji{
+	color: #48b3e7;
+	text-decoration: none;
+}
+.biaoti{
+	color: #6b6a70;
+	font-size: 14px;
+	font-weight: bold;
+}
+.zhongxia .zhongxia3{
+	float: left;
+	height: 365px;
+	width: 180px;
+	margin-left: 20px;
+}
+.zhongxia3 div{
+	background: url("../images/gt.gif")6px 7px no-repeat;
+	color: #37494d;
+	border-bottom: dashed;
+	border-bottom-color: #ededed;
+	margin-top:20px;	
+}
+.zhongxia3 .zhongxiahezi3{
+	margin-left:20px;
+}
+.zhongxia .zhongxia4{
+	float: left;
+	height: 365px;
+	width: 140px;
+	margin-left: 20px;
+}
+/*下框架*/
+.xia{
+	height: 65px;
+	width:100%;	
+}
+.xia span{
+	color: #929495;
+}
+/*下框架超链接*/
+ .xia .you .a1,.xia .zuo .a1{
+	color: #48b3e7;
+	text-decoration: none;	/*去下划线*/
+}
+.xia .zuo{
+	float: left;
+	margin-left:50px;
+}
+.xia .you{
+	float:right;
+	margin-right:40px;
+	text-align: right;
+}
