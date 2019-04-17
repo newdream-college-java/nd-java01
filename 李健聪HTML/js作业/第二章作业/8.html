@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<style type="text/css">
+			div{
+				font-size: 27px;
+				font-weight: bold;
+				
+			}
+		</style>
+		<script type="text/javascript">
+			function showtime1(){
+				var a=new Date();
+				var b=a.getYear()+1900;
+				var c=a.getMonth()+1;
+				var d=a.getDate();
+				var e=a.getHours();
+				var f=a.getMinutes();
+				var g=a.getSeconds();
+				var h=a.getDay();
+				var sj1=document.getElementById("a");
+				if(e<12){
+					sj1.innerHTML="上午好！欢迎来到图灵商城<br />今天日期："+b+"年"+c+"月"+d+"日<br />"+"现在时间："+e+"点"+f+"分";
+				}else if(e>12&&c<18){
+					sj1.innerHTML="下午好！欢迎来到图灵商城<br />今天日期："+b+"年"+c+"月"+d+"日<br />"+"现在时间："+e+"点"+f+"分"+g;
+				}else{
+					sj1.innerHTML="晚上好！欢迎来到图灵商城<br />今天日期："+b+"年"+c+"月"+d+"日<br />"+"现在时间："+e+"点"+f+"分";
+				}
+				setTimeout("showtime1()",1000);
+			}
+		</script>
+	</head>
+	<body onload="showtime1()">
+		<div id="a">
+			
+		</div>
+			<!--<h1>下午好！欢迎来到图灵商城</h1>-->
+			<!--<span>今天日期：</span>
+			<span>现在时间：</span>-->
+	</body>
+</html>

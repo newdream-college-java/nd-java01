@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<style type="text/css">
+			table{
+				text-align: center;
+				padding: 0px;
+				border: solid;
+			}
+			.img{
+				position: relative;
+				top: 30px;
+				right: -1000px;
+			}
+		</style>
+		<script type="text/javascript">
+			function flush(){
+				window.open(document.location);
+			}
+			function image(){
+				window.open("3.2.html","图片广告","width=270px,height=220px,left=500px,top=300px,location=no");
+			}
+			function bt(){
+			window.open('3.1.html',"图文广告","resizeble=no,height = 220,width = 200,top=600,left=600,");
+		}
+			function toggleFullScreen() {
+	if (!document.fullscreenElement && // alternative standard method
+		!document.mozFullScreenElement && !document.webkitFullscreenElement) {// current working methods
+		if (document.documentElement.requestFullscreen) {
+			document.documentElement.requestFullscreen();
+		} else if (document.documentElement.mozRequestFullScreen) {
+			document.documentElement.mozRequestFullScreen();
+		} else if (document.documentElement.webkitRequestFullscreen) {
+			document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+		}
+	} else {
+		if (document.cancelFullScreen) {
+			document.cancelFullScreen();
+		} else if (document.mozCancelFullScreen) {
+			document.mozCancelFullScreen();
+		} else if (document.webkitCancelFullScreen) {
+			document.webkitCancelFullScreen();
+		}
+		
+	}
+}
+		</script>
+	</head>
+	<body onload="image()">
+		<table align="center" border="1px">
+			<tr>
+				<td colspan="5">
+					简易购物车
+				</td>
+			</tr>
+			<tr>
+				<td>商品名称</td>
+				<td>数量（件）</td>
+				<td>单价（元）</td>
+				<td>运费（元）</td>
+				<td>合计（元）</td>
+			</tr>
+			<tr>
+				<td>诺基亚</td>
+				<td>1</td>
+				<td>2200</td>
+				<td>200</td>
+				<td>2400</td>
+			</tr>
+			<tr>
+				<td colspan="5">
+					<button onclick="bt()">提交订单</button>
+					&nbsp;&nbsp;
+					<input value="全屏显示" type='button' onclick='toggleFullScreen();' />
+					<button onclick="flush()">刷新</button>
+				</td>
+			</tr>
+		</table>
+		<button></button>
+	<!--	<input type="image" src="../img/tu.jpg" class="img" />-->
+	</body>
+</html>

