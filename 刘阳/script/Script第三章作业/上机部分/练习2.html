@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<script type="text/javascript">
+			var showThings=function(){
+				var key=document.getElementById("s");
+				if(key.style.display=="none"){
+					key.style.display="block";
+				}else{
+					key.style.display="none";
+				}
+			}
+			var showThing1=function(){
+				var bar=document.getElementById("a");
+				if(bar.style.display=="none"){
+					bar.style.display="block";
+				}else{
+					bar.style.display="none";
+				}
+			}
+				
+			
+		</script>
+	</head>
+	<body >
+		<p><a href="#" onclick="showThings()">文学艺术</a></p>
+		<ul id="s" style="list-style-type: none;display: none;">
+				<li>先锋写作</li>
+				<li>小说散文</li>
+				<li>诗风词韵</li>
+		</ul>
+		<p><a href="#" onclick="showThing1()">贴图专区</a></p>
+		<ul id="a" style="list-style-type: none;display: none;">
+				<li>先锋写作</li>
+				<li>小说散文</li>
+				<li>诗风词韵</li>
+		</ul>
+	</body>
+</html>
