@@ -1,0 +1,142 @@
+*,body,ul,li{
+	margin: 0px auto;
+	padding: 0px;
+	list-style-type: none;
+}
+body{
+	background: url(../image/body_bg.jpg) center;
+	background-size: 690px;
+}
+.wrap{
+	width:779px;
+
+}
+.wrap .header .bar{
+	background-color: black;
+	text-align: right;
+}
+.wrap .header .bar span a{
+	text-decoration: none;
+	color: white;
+	font-size: 12px;
+	line-height: 24px;
+}
+.wrap .header .logo{
+	width: 779px;
+	height: 87px;
+	background: url(../image/vi.jpg)  0px 0px repeat-x;
+	font-weight: bold;
+
+}
+.wrap .header .logo .p1{
+	padding-top: 22px;
+	padding-left: 78px;
+}
+.wrap .header .logo .p2{
+	padding-left: 122px;
+}
+.wrap .header .nav{
+	background: url(../image/nav_bg.jpg) 0px 0px repeat-x;
+	width: 100%;
+	height: 35px;
+}
+.wrap .header .nav ul{
+	margin-left: 20px;
+}
+.wrap .header .nav ul li{
+	float: left;
+	line-height: 35px;
+}
+.wrap .header .nav ul li a{
+	text-decoration: none;
+	color: black;
+	margin:0px 23px;
+	font-weight: bold;
+}
+.wrap .header .nav ul li:hover{
+	background-image: url(../image/hover_bg.jpg);
+}
+.wrap .keyword{
+	background-color: white;
+	width: 100%;
+	height: 544px;
+
+}
+.wrap .keyword .top{
+	height:30px;
+	width:100%;
+}
+.wrap .keyword .man{
+
+	border: 1px #686868 solid;
+	height:490px;
+	width: 90%;
+}
+.wrap .keyword .man .man_top{
+	background: url(../image/nav_bg.jpg) 0px 0px repeat-x;
+	height:30px;
+	line-height: 25px;
+}
+.wrap .keyword .man .man_top span{
+	margin: 0px 8px;
+}
+.wrap .keyword .man .man_man{
+	margin: 15px;
+}
+.wrap .keyword .man .man_man .ziliao,.wrap .keyword .man .man_man .lianxi,.wrap .keyword .man .man_man .gongzuo,.wrap .keyword .man .man_man .shuoming{
+	width: 315px;
+	height:200px;
+	border-bottom: 1px #686868 dashed;
+	margin: 10px;
+}
+.wrap .keyword .man .man_man .ziliao,.wrap .keyword .man .man_man .gongzuo{
+	float: left;
+}
+.wrap .keyword .man .man_man .lianxi,.wrap .keyword .man .man_man .shuoming{
+	float: right;
+}
+.wrap .keyword .man .man_man .ziliao ul,.wrap .keyword .man .man_man .lianxi ul,.wrap .keyword .man .man_man .gongzuo ul,.wrap .keyword .man .man_man .shuoming ul{
+	margin: 10px;
+}
+.wrap .keyword .man .man_man .ziliao ul li,.wrap .keyword .man .man_man .lianxi ul li,.wrap .keyword .man .man_man .gongzuo ul li,.wrap .keyword .man .man_man .shuoming ul li{
+	list-style-type: disc;
+	width: 64px;
+}
+.wrap .keyword .man .man_man .ziliao .text,.wrap .keyword .man .man_man .lianxi .text,.wrap .keyword .man .man_man .gongzuo .text{
+	border-top: 1px #989898 dashed;
+	border-bottom: 1px #989898 dashed;
+	width: 290px;
+	height:150px;
+	margin: 0px;
+}
+.wrap .keyword .man .man_man .ziliao .text ul,.wrap .keyword .man .man_man .lianxi .text ul,.wrap .keyword .man .man_man .gongzuo .text ul{
+	height:150px;
+	margin: 0px;
+}
+.wrap .keyword .man .man_man .ziliao .text ul li,.wrap .keyword .man .man_man .lianxi .text ul li,.wrap .keyword .man .man_man .gongzuo .text ul li{
+	border-bottom: 1px #00CCFF dashed;
+	list-style-type: none;
+	width:90%;
+	line-height: 29px;
+	margin: 0px;
+}
+.wrap .keyword .man .man_man .shuoming .text{
+	border-top: 1px #989898 dashed;
+	border-bottom: 1px #989898 dashed;
+	width: 290px;
+	height:110px;
+	margin: 0px;
+	padding-top: 40px;
+}
+.wrap .footer{
+	background-color: black;
+	width: 100%;
+	height: 68px;
+}
+.wrap .footer p{
+	font-size: 12px;
+	color: white;
+	text-align: center;
+	line-height: 70px;
+}
+
