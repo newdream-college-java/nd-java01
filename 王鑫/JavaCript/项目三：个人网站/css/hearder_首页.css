@@ -1,0 +1,98 @@
+
+/*大盒子*/
+.all{
+	margin: 0px auto;
+}
+/*中间的盒子开始*/
+.center{
+	border: 5px;
+	height: 600px;
+	width: 1100px;
+	background: #FEFDF8;
+	margin: 0px auto;
+	
+}
+.center .div1{
+	float: left;
+}
+.center .div1 .div1_1{
+	background: #EEEDE8;
+	height: 200px;
+	width: 250px;
+	
+}
+.center .div1 .div1_1 .div1_1_1 p{
+	margin-top: 0px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	height: 30px;
+	text-indent: 1em;
+	font-size: 20px;
+}
+.center .div1 .div1_1 .div1_1_2{
+	font-size: 14px;
+	padding-left: 10px;
+}
+.center .div1 .div1_2{
+	background: #EEEDE8;
+	height: 200px;
+}
+.center .div1 .div1_2 .div1_2_1 p{
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	height: 40px;
+	text-indent: 1em;
+	font-size: 20px;
+}
+.center .div1 .div1_2 .div1_2_2 dd{
+	padding-top: 5px;
+	margin-right: 40px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	
+}
+
+.center .div2{
+	height: 403px;
+	width: 800px;
+	margin-left: 270px;
+	padding-right: 60px;
+}
+.center .div2 .div2_1 .div2_1_1{
+    margin-left: 20px;
+}
+
+.center .div2 .div2_1 .div2_1_1 p{
+	height: 40px;
+	font-size: 20px;
+}
+
+.center .div2{
+	background: #EEEDE8;
+	height: 420px;
+	width: 770px;
+}
+.center .div2 .div2_2{
+	padding-left: 30px;
+}
+.center .div2 .div2_2 .jieshao1{
+	text-indent: 2em;
+}
+.center .div3{
+	height: 153px;
+	background: #EEEDE8;
+}
+.center .div3 .div3_1 .div3_1_2 img{
+	padding-right: 40px;
+	width: 110px;
+	height: 60px
+}
+.center .div3 .div3_1 .div3_1_1 p{
+	margin-top: 12px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	height: 40px;
+	text-indent: 1em;
+	font-size: 20px;
+}
+/*中间的盒子结束*/

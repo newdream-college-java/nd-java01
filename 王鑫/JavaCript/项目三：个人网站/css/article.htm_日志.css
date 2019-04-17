@@ -1,0 +1,28 @@
+/*大盒子*/
+.main{
+	background: #DFDFDD;
+	width: 98%;
+	height: 600px;
+	width: 1000px;
+	margin: 0px auto;
+}
+.main table{
+	height: 100%;
+	width: 100%;
+}
+.main .top{
+	padding-left: 50px;
+	background: #e9e9e1;
+}
+.main table{
+	background-color: #fffdf8;
+}
+.main .top span{
+	padding-left: 10px;
+	font-size: 30px;				
+}
+.main .next{
+	height: 100px;
+	vertical-align: top;
+}
+/*中间的盒子结束*/

@@ -1,0 +1,53 @@
+.bar{
+	margin-top: -16px;
+	height: 100%;
+}
+.bar .top1{
+	text-align: right;
+	color: #FFF;
+	background: #000;
+	width: 99%;
+	margin-bottom: 0px;
+	padding-right: 15px;
+}
+.bar .top1 a{
+	text-decoration: none;
+	color: #FFF;
+}
+/*设置图片左浮动*/
+.bar .top2 img{
+	width: 100%;
+	height: 130.033px;
+	float: left;
+}
+/*设置图片上面的文字*/
+.bar .top2 .imgfont1{
+	text-indent:4em;
+	font-size:20px;
+	margin-top: -100px;
+	float: left;
+}
+.bar .top2 .imgfont2{
+	text-indent:6em;
+	font-size:20px;
+	margin-top: -70px;
+	float: left;
+}
+/*设置列表行*/
+.top3{
+	background-color: #EEEDE8;
+	margin-top: 131px;
+	height: 55px;
+	padding-top: 1px;
+}
+.top3 ul li{
+	list-style: none;
+	float: left;
+}
+/*设置超链接样式*/
+.top3 ul li a{
+	margin-left: 25px;
+	margin-right: 25px;
+	color: #000;
+	text-decoration: none;
+}

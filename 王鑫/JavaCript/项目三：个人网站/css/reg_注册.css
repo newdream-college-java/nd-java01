@@ -1,0 +1,40 @@
+/*大盒子*/
+.main2{
+	width: 98%;
+	height: 600px;
+	width: 1000px;
+	margin: 0px auto;
+}
+.main2 .up{
+	border: 2px;
+	height: 40px;
+	width: 100%;
+	background: #E0ECD6;				
+}
+.main2 .up p span{
+	text-indent: 4em;
+	font-size: 20px;
+	padding-left: 20px;
+}
+/*设置表格大小,居中,背景颜色*/
+.main2 .down1{
+	height: 96%;
+	width: 100%;
+	background: #FEFDF8;
+}
+.main2 .down1 .down1_1{   
+	width: 25%;
+	height: 85%;
+	padding-right: 16px;
+	margin-top: 23px;
+	border-right-style: double;
+	
+}
+.main2 .down1 .down1_1 ul{  
+	margin-top: -397px;
+	font-size: 14px;
+}
+.main2 .down1 .down1_2{
+	
+}
+/*中间的盒子结束*/
