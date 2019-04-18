@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<script type="text/javascript">
+			function add(){
+				var table1=document.getElementById("TABLE");
+				var tr0=table1.insertRow(2);
+				var td0=tr0.insertCell(0);
+				var td1=tr0.insertCell(1);
+				var td2=tr0.insertCell(2);
+				var td3=tr0.insertCell(3);
+				td0.innerHTML="列1";
+				td1.innerHTML="列2";
+				td2.innerHTML="列3";
+				td3.innerHTML="<input type='button' onclick='dele(this)' value='删除'>&nbsp;<input type='button' onclick='' value='修改'>";
+			}
+			function dele(obj){
+				//1.首先得到table的对象onclick='delete1(this)
+				var a=document.getElementById("TABLE");
+				//2.获取要删除的行的下标
+//				var index=obj.parentNode.parentNode.rowIndex;
+//				console.log(index);
+//				a.deleteRow(index);
+				var d=obj.parentNode.parentNode.remove(this);
+				
+			}
+//			function repal(obj){
+//				//1.首先得到table的对象onclick='delete1(this)
+//				var a=document.getElementById("TABLE");
+//				//然后找到需要修改的行的下标
+//				var index=obj.parentNode.parentNode.rowindex;
+//				//得到需要修改的列
+//				var td1=a.rows[index].cells[1];
+//				//然后当点击修改的时候需要将列变成文本框的形式
+//				if(obj.innerHTML=="修改"){
+//					consolo.log(td1.innerHTML);
+//					var upText="<input type='text' id='price'value='"+td1.innerHTML+"'/>";
+//					td1.innerHTML=upText;
+//				}else{
+//					td1.innerHTML=document.getElementById("price").value;
+//				}
+//				if(obj.innerHTML=="修改"){
+//					obj.innerHTML="确定";
+//				}else{
+//					obj.innerHTML="修改";
+//				}
+//			}
+//修改
+			function repal(obj){
+				//1.首先得到table对象
+				var tdObj=document.getElementById("mytable");
+				//2.得到要修改的行的下标
+				var index=obj.parentNode.parentNode.rowIndex;
+				//3.得到要修改的列
+				var priceObj=tdObj.rows[index].cells[1];
+				//4.然后使得对应的的列变成文本框（首先要点击“修改”然后对应的变成文本框）是所以用到if判断
+				//使用innerHTML获取标签体的内容
+				if(obj.innerHTML=="修改"){
+					console.log(priceObj.innerHTML);
+					var upText="<input type='text' id='price'value='"+priceObj.innerHTML+"'/>";
+					priceObj.innerHTML=upText;
+				}else{
+					priceObj.innerHTML=document.getElementById("price").value;
+				}
+				//5.将修改改为确定，或者将确定改为修改；
+				if(obj.innerHTML=="修改"){
+					obj.innerHTML="确定";
+				}else{
+					obj.innerHTML="修改";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table id="TABLE" width="600px" border="solid" style="text-align: center;">
+			<tr style="background-color: gray;font-weight: bold;">
+				<td>商品名称</td>
+				<td>数量</td>
+				<td>价格</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td>防滑真皮休闲鞋</td>
+				<td>12</td>
+				<td>&yen;568.50</td>
+				<td><button onclick="dele(this)"> 删除</button>
+					<button onclick="repal(this)"> 修改</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4"><button onclick="add()">增加订单</button></td>
+			</tr>
+		</table>
+	</body>
+</html>

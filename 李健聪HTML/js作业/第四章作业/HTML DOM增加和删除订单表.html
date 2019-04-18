@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<script type="text/javascript">
+			function add(){
+				var table1=document.getElementById("TABLE");
+				var tr0=table1.insertRow(2);
+				var td0=tr0.insertCell(0);
+				var td1=tr0.insertCell(1);
+				var td2=tr0.insertCell(2);
+				var td3=tr0.insertCell(3);
+				td0.innerHTML="列1";
+				td1.innerHTML="列2";
+				td2.innerHTML="列3";
+				td3.innerHTML="<input type='button' onclick='dele(this)' value='删除'>";
+			}
+			function dele(obj){
+				//1.首先得到table的对象onclick='delete1(this)
+				var a=document.getElementById("TABLE");
+				//2.获取要删除的行的下标
+				var index=obj.parentNode.parentNode.rowIndex;
+				console.log(index);
+				a.deleteRow(index);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<table id="TABLE" width="600px" border="solid" style="text-align: center;">
+			<tr style="background-color: gray;font-weight: bold;">
+				<td>商品名称</td>
+				<td>数量</td>
+				<td>价格</td>
+				<td>操作</td>
+			</tr>
+			<tr>
+				<td>防滑真皮休闲鞋</td>
+				<td>12</td>
+				<td>&yen;568.50</td>
+				<td><button onclick="dele(this)"> 删除</button></td>
+			</tr>
+			<tr>
+				<td colspan="4"><button onclick="add()">增加订单</button></td>
+			</tr>
+		</table>
+	</body>
+</html>

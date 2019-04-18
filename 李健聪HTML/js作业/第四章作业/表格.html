@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<style type="text/css">
+			.beijing{
+				background-color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			function addROW(){
+				var a=document.getElementById("TABLE");
+				var s=document.getElementById("60");
+				var b=a.insertRow(1);
+				var c=b.insertCell(0);
+				c.innerHTML="老哥来了";
+				var d=b.insertCell(1);
+				d.innerHTML="&yen;333";
+				document.body.insertBefore(s,b);
+			}
+			function delet(){
+				var a=document.getElementById("TABLE");
+				a.deleteRow(1);
+			}
+			function repalce(){
+				var a=document.getElementById("TABLE");
+				var b=a.rows[0];
+				var c=b.cells[0];
+				c.className="beijing";
+				var d=b.cells[1];
+				d.className="beijing";
+			}
+			function clone(){
+				//首先得到表格的对象
+				var a=document.getElementById("TABLE");
+				//得到要复制的对象的位置
+				var end=a.rows.length-1;
+				//最后一行的对象
+				var b=a.rows[end];
+				//得到克隆的对象
+				var c=b.cloneNode(true);
+				a.appendChild(c);				
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<table id="TABLE" border="1px">`
+			<tr>
+				<td>
+					书名
+				</td>
+				<td>
+					价格
+				</td>
+			</tr >
+			<tr style="background-color: red;">
+				<td>看得见风景的房间</td>
+				<td>&yen;30.00</td>
+			</tr>
+			<tr>
+				<td id="60">60个瞬间</td>
+				<td>&yen;32.00</td>
+			</tr>
+		</table>
+			<button onclick="addROW()">增加一行</button>
+			<button onclick="delet()">删除第2行</button><br />
+			<button onclick="repalce()">修改标题样式</button>
+			<button onclick="clone()">复制最后一行</button>
+	</body>
+</html>
