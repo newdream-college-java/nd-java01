@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.show{
+			visibility: visible;
+		}
+		.hidden{
+			visibility: hidden;
+		}
+		p{
+			font-weight: bold;
+			font-size:16px;
+		}
+		button{
+			border:1px black solid;
+			display: inline;
+		}
+		img{
+			margin-bottom: -4px;
+			display: inline-block;
+			border:0px red solid;
+
+		}
+		ul{
+			list-style-type: none;
+		}
+		li{
+			border:0px black solid;
+			font-size: 14px;
+		}
+	</style>
+	<script type="text/javascript">
+		function showOrHideen3(){
+			var a=document.getElementById("b1");
+			if(a.className=="show"){
+				a.className="hidden"
+			}else{
+				a.className="show";
+			}
+			
+		}
+		function showOrHideen(){
+			var b=document.getElementById("b2");
+			if(b.className=="show"){
+				b.className="hidden"
+			}else{
+				b.className="show";
+			}
+		}
+	</script>
+</head>
+<body >
+	<p><img src="images/fold.gif" />树形菜单:</p>
+	<button onclick="showOrHideen3()">隐藏子标题</button>
+	<ul id="b1" class="show"><img src="images/fclose.gif"   />文学艺术
+		<li><img src="images/doc.gif" />先锋写作</li>
+		<li><img src="images/doc.gif" />小说散文</li>
+		<li><img src="images/doc.gif" />诗风词韵</li>
+	</ul >
+	
+	<ul id="b2" class="show"><img src="images/fclose.gif"  >贴图专区<button onclick="showOrHideen()">隐藏子标题</button>
+		<li><img src="images/doc.gif" />真我风采</li>
+		<li><img src="images/doc.gif" />视频贴图</li>
+		<li><img src="images/doc.gif" />行行摄摄</li>
+		<li><img src="images/doc.gif" />Flash贴图</li>
+	</ul>
+
+</body>
+</html>
