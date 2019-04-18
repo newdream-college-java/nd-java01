@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+		function moveA(obj){
+			var tle=document.getElementById("m");
+			var ma=obj.parentNode.parentNode.remove()
+		}
+		function tj(){
+			var tle=document.getElementById("m");
+			var zj=tle.rows[2];
+			var qw=zj.cloneNode(true);
+			tle.appendChild(qw);
+		}
+	</script>
+</head>
+<body>
+	<table id="m" border="1" cellspacing="0"  width="600px" style="text-align: center;">
+		<tr>
+			<th>商品名称</th>
+			<th>数量</th>
+			<th>价格</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td>防滑真皮休闲鞋</td>
+			<td>12</td>
+			<td >&yen;568.00</td>
+			<td><button onclick="moveA(this)">删除</button></td>
+		</tr>
+		<tr>
+			<td>抗疲劳神奇钛项圈</td>
+			<td>2</td>
+			<td>&yen;49.00</td>
+			<td><button onclick="moveA(this)">删除</button></td>
+		</tr>
+		
+	</table>
+	<table border="1" cellspacing="0"  width="600px" style="text-align: center;border-top: 0px;">
+		<tr>
+			<td colspan="4" onclick="tj()"><button>增加订单</button></td>
+		</tr>
+	</table>
+</body>
+</html>
