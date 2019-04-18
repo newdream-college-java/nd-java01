@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function addRow(){
+			var tab=document.getElementById("myTable");
+			var cd=tab.rows.length-1;
+			var newRow=tab.insertRow(cd);
+			var newtd=newRow.insertCell(0);
+			newtd.innerHTML="抗疲劳神奇钛项圈";
+			var newtd1=newRow.insertCell(1);
+			newtd1.innerHTML="2";
+			var newtd2=newRow.insertCell(2);
+			newtd2.innerHTML="&yen;49.00";
+			var newtd3=newRow.insertCell(3);
+			newtd3.innerHTML="<button onclick='delRow(this)'>删除 </button>";
+		}
+		function delRow(obj){
+			var ma=obj.parentNode.parentNode.remove();
+
+		}
+	</script>
+</head>
+<body>
+	<table border="1" cellspacing="0" cellpadding="0" id="myTable" wiath="40%"> 
+		<tr id="row1">
+			<td>商品名称</td>
+			<td>数量</td>
+			<td>价格</td>
+			<td>操作</td>
+		</tr>
+		<tr id="row2">
+			<td>防滑真皮休闲鞋</td>
+			<td>12</td>
+			<td> &yen;568.50</td>
+			<td><input type="button" name="" value="删除" onclick="delRow(this)"></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="center"><input type="button" name="" value="增加订单" onclick="addRow()"></td>
+		</tr>
+	</table>
+</body>
+</html>

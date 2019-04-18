@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.header{
+			background-color: gray;
+			font-weight: bold;
+			text-align: center;
+		}
+		.td1{
+			color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		function addRow(){
+			var tab=document.getElementById("myTable");
+			var newRow=tab.insertRow(2);
+			var newtd=newRow.insertCell(0);
+			newtd.innerHTML="幸福从天而降";
+			var newtd1=newRow.insertCell(1);
+			newtd1.innerHTML="&yen;18.50";
+		}
+		function delRow(){
+			var tab=document.getElementById("myTable");
+			var newRow=tab.deleteRow(1);
+		}
+		function updateRow(){
+			var tab=document.getElementById("myTable");
+			var tb0=tab.rows[0];
+			var tb1=tb0.cells[1];
+			tb0.className="header";
+			tb1.className="td1"
+		}
+		function copy(){
+			var tab=document.getElementById("myTable");
+			var cd=tab.rows.length-1;
+			var hang=tab.rows[cd];
+			var newTa=hang.cloneNode(true);
+			tab.appendChild(newTa);
+		}
+	</script>
+</head>
+<body>
+	<table border="1" cellspacing="0" cellpadding="0" id="myTable" wiath="40%"> 
+		<tr id="row1">
+			<td>书名</td>
+			<td>价格</td>
+		</tr>
+		<tr id="row2">
+			<td>看得见风景的房间</td>
+			<td> &yen;30.00</td>
+		</tr>
+		<tr id="row3">
+			<td>60个瞬间</td>
+			<td>&yen;32.00</td>
+		</tr>
+	</table>
+	<input type="button" name="b1" value="增加一行" onclick="addRow()">
+	<input type="button" name="b2" value="删除第二行" onclick="delRow()">
+	<input type="button" name="b3" value="修改标题" onclick="updateRow()">
+	<input type="button" name="b2" value="复制最后一行" onclick="copy()">
+</body>
+</html>
