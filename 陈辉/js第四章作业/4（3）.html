@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript">
+		function moveA(obj){
+			var ma=obj.parentNode.parentNode.remove()
+		}
+		function tj(){
+			var tle=document.getElementById("m");
+			var ase=document.getElementById("ase");
+			var zj=tle.rows[2];
+			var qw=zj.cloneNode(true);
+			tle.appendChild(qw);
+			
+		}
+		function xg(obj){
+			var tle=document.getElementById("m");
+			var index = obj.parentNode.parentNode.rowIndex;
+			var priceObj = tle.rows[index].cells[1];
+			if(obj.innerHTML=="修改"){
+				
+				console.log(priceObj.innerHTML);
+				var upText = "<input type='text' id='price' value='"+priceObj.innerHTML+"'/>"
+				priceObj.innerHTML=upText;
+			}else{	
+				
+				priceObj.innerHTML=document.getElementById("price").value;
+			}
+			
+			//4.将修改改为确定 或者将确定改为修改
+			console.log(obj.innerHTML);
+			if(obj.innerHTML=="修改"){
+				obj.innerHTML="确定";
+			}else{
+				obj.innerHTML="修改"
+			}
+		}
+	</script>
+</head>
+<body>
+	<table id="m" border="1" cellspacing="0"  width="600px" style="text-align: center;">
+		<tr>
+			<th>商品名称</th>
+			<th>数量</th>
+			<th>价格</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td>防滑真皮休闲鞋</td>
+			<td>12</td>
+			<td >&yen;568.00</td>
+			<td><button onclick="moveA(this)">删除</button>
+				<button onclick="xg(this)">修改</button>
+			</td>
+		</tr>
+		<tr>
+			<td>抗疲劳神奇钛项圈</td>
+			<td>2</td>
+			<td>&yen;49.00</td>
+			<td><button onclick="moveA(this)">删除</button>
+				<button onclick="xg(this)" name="ase">修改</button>
+			</td>
+		</tr>
+
+	</table>
+	<table border="1" cellspacing="0"  width="600px" style="text-align: center;border-top: 0px;">
+		<tr>
+			<td colspan="4" onclick="tj()"><button>增加订单</button></td>
+		</tr>
+	</table>
+</body>
