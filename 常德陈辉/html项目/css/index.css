@@ -1,0 +1,141 @@
+*,body{
+	margin: 0px auto;
+	padding: 0px;
+	font-size: 12px;
+	background-color:#e4e4e4 ;
+}
+.father{
+	width: 910px;
+	background-color: white;
+}
+/*阳光家园*/
+.bar{
+	background-color: white;
+}
+/*公式简介栏*/
+.wrao{
+	background-color:#0084cc ;
+	width: 920px;
+	height: 30px;
+	border-bottom:6px groove gainsboro;
+	position: relative;
+	right: 5px;
+}
+.wrao ul li{
+	float: left;
+	list-style-type: none;
+	background-image: url(../img/li_line.gif);
+	background-repeat: no-repeat;
+	height: 30px;
+	width: 88px;
+	line-height: 30px;
+	text-align: center;
+	position: relative;
+	left: 30px;
+	background-color:#0084cc ;
+}
+.wrao ul li a{
+	background-color:#0084cc ;
+	text-decoration: none;
+	color: white;
+}
+/*公司宣传图*/
+.head{
+	background-color: white;
+	text-align: center;
+}
+/*主体内容*/
+.main{
+	background-color:#e4e4e4;
+	margin: 5px 2px;
+}
+/*主题标题*/
+.father .main .xmjp{
+	margin: 0px 10px;
+	display: inline-block;
+}
+.main p{
+	background-image: url(../img/left_class_bg.gif);
+	background-repeat: no-repeat;
+    width: 600px;
+    line-height: 38px;
+    margin-left:0px ;
+}
+.main p span{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: monospace;
+	margin-left: 18px;
+}
+/*轮播图*/
+.main .xmjp marquee{
+	width: 600px;
+	background-color: white;
+}
+.main .xmjp marquee img{
+	    margin: 2px 12px;
+}
+.father .main .lxfs{
+	float: right;
+	position: relative;
+	right: 8px;
+	width: 265px;
+}
+/*联系方式*/
+.father .main .lxfs h4{
+	background-color:#E41414;
+	line-height: 33px;
+    width: 162px;
+    margin: 0px
+}
+.father .main .lxfs h4 span{
+	padding: 0px 10px;
+	background-color:#E41414;
+	font-size: 15px;
+}
+.father .main .lxfs ul{
+	background-color: white;
+}
+.father .main .lxfs ul li{
+	list-style-type: none;
+	margin: 0px 8px;
+	background-color: white;
+	    line-height: 22px;
+}
+/*公司简介*/
+.father .main .gsjj{
+	margin: 10px 10px;
+	display: inline-block;
+	width: 600px;
+	background-color: white;
+}
+.father .main .gsjj #js dt{
+	display: inline-block;
+	background-color: white;
+}
+.father .main .gsjj dt img{
+	height: 120px;
+	width: 210px;
+	margin: 10px 10px
+}
+.father .main .gsjj #js dd{
+	float: right;
+	width: 370px;
+	height: 143px;
+	line-height: 20px;
+	background-color: white;
+}
+/*尾部*/
+.father .footer{
+	height: 90px;
+    background-color: white;
+    text-align: center;
+    padding-top: 33px;
+}
+.father .footer span{
+	line-height: 30px;
+	background-color: white;
+}
+/*div{
+	border: 1px red solid;
+}*/
