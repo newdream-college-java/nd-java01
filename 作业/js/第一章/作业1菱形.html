@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>菱形</title>
+	<script type="text/javascript">
+	var n=prompt("请输入行数",5);
+		//控制行数
+		for(var i=1;i<=n;i++){
+			//控制列的内容
+			//打星星前的空格
+			for(var kg=n;kg>=i;kg--){
+				document.write("&nbsp;&nbsp;&nbsp;");
+			}
+			//大星星
+			for(var xx=1;xx<=i;xx++){
+				document.write("*&nbsp;&nbsp;&nbsp;&nbsp;");
+			}
+			//换行
+			document.write("<br/>");
+		}
+			//倒三角行数
+		for(var i=1;i<=n-1;i++){
+			//星星前的空格
+			for(var kg=1;kg<=i;kg++){
+				document.write("&nbsp;&nbsp;&nbsp;&nbsp;");
+			}
+			//打星星
+			for(var xx=n-i;xx>=1;xx--){
+				document.write("*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			}
+			//换行
+			document.write("<br/>");
+		}
+	
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
