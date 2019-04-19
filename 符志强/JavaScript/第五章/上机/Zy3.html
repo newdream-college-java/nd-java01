@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+		<style type="text/css">
+		#adver{
+			position: absolute;
+			left:50px;
+			top:300px;
+		}
+		#x{
+			position: absolute;
+			left: 104px;
+    		top: -4px;
+		}
+	</style>
+	<script type="text/javascript">
+		var initTop;
+		var initLeft;
+		var adObj;
+		//1.页面加载完毕就要获取广告图片距离 top left的初始距离
+		function initValue(){
+			adObj = document.getElementById("adver");
+			//获取top  left   parseInt("123abc");-123 parseInt("abc123")-isNaN
+			if(adObj.currentStyle  ){
+				initTop  = parseInt(document.currentStyle.top);
+				initLeft = parseInt(document.currentStyle.left);
+			}else{
+				initTop = parseInt(document.defaultView.getComputedStyle(adObj,null).top);
+					
+				initLeft = parseInt(document.defaultView.getComputedStyle(adObj,null).left);
+			}
+		}
+
+		//2.当页面滚动的时候，广告图片的top=初始top+滚动的距离
+		
+		function move(){
+			//console.log("浏览器在滚动....."+i)
+
+			var newTop = (parseInt(document.documentElement.scrollTop)+initTop)+"px";
+			var newLeft = (parseInt(document.documentElement.scrollLeft)+initLeft)+"px";
+			//console.log("newTop="+newTop+"\nnewLeft="+newLeft);
+
+			if(adObj.currentStyle){
+				document.currentStyle.top=newTop;
+				document.currentStyle.left=newLeft;
+			}else{
+				adObj.style.top=newTop;
+					
+				adObj.style.left=newLeft;
+			}
+		}
+		window.onscroll=move;
+		function sanchu() {
+				var sc=document.getElementById("adver");
+				
+				sc.style.display="none";
+			
+		}
+	</script>
+</head>
+<body onload="initValue()">
+	<div align="center" id="adver">
+		<div id="x" onclick="sanchu()"> <input type="image" name="shanchu" src="D:/JavaScript/第五章/上机作业素材/练习3/close.jpg"></div>
+		<img src="D:/JavaScript/第五章/上机作业素材/练习3/advpic.jpg">
+
+	</div>
+	<div id="main" align="center"><img src="D:/JavaScript/第五章/上机作业素材/练习3/contentpic.jpg"></div>
+</body>
+</html>

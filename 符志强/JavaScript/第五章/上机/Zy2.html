@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>使用className改变样式</title>
+<style type="text/css">
+#left{
+	background-image: url(D:/JavaScript/第五章/上机作业素材/练习2/images/left.jpg);
+	background-repeat: no-repeat;
+	height:32px;
+	width:10px;
+	}
+ul{
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	list-style:none;
+}
+li{	background-image: url(D:/JavaScript/第五章/上机作业素材/练习2/images/bg1.jpg);
+	background-repeat: no-repeat;
+	height:32px;
+	width:83px;
+	text-align:center;
+	line-height:35px;
+	font-size:14px;
+	color:white;
+	font-weight:bold;
+	float:left;
+	}	
+	/*触碰后的效果*/
+	.over{
+		background-image: url(D:/JavaScript/第五章/上机作业素材/练习2/images/bg2.jpg);
+		color:black;
+	}
+	/*没触碰的效果*/
+	.outer{
+		background-image: url(D:/JavaScript/第五章/上机作业素材/练习2/images/bg1.jpg);
+	}
+</style>
+<script type="text/javascript">
+	
+	function initMouseEvent(){
+		/*获取li*/
+		var liObjs = document.getElementsByTagName("li");
+		/*循环li的次数*/	
+		for(var i=0;i<liObjs.length;i++){
+				/*鼠标移动到某元素上*/
+			liObjs[i].onmouseover=function(){
+				/*选中时执行over*/
+				this.className="over"; /*this本身*/
+			}
+				/*鼠标从某元素上移开*/
+			liObjs[i].onmouseout=function(){
+				/*没选中时执行over*/
+				this.className="outer";
+
+			}
+		}
+
+	}
+
+</script>
+</head>
+
+<body onload="initMouseEvent()">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   
+<tr>
+    <td colspan="3"><img src="D:/JavaScript/第五章/上机作业素材/练习2/images/top.jpg" alt="logo"/></td>
+  </tr>
+  <tr>
+  <td id="left"></td>
+  <td style="width:664px;">
+  <ul>
+    <li>首 页</li>
+    <li>家用电器</li>
+    <li>手机数码</li>
+    <li>日用百货</li>
+    <li>书 籍</li>
+    <li>帮助中心</li>
+    <li>免费开店</li>
+    <li>全球咨询</li>
+    </ul>
+
+    </td>
+    <td><img src="D:/JavaScript/第五章/上机作业素材/练习2/images/search.jpg" alt="搜索" /></td>
+  </tr>
+</table>
+
+</body>
+</html>
