@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title></title>
+		<style type="text/css">
+			.td1{
+				color:red;
+			}
+			.header{
+				background-color:gray;
+				font-weight:bold;
+				text-align:center;
+			}
+		</style>
+		<script type="text/javascript">
+			function add(){
+				var tabObj=document.getElementById("mytable");
+
+				var newRow=tabObj.insertRow(1);
+				var newTd0=newRow.insertCell(0);
+				newTd0.innerHTML=("增加一行1列了");
+				
+				var newTd1=newRow.insertCell(1);
+				newTd1.innerHTML=("增加一行2列了");
+			}
+			//方法名不能和特殊方法同名,直接对象点deleteRow方法
+			function delete1(){
+				var tabObj=document.getElementById("mytable");
+				
+				tabObj.deleteRow(1);
+				
+			}
+			//1.得到要修改的行和列（对象）.2.然后点className方法调用样式
+ 			function update5(){
+				var tabObj=document.getElementById("mytable");
+				
+				var tr0=tabObj.rows[0];
+				var td1=tr0.cells[1];
+				
+				td1.className="td1";
+				tr0.className="header";
+			}
+			//要1.创建新的行，2.要得到复制的内容，然后复制，3.然后在html添加
+			function colpy1(){
+				//1.得到表格的对象
+				var tabObj=document.getElementById("mytable");
+				//2.得到要复制的对象
+				//2.1得到最后一行的数字
+				var end = tabObj.rows.length-1;
+				//最后一行的对象
+				var trObj= tabObj.rows[end];
+				//3.得到克隆对象
+				var newTrObj = trObj.cloneNode(true);
+				//4.将新的行追加到表单中
+				tabObj.appendChild(newTrObj);
+			}
+
+		</script>
+	</head>
+	<body>
+		<table id="mytable" border="1">
+			<tr >
+				<td >书名</td>
+				<td >价格</td>
+			</tr>
+			<tr>
+				<td>看的见风景的房间</td>
+				<td>￥30.00</td>
+			</tr>
+			<tr id="tr">
+				<td id="A">60个瞬间</td>
+				<td>￥32.00</td>
+			</tr>
+		</table>
+		<!--1.（getElementById）得到表格对象，2.创建（insertRow()）新的行，3.在新的行对象上创建(insertCell)列，4.在列上添加(innerHTML)值-->
+		<input type="button" value="增加一行" name="b1"  onclick="add()"/>
+		<input type="button" value="删除第2行" name="b2" onclick="delete1()"/>
+		<input type="button" value="修改标题样式" name="b3" onclick="update5()"/>
+		<input type="button" value="复制最后一行" name="b4" onclick="colpy1()"/>
+	</body>
+</html>

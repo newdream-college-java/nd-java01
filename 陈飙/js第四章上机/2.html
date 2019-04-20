@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript">
+			function add(){
+				//1.首相得到table的对象
+				var tdObj=document.getElementById("mytable");
+				//2.使用方法复制新的行的对象
+				var newRow=tdObj.insertRow(1);
+				var newTd0=newRow.insertCell(0);
+				var newTd1=newRow.insertCell(1);
+				var newTd2=newRow.insertCell(2);
+				var newTd3=newRow.insertCell(3);
+				//3.使用复制好的对象。innerHTML方法=（""）;
+				newTd0.innerHTML=("抗疲劳神奇钛项圈");
+				newTd1.innerHTML=("2");
+				newTd2.innerHTML=("￥49");
+				newTd3.innerHTML=("<input type='button' onclick='delete1(this)' value='删除'>");				
+			}
+			function delete1(obj){
+				//1.首先得到table的对象onclick='delete1(this)
+				//var tdObj=document.getElementById("mytable");
+				//2.获取要删除的行的下标
+				//var index=obj.parentNode.parentNode.rowIndex;
+				//console.log(index);
+				//tdObj.deleteRow(index);
+				var ma=obj.parentNode.parentNode.remove(this)
+
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1" id="mytable">
+			<tr>
+				<td>商品名称</td>
+				<td>数量</td>
+				<td>价格</td>
+				<td>操纵</td>
+			</tr>
+			<tr>
+				<td>防滑真皮休闲鞋</td>
+				<td>12</td>
+				<td>￥560</td>
+				<td align="center"><input type="button" value="删除" 
+				onclick="delete1(this)"></td>
+			</tr>
+			<tr>
+				<td>抗疲劳神奇钛项圈</td>
+				<td>2</td>
+				<td>￥49</td>
+				<td align="center"><input type="button" value="删除"
+				onclick="delete1(this)"></td>
+			</tr>
+			<tr >
+				<td  colspan="4" align="center"><input type="button" value="增加订单" onclick="add()"></td>
+				
+			</tr>
+		</table>
+	</body>
+</html>
