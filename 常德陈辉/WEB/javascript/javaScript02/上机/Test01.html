@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var a=prompt("请输入第一个数：");
+			var b=prompt("请输入第二个数：");
+			var c=prompt("请输入运算符号：");
+			var d;
+			if(!isNaN(a)){
+				a=parseInt(a);
+			}
+			if(!isNaN(b)){
+				b=parseInt(b);
+			}
+			if(c=="+"){
+				d=a+b;
+			}else if(c=="-"){
+				d=a-b;
+			}else if(c=="*"){
+				d=a*b;
+			}else if(c=="/"){
+				d=a/b;
+			}else if(c=="%"){
+				d=a%b;
+			}
+			alert("两位数运算的结果为："+a+c+b+"="+d);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
