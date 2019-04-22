@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>第一题</title>
+	<style type="text/css">
+	body,dl,dt,dd{
+		padding: 0px;
+		margin: 0px;
+	}
+		.box{
+			background: #D2E9FF;
+			border:1px blue solid;
+			width: 163px;
+		}
+	
+
+		
+		.box dl dt{
+			padding:5px 0px;
+			padding-left: 30px;
+			border-bottom:1px black dashed;
+			background: url(title_icon.gif) 10px 9px no-repeat;
+			font-weight: bold;
+			margin-bottom: 7px;
+			color: blue;
+
+		}
+		/*这里面的dd 是同级的，不能用后代选择器*/
+		.box dl dd{
+			border:0px green solid;
+			border-bottom: 1px black dashed;
+			padding: 5px 0px;
+			padding-left:15px ;
+
+			background: url(submenu.gif) 3px 2px no-repeat;
+
+		}
+		/*要按顺序，否则就没效果 
+		1.Link 2. vistied 3. action
+		*/
+		.box dl dd a:link{
+			text-decoration: none;
+			font-color: yellow;
+			
+		}
+		.box dl dd a:visited{
+			color:black;
+		}
+		
+		.box dl dd a:hover{
+			color: red;
+		}
+		.box dl dd a:active{
+			color:yellow;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<dl>
+			<dt>课程导航
+				<dd><a href="">软件测试工程师</a></dd>
+				<dd><a href="">网络工程师</a></dd>
+				<dd><a href="">网站工程师</a></dd>
+				<dd><a href="">ANDROID工程师</a></dd>
+				<dd><a href="">JAVA软件工程师</a></dd>
+				<dd><a href="">.NET工程师</a></dd>
+				<dd style="padding-bottom: 12px">网络营销</dd>
+			</dt>
+		</dl>
+		<div class="box2"></div>
+	</div>
+
+</body>
+</html>

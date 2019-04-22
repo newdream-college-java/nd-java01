@@ -1,0 +1,277 @@
+body{
+	padding: 0px;
+	margin: 0px;
+
+}
+.clear{
+	clear: both;
+}
+.father{
+	border:1px pink solid;
+	
+}
+.father .bar  ul li a:link{
+	text-decoration: none;
+	color: white;
+}
+.father .bar  ul li a:visited{
+	text-decoration: none;
+	color: white;
+}
+.father .top1{
+	font-size: 12px;
+	font-weight: lighter;
+	
+	border: 0px black solid;
+	width:800px;
+	margin: 0px auto;
+	text-align:right;
+
+}
+.father .title{
+	
+	width:900px;
+	margin: 0px auto;
+	
+}
+.father .bar{
+	border: 0px green solid; 
+	
+	margin:0px auto;
+	width:802px;
+
+}
+.father .bar ul{
+	padding: 0px;
+	margin: 0px;
+	border: 2px black solid;
+	list-style: none;
+	
+	background-color: #033;
+}
+.father .bar ul li{
+	padding: 0px;
+	margin: 0px;
+	float: left;
+	padding: 3px 20px;
+	color: white;
+	border-right: 1px gray dashed;
+	font-size: 12px;
+}
+.father .imScrolling{
+	border: 1.5px gray solid;
+	width:800px;
+	height: 25px;
+	margin: 5px auto;
+}
+/*main开始*/
+.main{
+	
+	width:800px;
+	margin:5px auto;
+	position: relative ; 
+	right: -334px;
+	float: left;
+
+}
+.son1{
+	width:300px;
+	height: 640px;
+	margin-right: 15px;
+	float: left;
+
+
+}
+.son2{
+	width:485px;
+	height: 622px;
+	
+	margin-bottom: 8px;
+	float: left;
+
+}
+.son1 .annunce{
+	width: 300px;
+	height: 190px;
+	border: 1px black solid;
+	margin-bottom: 10px;
+	
+}
+.son1 .annunce1{
+	width: 300px;
+	height: 160px;
+	border: 1px black solid;
+	margin-bottom: 10px;
+	
+}
+.son1 .teacher{
+	width: 300px;
+	height: 255px;
+	border: 1px black solid;
+	margin-bottom: 11px;
+}
+ font{
+	background-color: gray;
+	display: block;
+	height: 25px;
+	text-indent: 8px;
+
+}
+.son2 font{
+	background-color: gray;
+	display: block;
+	height: 25px;
+	text-indent: 8px;
+
+}
+.son1,.son2 p{
+	text-indent: 30px;
+	font-size: 14px;
+	line-height: 30px;
+}
+.son1 p span{
+	display: block;
+	margin-left: 150px;
+	
+}
+.son1 .as{
+	text-align: center;
+	font-size: 14px;
+}
+.son1 p img{
+	display: block;
+	width: 180px;
+    height: 160px;
+	margin:0px auto;
+
+}
+.son1 .annunce ul li {
+	border-bottom: 1px gray dashed;
+	line-height: 27px;
+}
+.son2 .box1 {
+	height: 180px;
+	width: 443px;
+	padding: 20px;
+	border: 1px black solid;
+	margin-bottom: 17px;
+
+}
+.son2 .box11 {
+	height: 340px;
+	width: 484px;
+	
+	border: 1px black solid;
+	margin-bottom: 16px;
+
+}
+.son2 .box12 {
+	height: 180px;
+	width: 600px;
+	
+	border: 0px black solid;
+	margin-bottom: 16px;
+
+}
+.son2 .box1 .pictrue1{
+	height: 152px;
+	width: 200px;
+	border: 1px black solid;
+	float: left;
+	margin-right: 10px;
+
+}
+.son2 .box1  p{
+	margin: 0px auto;
+	
+	float: left;
+	padding-left: 10px;
+	font-size: 12px;
+	width: 219px;
+	line-height: 20px;
+}
+.son2 .box2 {
+	height: 307px;
+	padding: 20px;
+	margin-top: 15px;
+	
+
+}
+.son2 .box3{
+	margin-right: 10px;
+	width: 236px;
+	border: 1px gray solid;
+	height: 650px;
+
+	float: left;
+}
+.son2 .box3 ul{
+	padding: 0px;
+	margin: 0px;
+}
+.son2 .box3 ul li{
+	
+	padding-left: 20px;
+	border-bottom:  1px black dashed;
+	list-style: none;
+	line-height: 30px;
+
+}
+/*main结束*/
+.footbar{
+	margin: 0px auto;
+	border: 1px black solid;
+	width: 800px;
+	height: 10px;
+}
+/*foot开始*/
+.foot{
+	width: 800px;
+	margin: 0px auto;
+	border: 1px black solid;
+
+}
+.foot .footTxt{
+	padding: 10px;
+	width: 800px;
+	margin: 0px auto;
+}
+.foot .footTxt ul{
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 10px;
+}
+.foot .footTxt ul li{
+	float: left;
+	padding-left:  10px;
+	padding-right: 10px;
+	border-right:  1px black dashed;
+	list-style: none;
+	font-size: 14px;
+	line-height: 14px;
+
+}
+.hr1{
+	margin: 0px auto;
+	margin-top: 10px;
+	width: 800px;
+	height: 5px;
+	background-color: #003333;
+}
+.foot .font1{
+	width: 800px;
+	text-align:center;
+	font-size: 12px; 
+	background-color: white;
+}
+table{
+	width: 450px;
+	border:1px black solid;
+
+	
+}
+table tr td{
+	border:1px black solid;
+
+}
+/*班级简介开始*/

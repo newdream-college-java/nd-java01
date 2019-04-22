@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#fuck{
+			color:red;
+		}
+	</style>
+<script type="text/javascript">
+	function showTime(){
+		var a = new Date();
+		var year = a.getFullYear();
+		var month = a.getMonth();
+		var day = a.getDate();
+		var minutes = a.getMinutes();
+		var hours = a.getHours();
+		var seconds = a.getSeconds();
+		var b=document.getElementById("fuck");
+		b.innerHTML=year+"年"+month+"月"+day+"日";
+	}
+</script>
+</head>
+<body onload="showTime()">
+<font id="fuck"></font>
+</body>
+</html>

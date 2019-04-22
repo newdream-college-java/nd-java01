@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<script type="text/javascript">
+			function jisuan(){
+				var num1=prompt("请输入第一个数字：");
+				num1=parseInt(num1);
+				var num2=prompt("请输入第二个数字：");
+				num2=parseInt(num2);
+				var fu=prompt("请输入运算符号：");
+				var jieguo;
+				if(fu=="+"){
+					jieguo=num1+num2;
+				}
+				if(fu=="-"){
+					jieguo=num1-num2;
+				}
+				if(fu=="*"){
+					jieguo=num1*num2;
+				}
+				if(fu=="/"){
+					jieguo=num1/num2;
+				}
+				
+				alert(num1+fu+num2+"="+jieguo);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="jisuan()">计算两数运行结果</button>
+	</body>
+</html>
