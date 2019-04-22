@@ -1,0 +1,49 @@
+一、连接mysql服务器的方式
+	方式一：使用mysql自带的客户端
+	方式二：命令提示符
+	方式三：使用第三方客户端   navicat for mysql
+二：用户操作
+	1、创建用户
+		create user '用户名'@‘地址’identified by '密码'；
+	2、使用该用户去登陆mysql数据
+		mysql -u 用户名 -p
+		输入密码
+		注意：默认创建的新用户是没有任何的权限。
+		查看新建的用户权限：show grants;
+	3、授权（root）
+		3.1 用root登陆mysql
+		3.2 执行
+			grant all privileges on *.* to '用户名'@‘地址’identified by '密码'  with grant option;
+		3.3 使用新用户登陆
+			mysql -u 用户名 -p
+			输入密码		
+		3.4  查看详细的权限：
+			show privileges\G
+		3.5  查询权限：
+			show grants;
+		3.6   刷新权限：
+			flush privileges  
+	4、删除用户 : 
+		drop user'用户名'@'IP地址';
+	5、修改用户：rename user '原来用户名'@'localhost'to '新用户名'@'IP地址'
+	6、修改用户密码：set password for 'hgzs'@'localhost'=password(新密码)
+	7、移除用户权限：
+		revoke update on *.* from '用户名'@ 'localhost'；
+		show grants;(没问题) ------查询权限
+		(show privileges\G)(有问题)------查询权限
+	8、修改权限	
+		update user set host='%' where user='root'
+	9、修改host远程访问------本质就是该host为'%'
+		方式一：
+			grant all priveileges on *.* to '用户名'@'%' identified by '密码';
+		方式二：
+			use mysql
+			update user set host ='%' where user='用户名';
+	10修改MySQL数据存放的目录
+		10.1查看MySQL数据库存放路径
+			show variables like 'datadir';
+		10.2查看my.ini配置文件位置
+			select @@basedir；
+		10.3打开my.ini文件，搜索datadir= 找到后修改为需要改的路径
+		10.4找到原存放数据位置，将里面所有文件复制到新路径
+		10.5重启服务器
