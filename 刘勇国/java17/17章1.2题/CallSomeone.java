@@ -1,6 +1,0 @@
-package 第17章接口手机1_2作业;
-
-public interface CallSomeone {
-	//打电话
-	void callSomeone();
-}
