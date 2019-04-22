@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript">
+		prompt("请输入行的数","9");
+		var kg=9;
+		for(var i=0;i<9;i++){
+			/*前面4行空格 后面第5行不空格，第六行开始空格*/
+			if(i<5){
+				for(var k=0;k<kg-4;k++){
+				document.write("&nbsp;&nbsp;&nbsp;");
+				}
+
+				for(var j=0;j<i+1;j++){
+				document.write("*"+"&nbsp;&nbsp;&nbsp;&nbsp;");
+				}
+				
+			
+			}else{
+				/*此时的kg=4*/
+				/*因为前面有运行了5次 所以加5 ，又因为是 第六行开始加星的，所以第六行开始就有空格，因此K有等于号*/
+				for(var k=9;k>=kg+4;k--){
+				document.write("&nbsp;&nbsp;&nbsp;");
+				}
+			
+				for(var h=9;h>i;h--){
+				document.write("*"+"&nbsp;&nbsp;&nbsp;&nbsp;");
+				}
+			}
+			document.write("</br>");
+			kg-=1;
+			
+			
+		}
+		
+		/*for(var k=5;k>=kg;k--){
+			document.write("&nbsp;&nbsp;");
+		}*/
+		</script>
+	</head>
+	<body></body>
+</html>

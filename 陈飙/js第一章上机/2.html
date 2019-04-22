@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript">
+		var p=prompt("请输入打印的行数：")
+		var h=p;
+		for(var i=0;i<p;i++){
+			for(var k=0;k<h;k++){
+				document.write("&nbsp;&nbsp;&nbsp");
+			}
+			for( var j=0;j<i+1;j++){
+				document.write("*"+"&nbsp;&nbsp;&nbsp;&nbsp");
+			}
+			document.write("</br>")
+			h=h-1;
+		}
+		</script>
+	</head>
+	<body></body>
+</html>
