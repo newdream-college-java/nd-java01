@@ -1,0 +1,12 @@
+在类Teacher2里面：
+
+public void Teacher2(String name){
+	
+	
+}
+
+这里的Teacher2方法因为设置了返回值类型void，那么显然它就不会是构造方法。
+
+那么在之后的TeacherTest测试类里面，在new Teacher2类的的对象的时候，再用
+
+有参构造方法特有的调用传值得方式去给name传值就行不通了。
