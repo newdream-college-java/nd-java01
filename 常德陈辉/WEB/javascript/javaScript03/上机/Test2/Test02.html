@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ol .a{
+				list-style-image: url(images/fclose.gif);
+			}
+			ol ol li{
+				list-style-image: url(images/doc.gif);
+
+			}
+		</style>
+		<script type="text/javascript">
+			function wen(){
+				var a=document.getElementById("wenXue");
+				if(a.style.display=="none"){
+					a.style.display="block";
+				}else{
+					a.style.display="none";
+					
+				}
+			}
+			function tie(){
+				var a=document.getElementById("tieTu");
+				if(a.style.display=="block"){
+					a.style.display="none";
+				}else{
+					a.style.display="block";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p><img src="images/fold.gif"/>树形菜单：</p>
+		<ol>
+				<li class="a" onclick="wen()">文学艺术</li>
+				<ol id="wenXue">
+					<li>先锋写作</li>
+					<li>小说散文</li>
+					<li>诗风调韵</li>
+				</ol>
+				<li  class="a" onclick="tie()">贴图专区</li>
+				<ol id="tieTu">
+					<li>真我风云</li>
+					<li>视屏贴图</li>
+					<li>行行摄摄</li>
+					<li>Flash贴图</li>
+				</ol>	
+		</ol>
+	</body>
+</html>
