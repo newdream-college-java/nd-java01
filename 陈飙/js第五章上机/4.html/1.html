@@ -1,0 +1,43 @@
+<html>
+<!--使用css和js交互-->
+<!--css里面写边框的颜色--className 的样式也写在这里面>
+<!--js里面写鼠标移动到图片上得方法-->
+<!--用到onload方法只加载一次写在body里面-->
+	<head>
+		<title>使用className改变图片样式</title>
+		<style type="text/css">
+			img{
+				margin-left:200px;
+				border:#666666 1px solid;
+			}
+			.over{
+				border:orange 1px solid;
+			}
+			.outer{
+				border:#666666 1px solid;
+			}
+		</style>
+		<script type="text/javascript">
+			function initMouseEvent(){
+				//1.获取img标签对象
+				var imgObjs=document.getElementsByTagName("img");
+				//2.因为不确定是点击的那个，而且每个也必须点，所以使用循环标签。
+				for(var i=0;i<imgObjs.length;i++){
+				//3. 为每个标签添加事件onmouseover鼠标移动到标签上得事件
+				//重点。this.className="样式里面定义的类名"；
+					imgObjs[i].onmouseover=function(){
+						this.className="over";
+					}
+					imgObjs[i].onmouseout=function(){
+						this.className="outer";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body onload="initMouseEvent()">
+		<img src="new_01.jpg"/>
+		<img src="new_02.jpg"/>
+		<img src="new_03.jpg"/>
+	</body>
+</html>

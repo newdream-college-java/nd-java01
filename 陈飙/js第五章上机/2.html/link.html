@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>使用className改变样式</title>
+<style type="text/css">
+#left{
+	background-image: url(images/left.jpg);
+	background-repeat: no-repeat;
+	height:32px;
+	width:10px;
+	}
+ul{
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	list-style:none;
+}
+li{	background-image: url(images/bg1.jpg);
+	background-repeat: no-repeat;
+	height:32px;
+	width:83px;
+	text-align:center;
+	line-height:35px;
+	font-size:14px;
+	color:white;
+	font-weight:bold;
+	float:left;
+	}
+	.over{
+		background-image:url(images/bg2.jpg);
+		color:black;
+	}
+	.outer{
+		background-image:url(images/bg1.jpg)
+		
+	}	
+
+</style>
+<script type="text/javascript">
+	
+	function initMouseEvent(){
+		//的道要改变的元素(li）的对象
+		var liObjs = document.getElementsByTagName("li");
+		//写onmouseover（鼠标进入）和onmouseout（鼠标离开）
+		//然后使用得到的对象。事件=function()函数（方法）调用样式变换背景this.className="样式名"；
+		for(var i=0;i<liObjs.length;i++){
+			liObjs[i].onmouseover=function(){
+				this.className="over";
+			}
+			liObjs[i].onmouseout=function(){
+				this.className="outer";
+
+			}
+		}
+
+	}
+
+</script>
+</head>
+
+<body onload="initMouseEvent()">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   
+<tr>
+    <td colspan="3"><img src="images/top.jpg" alt="logo"/></td>
+  </tr>
+  <tr>
+  <td id="left"></td>
+  <td style="width:664px;">
+  <ul>
+    <li>首 页</li>
+    <li>家用电器</li>
+    <li>手机数码</li>
+    <li>日用百货</li>
+    <li>书 籍</li>
+    <li>帮助中心</li>
+    <li>免费开店</li>
+    <li>全球咨询</li>
+    </ul>
+    </td>
+    <td><img src="images/search.jpg" alt="搜索" /></td>
+  </tr>
+</table>
+
+</body>
+</html>

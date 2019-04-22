@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--此处是是的浏览器兼容-->
+<html>
+	<head>
+		<title>图片滚动</title>
+		<style type="text/css">
+			
+			#close{
+				position:absolute;
+				left:153px;
+				top:297px;
+			}
+		</style>
+		<script type="text/javascript">
+			
+			var clObj;
+			var clinitTop;
+			var clinitLeft;
+			//1).首先要获得图片开始的位置
+			//2.即在页面加载的时候，所以在body主题里面也onload方法
+			function initValue(){
+				//3.得到图片的对象。
+				
+				clObj=document.getElementById("close");
+				//4.获取图片距离顶部和左边的距离使用currentStyle方法（支持IE浏览器）
+				//或者getComputedStyle()--支持火狐 ，谷歌浏览器。
+				//先判断下是支持哪个方法新为（document.currentStyle.top）可能获得的是像素带px单位。
+				//所以用到parseInt方法获取数组值。
+				if(clObj.currentStyle){
+					
+
+					clinitTop=parseInt(document.currentStyle.top);
+					clinitLeft=parseInt(document.currentStyle.left);
+				}else{
+					
+
+
+					clinitTop=parseInt(document.defaultView.getComputedStyle(clObj,null).top);
+
+					clinitLeft=parseInt(document.defaultView.getComputedStyle(clObj,null).left);
+				}
+				//打印下
+				
+				console.log("top======"+clinitTop+"\nleft======"+clinitLeft);
+			
+			}
+			//2获得滚动后的距离
+			//2.1当页面滚动的时候，广告图片的top=初始top+滚动的距离
+			//2.2得到滚动的距离是用scrollTop属性和scrollLeft属性；
+			function move(){
+				//打印内容的宽和高
+				console.log("width==="+document.documentElement.clientWidth);
+				console.log("height==="+document.documentElement.clientHeight);
+			//2.3得到新的Top 和left
+				
+
+				var newclTop=(parseInt(document.documentElement.scrollTop)+clinitTop)+"px";
+				var newclLeft=(parseInt(document.documentElement.scrollLeft)+clinitLeft)+"px";
+			
+				if(clObj.currentStyle){
+					document.currentStyle.top=newclTop;
+					document.currentSytle.left=newclLeft;
+				}else{
+					clObj.style.left=newclLeft;
+					clObj.style.top=newclTop;
+				}
+
+			}
+			
+			
+		//2.4把move方法放用在window.onscroll
+		window.onscroll=move;
+		//
+		</script>
+	</head>
+	<body onload="initValue()">
+		<div id="adver"><img src="advpic.jpg"/></div>
+		<div id="close"><input type="image" src="close.jpg" onclick="closeph()"></div>
+		<div id="main"><img src="contentpic.jpg"/></div>
+	</body>
+</html>
