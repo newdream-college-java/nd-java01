@@ -1,0 +1,58 @@
+一、链接mysql服务器的方式
+	方式一：使用mysql自带的客户端
+	方式二：命令提示符
+	方式三：使用第3方客户端 navicat for mysql
+二、用户操作
+	1，创建用户
+		create user ‘用户名’@‘地址’identified by ‘密码’；
+		如：
+		create user ‘chen’@‘127.0.0.1’identified by ‘hui’；
+		注意：地址写127.0.0.1或者localhost表示本机地址（回环地址），但是如果我们连接的		不是本机mysql数据库服务器，那么就要写服务器的IP地址。
+	2，使用该用户登录mysql数据
+		mysql -u 用户名 -p
+		输入密码
+		如：mysql -u chen -p
+		hui
+		注意：默认创建的新用户是没有任何权限。
+		查看新建的用户的权限；show grants；
+		【退出登录】exit；
+	3，授权（root---管理员 拥有最高权限）
+		3.1用root登录mysql
+		3.2执行
+			grant all privileges on *.* ‘用户地址’@‘ip地址’ identified by ‘密			码’ with grant option；
+			
+			flush privileges；//刷新权限
+		3.3使用新用户登录
+			mysql -u 用户名 -p
+			输入密码
+			show grants；//	查询当前用户的权限
+		3.4查看详细的权限；
+			show privileges\G；
+	4，删除用户
+		drop user ‘用户名’@‘ip地址’；
+	5，改名
+		rename user ‘原来用户名’@‘ip地址’ to ‘新用户名’@‘IP地址’；
+	6，改密码
+		set password ‘用户名’@‘ip地址’=password（‘新密码’）；
+	7，移出用户权限
+		revoke update on *.* from ‘用户名’@“IP地址”；
+		移除用户的update权限。
+		show grants；（没问题）
+		show privileges\G;（有问题）
+	8，修改host远程访问---本质就是该host为‘%’
+		方式一；
+			grant all privileges on *.* to ‘chen’@‘%’ identified by ‘hui’；
+		远程连接；mysql -h ip地址 -P 3306 -u 用户名 -p
+		输入密码
+		方式二：
+			use mysql;
+			update user set host=‘%’ where user=‘用户名’；
+	9，修改mysql数据库存放目录
+		查看mysql数据库数据存放路径
+			show variables like ‘datadir’；
+		查看my.ini配置文件的位置
+			select @@basedir；
+		打开my.ini文件，搜索datadir= 找到后修改为需要改的路径
+
+		修改完后需要重启服务器
+		
