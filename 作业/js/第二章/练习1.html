@@ -1,0 +1,57 @@
+<!-- 单击页面的按钮时，调用函数，使用prompt()方法提示输入两个变量的值和一个
+运算符，最后计算结果 -->
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<script type="text/javascript">
+				// 加
+				function add(a,b){
+					return a+b;
+				}
+				// 减
+				function sub(a,b){
+					return a-b;
+				}
+				//乘
+				function mul(a,b){
+					return a*b;
+				}
+				//除
+				function div(a,b){
+					return a/b;
+				}
+				// 提示输入第一个数
+				var num1=prompt("请输入第一个数","3");
+				//提示输入操作符
+				var option=prompt("请输入操作符","+");
+				//提示输入第二个数
+				var num2=prompt("请输入第二个数","5")
+				//判断输入的是不是字符串数字
+				if(!isNaN(num1)){
+					num1=parseFloat(num1);
+				}
+				if(!isNaN(num2)){
+					num2=parseFloat(num2);
+				}
+				//判断操作符
+				//计算弹出输出
+				if(option=="+"){
+					alert("两数运算结果为："+add(num1,num2));
+				}else if(option=="-"){
+					alert("两数运算结果为："+sub(num1,num2));
+				}else if(option=="*"){
+					alert("两数运算结果为："+mul(num1,num2));
+				}else if(option=="/"){
+					alert("两数运算结果为："+div(num1,num2));
+				}else{
+					alert("操作符只能输入+-*/")
+				}
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
