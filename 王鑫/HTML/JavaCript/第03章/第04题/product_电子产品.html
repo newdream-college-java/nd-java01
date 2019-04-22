@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//全选和取消全选
+			function chickAll(){
+				//获取全选按钮的id
+				var allchick = document.getElementById("box");
+				//获取下面复选按钮
+				var	chicks = document.getElementsByName("an");
+				//标记法，判断是否中间存在异类
+				var flag = false;
+				if (allchick.checked==true) {
+					for (var i = 0 ; i < chicks.length ; i++) {
+						chicks[i].checked = true;
+					}
+				}else{
+					for (var i = 0 ; i < chicks.length ; i++) {
+						chicks[i].checked = false;
+					}
+				}
+			}
+			//设置下面4个按钮只要有有4个相同就会把
+			function chickDemo(){
+				//获取全选按钮的id
+				var allchick = document.getElementById("box");
+				//获取下面复选按钮
+				var	chicks = document.getElementsByName("an");
+				//累加器判断4个是否都相同
+				var flag = 0;
+				for (var i = 0 ; i < chicks.length-1 ; i++) {
+					if(chicks[i].checked == chicks[i+1].checked&&chicks[i+1].checked==true){
+						flag++;
+					}else{
+						break;
+					}
+				}
+				allchick.checked = flag==3?true:false;
+			}
+		</script>
+		<style type="text/css">
+			.bg{
+					background-image: url(../img/images4/list_bg.gif);
+					background-repeat: no-repeat;
+					width: 730px;
+				}
+			td{text-align:center;
+			font-size:13px;
+			line-height:25px;
+			}
+			body{margin:0}
+		</style>
+		<!--<style type="text/css">
+			.box{
+				background: url(../img/images4/list_bg.gif);
+				background-repeat: no-repeat;
+				height: 600px;
+				width: 750px;
+			}
+		</style>-->
+	</head>
+	<body>
+	<body>
+		<table border="0" cellspacing="0" cellpadding="0" class="bg">
+			<form action="" method="post">
+				<tr>
+					<td style="height:40px;">&nbsp;</td>
+		    		<td>&nbsp;</td>
+				    <td>&nbsp;</td>
+				    <td>&nbsp;</td>
+		 		</tr>
+		 		<tr style="font-weight:bold;">
+				  	<td><input type="checkbox" onclick="chickAll()" id="box"/>全选</td>
+				    <td>商品图片</td>
+				    <td>商品名称/出售者/联系方式</td>
+				    <td>价格</td>
+				</tr>
+				<tr>
+					<td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+		    	</tr>
+		  
+		 		<tr>
+		    		<td><input type="checkbox" onclick="chickDemo()" name="an" value="1" /></td>
+		   			<td><img src="../img/images4/list0.jpg" alt="alt" /></td>
+				    <td>杜比环绕，家庭影院必备，超真实享受<br />
+				    出售者：ling112233<br />
+				    <img src="../img/images4/online_pic.gif" alt="alt" /> &nbsp;&nbsp;
+					<img src="../img/images4/list_tool_fav1.gif" alt="alt" /> 收藏</td>
+				    <td>一口价<br />
+				    2833.0 </td>
+				</tr>
+		  		<tr>
+					<td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+		    	</tr>
+		  		<tr>
+				    <td><input type="checkbox" onclick="chickDemo()" name="an" value="2" /></td>
+				    <td><img src="../img/images4/list1.jpg" alt="alt" /></td>
+				    <td>NVDIA 9999GT 512MB 256bit极品显卡，不容错过<br />
+					出售者：aipiaopiao110 <br />
+				    <img src="../img/images4/online_pic.gif" alt="alt" /> &nbsp;&nbsp;
+					<img src="../img/images4/list_tool_fav1.gif" alt="alt" /> 收藏</td>
+				    <td>一口价<br />
+				    6464.0 </td>
+				</tr>
+		  		<tr>
+					<td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+		    	</tr>
+		  		<tr>
+		    		<td><input type="checkbox" onclick="chickDemo()" name="an" value="3" /></td>
+		    		<td><img src="../img/images4/list2.jpg" alt="alt" /></td>
+		   			<td>精品热卖：高清晰，30寸等离子电视<br />
+		      		出售者：阳光的挣扎 <br />
+				    <img src="../img/images4/online_pic.gif" alt="alt" /> &nbsp;&nbsp;
+					<img src="../img/images4/list_tool_fav1.gif" alt="alt" /> 收藏</td>
+		   			<td>一口价<br />
+		   			18888.0 </td>
+		  		</tr>
+		  		<tr>
+					<td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+		    	</tr>
+		   		<tr>
+		    		<td><input type="checkbox" onclick="chickDemo()" name="an" value="4" /></td>
+		    		<td><img src="../img/images4/list3.jpg" alt="alt" /></td>
+		    		<td>Sony索尼家用最新款笔记本 <br />
+		      		出售者：疯狂的镜无<br />
+				    <img src="../img/images4/online_pic.gif" alt="alt" /> &nbsp;&nbsp;
+					<img src="../img/images4/list_tool_fav1.gif" alt="alt" /> 收藏</td>
+		    		<td>一口价<br />
+		     		5889.0 </td>
+		  		</tr>
+		  		<tr>
+					<td colspan="4"><hr style="border:1px  #CCCCCC dashed" /></td>
+		    	</tr>
+		    </form>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function deleteRow(obj){
+				obj.remove();
+			}
+			function arow(){
+				//获取表格对象中的插入的位置
+				var tabObj = document.getElementById("myTable");
+				var newrow = tabObj.rows[1].cloneNode(true);
+				tabObj.appendChild(newrow);
+			}
+		</script>
+	</head>
+	<body>
+		<table id="myTable" border="1"> 
+			<tr>
+				<td>商品名称</td>
+				<td>数量</td>
+				<td>价格</td>
+				<td>操作</td>
+			</tr> 
+			<tr id="b1">
+				<td>防滑真皮休闲鞋</td>
+				<td>12</td>
+				<td>&yen;568.50</td>
+				<td><input type="button" value="删除" onclick="deleteRow(b1)" /> </td>
+			</tr>
+			<tr id="b2">
+				<td>抗疲劳神奇钛项圈</td>
+				<td>2</td>
+				<td>&yen;49.00</td>
+				<td><input type="button" value="删除" onclick="deleteRow(b2)" /> </td>
+			</tr> 
+			<tr>
+				<td colspan="4" align="center">
+					<input type="button" value="增加订单" onclick="arow()"/>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
