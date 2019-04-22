@@ -1,0 +1,24 @@
+<html>
+<!--遇到NaN问题 没有给ou复制=0-->
+	<head>
+		
+		<title></title>
+		<script type="text/javascript">
+		var ou=0;
+		//var p;
+		var ol=0;
+		for(var i=0;i<5;i++){
+			var p=prompt("请输入"+(i+1)+"个数");
+			
+			if(p%2==0){
+				ou=ou+1;
+			}else{
+				ol=ol+1;
+			}
+			
+		}
+		document.write("奇数："+ol+"偶数："+ou);
+		</script>
+	</head>
+	<body></body>
+</html>

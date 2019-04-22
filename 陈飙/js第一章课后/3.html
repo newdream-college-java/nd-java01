@@ -1,0 +1,20 @@
+<html>
+<!--遇到问题就是不会排列-->
+<!--把数列写出来 然后每项指定变量 这样使得定义那个变量就清晰-->
+	<head>
+		<title>斐波拉耶契数列</title>
+		<script type="text/javascript">
+			var a=1;
+			var b=1;
+			count=2;
+			document.write(a+" "+b);
+			for(var i=3;i<=10;i++){
+				count=a+b;
+				a=b;
+				b=count;
+				document.write(" "+count);
+			}
+		</script>
+	</head>
+	<body></body>
+</html>
