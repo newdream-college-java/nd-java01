@@ -1,0 +1,58 @@
+
+1.创建数据库
+create database j01
+2.使用数据库
+use j01
+3.在这个库里创建表
+create table StudentInfo(
+	StuID int PRIMARY KEY not null comment '本条记录编号',
+	Stuint VARCHAR(10) not null COMMENT '学员学号',
+	StuName varchar(32) not null comment '学员姓名',
+	StuAge int comment '学员年龄，必须在16-35岁之间',
+	StuSex varchar(2) default'男' not null comment '学员性别，默认为男，取值范围在男或女之间',
+	StuCard varchar(20) comment '学员身份证号码',
+	StuJoinTime Date not null comment '学员入学时间',
+	StuAddress varchar(50) comment '学员家庭地址',
+	SClassId int comment '学员所在班级ID，外键，引用CLassInfo表的主键CLassID'
+)
+	我这里没搞自增长所以先删除
+alter table StudentInfo drop StuID
+  再添加（不知道字段如何修改他的自增长）
+alter table StudentInfo add StuID int auto_increment PRIMARY KEY not null comment '本条记录编号'
+select * from StudentInfo
+	现在添加数据
+desc StudentInfo
+insert into StudentInfo VALUES('001','火云邪神',18,'男','430105198905022032','2007-3-1','长沙市开福区',null,null)
+insert into StudentInfo VALUES('002','东方不败',20,'男','430104198703012011','2007-3-10','湖南湘潭',null,null)
+insert into StudentInfo VALUES('003','小李飞车',18,'男','420106198912064044','2007-3-2','广东佛山',null,null)
+insert into StudentInfo VALUES('004','樱桃肉丸子',18,'女','420106198908061085','2007-3-6','长沙市岳麓区',null,null)
+
+
+	添加班级信息表
+	create table ClassInfo(
+	ClassID int not null comment '本条记录编号',
+	Classint varchar(20) not null comment '班级编号（名称）',
+	CTeacherID int not null COMMENT '班主任ID，外键，引用TeacherInfo表的主键TeacherID',
+	ClassGrade varchar(2) not null default 'S1' COMMENT '班级所在年级，默认为S1，取值范围为S1，S2，Y2之间'
+)
+忘记设置主键了
+	alter table ClassInfo drop ClassID
+alter table ClassInfo add ClassID int not null PRIMARY KEY comment '本条记录编号'
+	create table TeacherInfo(
+	TecacherId int not null comment '本条记录编号',
+	TeacherName varchar(20) not null comment'班主任姓名'
+		
+)
+alter table TeacherInfo drop TecacherId
+alter table TeacherInfo add TecacherId int PRIMARY KEY not null comment '本条记录编号'
+添加TeacherInfo字段
+desc TeacherInfo
+alter table TeacherInfo add TeacherEmail varchar(20) comment'班主任邮箱，邮箱必须包括@符号'
+
+添加TeacherInfo表中的信息
+desc TeacherInfo
+insert into TeacherInfo VALUES('唐三藏',1,'13907311119','tsz@yahoo.com')
+insert into TeacherInfo VALUES('擎天柱',2,'13907315200','qtz@yahoo.com')
+
+desc ClassInfo
+insert into ClassInfo VALUES('火云邪神,小李飞车','')
