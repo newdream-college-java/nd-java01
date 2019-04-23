@@ -1,5 +1,0 @@
-1) C  Map是键值对保存数据的
-2）A/D 使用了addFirst方法，应该是LinkedList
-3）A/D 因为B和C是错的
-4）B  存在数组越界异常
-5）C  正常运行为1
