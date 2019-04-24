@@ -1,0 +1,30 @@
+create database j01
+drop database j01
+use j01
+create table Student_InFo(
+StuID int primary key auto_increment comment '本条记录编号',
+Stuint varchar(10) not null comment '学员学号',
+StuName varchar(32) not null comment '学员姓名',
+StuAge int comment '学院年龄，必须在16-35岁之间',
+StuSex varchar(2) not null comment '学员性别，默认为男，取值范围在’男‘或‘女’之间',
+StuCard varchar(20) comment '学员身份证号码',
+StuJoinTime date not null comment '学员入学时间',
+StuAddress varchar(50)  comment '学员家庭地址',
+SClasssID int comment '学员所在班级ID，外键，引用ClassInFo表的主键ClassID'
+)
+create table Student_dd(
+StuID int primary key auto_increment comment '本条记录编号',
+Stuint varchar(10) not null comment '学员学号',
+StuName varchar(32) not null comment '学员姓名',
+StuAge int comment '学院年龄，必须在16-35岁之间',
+StuSex varchar(2) not null comment '学员性别，默认为男，取值范围在’男‘或‘女’之间',
+StuCard varchar(20) comment '学员身份证号码',
+StuJoinTime date not null comment '学员入学时间',
+StuAddress varchar(50)  comment '学员家庭地址',
+SClasssID int comment '学员所在班级ID，外键，引用ClassInFo表的主键ClassID'
+)
+
+insert into student_info values(null,'001','火云邪神',18,'男','430105198905022232','2007-3-1','长沙市开福区',NULL);
+SELECT * from student_info
+desc student_info
+truncate student_info
