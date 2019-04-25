@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript">
+			function show(){
+				var num1=prompt("请输入第一个数");
+				var num2=prompt("请输入第二个数");
+				var num3=prompt("请输入运算符");
+				if(!isNaN(num1)){
+					num1=parseInt(num1);
+				}
+				if(!isNaN(num2)){
+					num2=parseInt(num2);
+				}
+			
+				if(num3=="+"){
+					alert("运算结果为："+(num1+num2));
+				}else if(num3=="-"){
+					alert("运算结果为："+(num1-num2));
+				}else if(num3=="*"){
+					alert("运算结果为："+(num1*num2));
+				}else if(num3=="/"){
+					alert("运算结果为："+(num1/num2));
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button  onclick="show()">计算两数运算结果</button>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript">
+			function windowOp(){
+				window.open("2.html","window1","width=300,height=450,location=no,toolbar=no,menubar=no");
+			}
+			function windowOpen(){
+				confirm("您本次购买的商品信息如下："+"\n\n"+"商品名称：诺基亚N95；"+"\n"+"商品数量：1件；"+"\n"+"商品单价：2200；"+"\n"+"运费：20元；"+"\n\n"+"费用总计2400元；"+"\n"+"请确认以上信息是否有误！！！");
+				alert("你的订单已提交");
+			}
+			function windowOpen1(){
+				window.open("3.html","",fullscreen="yes");
+			}
+		</script>
+	</head>
+	<body onload="windowOp()">
+		<table align="center" border="1"   width="500px" height="20px">
+			<tr>
+				<td colspan="5" style="text-align: center;">简易购物车</td>
+			</tr>
+			<tr>
+				<td style="text-align: center;">商品名称</td>
+				<td style="text-align: center;">数量</td>
+				<td style="text-align: center;">单价</td>
+				<td style="text-align: center;">运费</td>
+				<td style="text-align: center;">合计</td>
+			</tr>
+			<tr>
+				<td style="text-align: center;">诺基亚N95</td>
+				<td style="text-align: center;">1</td>
+				<td style="text-align: center;">2200</td>
+				<td style="text-align: center;">20</td>
+				<td style="text-align: center;">2400</td>
+			</tr>
+			<tr>
+				<td colspan="5" style="text-align: center;">
+					<button  onclick="windowOpen()">提交订单</button>&nbsp;&nbsp;&nbsp;
+					<button onclick="windowOpen1()">全屏显示</button>
+				</td>
+			</tr>
+		</table>	
+	</body>
+</html>
