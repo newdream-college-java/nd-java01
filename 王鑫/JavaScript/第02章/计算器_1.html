@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function fun(){
+				var a = parseInt(prompt("请输入第一个数"));
+				var fuhao = prompt("请输入符号");
+				var b = parseInt(prompt("请输入第二个数"));
+				if(fuhao=="+"){
+					alert("提示："+a+"+"+b+"="+(a+b));
+				}else if(fuhao=="-"){
+					alert("提示："+a+"-"+b+"="+(a-b));
+				}else if(fuhao=="*"){
+					alerte("提示："+a+"*"+b+"="+(a*b));
+				}else if(fuhao=="/"){
+					alert("提示："+a+"/"+b+"="+(a/b));
+				}else if(fuhao=="%"){
+					alert("提示："+a+"÷"+b+"="+(a%b));
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="fun()">计算两数运算结果</button>
+	</body>
+</html>
