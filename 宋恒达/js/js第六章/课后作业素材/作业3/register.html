@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>泡泡网注册页面</title>
+<style type="text/css">
+*{padding:0; margin:0;}
+body{
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	font-size:12px;
+	line-height:30px;
+}
+.center{
+	float:none;
+	width: 763px;
+	clear:both;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	border-left:solid 1px #cacaca;
+	border-right:solid 1px #cacaca;
+}
+.inputs {
+	border: 1px solid #333;
+	width:120px;
+	float:left;
+}
+.left{width:200px;
+text-align:right;
+padding-right:5px;
+}
+.red{
+	color:#ff0000;
+	padding-left:10px;
+	font-size:12px;
+	}
+</style>
+
+</head>
+
+<body>
+<div class="center"><img src="images/header.jpg" /></div>
+<div class="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form action="success.html" method="post" name="myform">
+  <tr>
+    <td class="left">用户名：</td>
+    <td><input id="user" type="text"  class="inputs"/>
+      <div id="userId" class="red"></div></td>
+  </tr>
+  <tr>
+    <td class="left">密码：</td>
+    <td><input id="pwd" type="password"  class="inputs"/><div id="pwdId" class="red"></div></td>
+  </tr>
+  <tr>
+    <td class="left">性别：</td>
+    <td><div style="float:left;"><input name="sex" type="radio" value="男" />男 <input name="sex" type="radio" value="女" />女</div>
+    <div id="sexId" class="red"></div></td>
+  </tr>
+  <tr>
+    <td class="left">出生日期：</td>
+    <td><input id="birth" type="text"  class="inputs"/><div id="birthId" class="red"></div></td>
+  </tr>
+  <tr>
+    <td class="left">电子邮箱地址：</td>
+    <td><input id="email" type="text"  class="inputs"/><div id="emailId" class="red"></div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input name="btn" type="submit" value="注册" /> <input name="cancel" type="reset" value="清除" /></td>
+  </tr>
+  </form>  
+</table>
+</div>
+<div class="center"><img src="images/footer.jpg" /></div>
+</body>
+</html>
