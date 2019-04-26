@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.ab{
+			background: url("contentpic.jpg") no-repeat;
+			text-align: center;
+			width: 993px;
+			height: 1799px;
+		}
+		.tc{
+			background: url("advpic.jpg") no-repeat;
+			width:117px;
+			height:150px;
+			position: right;	
+			padding: 0px;
+
+		}
+		img{
+			float: right;
+			padding: 0px;
+			margin: 0px;
+		}
+	</style>
+	<script type="text/javascript">
+		function clos(){
+			var closd=document.getElementById("closd").parentNode;
+			closd.style.display="none";
+		}
+	</script>
+</head>
+<body  class="ab">
+	<div class="tc"  onclick="clos()">
+		<img src="close.jpg" id="closd">
+	</div>
+</body>
+</html>

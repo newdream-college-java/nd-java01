@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div{
+			float: left;
+			margin: 20px;
+		}
+	</style>
+	<style type="text/css">
+		.bs{
+			border: 1px #666 solid;
+		}
+		.te{
+			border: 1px orange solid;
+		}
+	</style>
+	<script type="text/javascript">
+		function xr(obj){
+			obj.className="te"
+		}
+		function c(obj){
+			obj.className="bs"
+		}
+	</script>
+</head>
+<body>
+	<div onmouseover="xr(this)" onmouseout="c(this)"><img src="new_01.jpg"></div>
+	<div onmouseover="xr(this)" onmouseout="c(this)"><img src="new_02.jpg"></div>
+	<div onmouseover="xr(this)" onmouseout="c(this)"><img src="new_03.jpg"></div>
+</body>
+</html>
