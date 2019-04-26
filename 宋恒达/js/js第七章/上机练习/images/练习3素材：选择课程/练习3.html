@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>选择课程</title>
+
+</script>
+</head>
+
+<body onload="init()">
+<form name="myform" id="myform">
+
+  <table border="0"  align="center" >
+    <tr>
+      <td colspan="2" align="center">考 试 申 请</td>
+    </tr>
+    <tr>
+      <td>学期</td>
+      <td><select id="selTerm" onchange="change()">
+        <option>--请选择学期--</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>课程</td>
+      <td><select id="selCourse"   >
+        <option>--请选择对应学期的课程--</option>
+      </select></td>
+    </tr>
+  </table>
+</form>
+<script type="text/javascript">
+   var lessonList=new Array();
+      lessonList["第一学期"]=['HTML','Java','SqlServer基础','C#'];
+      lessonList["第二学期"]=["structs","ASP .Net","Ajax","Spring","Hibernate"];
+      lessonList["第三学期"]=["JavaScript","SqlServer高级",".Net","ASP"];
+      function init(){
+        var selTerm=document.getElementById("selTerm");
+        for (var key in lessonList) {
+          selTerm.add(new Option(key,key));
+        }
+      }
+      function change(){
+        var selTermIndex=document.getElementById("selTerm").value;
+        var lessons=lessonList[selTermIndex];
+        var lesson=document.getElementById("selCourse");
+        for(var i=0;i<lessons.length;i++){
+          lesson.add(new Option(lessons[i],lessons[i]))
+        }
+      }
+</script>
+</body>
+</html>
