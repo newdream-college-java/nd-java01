@@ -1,0 +1,30 @@
+#BraPanel {
+	FONT-SIZE: 14px; BACKGROUND: url(../../images/portal_bg.jpg) no-repeat 0pt 50%; MARGIN: -9px 0px 0px; WIDTH: 180px; HEIGHT: 285px
+}
+.glowingtabs {
+	FLOAT: left; WIDTH: 180px; HEIGHT: 50px
+}
+.glowingtabs IMG {
+	BORDER-TOP-WIDTH: 0px; MARGIN-TOP: 5px; PADDING-LEFT: 4px; BORDER-LEFT-WIDTH: 0px; FLOAT: left; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.glowingtabs UL {
+	PADDING-RIGHT: 0px; MARGIN-TOP: 5px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 5px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.glowingtabs LI {
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.tabcontainer {
+	PADDING-BOTTOM: 5px; WIDTH: 180px; PADDING-TOP: 2px; HEIGHT: 165px
+}
+.tabcontent1 {
+	DISPLAY: none; MARGIN-LEFT: 8px
+}
+.tabcontent2 {
+	DISPLAY: none; MARGIN-LEFT: 8px
+}
+#tab_foot {
+	MARGIN: 0px -5px 5px 4px; WIDTH: 180px; HEIGHT: 55px
+}
+#tab_foot IMG {
+	PADDING-LEFT: 4px; WIDTH: 167px; HEIGHT: 50px
+}
