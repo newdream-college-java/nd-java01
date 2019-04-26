@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>选择课程</title>
+
+</script>
+<script type="text/javascript">
+    var cityList=new Array();
+      cityList['第一学期']=['html','java','SQLServer'];
+      cityList['第二学期']=['asp.nrt','ajax','Sping'];
+      cityList['第三学期']=['javascript','SqlSCCRIPT高级','NET','jsp'];
+      //2.键值方法添加
+      function initPro(){
+        var proSele=document.getElementById("selTerm");
+        for(var key in cityList){
+          proSele.add(new Option(key,key));
+        }
+      }
+      function chageCities(){
+        //1.得到你选择的是哪个省
+        var selepro=document.getElementById('selTerm').value;
+        //2.加载这个省对应的所有市，得到市的下拉列表中
+        var cities=cityList[selepro];
+        console.log(cities);
+        //2.1.获取城市的select(添加会出先重叠，所以要清除原来的option)
+        var citySelObj=document.getElementById("selCourse");
+        //2.2清除原来所有option
+        citySelObj.options.length=1;//保留（请选择）这个option
+        //2.3然后再添加新的option(for循环用来使得下拉列表每个市独占一行，不然所有的市在一行)
+        for(var i=0;i<cities.length;i++){
+          citySelObj.add(new Option(cities[i],cities[i]));
+        }
+        
+      }
+</script>
+</head>
+
+<body onload="initPro()">
+<form name="myform" id="myform">
+
+  <table border="0"  align="center" >
+    <tr>
+      <td colspan="2" align="center">考 试 申 请</td>
+    </tr>
+    <tr>
+      <td>学期</td>
+      <td><select id="selTerm" onchange="chageCities()">
+        <option>--请选择学期--</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>课程</td>
+      <td><select id="selCourse">
+        <option>--请选择对应学期的课程--</option>
+      </select></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
