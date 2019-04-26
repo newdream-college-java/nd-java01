@@ -1,0 +1,40 @@
+<!-- 根据一年四季的变化 需求说明：
+1.根据提供的素材，制作查看一年四季变化的主页面，实现本页的刷新功能
+2.单击主页的不同链接进入到对应的季节介绍页面
+3.在季节介绍页面，单击不同的页面链接进入到对应的页面，单击前进或者后退超链接，显示访问过的前一个或者后一个页面 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>查看一年四季的变化</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<link rel="stylesheet" type="text/css" href="css/上机练习1.css"/>
+</head>
+<body>
+	<div class="container">
+		<table border="1">
+			<tr>
+				<td><img src="images/练习1-查看一年四季的变化/images/1.jpg" alt="加载图片失败" title="spring"/></td>
+				<td><img src="images/练习1-查看一年四季的变化/images/2.jpg" alt="加载图片失败" title="summer"/></td>
+			</tr>
+			<tr>
+				<td><a href="images/练习1-查看一年四季的变化/spring.html">春</a></td>
+				<td><a href="images/练习1-查看一年四季的变化/summer.html">夏</a></td>
+			</tr>
+			<tr>
+				<td><img src="images/练习1-查看一年四季的变化/images/3.jpg" alt="加载图片失败" title="autumn"/></td>
+				<td><img src="images/练习1-查看一年四季的变化/images/4.jpg" alt="加载图片失败" title="winter"/></td>
+			</tr>
+			<tr>
+				<td><a href="images/练习1-查看一年四季的变化/autumn.html">秋</a></td>
+				<td><a href="images/练习1-查看一年四季的变化/winter.html">冬</a></td>
+			</tr>
+			<tr>
+				<td colspan="2"><a href="#" onclick="reloadContent()">刷新本页</a></td>
+			</tr>
+		</table>
+		<script type="text/javascript" src="js/上机练习1.js"></script>
+	</div>
+</body>
+</html>

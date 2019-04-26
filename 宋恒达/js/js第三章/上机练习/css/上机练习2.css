@@ -1,0 +1,9 @@
+#firstMenu{
+	list-style-image: url(../images/练习2-制作树形菜单/images/fold.gif);
+}
+#secondMenu1,#secondMenu2{
+	list-style-image: url(../images/练习2-制作树形菜单/images/fclose.gif);
+}
+#thirdMenu1,#thirdMenu2{
+	list-style-image: url(../images/练习2-制作树形菜单/images/doc.gif);
+}

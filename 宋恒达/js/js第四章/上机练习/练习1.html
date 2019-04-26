@@ -1,0 +1,33 @@
+<!-- 制作如下图所示表格，要求如下：
+单击增加一行，可以在书名为“60个瞬间”的所在一行前插入一行，新增的价格居中显示，单击两次可以插入
+两行, 单击删除第二行，可以把书名“看得见风景的房间”一行删除；单击修改标题样式，
+可以设置标题行居中显示，字体加粗，单元格的背景颜色变为“#cccccc”；单击复制最后一行
+复制书名“60个瞬间”，并且追加到末尾-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>操作表格</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<table border="1" id="bookTeble">
+		<tr>
+			<td>书名</td>
+			<td>价格</td>
+		</tr>
+		<tr>
+			<td>看得见风景的瞬间</td>
+			<td>&yen;30.00</td>
+		</tr>
+		<tr>
+			<td>60个瞬间</td>
+			<td>&yen;32.00</td>
+		</tr>
+	</table>
+	<input type="button" value="增加一行" onclick="addOneRow();" ondblclick="addTwoRows();" />
+	<input type="button" value="删除第2行"/>
+	<input type="button" value="修改标题样式"/>
+	<input type="button" value="复制最后一行"/>
+	<script type="text/javascript" src="js/练习1.js"></script>
+</body>
+</html>
