@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>选择课程</title>
+<script type="text/javascript">
+    var xueqi=new Array();
+    xueqi[0]="一学期";
+    xueqi[1]="二学期";
+    xueqi[2]="三学期";
+
+    var kecheng=new Array();
+    kecheng['一学期']=['java','C#','html'];
+
+    kecheng['二学期']=['struts','ajax','asp.net'];
+    kecheng['三学期']=['javascript','jsp','net'];
+
+    function kaishi() {
+      var xq=document.getElementById('selTerm');
+      for(var key in kecheng){
+        xq.add(new Option(key,key));
+      }
+    }
+    function ce(){
+      var xq=document.getElementById('selTerm').value;
+      var xqsz=kecheng[xq];
+      var kc=document.getElementById('selCourse');
+      kc.options.length=1;
+      for (var i = 0; i < xqsz.length; i++) {
+        kc.add(new Option(xqsz[i],xqsz[i]));
+      }
+    }
+</script>
+
+</head>
+
+<body onload="kaishi()">
+<form name="myform" id="myform">
+
+  <table border="0"  align="center" >
+    <tr>
+      <td colspan="2" align="center">考 试 申 请</td>
+    </tr>
+    <tr>
+      <td>学期</td>
+      <td><select id="selTerm" onchange="ce()" >
+        <option>--请选择学期--</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>课程</td>
+      <td><select id="selCourse"   >
+        <option>--请选择对应学期的课程--</option>
+      </select></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
