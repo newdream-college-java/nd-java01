@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>选择课程</title>
+<script type="text/javascript">
+  var provinces=new Array("第一学期","第二学期","第三学期");
+  var cityList = new Array();
+  cityList['第一学期']=['java','SqlServer基础','C#','HTML'];
+  cityList['第二学期']=['javaScript','SqlServer高级','NET','JSP'];
+  cityList['第三学期']=['Struts','ASP.NET','Ajax','sPRING','Hibemate'];
+  function initPro(){
+    var selTerm=document.getElementById("selTerm");
+      for (var key in cityList) {
+        selTerm.add(new Option(key,key));
+      }
+  }
+  function sel(){
+     var selTerm=document.getElementById("selTerm").value;
+     var cities=cityList[selTerm];
+     var selcourse=document.getElementById("selCourse");
+     selcourse.options.length=1;
+     for(var i=0;i<cities.length;i++){
+      selcourse.add(new Option(cities[i],cities[i]));
+     }
+  }
+</script>
+</head>
+
+<body onload="initPro()">
+<form name="myform" id="myform">
+
+  <table border="0"  align="center" >
+    <tr>
+      <td colspan="2" align="center">考 试 申 请</td>
+    </tr>
+    <tr>
+      <td>学期</td>
+      <td><select id="selTerm" onchange="sel()">
+        <option>--请选择学期--</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>课程</td>
+      <td><select id="selCourse"   >
+        <option>--请选择对应学期的课程--</option>
+      </select></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
