@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>使用正则表达式验证注册页面</title>
+<style type="text/css">
+body{
+	margin:0;
+	padding:0;
+	font-size:12px;
+	line-height:20px;
+}
+.main{
+	width:525px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+.hr_1 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #3275c3;
+	height: 35px;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #3275c3;
+	vertical-align:bottom;
+	padding-left:12px;
+}
+.left{
+	text-align:right;
+	width:80px;
+	height:25px;
+	padding-right:5px;
+	}
+	
+.center{
+	width:135px;
+	}
+.in{
+	width:130px;
+	height:16px;
+	border:solid 1px #79abea;
+	}
+
+.red{
+	color:#cc0000;
+	font-weight:bold;
+	}
+
+div{
+	color:#F00;
+	}	
+</style>
+<script type="text/javascript">
+	function checkuser(){
+		var user_prompt=document.getElementById("user_prompt");
+		var user=document.getElementById("user").value;
+		var reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[a-z A-Z][a-z A-Z 0-9]{3,15}$/;
+		if (reg.test(user)){
+			user_prompt.innerHTML="正确"; 
+		}else{
+			user_prompt.innerHTML="用户名由英文字母和数字组成的4-16位字符，以字母开头";
+		}
+	}
+	function checkpwd(){
+		var pwd_prompt=document.getElementById("pwd_prompt");
+		var pwd=document.getElementById("pwd").value;
+		var reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[a-z A-Z 0-9]{4,10}$/;
+		if (reg.test(pwd)){
+			pwd_prompt.innerHTML="正确"; 
+			pwd_prompt.className="red";
+		}else{
+			pwd_prompt.innerHTML="密码格式错误 密码由英文字母和数字组成的4-10位字符";
+		}
+	}
+	function checkrepwd(){
+		var repwd_prompt=document.getElementById("repwd_prompt");
+		var repwd=document.getElementById("repwd").value;
+		var pwd=document.getElementById("pwd").value;
+		var reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[a-z A-Z 0-9]{4,10}$/;
+		if (!reg.test(repwd)){
+			repwd_prompt.innerHTML="密码格式错误 密码由英文字母和数字组成的4-10位字符"; 
+			return ;
+		}
+		if(repwd==pwd){
+			repwd_prompt.innerHTML="正确";
+			return;
+		}else{
+			repwd_prompt.innerHTML="再次输入与密码不符"; 
+			return;
+		}
+	}
+	function checkbirth(){
+		var birth_prompt=document.getElementById("birth_prompt");
+		var birth=document.getElementById("birth").value;
+		var reg=/^(19[0-9][0-9]|200[0-9])-(0?[1-9]|1[0-9])-(0?[1-9]|[1-2][0-9]|3[0-1])$|^(19[0-9][0-9]|200[0-9])- (0?[1-9]|1[0-9])- (0?[1-9]|[1-2][0-9]|3[0-1])$/;
+		if (reg.test(birth)){
+			birth_prompt.innerHTML="正确"; 
+		}else{
+			birth_prompt.innerHTML="输入错误！生日的年份在 1900-2009 之间，生日格式为 1985-5-12 或者 1985- 05-12";
+		}
+	}
+</script>
+</head>
+
+<body>
+<table class="main" border="0" cellspacing="0" cellpadding="0">
+	
+  <tr>
+    <td><img src="images/logo.jpg" alt="logo" /><img src="images/banner.jpg" alt="banner" /></td>
+  </tr>
+  <tr>
+    <td class="hr_1">新用户注册</td>
+  </tr>
+  <tr>
+    <td style="height:10px;"></td>
+  </tr>
+  <form action="" method="post" name="myform">
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="left">用户名：</td>
+    <td class="center"><input id="user" type="text" class="in" onblur="checkuser()" /></td>
+    <td><div id="user_prompt">用户名由英文字母和数字组成的4-16位字符，以字母开头</div></td>
+  </tr>
+  <tr>
+    <td class="left">密码：</td>
+    <td class="center"><input id="pwd" type="password" class="in" onblur="checkpwd()"/></td>
+    <td><div id="pwd_prompt"></div></td>
+  </tr>
+  <tr>
+    <td class="left">确认密码：</td>
+    <td class="center"><input id="repwd" type="password" class="in" onblur="checkrepwd()"/></td>
+    <td><div id="repwd_prompt">密码由英文字母和数字组成的4-10位字符</div></td>
+  </tr>
+   <tr>
+    <td class="left">电子邮箱：</td>
+    <td class="center"><input id="email" type="text" class="in" /></td>
+    <td><div id="email_prompt"></div></td>
+  </tr>
+    <tr>
+    <td class="left">手机号码：</td>
+    <td class="center"><input id="mobile" type="text" class="in" /></td>
+    <td><div id="mobile_prompt"></div</td>
+  </tr>
+  <tr>
+    <td class="left">生日：</td>
+    <td class="center"><input id="birth" type="text" class="in" onblur="checkbirth()"/></td>
+    <td><div id="birth_prompt"></div></td>
+  </tr>
+   <tr>
+    <td class="left">&nbsp;</td>
+    <td class="center"><input name="" type="image" src="images/register.jpg" /></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</td>
+  </tr>
+  </form>
+</table>
+
+</body>
+</html>
