@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>选择课程</title>
+<script type="text/javascript">
+	//1.使用数组添加字段
+	var termList=new Array();
+	termList['第一学期']=['Java','SqlServer','C#','HTML'];
+	termList['第二学期']=['JavaScirpt','SqlServer高级','.NET','JSP'];
+	termList['第三学期']=['Struts','ASP.NET','Ajax','Spring','Hibernate'];
+	//2.使用键值方法添加到页面中
+	function initPro(){
+		//得到要被添加的对象这里是学期的对象
+		var termSele=document.getElementById("selTerm");
+		for(var key in termList){
+			termSele.add(new Option(key,key));
+			//console.log(termList);
+		}
+	}
+	//3.把学期和课程联动起来
+	function changetrem(){
+		//1.得到要改变学期的值
+		var sele =document.getElementById("selTerm").value;
+		//2.加载这个选择的对象下拉
+		var changes=termList[sele];
+		console.log(changes);
+		//3.添加进行去
+		//3.1得到课程的对象
+		var CourseObj=document.getElementById("selCourse");
+		CourseObj.options.length=1;
+		for(var i=0;i<changes.length;i++){
+			 CourseObj.add(new Option( changes[i], changes[i]));
+		}
+	}
+</script>
+
+</head>
+
+<body onload=" initPro()">
+<form name="myform" id="myform">
+
+  <table border="0"  align="center" >
+    <tr>
+      <td colspan="2" align="center">考 试 申 请</td>
+    </tr>
+    <tr>
+      <td>学期</td>
+      <td><select id="selTerm" onchange=" changetrem()">
+        <option>--请选择学期--</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>课程</td>
+      <td><select id="selCourse"   >
+        <option>--请选择对应学期的课程--</option>
+      </select></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

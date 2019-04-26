@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>贵美购物车页面</title>
+ <link rel="stylesheet"	type="text/css"	href="css/global.css"	/>
+ <link rel="stylesheet"	type="text/css"	href="css/layout.css"	/>
+ <style type="text/css">
+ .buyleft{
+	 width:150px;
+	 height:30px;
+	 text-align:right;
+	 font-size:14px;
+ }
+ </style>
+<script type="text/javascript">
+//1.使用数组增加字段。
+	var cityList=new Array();
+	cityList['广东省']=['广州市','惠州市','中山市','东莞市','佛山市'];
+	cityList['湖南省']=['长沙市','邵阳市','湘潭市','常德市'];
+//使用键值方法添加进去
+	function intPro(){
+		var proSele=document.getElementById("province");
+		for(var key in cityList){
+			proSele.add(new Option(key,key));
+		}
+	console.log(cityList);
+	}
+//实现连动
+	function change( ){
+		//1.得到对象
+		var selepro=document.getElementById('province').value;
+		//2.加载对应省下的市对象
+		var cities =cityList[selepro];
+		//2.1获取城市的select
+		var citySelObj=document.getElementById("city");
+		//2.2清除原来所有option
+		citySelObj.options.length=1;//保留（请选择）这个option
+		for(var i=0;i<cities.length;i++){
+			citySelObj.add(new Option(cities[i],cities[i]));
+		}
+	}
+</script>
+</head>
+
+<body onload="intPro()">
+<div id="container">
+  <iframe id="head" runat="server" src="head.htm" width="980px" height="136px" frameborder="0" scrolling="no"></iframe>
+  <img src="images/top.jpg" alt="top" />
+ 
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <form action="" method="post" name="myform"><tr>
+        <td class="buyleft">收件人：</td>
+        <td><input type="text" name="username" id="username"</td>
+      </tr>
+      <tr>
+        <td class="buyleft">地址： </td>
+        <td><select  id="province" onchange="change( )" style="width:100px">
+        <option>--选择省份--</option>
+      </select>
+      <select  id="city"  style="width:100px">
+             <option>--选择市/区--</option>
+             </select>
+  			</td>
+      </tr>      
+      <tr>
+        <td class="buyleft">电话：</td>
+        <td><input type="text" name="code"  size="2"/>-<input type="text" name="telnumber" size="6" />-<input type="text" name="branchnumber" size="2" />
+  		（区号-电话号码-分机）</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td style="height:40px;"><input type="image" src="images/submit.gif" style="border:0px;" /></td>
+      </tr></form>
+</table>
+  <iframe id="foot" runat="server" src="foot.htm" width="980px" height="150px" frameborder="0" scrolling="no"></iframe>
+</div>
+ 
+</body>
+</html>
