@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_qb8akM37EdqwVrslYOdUDA" name="Zy1">
+  <packagedElement xmi:type="uml:Package" xmi:id="_NpvC8UFEEem3ZOKSdM_V9g" name="作业">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Np4M4EFEEem3ZOKSdM_V9g" name="Zylei1">
+      <ownedAttribute xmi:id="_NqeqUUFEEem3ZOKSdM_V9g" name="name" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_NqeqUkFEEem3ZOKSdM_V9g" value="狗狗"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NqeqVEFEEem3ZOKSdM_V9g" name="health" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_NqeqVUFEEem3ZOKSdM_V9g" value="100"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NqeqVkFEEem3ZOKSdM_V9g" name="love" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_NqeqV0FEEem3ZOKSdM_V9g" value="80"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NqnzwEFEEem3ZOKSdM_V9g" name="strain" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_NqnzwUFEEem3ZOKSdM_V9g" value="泰日天"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_NqnzwkFEEem3ZOKSdM_V9g" name="print" visibility="public"/>
+      <ownedOperation xmi:id="_Nqnzw0FEEem3ZOKSdM_V9g" name="getName" visibility="public">
+        <ownedParameter xmi:id="_NqnzxEFEEem3ZOKSdM_V9g" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NqnzxUFEEem3ZOKSdM_V9g" name="setName" visibility="public">
+        <ownedParameter xmi:id="_NqnzxkFEEem3ZOKSdM_V9g" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Nqnzx0FEEem3ZOKSdM_V9g" name="getHealth" visibility="public">
+        <ownedParameter xmi:id="_NqnzyEFEEem3ZOKSdM_V9g" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NqnzyUFEEem3ZOKSdM_V9g" name="setHealth" visibility="public">
+        <ownedParameter xmi:id="_NqnzykFEEem3ZOKSdM_V9g" name="health">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Nqnzy0FEEem3ZOKSdM_V9g" name="getLove" visibility="public">
+        <ownedParameter xmi:id="_NqnzzEFEEem3ZOKSdM_V9g" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NqnzzUFEEem3ZOKSdM_V9g" name="setLove" visibility="public">
+        <ownedParameter xmi:id="_NqnzzkFEEem3ZOKSdM_V9g" name="love">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NqxkwEFEEem3ZOKSdM_V9g" name="getStrain" visibility="public">
+        <ownedParameter xmi:id="_NqxkwUFEEem3ZOKSdM_V9g" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_NqxkwkFEEem3ZOKSdM_V9g" name="setStrain" visibility="public">
+        <ownedParameter xmi:id="_Nqxkw0FEEem3ZOKSdM_V9g" name="strain">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ONOKgkFEEem3ZOKSdM_V9g" name="Zylei11">
+      <ownedAttribute xmi:id="_ON9x3UFEEem3ZOKSdM_V9g" name="name" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_ON9x3kFEEem3ZOKSdM_V9g" value="Q仔"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ON9x4EFEEem3ZOKSdM_V9g" name="health" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_ON9x4UFEEem3ZOKSdM_V9g" value="100"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ON9x4kFEEem3ZOKSdM_V9g" name="love" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_ON9x40FEEem3ZOKSdM_V9g" value="80"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ON9x5EFEEem3ZOKSdM_V9g" name="sex" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_ON9x5UFEEem3ZOKSdM_V9g" value="公"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_OOG7UEFEEem3ZOKSdM_V9g" name="print" visibility="public"/>
+      <ownedOperation xmi:id="_OOG7UUFEEem3ZOKSdM_V9g" name="getName" visibility="public">
+        <ownedParameter xmi:id="_OOG7UkFEEem3ZOKSdM_V9g" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_OOG7U0FEEem3ZOKSdM_V9g" name="setName" visibility="public">
+        <ownedParameter xmi:id="_OOG7VEFEEem3ZOKSdM_V9g" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_OOG7VUFEEem3ZOKSdM_V9g" name="getHealth" visibility="public">
+        <ownedParameter xmi:id="_OOG7VkFEEem3ZOKSdM_V9g" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_OOG7V0FEEem3ZOKSdM_V9g" name="setHealth" visibility="public">
+        <ownedParameter xmi:id="_OOG7WEFEEem3ZOKSdM_V9g" name="health">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_OOG7WUFEEem3ZOKSdM_V9g" name="getLove" visibility="public">
+        <ownedParameter xmi:id="_OOG7WkFEEem3ZOKSdM_V9g" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_OOG7W0FEEem3ZOKSdM_V9g" name="setLove" visibility="public">
+        <ownedParameter xmi:id="_OOG7XEFEEem3ZOKSdM_V9g" name="love">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_OOG7XUFEEem3ZOKSdM_V9g" name="getSex" visibility="public">
+        <ownedParameter xmi:id="_OOG7XkFEEem3ZOKSdM_V9g" name="return" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_OOG7X0FEEem3ZOKSdM_V9g" name="setSex" visibility="public">
+        <ownedParameter xmi:id="_OOG7YEFEEem3ZOKSdM_V9g" name="sex">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PrUgMkFEEem3ZOKSdM_V9g" name="Zy1">
+      <ownedOperation xmi:id="_Pr6WuEFEEem3ZOKSdM_V9g" name="main" visibility="public" isStatic="true">
+        <ownedComment xmi:id="_Pr6WvEFEEem3ZOKSdM_V9g">
+          <body>/** 
+ * @param args
+ */
+</body>
+        </ownedComment>
+        <ownedParameter xmi:id="_Pr6WuUFEEem3ZOKSdM_V9g" name="args">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pr6WukFEEem3ZOKSdM_V9g" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pr6Wu0FEEem3ZOKSdM_V9g"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.hang{
+			background-color: #ccc;
+			text-align: center;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript">
+		function a() {
+			//1.得到表格对象
+			
+			var bg=document.getElementById("biaoge");
+			//2.创建行
+			var h= bg.insertRow(2);//插入下标<tr>
+			var lie=h.insertCell(0);//第1列<td>
+			lie.innerHTML="幸福从天而降";
+			var lie2=h.insertCell(1);//第2列
+			lie2.innerHTML="&yen;18.50"
+		}
+		function s(){
+			//1.得到表格对象
+			var bg=document.getElementById("biaoge");
+			//2.删除第2行
+			bg.deleteRow(1);
+		}
+		function g(){
+			//1.得到表格对象
+			var bg=document.getElementById("biaoge");
+			//2.更改表头这一行
+			var gh=bg.rows[0];					
+			gh.className="hang";	
+		}
+		function f(){
+			//1.得到表格对象
+			var bg=document.getElementById("biaoge");
+			//2.被克隆的行对象
+			var changdu=bg.rows.length-1;//长度
+			var hang=bg.rows[changdu];
+			//3.得到克隆对象
+			var kelong=hang.cloneNode(true);
+			//4.将新行追加到表单的中
+			bg.appendChild(kelong);
+		}
+	</script>
+</head>
+<body>
+	<table id="biaoge" border="1px">
+		<tr>
+			<td>书名</td>
+			<td>价格</td>
+		</tr>
+		<tr>
+			<td>看得见风景的房间</td>
+			<td>&yen;30.00</td>
+		</tr>
+		<tr>
+			<td>60个瞬间</td>
+			<td>&yen;32.00</td>
+		</tr> 
+	</table>
+	<input type="button" name="b1" value="增加一行" onclick="a()">
+	<input type="button" name="b2" value="删除第2行" onclick="s()">
+	<input type="button" name="b3" value="修改标题样式" onclick="g()">
+	<input type="button" name="b3" value="复制最后一行" onclick="f()">
+</body>
+</html>

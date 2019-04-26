@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		div{
+			float: left;
+			border: 1px #ccc solid;
+			margin-right: 10px;
+		}
+	</style>
+	<script type="text/javascript">
+		//悬浮
+		function xf() {
+			var hezi=document.getElementById("tp");
+			hezi.style.borderColor="#ff0000";		
+		}
+		function xf1() {
+			var hezi=document.getElementById("tp1");
+			hezi.style.borderColor="#ff0000";		
+		}
+		function xf2() {
+			var hezi=document.getElementById("tp2");
+			hezi.style.borderColor="#ff0000";		
+		}
+		//移除
+		function c() {
+			var hezi=document.getElementById("tp");
+			hezi.style.borderColor="#ccc";		
+		}
+		function c1() {
+			var hezi=document.getElementById("tp1");
+			hezi.style.borderColor="#ccc";		
+		}
+		function c2() {
+			var hezi=document.getElementById("tp2");
+			hezi.style.borderColor="#ccc";		
+		}
+	</script>
+</head>
+<body>
+	<div id="tp" onmouseover="xf()" onmouseout="c()">
+		<img src="D:/JavaScript/第五章/上机作业素材/练习4/images/new_01.jpg">
+	</div>
+	<div id="tp1" onmouseover="xf1()" onmouseout="c1()">
+		<img src="D:/JavaScript/第五章/上机作业素材/练习4/images/new_02.jpg">
+	</div>
+	<div id="tp2" onmouseover="xf2()" onmouseout="c2()">
+		<img src="D:/JavaScript/第五章/上机作业素材/练习4/images/new_03.jpg">
+	</div>
+</body>
+</html>

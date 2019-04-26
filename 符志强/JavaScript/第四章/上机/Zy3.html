@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.hang{
+			background-color: #ccc;
+			text-align: center;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript">
+		function a() {
+			//1.得到表格对象
+			var bg=document.getElementById("biaoge");
+			//2.创建行
+			var h= bg.insertRow(2);//插入下标<tr>
+			var lie=h.insertCell(0);//第1列<td>
+			lie.innerHTML="幸福从天而降";
+			var lie2=h.insertCell(1);//第2列
+			lie2.innerHTML="2";
+			var lie3=h.insertCell(2);//第3列
+			lie3.innerHTML="&yen;18.50";
+			var lie4=h.insertCell(3);//第4列
+			
+			lie4.innerHTML="<button onclick='s(this)'>删除</button>&nbsp;<button  onclick='g(this)'>修改</button>";
+		}
+		function s(obj){
+			//1.得到表格对象
+			var bg=document.getElementById("biaoge");
+			//2.获取当前行
+			var h=obj.parentNode.parentNode;
+			//3.位置
+			var wz=h.rowIndex;
+			//4.删除当前行
+			bg.deleteRow(wz);
+		}
+		function g(obj){
+			//1.得到表格对象
+			var bg=document.getElementById("biaoge");
+			//2.得到行下标
+			var wz=obj.parentNode.parentNode.rowIndex;
+			//2.1要修改的列的位置
+			var liewz = bg.rows[wz].cells[1];
+			//3.得到行对象innerHTML
+			if(obj.innerHTML=="修改"){
+				//3.1添加文本框
+				var wenbenkuang = "<input type='text' id='shuliang' value='"+liewz.innerHTML+"'/>"
+				//3.2把文本框插入到列的位置	innerHTML
+				liewz.innerHTML=wenbenkuang;
+			}else{	
+				//3.3把列的数据输出在列中
+				liewz.innerHTML=document.getElementById("shuliang").value;
+			}	
+			//4.将修改改为确定 或者将确定改为修改
+			if(obj.innerHTML=="修改"){
+				obj.innerHTML="确定";
+			}else{
+				obj.innerHTML="修改"
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<table id="biaoge" border="1px">
+		<tr class="hang">
+			<td>商品名称</td>
+			<td>数量</td>
+			<td>价格</td>
+			<td>操作</td>
+		</tr>
+		<tr>
+			<td>防滑真皮休闲鞋</td>
+			<td>12</td>
+			<td>&yen;568.50</td>
+			<td>
+				<button onclick="s(this)">删除</button>
+				<button  onclick="g(this)">修改</button>
+			</td>
+		</tr>
+		<tr>
+			<td>抗疲劳神奇钛项圈</td>
+			<td>2</td>
+			<td>&yen;49.00</td>
+			<td>
+				<button onclick="s(this)">删除</button>
+				<button  onclick="g(this)">修改</button>
+			</td>
+		</tr> 
+		<tr>
+			<td colspan="4" align="center">
+				<button  onclick="a()">增加订单</button>
+			</td>
+		</tr>
+	</table>
+
+</html>

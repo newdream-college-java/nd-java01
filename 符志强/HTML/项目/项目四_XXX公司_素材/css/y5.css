@@ -1,0 +1,100 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/*设置页面显示的大小和位置*/
+#zhu{
+	width: 900px;	
+	margin: 0px auto;	/*外边距为0像素  居中显示*/
+}
+/*上框架*/
+.shanghezi{
+	background-image: url("../images/logo.gif");	/*插入图片*/
+	background-repeat-x:no-repeat; 
+	background-position: 50px;					/*不平埔*/
+	height: 80px;
+	width:100%;
+
+
+}
+.shanghezi ul{
+	margin-left:320px;
+}
+.xiashang img{
+	margin-top:25px;
+}
+.shanghezi ul li{
+	font-weight: bold;
+	float: left;
+	margin-left: 30px;
+	list-style-type: none;
+	margin-top: 50px;
+}
+/*上框架超链接*/
+a{
+	color: #000;
+	text-decoration: none;
+}
+.aa:visited{
+	color: #48b3e7;
+}
+/*下上框架*/
+.xiahezi .xiashang{
+	width:100%;
+	background-color: #57c6f3;
+
+}
+.xiahezi .xiashang img{
+	margin-left:50px;
+}
+/*下左框架*/
+.xiazuo{
+	margin-left: 50px;
+  	width: 170px;
+    height: 430px; 
+}
+.zhongxia .zhongxia3{
+	float: left;
+	height: 365px;
+	width: 180px;
+	margin-left: 20px;
+}
+.zhongxia3 div{
+	background: url("../images/gt.gif")6px 7px no-repeat;
+	color: #37494d;
+	border-bottom: dashed;
+	border-bottom-color: #ededed;
+	margin-top:10px;	
+}
+.zhongxia3 .zhongxiahezi3{
+	margin-left:20px;
+}
+/*xiayou*/
+.xiayou{
+	float: right;
+	margin-right: 40px;
+	width: 631px;
+    height: 500px;
+	/*border-color: red;
+	border-style:dashed;*/
+}
+.gongsigaikuang{
+	color: #1c3b89;
+	font-weight: bold;
+	line-height: 35px;
+}
+.shouye{
+	float: right;
+	margin-top: 8px;
+}
+.tupian{
+	margin-left: 20px;
+	 margin-top: 20px;
+}
+/*缩进*/
+.suojing1{
+	text-indent: 2em;
+}
+.suojing2{
+	text-indent: 5em;
+}

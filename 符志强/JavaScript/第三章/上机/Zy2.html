@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		function a() {
+			var chao=document.getElementById("a1");
+			if (chao.style.display=="none") {
+				chao.style.display="block";
+			}else{
+				chao.style.display="none";
+			}
+		}
+		function a1() {
+			var chao=document.getElementById("a2");
+			if (chao.style.display=="none") {
+				chao.style.display="block";
+			}else{
+				chao.style.display="none";
+			}
+		}
+		function b() {
+			var chao=document.getElementById("b1");
+			if (chao.style.display=="none") {
+				chao.style.display="block";
+			}else{
+				chao.style.display="none";
+			}
+		}
+	</script>
+</head>
+<body>
+	<dl>
+		<dt>
+		<a href="javascript:a()"><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\fold.gif"> 树形文字</a> 
+				</dt>
+		<dd  id="a1">
+			<dl>
+				<dt>
+					<a href="javascript:a1()" ><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\fclose.gif"> 文学艺术</a> 
+				</dt>
+				<dd id="a2">
+					<dl>
+						<dd><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\doc.gif"> 先锋写作</dd>
+						<dd><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\doc.gif"> 小说散文</dd>
+						<dd><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\doc.gif"> 诗风词韵</dd>
+		
+					</dl>
+				</dd>
+			
+			</dl>
+		
+			<dl>
+				<dt>
+					<a href="javascript:b()"><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\fclose.gif"> 贴图专区</a> 
+				</dt>
+				<dd id="b1">
+					<dl>
+						<dd><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\doc.gif"> 真我风采</dd>
+						<dd><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\doc.gif"> 视频贴图</dd>
+						<dd><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\doc.gif"> 行行摄摄</dd>
+						<dd><img src="D:\JavaScript\第三章\上机作业素材\练习2：制作树形菜单\images\doc.gif"> Flash贴图</dd>
+					</dl>
+				</dd>
+			</dl>
+		</dd>
+	</dl>
+</body>
+</html>

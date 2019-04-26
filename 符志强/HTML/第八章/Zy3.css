@@ -1,0 +1,44 @@
+dl{
+	float: left;
+	width: 117px;
+	position: relative;
+}
+dt{
+	background-image: url("8 上机作业素材/练习3：制作下拉列表菜单/网页素材/image/centerMenuBg.png");
+	background-repeat: no-repeat;
+	height: 36px;
+	padding-top: 13px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+}
+dt a{
+	text-decoration: none;
+	color: #fff;
+	font-size:14px;
+	font-weight: 900;
+}
+dd{
+	background-image: url("8 上机作业素材/练习3：制作下拉列表菜单/网页素材/image/centerMenuBg.png");
+	background-repeat: repeat-y;
+	width: 80px;
+	padding-left: 10px;
+	display: none;
+	position: absolute;
+	z-index: 1;
+	left: 30px;
+	top: 36px;
+}
+dd a{
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 50px;
+	display: block;
+}
+dd a:hover{
+	background-color: orange;
+}
+dl:hover dd{
+	display: block;
+}
