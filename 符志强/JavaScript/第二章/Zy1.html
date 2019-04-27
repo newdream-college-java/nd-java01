@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		function add(){
+			var a1=prompt("请输入第1个数");
+			var b=prompt("请输入运算符");
+			var c1=prompt("请输入第2个数");
+			if (!isNaN(a1)) {
+				var a=parseInt(a1);
+			}
+			if (!isNaN(c1)) {
+				var c=parseInt(c1);
+			}
+		
+			if (b=="+") {
+				alert("运算结果为："+(a+c));
+			}
+			if (b=="-") {
+				alert("运算结果为："+(a-c));
+			}
+			if (b=="*") {
+				alert("运算结果为："+(a*c));
+			}
+			if (b=="/") {
+				alert("运算结果为："+(a/c));
+			}
+			if (b=="%") {
+				alert("运算结果为："+(a%c));
+			}
+			
+		}
+		add();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
