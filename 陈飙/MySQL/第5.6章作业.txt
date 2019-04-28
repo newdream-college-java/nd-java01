@@ -1,0 +1,91 @@
+#第20-30小题
+select * from emp;
+EMPNO:员工编号；
+ENAME:员工姓名；
+JOB：员工工作
+MGR：员工直属领导编号 
+HIREDATE ：入职时间 
+SAL：工资 
+COMM ：奖金 
+DEPTNO：对应dept表的外键
+21.返回拥有员工的部门名、部门号。
+只会查重，不会重复
+select dept.DNAME'部门名称',dept.DEPTNO'部门编号',emp.EMPNO'员工编号' from emp,dept where emp.DEPTNO=dept.DEPTNO;
+会重复
+select dept.DNAME'部门名称',dept.DEPTNO'部门编号',emp.EMPNO'员工编号' from emp,dept ;
+
+22.工资水平多于smith的员工信息
+select * from emp where SAL>800;
+
+23.返回员工和所属经理的姓名
+select ENAME'员工姓名',MGR'所属经理',EMPNO'员工编号' from emp;
+
+24.返回雇员的雇佣日期早于其经理雇佣日期的员工及其经理姓名
+select A.ENAME'经理姓名',B.ENAME'员工姓名' from emp A,emp B where A.MGR=B.EMPNO and A.HIREDATE<B.HIREDATE;
+
+25.返回员工姓名及其所在部门名称
+select ENAME'员工姓名',DNAME'部门名称' from emp,dept where emp.DEPTNO=dept.DEPTNO;
+select ENAME'员工姓名',DNAME'部门名称' from emp join dept on emp.DEPTNO=dept.DEPTNO;
+
+26.返回从事clerk工作的员工姓名和所在部门名称。（怎么去除查重）
+select emp.ENAME'员工姓名',dept.DNAME'部门名称',emp.JOB'工作' from emp join dept on JOB='CLERK' and emp.DEPTNO=dept.DEPTNO;
+select emp.ENAME'员工姓名',dept.DNAME'部门名称',emp.JOB'工作' from emp,dept where JOB='CLERK' and emp.DEPTNO=dept.DEPTNO;
+27.返回部门号及他 其本部门的最低工资。
+select DEPTNO from dept;
+select min(SAL) from emp;
+group by按组分配
+select deptno,min(sal) from emp group by deptno;
+28.返回销售部（sales）所有员工的姓名。
+select ENAME'员工的姓名',DNAME'销售部' from emp,dept where  emp.DEPTNO=dept.DEPTNO and DNAME='SALES';
+
+29.返回工资水平多于平均工资的员工
+select avg(SAL) from emp;
+select ENAME'员工姓名',SAL'工资' from emp where SAL>(select avg(SAL) from emp);
+
+30.返回与SCOTT从事相同工作的员工
+select JOB from emp where ENAME='SCOTT';
+select ENAME'员工姓名' from emp where JOB=(select JOB from emp where ENAME='SCOTT');
+
+
+
+
+
+#练习二
+1.查询所有学员从入学到今天，一共度过了多少天
+select * from studentinfo;
+select datediff(curdate(),StuJoinTime) from studentinfo GROUP BY StuJoinTime;
+2.查询你的出生日期到现在相隔的年数(月数/12)
+查询月数
+select FLOOR((SELECT DATEDIFF(CURDATE(),'1997-3-16'))/365)
+3.查询每月2号入学的学员信息
+select month(e.StuJoinTime) from studentinfo e;
+select * from studentinfo e where  month(e.StuJoinTime)=2;
+select * from studentinfo where ;
+4.查询周末入学的学员
+select dayname(e.StuJoinTime) from studentinfo e;
+select * from studentinfo e where dayname(e.StuJoinTime)='Sunday';
+5.查询所有学员的毕业日期，假定按每个学员入学时间1年半之后将毕业；
+select  DATE_ADD(e.StuJoinTime,INTERVAL 365+365/2 day) from studentinfo e ;
+select date_add(e.StuJoinTime,INTERVAL 18 month) from studentinfo e ;
+SELECT * from studentexam;
+select * from studentinfo;
+select * from Teacherinfo;
+select *  from Classinfo;
+
+
+
+#练习三
+1.查询所有学员的平均年龄（要求保留2位小数）
+select avg(StuAge) from studentinfo;
+select truncate(avg(StuAge),2) from studentinfo ;
+2.查询所有考试的总成绩
+select ExamResult'总成绩' from studentexam;
+3.查询SQL考试的最低分数
+select min(ExamResult)'最低分数' from studentexam where  ExamSubject='SQL';
+4.查询Java考试成绩最高的学员姓名
+select MAX(examresult),studentinfo.StuName from studentexam join studentinfo on studentexam.estuid=studentinfo.stuid where examsubject='java'
+SELECT * from studentexam;
+select ExamID from studentexam;
+#select ExamID'学员姓名',max() from studentexam  where ExamSubject='Java';
+5.c查询学员'火云邪神'一共参加了几次考试
+select count(EStuID) from  studentexam join studentinfo on studentexam.estuid=studentinfo.stuid where EStuID=1;
