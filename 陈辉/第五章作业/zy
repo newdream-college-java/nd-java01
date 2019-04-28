@@ -1,0 +1,23 @@
+use test1;
+#查看所有
+SELECT *from emp;
+#21
+SELECT ename dept from emp,dept;
+SELECT *FROM dept;
+#22
+SELECT *FROM emp where sal>'800';
+#23
+SELECT e.ename"员工姓名",d.ename"经理姓名" from emp e,emp d where e.mqr=d.empno;
+#24
+select e.ename '员工名字',e1.ename '经理名字' from emp e,emp e1 where e.mgr=e1.empno and e.hiredate < e1.hiredate;
+#25
+SELECT ename "员工名字",ename '经理姓名' from emp,dept where emp.deptno=dept.deptno;
+#26
+SELECT ename "员工名字",ename '部门名称' from emp,dept where emp.job='clerk' and emp.deptno=dept.deptno;
+#27
+SELECT e.deptno,min(e.sal) from emp e GROUP BY e.DEPTNO;
+#28
+select e.ename from emp e,dept d where e.DEPTNO=d.DEPTNO and d.dname='sales';
+#29
+SELECT ename '员工姓名',sal'工资' from emp where sal>(SELECT avg(sal)from emp);
+SELECT ename '员工姓名' from emp WHERE job=(SELECT job from emp where ename='scott');
