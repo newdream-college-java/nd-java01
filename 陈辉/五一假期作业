@@ -1,0 +1,87 @@
+use j01;
+select * from studeninfo;
+4.查询星期四入学的学员姓名，性别，年龄，班级编号
+select * from studeninfo s where dayname(s.StuJoinTime)='thursday';
+5.查询‘2007-3-10’之前入学的学员信息
+select * from studeninfo s where s.StuJoinTime<'2007-03-10';
+6.查询所有学员姓名的长度
+select s.stuname,length(s.stuname) '长度' from  studeninfo s;
+7.查询身份证中第9，10位为‘89’的学员信息（要求使用字符串函数）
+select * from studentinfo where substr(stucard,instr(stucard,'89'),2)='89'
+8.修改班主任信息，将邮箱中的‘yahoo’替换为‘accp’
+select * from teacherinfo 
+select replace(teacheremail,'yahoo','accp') from teacherinfo 
+
+6.查询各科目的平均成绩
+select examsubject ,avg(examresult) from studentexam group by examsubject
+7.查询每个班级学员的最小年龄
+select sclassid,min(stuage) from studentinfo group by sclassid;
+8.查询考试不及格的人数
+select count(*) from studentexam where examresult<60
+9.查询各学员的总成绩，要求筛选出总成绩在140分以上的
+select * from studentexam;
+select EStuID'学员',sum(ExamResult)>140'总成绩' from studentexam where sum(ExamResult)>140
+select EStuID'学员',sum(ExamResult)'总成绩' from studentexam  group by EStuID having sum(ExamResult)>140 ;
+
+10.查询男女学员的平均年龄
+select stusex ,avg(stuage) from studentinfo group by stusex
+
+use test1;
+31.返回与30部门员工工资水平相同的员工姓名与工资
+select ename,sal from emp
+where sal in (select sal from emp where deptno = 30);
+
+32.返回工资高于30部门所有员工工资水平的员工信息
+select * from emp
+where sal > all(select sal from emp where deptno = 30);
+
+33.返回部门号、部门名、部门所在位置及其每个部门的员工总数
+select dept.deptno,dept.dname,dept.loc,count(emp.deptno) number from dept,emp
+where dept.deptno = emp.deptno
+group by emp.deptno;
+34.返回员工的姓名、所在部门名及其工资
+select ename,dname,sal from emp ,dept
+where emp.deptno = dept.deptno;
+35.返回员工的详细信息
+select e.* , d.dname from emp e, dept d
+where e.deptno = d.deptno;
+36返回员工工作及其从事此工作的最低工资。
+select job , min(sal) sal from emp
+group by job 
+37计算出员工的年薪，并且以年薪排序。
+select ename, sal * 12 as ySalary from emp order by ySalary;
+38返回工资处于第四级别的员工的姓名。
+select ename,sal from emp e  ,salgrade s
+where e.sal >= s.losal and e.sal <= s.hisal
+ and s.grade = 4;
+39返回工资为二等级的职员名字、部门所在地、和二等级的最低工资和最高工资
+select ename ,dname ,sal ,losal,hisal from emp,dept,salgrade
+where emp.deptno = dept.deptno and grade = 2
+and sal >= losal and sal < hisal;
+40.工资等级多于smith的员工信息。
+select grade from salgrade s ,emp e
+where s.losal < e.sal and s.hisal > e.sal and e.ename = 'smith';
+
+41查看Employees列表所有数据
+select *from employees
+42计算Employees中的行数
+SELECT COUNT(*) FROM Employees
+43查询工作年龄最大的员工姓名以及工作年限
+SELECT Name, MAX(WorkYear)FROM Employees
+44查询薪酬在3000元以上的人数
+SELECT COUNT(InCome) AS '收入大于3000的人数'FROM Salary WHERE InCome > 3000
+45查询Employees表中姓林且两个字名字的员工编号以及姓名
+SELECT EmployeeID, Name FROM Employees WHERE Name LIKE '林_'
+46查询Employee表中名字中有林字的员工的编号及姓名
+SELECT EmployeeID, Name FROM Employees WHERE Name LIKE '%林%'
+47.	查询工资在2000到3000范围的员工编号以及收入
+SELECT EmployeeID, InCome
+FROM Salary WHERE InCome BETWEEN 2000 AND 3000
+48.	查找财务部的员工号以及员工姓名
+SELECT EmployeeID, Name FROM Employees WHERE departmentID IN
+(SELECT DepartmentID FROM Departments WHERE DepartmentName = '财务部')
+49.	查找财务部以及研发部以外的员工号以及员工姓名
+SELECT EmployeeID, Name
+FROM Employees
+WHERE departmentID NOT IN
+(SELECT DepartmentID FROM Departments WHERE DepartmentName IN ('财务部','研发部'))
