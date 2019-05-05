@@ -1,0 +1,19 @@
+1.查询学员成绩，按成绩排序，并计算出名次
+select * from classinfo;
+select * from studentinfo
+select * from studentexam;
+select * from teacherinfo;
+1、要求不论成绩是否相同，名次是连续的序号
+row_number()从1开始，为每一条分组记录返回一个数字，这里的ROW_NUMBER() OVER (ORDER BY xlh DESC) 是先把xlh列降序，再为降序以后的没条xlh记录返回一个序号。 
+select * from studentexam ORDER BY Examsubject desc;
+select * from studentexam  ORDER BY ExamID asc,Examresult desc;
+select studentexam.* , row_number()over(order by examresult)rown from studentexam
+select *,Row_Number()over(order by examresult desc) from studentexam
+
+2、要求成绩相等的排位相同，名次随后跳跃
+rank() over：查出指定条件后的进行排名。特点是，加入是对学生排名，使用这个函数，成绩相同的两名是并列，下一位同学空出所占的名次
+select studentexam.* ,rank()over(order by examresult)rank_ from studentexam
+
+3、要求成绩相等的排位相同，名次是连续的
+.dense_rank() over：与ran() over的區别是，两名学生的成绩并列以后，下一位同学并不空出所占的名次
+select studentexam.* , dense_rank()over(order by examresult)denserank from studentexam
