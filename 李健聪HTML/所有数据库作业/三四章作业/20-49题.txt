@@ -1,0 +1,100 @@
+21.返回拥有员工的部门名/部门号
+SELECT EMPNO,DEPTNO FROM EMP;
+22.工资水平多余smith的员工信息
+SELECT * FROM EMP WHERE SAL>800 ;
+23.返回员工和所属经验的姓名
+SELECT E.ENAME as "经理",B.ENAME AS "员工"  FROM EMP E,EMP B WHERE  E.EMPNO=B.MGR;
+24.返回雇员的雇佣日期早于其经理雇佣日期的员工及其经理姓名
+SELECT E.ENAME as "经理",B.ENAME AS "员工"  FROM EMP E,EMP B WHERE  E.EMPNO=B.MGR AND  E.HIREDATE>B.HIREDATE;
+25返回员工姓名及其所在的部门名称
+SELECT ENAME,DEPTNO FROM EMP;
+26返回从事clerk工作的员工姓名和所在部门名称
+SELECT ENAME,DEPTNO FROM EMP WHERE JOB='CLERK';
+27返回部门号及其本部门的最低工资
+SELECT E.DEPTNO,MIN(B.SAL) FROM EMP E,EMP B WHERE E.DEPTNO=B.DEPTNO group by DEPTNO ;
+28返回销售部（sales）所有员工的姓名
+select E.ENAME	from DEPT D,EMP E WHERE E.DEPTNO=D.DEPTNO AND D.DNAME='SALES';
+29返回工资水平多余平均工资的员工
+SELECT * FROM EMP WHERE SAL>(SELECT AVG(SAL) FROM EMP )
+30返回与SCOTT从事相同工作的员工
+SELECT * FROM EMP  WHERE deptno=(select deptno from emp where ename='scott'); 
+31.返回与30部门员工工资水平相同的员工姓名与工资（即就是在emp表中查找所有与30部门的条件）
+select * from emp;
+select SAL from emp where DEPTNO='30'(N行一列：列子查询，所以select只能查一个)
+select SAL'工资',ENAME'姓名' from emp where SAL in (select SAL from emp where DEPTNO='30')and ;
+
+32.返回工资高于30部门所有员工工资水平的员工信息。（即就是在emp表中查找所有工资高于30部门所有工资的员工信息）
+用到系统函数max和列子查询
+select max(SAL) from emp where DEPTNO='30';
+select SAL from emp where DEPTNO='30';
+select * from emp where SAL>(select max(SAL) from emp where DEPTNO='30');
+
+33.返回部门号、部门名、部门所在位置及其每个部门的员工总数
+1.先写返回每个部门的员工总数（分组）还有count（）求数量
+2.联合2表，去重
+select count(*) from emp;
+select count(  DEPTNO) from emp;
+select DEPTNO'部门号', count(*)'员工总数'from emp  group by DEPTNO 
+select DEPTNO'部门号', count(*)'员工总数'from emp  group by DEPTNO where 
+select * from dept;
+
+select d.*,e.DEPTNO'部门号',count(*)'员工总数'from emp e, dept d where e.DEPTNO=d.DEPTNO group by DEPTNO;
+
+34.返回员工的姓名、所在部门及其工资
+select e.ENAME'员工姓名',d.DNAME'所在部门',e.SAL'工资' from emp e,dept d where e.DEPTNO=d.DEPTNO
+
+35返回员工的详细信息。
+select * from emp e,dept d where e.DEPTNO=d.DEPTNO
+36返回员工工作及其从事此工作的最低工资。(分组+min方法)
+select JOB  from emp;
+select min(SAL)'最低工资',JOB'工作' from emp group by JOB;
+
+37计算出员工的年薪，并且以年薪排序。(order by + desc/asc(升降方法))
+select SAL*12'年薪', ENAME'姓名'from emp order by SAL desc ;
+select SAL*12'年薪', ENAME'姓名'from emp order by SAL asc ;
+
+38返回工资处于第四级别的员工的姓名。
+(去重了)
+select e.ENAME'姓名',s.GRADE'等级' from emp e,salgrade s where e.SAL between s.LOSAL and s.HISAL and GRADE='4';
+（没有去重）
+select e.ENAME'姓名',s.GRADE'等级' from emp e,salgrade s where GRADE='4';
+
+39返回工资为二等级的职员名字、部门所在地、和二等级的最低工资和最高工资
+select e.ENAME'姓名',s.GRADE'等级',d.DNAME'部门所在地址',s.LOSAL'最低工资',s.HISAL'最高工资' from emp e,salgrade s,dept d where e.DEPTNO=d.DEPTNO and e.SAL between s.LOSAL and s.HISAL and GRADE='2';
+
+40.工资等级多于smith的员工信息。
+select s.GRADE'等级' from emp e,salgrade s where e.SAL between s.LOSAL and s.HISAL and e.ENAME='smith';
+select e.* from emp e,salgrade s where e.SAL between s.LOSAL and s.HISAL and s.GRADE>(select s.GRADE'等级' from emp e,salgrade s where e.SAL between s.LOSAL and s.HISAL and e.ENAME='smith');
+
+41.查看Employess列表所有数据
+select * from emp;
+select * from employess;
+
+42.计算Employees中的行数
+select count(*) from emp;
+
+43.查询工作年龄最大的员工姓名以及工作年限
+select * from emp;
+select min(year(HIREDATE)),ENAME from emp ;
+select min(year(HIREDATE)),(datediff(curdate(),HIREDATE))/365'工作年限',ENAME'姓名' from emp group by HIREDATE;
+44.查询薪酬在3000元以上的人数
+select count(*) from emp where SAL>3000;
+
+45.查询employess表中姓林两个名字的员工编号以及姓名；(用到模糊查询 +以%任意字符)
+select substring()
+select ENAME'姓名',EMPNO'编号' from emp where ENAME like 'J%';
+
+46.查询emp表中名字中有林字的员工的编号以及姓名（模糊查询，+%任意字符）
+select ENAME'姓名',EMPNO'编号' from emp where ENAME like '%A%';
+
+47.查询工资在2000到3000范围的员工编号以及收入(用到in或者 not in关键字（这个是否等于这2个值)
+用到between and
+select EMPNO'编号',SAL'收入'from emp where SAL between 2000 and 3000;
+
+48.查找财务部的员工以及员工姓名(条件后面等于子查询要用括号（）)
+select DEPTNO from dept where DNAME='ACCOUNTING'
+select EMPNO'编号',ENAME'姓名',DEPTNO'部门'from emp where DEPTNO=(select DEPTNO from dept where DNAME='ACCOUNTING');
+
+49.查询财务部以及研发部以外的员工以及员工姓名(字符要用单引号)(用到in 和 not in)因为查询的是数组有多个工作，所以用in 否则会结果报错返回查询多行）
+select DEPTNO from dept where DNAME not in('ACCOUNTING','RESEARCH');
+select EMPNO'编号',ENAME'姓名',DEPTNO'部门'from emp where DEPTNO in(select DEPTNO from dept where DNAME not in('ACCOUNTING','RESEARCH'));

@@ -1,0 +1,40 @@
+1查询所有学员的平均年龄（要求保留两位小数）
+SELECT TRUNCATE(avg(stuage),2)  from studentinfo1 ;
+2查询所有考试的总成绩
+SELECT sum(examresult)'总成绩' from studentexam;
+3查询SQL考试的最低分数
+SELECT MIN(examresult)'SQL最低分' from studentexam WHERE examsubject='SQL' ; 
+4查询Java考试成绩最高的学员姓名
+SELECT max(examresult)'JAVA最高分' from studentexam WHERE examsubject='java' ; 
+5查询学院‘火云邪神’一共参加了几次考试
+SELECT COUNT(*) from studentexam s,studentinfo1 t WHERE s.estuid=t.stuid and t.stuname='火云邪神';
+6.查询各科目的平均成绩 
+SELECT avg(examresult) from studentexam GROUP BY examsubject;
+7.查询每个班级学员的最小年龄
+SELECT max(stujointime)'最小年龄' ,sclassid'班级' from studentinfo1 GROUP BY sclassid;
+8.查询考试不及格的人数
+SELECT COUNT(*) from studentexam s where  examresult<60 GROUP BY estuid; 
+9.查询各学员的总成绩，要求筛选出总成绩在140分以上的
+SELECT sum(stu.examresult),st.stuname from studentexam stu,studentinfo1 st WHERE stu.estuid=st.stuid GROUP BY stu.estuid HAVING sum(stu.examresult)>140;
+10.查询男女学员的平均年龄
+SELECT avg(stu.examresult),st.stusex from studentexam stu,studentinfo1 st  WHERE stu.estuid=st.stuid GROUP BY st.stusex;
+
+SELECT * FROM  StudentExam;
+11.查询每门功课的平均分，要求显示平均分在80分以上的（包括80分）
+select ExamSubject,avg(ExamResult)'平均分' from studentexam GROUP BY  ExamSubject HAVING  avg(ExamResult)>=80 ;
+12.按班主任姓名分组，差所带班级的总成绩分（假定每个班主任只带一个班级）（提示，4表连接）
+SELECT * FROM  teacherinfo1;
+SELECT * from  studentinfo1;
+SELECT * from classinfo1;
+SELECT * from  studentexam;
+先按班主任姓名分组要查询班级的总成绩  然后from 他们之间的表  然后再观察表与表之间的关系 再联合起来 并写出他们的关系 最后在分组
+DROP table studentinfo1;
+SELECT teachername,sum(examresult) from teacherinfo1 tea
+join classinfo1 cla
+on tea.TeacherID=cla.ClassID
+join studentinfo1 stu
+
+
+13.统计每个月入小学学员的平均成绩
+SELECT avg(stu.examResult)'平均成绩',stu.EStuID'学号',MONTH(st.stujointime)'月份' from studentexam stu,studentinfo1 st where stu.estuid=st.stuid GROUP BY stu.estuid,st.stujointime;                                                                                                                                                                                                                                                                                                                                                                                    
+
