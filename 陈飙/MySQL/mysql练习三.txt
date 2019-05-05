@@ -1,0 +1,61 @@
+#练习三
+1.查询所有学员的平均年龄（要求保留2位小数）
+select avg(StuAge) from studentinfo;
+select truncate(avg(StuAge),2) from studentinfo ;
+
+2.查询所有考试的总成绩
+select ExamResult'总成绩' from studentexam;
+
+3.查询SQL考试的最低分数
+select min(ExamResult)'最低分数' from studentexam where  ExamSubject='SQL';
+
+4.查询Java考试成绩最高的学员姓名
+select MAX(examresult),studentinfo.StuName from studentexam join studentinfo on studentexam.estuid=studentinfo.stuid where examsubject='java'
+SELECT * from studentexam;
+select ExamID from studentexam;
+#select ExamID'学员姓名',max() from studentexam  where ExamSubject='Java';
+
+5.c查询学员'火云邪神'一共参加了几次考试
+select count(EStuID) from  studentexam join studentinfo on studentexam.estuid=studentinfo.stuid where EStuID=1;
+
+6.查询各科目的平均成绩（分组group by + avg()）
+select ExamSubject'科目',avg(ExamResult) as 平均成绩 from studentexam group by ExamSubject;
+
+7.查询每个班级学员的最小年龄(分组group by +min())
+select SClassid'班级',min(stuAge)'最小年龄' from studentinfo group by SClassid;
+
+8.查询考试不及格的人数（count()聚合函数）
+select count(*)'不及格人数' from studentexam where ExamResult<60;
+
+9.查询各学员的总成绩，要求筛选出总成绩在140分以上的(用到分组+having 方法)（having方法就是一个组合列不能用where表达条件的时候用having可以表达）
+select * from studentexam;
+select EStuID'学员',sum(ExamResult)>140'总成绩' from studentexam where sum(ExamResult)>140
+select EStuID'学员',sum(ExamResult)'总成绩' from studentexam  group by EStuID having sum(ExamResult)>140 ;
+
+10.查询男女学员的平均年龄(分组group by +avg()函数)
+select * from studentinfo
+select StuSex'学员',avg(StuAge) from studentinfo group by StuSex;
+
+
+11.查询每门功课的平均分，要求显示平均分在80分以上（包括80分）
+select avg(ExamResult) from studentexam   group by ExamSubject having avg(ExamResult)>80;
+12.按班主任姓名分组，查所带班级的总成绩分（假定每个班主任只带一个班级）（提示，4表连接）
+1.先把表的使用顺序理清，然后链接对应的关系，最后分组。
+select TeacherName, sum(se.ExamResult) from teacherinfo,studentexam se   group by TeacherName
+select TeacherName, sum(stu.ExamResult) from teacherinfo t 
+join classinfo c on t.TeacherID=c.CteacherID
+join studentinfo s on c.ClassID=s.SClassID
+join studentexam stu on s.StuId=stu.EStuID
+group by TeacherName
+
+select * from teacherinfo;
+select * from classinfo;
+select * from studentinfo;
+select * from studentexam;
+
+13.统计每个月入学学员的平均成绩（group by 后面可以用逗号隔开，添加多个分组，然和在select后面写，只要给那一列分组，用函数方法获得值也会被分组）
+select month(stujointime) from studentinfo;
+select avg(ExamResult)'平均成绩',Estuid'学员' from studentexam group by Estuid;
+select avg(s.ExamResult)'平均成绩',Estuid'学员' , month(stujointime)'月份'from studentexam s join studentinfo stu  on s.EStuID=Stu.StuId group by stu.StuJoinTime,s.EStuID;
+select * from studentinfo;
+select * from studentexam;
