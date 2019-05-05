@@ -1,0 +1,81 @@
+21.返回拥有员工的部门名、部门号
+select * from emp;
+select * from dept
+select d.Dname,d.deptno as '部门名'from emp e,dept d where e.DEPTNO=d.DEPTNO
+22.工资水平多于smith的员工信息
+SELECT * from emp where sal>800 ORDER BY sal desc
+select * from emp;
+23.返回员工和所属经理的姓名
+select e1.ename as '员工名' , e2. from emp as e1,emp as e2 where e1.empno=e2.mgr 
+
+24.返回雇员的雇佣日期早于其经理雇用日期的员工及其经理姓名
+select e1.ename from emp e1,emp e2 where e1.hiredate<e2.
+
+25.返回员工姓名及其所在的部门名称
+select e.ename,d.dname from emp e,dept d where e.deptno=d.deptno 
+
+26.返回从事clerk工作的员工姓名和所在部门名称。
+select e.ename,d.dname  from emp e,dept d where e.deptno=d.deptno and job='clerk'
+27.返回部门号及其本部门的最低工资。
+SELECT DEPTNO ,MIN(SAL)FROM emp GROUP BY DEPTNO;	
+SELECT e.DEPTNO,s.LOSAL FROM emp e JOIN salgrade s WHERE e.SAL  BETWEEN s.LOSAL AND s.HISAL;
+
+select * from emp;
+select * from dept
+
+28.返回销售部(sales)所有员工的姓名。
+select 	e.ename from emp e,dept d where e.deptno=d.deptno and d.dname='sales';
+29.返回工资水平多于平均工资的员工。
+use test1
+select * from emp e,dept d where e.deptno=d.deptno and e.sal>(select avg(sal) from emp)
+****30.返回与SCOTT从事相同工作的员工。
+SELECT * FROM emp e1 JOIN emp e2 ON e1.JOB=e2.JOB WHERE e2.ENAME='scott'
+select * from emp e1,emp e2 where e1.JOB=e2.JOB and e1.ename='scott'  	
+31.返回与30部门员工工资水平相同的员工姓名与工资。
+select 	e.ename,e.sal	from emp e	where e.sal in(select sal from emp where deptno=30 )
+32.返回工资高于30部门所有员工工资水平的员工信息。
+select * from emp e where e.sal	>(select max(sal) from emp where deptno=30)
+33.返回部门号、部门名、部门所在位置及其每个部门的员工总数
+select 	e.empno,d.dname,d.loc, COUNT(e.deptno)as '人数'	from emp e,dept d where e.deptno=d.deptno GROUP BY e.deptno
+34.返回员工的姓名、所在部门名及其工资
+select e.ename,d.dname,e.sal from emp e,dept d 	where e.deptno=d.deptno
+35.返回员工的详细信息。(包括部门名)
+select * from dept d,emp e where d.deptno=e.deptno
+36.返回员工工作及其从事此工作的最低工资。
+select e.job,min(e.sal) from emp e GROUP BY e.job	
+37.计算出员工的年薪，并且以年薪排序。
+select *,(e.sal*12) as '年薪' from emp e ORDER BY 	e.sal*12 desc
+
+select * from emp;
+select * from dept;
+select * from salgrade;
+
+38.返回工资处于第四级别的员工的姓名。
+SELECT e.ENAME, e.SAL FROM emp e ,salgrade s WHERE e.SAL BETWEEN s.LOSAL AND s.HISAL AND s.GRADE=4;
+select e.ename, e.SAL from emp e ,salgrade s where e.sal BETWEEN s.losal and s.HISAL and s.grade=4;
+39.返回工资为二等级的职员名字、部门所在地、和二等级的最低工资和最高工资
+select e.ename,d.dname	from emp e,dept d where d.deptno=e.deptno	
+40.工资等级多于smith的员工信息。
+select * from dept	
+41.查看Employees列表所有数据
+SELECT * FROM emp;
+42.计算Employees中的行数
+select count(*) from emp
+43.查询工作年龄最大的员工姓名以及工作年限
+SELECT ENAME "姓名", MAX(DATEDIFF(NOW(),HIREDATE))/365 "工作时间" FROM emp; 
+44.查询薪酬在3000元以上的人数
+select count(sal) as '3000以上的人数' from emp where sal>3000
+45.查询Employees表中姓林且两个字名字的员工编号以及姓名 
+select  ename,empno from emp where ename like '林_'
+46.查询Employee表中名字中有林字的员工的编号及姓名
+select  ename,empno from emp where ename like '%林%'
+47.查询工资在2000到3000范围的员工编号以及收入 
+SELECT ENAME,EMPNO,SAL FROM emp WHERE SAL >2000 AND SAL<3000;
+select empno,sal from emp where sal BETWEEN 2000 and 3000
+48.查找财务部的员工号以及员工姓名 
+select ename,empno from emp,dept where dept.deptno=emp.DEPTNO and dept.dname='accounting' 
+49.查找财务部以及研发部以外的员工号以及员工姓名
+
+select ename,empno from emp,dept where dept.deptno=emp.DEPTNO and dept.dname='accounting' and e.deptno not in ()
+
+
