@@ -1,13 +1,13 @@
-ϰ��1��emp��Ϊ����Դ,��дһ�����̸���Ա��������Ա��������нˮ��(Ҫ��Ա����нˮ��Ϊ�������)
+习题1：emp表为数据源,编写一个过程根据员工编号输出员工姓名和薪水。(要求将员工和薪水作为输出参数)
 DELIMITER //
   CREATE PROCEDURE se(in nub int ,out nm varchar(20),out sa int)
     BEGIN
       SELECT ename,SAL+IFNULL(COMM,0) into nm,sa FROM emp WHERE empno = nub;
     END
     //
-	CALL se('7499',@n,@x)
+	CALL se(7499,@n,@x)
 SELECT @n,@x;
-ϰ��2��emp��Ϊ����Դ,��дһ����������Ա����ŷ���Ա����ְʱ�䡣
+习题2：emp表为数据源,编写一个函数根据员工编号返回员工入职时间。
 delimiter // 
 	CREATE PROCEDURE emp_hiredate_date(in bh int,OUT dt date)
 		BEGIN 
@@ -16,7 +16,7 @@ delimiter //
 	//
 CALL emp_hiredate_date(7844,@dt)
 SELECT @dt;
-ϰ��3������һ��������������Ա��,�ٶ���һ��������������Ա������ж�Ա���Ƿ���ڡ�
+习题3：定义一个过程用作添加员工,再定义一个过程用作根据员工编号判断员工是否存在。
 delimiter // 
  CREATE PROCEDURE createinfo(in eno int,in en VARCHAR(20))
 		BEGIN 
@@ -24,5 +24,5 @@ delimiter //
 			INSERT INTO emp(ename) VALUES (en);
 		END
 		//
-CALL createinfo(7938,'��');
+CALL createinfo(7938,'林');
 SELECT @eno,@en;
