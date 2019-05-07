@@ -1,0 +1,47 @@
+1emp表为数据源，编写一个过程根据员工编号输出员工姓名和薪水。
+delimiter $$
+CREATE procedure emp_name (in number int,out name1 varchar(20),out xinshui int )
+BEGIN
+SELECT ename,ifnull(comm,0)into name1,xinshui from emp where empno=nember;
+end 
+$$
+drop procedure if exists emp_name;
+delimiter;
+call emp_name(7369,@name1,@xinshui);
+SELECT @name,@xinshui;
+
+--emp表为数据源，编写一个函数根据员工号返回员工的入职时间
+delimiter $$
+create procedure jtimeno(in number int,out date1 date)
+BEGIN
+SELECT hiredate into date1 from emp where empno=number;
+end 
+$$
+drop procedure if exists jtimeno;
+delimiter;
+set @number=7369;
+call jtimeno(@number,@date1);
+select @date1;
+
+定义一个过程添加员工，在定义一个过程用作根据员工编号判断员工是否存在
+delimiter $$
+create procedure add_yuangong(in number int)
+BEGIN
+insert into emp(empno,ename,job) values(number,'ergou','clerk');
+end 
+$$
+drop procedure if exists add_yuangong;
+delimiter;
+call add_yuangong(123456);
+
+判断是否存在
+delimiter $$
+create procedure add_exists(out number int,in num int)
+BEGIN
+SELECT IFNULL(empno,null) into number from emp where empno=num;
+END
+$$
+drop procedure if exists add_exists;
+delimiter;
+call add_exists(@number,123456);
+SELECT @number;
