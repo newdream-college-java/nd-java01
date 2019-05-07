@@ -1,0 +1,81 @@
+emp表为数据源，编写一个过程根据员工编号输出员工姓名和薪水（要求将员工姓名和薪水作为输出参数）
+delimiter $$
+drop procedure if exists sp_nameSal;
+create procedure sp_nameSal(in number int,out Aename varchar(10),out ASAL double )
+BEGIN
+	select ename ,SAL into Aename,ASAL from emp where EMPNO = number;
+END
+$$
+desc emp
+select * from emp
+call sp_nameSal(7521,@Anames,@ASAL);
+select @Anames,@ASAL;
+
+#1.方式二
+delimiter $$
+drop procedure if exists sp_nameSal;
+create procedure sp_nameSal(in number int,out Aename varchar(10),out ASAL double )
+BEGIN
+	select ename ,SAL+COMM into Aename,ASAL from emp where EMPNO = number;
+END
+$$
+desc emp
+select * from emp
+call sp_nameSal(7521,@Anames,@ASAL);
+select @Anames,@ASAL;
+
+练习二emp表为数据源，编写一个函数根据员工编号返回员工的入职时间
+select * from emp;
+delimiter $$
+drop procedure if exists sp_time;
+create procedure sp_time(in name int,out num date)
+BEGIN
+select HIREDATE into num from emp where EMPNO like name;
+END
+$$
+
+CALL sp_time(7369,@num);
+select @num;
+
+
+练习三
+定义一个过程用作添加员工，再定义一个过程用作根据员工编号判断员工是否存在
+1.不要吧删除放在定义符合下面，不然可能会出现问题
+
+二。出现的问题
+1.使用insert into 把变量换出要改变的值
+2.drop procedure if exists sp_add;尽量写在存储过程后，写在前面可能会报错
+3.判断是否存在用ifnull（返回值，null）然后存入输出值
+delimiter $$
+#1.添加员工
+create procedure sp_add(in number int)
+BEGIN
+insert into emp(empno,ename,job) values(number,'eeee','CLERK');
+END
+$$
+drop procedure if exists sp_add;
+call sp_add(6005);
+select * from emp
+
+
+#2.方式二添加员工
+delimiter $$
+create procedure sp_add(in number int)
+BEGIN
+insert into emp values(number,'ssss','SALESMAN',7698,'2019-05-05',1000,null,30);
+END
+$$
+drop procedure if exists sp_add;
+call sp_add(6007);
+select * from emp
+
+#2.判断是否存在
+delimiter $$
+create procedure sp_exit(out number int,in anumber int)
+BEGIN
+select IFNULL(empno,null)into number from emp where EMPNO=anumber;
+END
+drop procedure if exists sp_exit;
+delimiter ;
+call sp_exit(@number,60087);
+select @number;
