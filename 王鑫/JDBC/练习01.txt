@@ -1,0 +1,60 @@
+1.查找部门编号为30的员工
+
+SELECT * FROM emp where deptno=30;
+
+2.找出从事clerk工作的员工的编号,姓名,部门号。
+SELECT empno,ename,deptno FROM emp where JOB='clerk';
+
+3.检索出将近多余基本工资的员工信息.
+select * FROM emp WHERE sal<COMM;
+
+4.检索出奖金多余基本工资60%的员工信息.
+select * from emp where (sal*0.6)<comm;
+
+5.找出10部门的经理,20部门的职员的员工信息。
+select * from emp where deptno=10 or deptno = 20;
+
+6.找出10部门的经理,20部门的职员或者挤不上经理也不是职员但是工资高于2000元的员工信息
+select * from emp where deptno=10 or deptno = 20 or (deptno!=10 and deptno!=20 and sal>2000);
+
+7.找出获得奖金的员工的工作
+SELECT * from emp WHERE comm is not null;
+
+8.找出获得奖金少于100或者没有获得奖金的员工的工作
+select *from emp where comm<100 OR comm is NULL;
+
+9.找出姓名以A,B,C开始的员工信息.
+select * from emp where ename LIKE 'A%'or ename LIKE 'B%' or ename LIKE 'S%';
+
+10.找到姓名长度为6的字符员工信息.
+select * from emp where LENGTH(ename)=6;
+
+11.名字中不包含R字符的员工信息.
+select * from emp WHERE	ename LIKE '%R%';
+
+12.返回员工的详细信息并按姓名排序。
+select * from emp ORDER BY ename DESC;
+
+13.返回员工的信息并按工作降序工资升序
+select * from emp ORDER BY Job DESC,sal ASC;
+
+14.计算员工的日薪(按30天)
+SELECT ENAME,SAL/30 AS'日薪' FROM EMP;
+
+15.找出姓名包含A的员工信息。
+select * from emp where ename LIKE '%a%';
+
+16.进行等值连接,查询全部员工的个人信息以及薪酬情况。
+SELECT * from emp INNER JOIN class no dept.dname = emp.ename;
+
+17.查询工资水平在2500以上的员工号,姓名,收入。
+SELECT empno,ename,comm FROM emp WHERE sal>2500;
+
+18.查询所有员工的员工号,姓名,收入
+select empno,ename,sal from emp;
+
+19.查询所有部门的员工情况
+select * from emp;
+
+20.查询所有部门所有员工的姓名
+select ename from emp;

@@ -1,0 +1,76 @@
+21.返回拥有员工的部门名,部门号
+SELECT dname"部门名" , deptno "部门号" from dept ; 
+
+22.工资水平对于smith的员工信息
+SELECT * from emp WHERE emp.sal>800;
+
+23.返回员工和所属经理的名字
+SELECT e1.ename "员工名字" , e2.ename "经理名字" FROM emp e1 , emp e2  where e1.mgr=e2.empno; 
+
+24.返回雇员日期早于其经理雇佣日期的员工及其经理姓名
+SELECT e1.ename "员工名字" ,  e1.hiredate "员工雇佣日期" , e2.ename "经理名字", e2.hiredate "经理雇佣日期" FROM emp e1 , emp e2  where e1.mgr=e2.empno; 
+
+25.返回员工姓名发及其所在的部门名称。
+SELECT e.ename "员工姓名" , d.dname"部门名称" from emp e , dept d  where e.deptno = d.deptno; 
+
+26.返回从事clerk工作的员工姓名和所在部门名称。
+SELECT e.ename"员工姓名" , d.dname"部门名称" from emp e,dept d where e.job = "CLERK" and e.deptno = d.deptno;
+
+27.返回部门号及其部门的最低工资。
+SELECT d.deptno"部门号",MIN(e.sal)"最低工资" FROM emp e , dept d WHERE e.deptno = d.deptno  GROUP BY d.deptno;
+
+28.返回销售部(sales)所有员工的姓名。
+select e.ename"销售人员" from emp e , dept d  WHERE e.deptno=d.deptno AND d.dname="sales";
+
+29.返回 工资水平多于平均工资的员工。
+SELECT * FROM emp where SAL>(SELECT AVG(SAL)FROM emp);
+
+30.返回与SCOTT 从事相同工作的员工。
+SELECT * FROM emp WHERE deptno = (SELECT deptno FROM emp WHERE ename = 'SCOTT');
+
+
+
+
+
+
+1.查询所有学员从入学到今天,一共度过了多少天
+select DATEDIFF(CURDATE(),'1998-6-01'); 
+2.查询你的生日日期到现在像个的年数(月数12)
+select FLOOR(DATEDIFF(CURDATE(),'1998-6-01')/365); 
+2.查询每月2号入学学员的信息
+SELECT * from studentinfo WHERE dayofmonth(stujointime)=2;
+2.查询周末入学的学员
+SELECT MONTH(CURDATE())=6 or MONTH(CURDATE())=0;
+	3.查询所有学员的毕业日期,假定按每个学员入学时间1年半之后毕业
+SELECT * from studentinfo
+4.查询星期四入学的学员姓名,性别,年龄,班级编号？
+SELECT * from studentinfo WHERE DAYOFWEEK(stujointime)=4;
+5.查询‘2007-3-10’之前入学的学员信息。
+SELECT * from studentinfo WHERE DATEDIFF(stujointime,"2007-3-10")<0;
+6.查询所有的学员姓名长度
+SELECT stuname"学生姓名" ,LENGTH(stuname)"学生名字长度" FROM studentinfo
+7.查询身份证中第9,10位为‘89’的学员信息(要求使用字符串函数)
+select * from studentinfo WHERE SUBSTRING(stucard,9,2)=98;
+8、修改班主任信息，将邮箱中的‘yahoo’替换为‘accp’
+update teacherinfo set teacherEmail='accp' where teacherEmail='yahoo';
+9、查询所有班主任的邮箱的用户名
+select teacherid,teacherEmail from teacherinfo;
+10、查询所有班主任的邮箱的所属网站
+提示：如果邮箱为qtz@yahoo.com，用户名即qtz，所属网站即yahoo。可先查找出‘@’和‘.’的下标，再截取
+select substr(teachertel,instr(teacheremail,'@'),instr(teacheremail,'.')-instr(teacheremail,'.')) from teacherinfo;
+	11、编写查询语句去掉字符串‘   爱你  要你  我  爱  你   ’中的空格
+select trim('   爱你  要你  我  爱  你   ');
+12、计算每个学员身份证中字符‘1’出现的次数
+select count(1) from studentinfo where stucard like '%1%';
+13、求小于-58.9的最大整数
+select round(-58.9)
+14、求大于78.8的最小整数
+select floor(78.8)
+15、求64除以7的余数
+select mod(64,7);
+	16、查询所有学员入学时间，要求显示格式为‘2007年03月02日’
+select to_char(stuJoinTime,'yyyy"年"mm"月"dd"日"')"入学时间" from Studentinfo;
+	17、查询当前时间，要求显示格式为‘22时57:37’
+select to_char(sysdate,'hh24时mi:ss')
+18、查询2007年入学的学员信息
+select  * from studentinfo where year(stujointime)='2007';

@@ -1,0 +1,66 @@
+31.返回与30部门员工工资水平相同的员工姓名与工资。
+select * from emp where sal in (select sal from emp group by sal having count(sal) > 1)
+32.返回工资高于30部门所有员工工资水平的员工信息。
+SELECT * FROM emp where (SELECT max(sal) FROM emp WHERE deptno=30)<sal;
+33.返回部门号、部门名、部门所在位置及其每个部门的员工总数
+select d.deptno"部门号",d.dname"部门名",d.loc"位置",COUNT(e.deptno)"员工数" FROM emp e, dept d WHERE e.deptno = d.deptno GROUP BY e.deptno;
+34.返回员工的姓名、所在部门名及其工资
+SELECT deptno"部门号",ename"部门名",sal"工资" FROM emp ORDER BY deptno;
+35.返回员工的详细信息。(包括部门名)
+SELECT e.*,d.dname"部门名" FROM emp e LEFT JOIN dept d ON e.deptno = d.deptno ORDER BY e.deptno;
+36.返回员工工作及其从事此工作的最低工资。
+SELECT deptno"部门号",ename"部门名",sal"工资",MIN(sal)"最低工资" FROM emp;
+37.计算出员工的年薪，并且以年薪排序。
+SELECT deptno"部门号",ename"部门名",(sal*12)+IFNULL(comm,0)"工资" FROM emp ORDER BY deptno ASC;
+38.返回工资处于第四级别的员工的姓名
+select * from emp where deptno=40;
+39.返回工资为二等级的职员名字、部门所在地、和二等级的最低工资和最高工资
+select e.ename"职工名字",d.loc"部门所在地",MIN(sal)"最低工资",MAX(sal)"最高工资" from emp e,dept d where e.deptno=20;
+ 40.工资等级多于smith的员工信息。
+SELECT * FROM emp WHERE sal>(SELECT s.hisal FROM emp e , salgrade s WHERE ename='smith' AND e.sal BETWEEN s.losal and s.hisal);
+41.查看Employees列表所有数据
+SELECT * FROM emp;
+42.计算Employees中的行数
+SELECT COUNT(empno)"行数" FROM emp;
+43.查询工作年龄最大的员工姓名以及工作年限
+select * from emp where 
+44.查询薪酬在3000元以上的人数
+SELECT * FROM emp WHERE sal>3000;
+45.查询Employees表中姓林且两个字名字的员工编号以及姓名
+select * from emp where ename like '林_';
+46.查询Employee表中名字中有林字的员工的编号及姓名
+select empno"编号",ename"姓名" from emp where ename like '林_';
+47.查询工资在2000到3000范围的员工编号以及收入 
+select empno"员工编号",sal"员工收入" from emp where sal between 2000 and 3000;
+48.查找财务部的员工号以及员工姓名 
+select e.empno,e.ename from emp e where e.deptno=(select d.deptno from dept d where d.dname='ACCOUNTING')
+49.查找财务部以及研发部以外的员工号以及员工姓名
+select e.empno,e.ename from emp e where e.deptno not in(select d.deptno from dept d where d.dname in ('ACCOUNTING','RESEARCH'))
+
+=================================================
+1.查询所有学员的平均年龄(要求保留两位小数)
+select ROUND(AVG(stuage),2)"学生平均年龄" from studentinfo
+2.查询所有考试的总成绩
+SELECT SUM(examresult)"JAVA总成绩" FROM studentexam WHERE examsubject = "java";
+3.查询SQL考试的最低分数
+SELECT MIN(examresult)"JAVA最低分" FROM studentexam WHERE examsubject = "java";
+4.查询java考试成绩最高的学员姓名
+SELECT max(examresult)"JAVA最高分" FROM studentexam WHERE examsubject = "java";
+5.查询学员‘火云邪神’一共参加了几次考试
+SELECT COUNT(estuid)"参加考试次数" from studentexam WHERE estuid=1;
+6.查询各科的平均成绩
+SELECT ExamSubject"科目",AVG(examresult)"平均分" FROM studentexam GROUP BY ExamSubject;
+7.查询每个班级学员的最小年龄
+SELECT MIN(stuage)"年龄" FROM studentinfo;
+8.查询考试不及格的人数
+select * FROM studentexam WHERE examresult<60;
+9.查询各学员的总成绩,要求筛选出总成绩在140分以上的
+SELECT estuid"学号",sum(examresult)"总分" FROM studentexam GROUP BY estuid HAVING sum(examresult)>140;
+10.查询男女学员的平均年龄
+select  avg(stuage)"平均年龄" from studentinfo;
+11.查询每门功课的平均分,要求显示平均分在80分的(包含80分)
+SELECT ExamSubject"科目",AVG(examresult)"平均分" FROM studentexam GROUP BY ExamSubject HAVING AVG(examresult)>80;
+12.按班主任姓名分组,查所带班级的总成绩(假定每个班主任只带一个班级)--提示：4表连接
+select c.classid,sum(e.examresult) from classinfo c,student_info s,studentexam e,teacherinfo f where c.classid=s.sclasssid and c.cteacherid=f.techerid and s.stuid=e.estuid group by f.techername
+13.统计每个月入学的学员的平均成绩。
+select month(stujointime),avg(examresult) from student_info,studentexam GROUP BY estuid
