@@ -21,8 +21,7 @@ public class testMaster {
 		master.setName(name);
 		master.setPassword(password);
 		MasterManager m=new MasterManager();
-		MasterDao masterDao=new MasterDaoSqlServerImpl();
-		masterDao.select(master);
+		m.select(master);
 	}
 
 }

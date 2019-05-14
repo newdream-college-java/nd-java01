@@ -20,5 +20,6 @@ public class testType {
 		}else {
 			System.out.println("类型名称输入错误！");
 		}
+		
 	}
 }

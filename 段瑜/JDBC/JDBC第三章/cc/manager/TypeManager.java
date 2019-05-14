@@ -1,7 +1,5 @@
 package cn.cc.manager;
 
-
-
 import java.util.Scanner;
 
 import cn.cc.dao.typeDao;

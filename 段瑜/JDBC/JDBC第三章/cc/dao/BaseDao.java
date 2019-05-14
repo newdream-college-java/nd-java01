@@ -20,12 +20,9 @@ public class BaseDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return conn;	
 	}
 	
-	
-
 	public static void doseAll(ResultSet rs, Statement pst, Connection conn) {
 		if(rs!=null) {
 			try {
