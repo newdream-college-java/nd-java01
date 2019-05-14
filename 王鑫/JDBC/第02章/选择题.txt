@@ -1,0 +1,5 @@
+1.A	解析：executeQuery()查询返回的是一个结果集。
+2.A	解析：Statement继承自Wrapper，PreparedStatement继承自Statement
+3.C	解析：数值类型用整形或者浮点型存储方便运算。
+4.C	解析：Statement和PreparedStatement是可以用来批量处理数据
+5.B
