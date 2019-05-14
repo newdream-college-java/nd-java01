@@ -2,6 +2,8 @@ package cn.cc.dao.imgl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import cn.cc.dao.BaseDao;
 import cn.cc.dao.MasterDao;
@@ -62,20 +64,27 @@ public class MasterDaoSqlServerImpl implements MasterDao{
 		// TODO Auto-generated method stub
 		Connection conn=null;
 		PreparedStatement pst=null;
-		int result=-1;
+		ResultSet result=null;
 		try {
 			 conn = BaseDao.getConn();
-			 String sql="select name,mpassword from master  where name=?,mpassword=?";
+			 String sql="select name,mpassword from master  where name=? and mpassword=?";
 			 pst=conn.prepareStatement(sql);
 			 pst.setString(1,master.getName());
 			 pst.setString(2,master.getPassword());
-			 result=pst.executeUpdate();
+			 result=pst.executeQuery();
+			 System.out.println(result);
+			 if(result.next()) {
+					System.out.println("µÇÂ¼³É¹¦");
+				}else {
+					System.out.println("µÇÂ¼Ê§°Ü");
+				}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			BaseDao.doseAll(null, pst, conn);
 		}
-		return result;
+		
+		return 0;
 	}
 
 }
