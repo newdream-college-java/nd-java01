@@ -1,12 +1,16 @@
+<<<<<<< HEAD:ç‹é‘«/MySQL/ç»ƒä¹ 04.txt
+=======
+ä¹ é¢˜1ï¼šempè¡¨ä¸ºæ•°æ®æº,ç¼–å†™ä¸€ä¸ªè¿‡ç¨‹æ ¹æ®å‘˜å·¥ç¼–å·è¾“å‡ºå‘˜å·¥å§“åå’Œè–ªæ°´ã€‚(è¦æ±‚å°†å‘˜å·¥å’Œè–ªæ°´ä½œä¸ºè¾“å‡ºå‚æ•°)
+>>>>>>> dbafdc11e330142bd7b9263b61b18942f5b2fea9:ç‹é‘«/MySQL/å­˜å‚¨è¿‡ç¨‹/no_10.sql
 DELIMITER //
   CREATE PROCEDURE se(in nub int ,out nm varchar(20),out sa int)
     BEGIN
       SELECT ename,SAL+IFNULL(COMM,0) into nm,sa FROM emp WHERE empno = nub;
     END
     //
-	CALL se('7499',@n,@x)
+	CALL se(7499,@n,@x)
 SELECT @n,@x;
-Ï°Ìâ2£ºemp±íÎªÊı¾İÔ´,±àĞ´Ò»¸öº¯Êı¸ù¾İÔ±¹¤±àºÅ·µ»ØÔ±¹¤ÈëÖ°Ê±¼ä¡£
+ä¹ é¢˜2ï¼šempè¡¨ä¸ºæ•°æ®æº,ç¼–å†™ä¸€ä¸ªå‡½æ•°æ ¹æ®å‘˜å·¥ç¼–å·è¿”å›å‘˜å·¥å…¥èŒæ—¶é—´ã€‚
 delimiter // 
 	CREATE PROCEDURE emp_hiredate_date(in bh int,OUT dt date)
 		BEGIN 
@@ -15,7 +19,7 @@ delimiter //
 	//
 CALL emp_hiredate_date(7844,@dt)
 SELECT @dt;
-Ï°Ìâ3£º¶¨ÒåÒ»¸ö¹ı³ÌÓÃ×÷Ìí¼ÓÔ±¹¤,ÔÙ¶¨ÒåÒ»¸ö¹ı³ÌÓÃ×÷¸ù¾İÔ±¹¤±àºÅÅĞ¶ÏÔ±¹¤ÊÇ·ñ´æÔÚ¡£
+ä¹ é¢˜3ï¼šå®šä¹‰ä¸€ä¸ªè¿‡ç¨‹ç”¨ä½œæ·»åŠ å‘˜å·¥,å†å®šä¹‰ä¸€ä¸ªè¿‡ç¨‹ç”¨ä½œæ ¹æ®å‘˜å·¥ç¼–å·åˆ¤æ–­å‘˜å·¥æ˜¯å¦å­˜åœ¨ã€‚
 delimiter // 
  CREATE PROCEDURE createinfo(in eno int,in en VARCHAR(20))
 		BEGIN 
@@ -23,5 +27,10 @@ delimiter //
 			INSERT INTO emp(ename) VALUES (en);
 		END
 		//
+<<<<<<< HEAD:ç‹é‘«/MySQL/ç»ƒä¹ 04.txt
 CALL createinfo(7938,'ÁÖ');
 SELECT @eno,@en;
+=======
+CALL createinfo(7938,'æ—');
+SELECT @eno,@en;
+>>>>>>> dbafdc11e330142bd7b9263b61b18942f5b2fea9:ç‹é‘«/MySQL/å­˜å‚¨è¿‡ç¨‹/no_10.sql
