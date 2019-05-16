@@ -5,3 +5,52 @@ JDBC中如果Java要和数据库连接可以有如下步骤：
 4、前者都是在创建和声明连接，现在就可以开始数据的交互了，在这第4不我们可以对数据进行基本的增，删，改，查的一系列操作了，最后再去将数据根性到数据库即可完成数据库的更新，Statement(变量).executeUpdate(操作语句)--增删改   ，  Statement(变量).executeQuery(操作语句)--查  ，当这一些列的操作完成以后但是这个时候我们不知道他具体操作完成没，我们是不是需要得到一个反馈信息呢，所以我们可以用一个ResultSet变量得到一个结果集，以便我们操作者及时得到反馈信息。
 5.在得到反馈信息的时候我们可以用一个判断语句去判断我们的ResultSet结果集变量如果是增，删，改 的话结果集会返回一个受影响的行(类型为int)，如果ResultSet的变量大于0那就说明数据中的值发生了改变。
 6.当我们需要做的操作已完成以后这时候切莫忘记关流，不然就会一直运行，直至Java程序关闭为止流才会关闭，不过现在大部分机器内存都是4G,8G所以很难看出有什么影响,不过为了养成良好的习惯我们还是的关流(先开后关  或  后开先关)。
+
+
+示例：查询
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+public class UpdateJdbc {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        //libarary  ----- 库  driver 驱动 司机
+        //1.加载驱动（第1步：导入驱动包  第2步：加载驱动） （协议）
+        Class.forName("com.mysql.jdbc.Driver");
+        //2.创建数据库连接 (建造河流)
+        /*jdbc: 协议jdbc ----子协议：  oralce协议  mysql协议
+        127.0.0.1      mysql数据库服务器的ip地址
+        3306              mysql数据库端口号
+        java01          数据库名
+        useUnicode=true&characterEncoding=utf8 ：编码
+        useSSL                                                                 使用ssl协议
+        
+        SQLException :  sql异常 
+        */
+        String url="jdbc:mysql://127.0.0.1:3306/java01?useUnicode=true&characterEncoding=utf8&useSSL=true";
+        String username="root";
+        String password="123456 ";
+        Connection conn  = DriverManager.getConnection(url,username,password);
+
+        //3.创建Statement对象  （造船）
+       Statement st = conn.createStatement();
+       
+        //4.发送并执行sql语句(贸易)
+        String sql  ="insert into stu_info(name) values('王二辉')";//数据的交互
+        //result ： 返回的数据库受影响的行数
+        // 增删改都是用：executeUpdate()      查询：executeQuery(sql) 
+        int result = st.executeUpdate(sql);
+   
+        //5.判断结果
+        if(result>0) {
+            System.out.println("添加数据库成功");
+        }else {
+            System.out.println("添加数据库失败");
+        }
+        //6.收尾工作(关链接，关statement对象)   原则：先开后关
+        st.close();
+        conn.close();
+    }
+}
