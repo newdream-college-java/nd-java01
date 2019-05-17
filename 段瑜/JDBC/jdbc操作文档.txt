@@ -1,0 +1,9 @@
+function passwords(obj){
+    var pas=document.getElementById("password");
+    var  promptld=document.getElementById("password_prompt");
+    obj.style.borderColor="red";
+   pas.className="register_input register_input_Focus";
+    promptld.innerHTML="两次密码必须相同";
+    promptld.className="register_prompt";
+    return false;
+  }
