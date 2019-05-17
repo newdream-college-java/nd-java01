@@ -1,0 +1,84 @@
+第一步：加载驱动
+Class.forName("com.mysql.jdbc.Driver");
+
+2.创建数据库连接 (建造河流)
+2.1：数据库IP地址，库名
+String url="jdbc:mysql://127.0.0.1:3306/java01?useUnicode=true&characterEncoding=utf8&useSSL=true";
+        
+2.2：用户名
+String username="root";
+        	
+2.3：密码
+String password="root";
+       
+2.4：连接数据库
+Connection conn  = DriverManager.getConnection(url,username,password);
+
+3,创建Statement对象  （造船）
+Statement st = conn.createStatement();
+
+4,发送并执行sql语句(贸易)
+mysql语句   添加，删除，更新
+ String sql  ="insert into stu_info(name) values('王二辉')"
+
+得到mysq影响行
+ int result = st.executeUpdate(sql);
+
+5，判断是否执行成功
+ if(result>0) {
+ 
+        System.out.println("添加数据库成功");
+        
+}else {
+            
+	System.out.println("添加数据库失败");
+        
+}
+
+6，收尾，关流，原则：先开后关
+st.close();
+       
+conn.close();
+
+
+
+==============================================================================================
+第一步：加载驱动
+Class.forName("com.mysql.jdbc.Driver");
+
+第二步：创建数据库连接
+String url="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&charactercoding=utf8&useSSL=true";
+Connection conn=DriverManage.getConnection(url,"root","chenhui");
+
+第三步：创建Statement对象 （造船） 成绩奥讯
+String sql="select * from emp id=?"
+PreparedStatement pst=conn.prepareStatement(sql);
+pst.setString(1,?);
+
+第四步：发送sql语句
+ResultSet rs=pst.executeQuery();
+
+第五步：得到结果
+光标下移
+while(rs.next()){
+	类  d=new 类();
+ 	d.set属性（rs.get类型（“字段名”））；
+}
+
+System.out.println(d);
+
+第六步：关流
+rs.close();
+pst.close();
+conn.close();	
+
+
+
+
+
+
+
+
+
+
+
