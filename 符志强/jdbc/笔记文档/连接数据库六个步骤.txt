@@ -1,0 +1,25 @@
+1.加载驱动（第1步：导入驱动包  第2步：加载驱动） （协议）
+Class.forName("com.mysql.jdbc.Driver");
+
+2.创建数据库连接 (建造河流)
+String url="jdbc:mysql://127.0.0.1:3306/t1？useUnicode=true&characterEncoding=utf8&useSSL=true";
+Connection conn  = DriverManager.getConnection(url,"root","123");
+
+3.创建Statement对象  （造船）声明
+Statement st = conn.createStatement();
+
+4.发送并执行sql语句(贸易)
+String sql  ="insert into aa(name) values('王二辉')";
+int result = st.executeUpdate(sql);
+
+5.判断结果
+if(result>0) {
+    System.out.println("添加数据库成功");
+}else {
+     System.out.println("添加数据库失败");
+}
+
+6.收尾工作(关链接，关statement对象)   原则：先开后关
+st.close();
+conn.close(); 
+
