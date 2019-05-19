@@ -1,0 +1,121 @@
+
+
+一.线程并发
+单核处理多个任务时，这些任务时切换着执行的，而不是只是切换时间间隔较短，而不是同时执行的。
+二.并发管理的方式
+	a.同步方法
+	使用synchorized修饰的方法，当A线程执行这个方法的时候，其它线程只能在方法外等待。
+	b.同步代码块
+	指这段代码块使用synchorized修饰，与同步方法本质上相同
+	c.加锁机制
+	Lock，对于线程的阻塞和唤醒状态可以手动控制
+	加锁机制与上述两种方法相比，性能提高了，上述两种方法在性能上比不用时降低了，而且在使用时尽量降低synchorized
+	修饰的作用域。
+三.生产者消费者模式
+	/**
+ * 生产者消费者模式：使用Object.wait() / notify()方法实现
+ */
+public class ProducerConsumer {
+    private static final int CAPACITY = 5;
+
+    public static void main(String args[]){
+        Queue<Integer> queue = new LinkedList<Integer>();
+
+        Thread producer1 = new Producer("P-1", queue, CAPACITY);
+        Thread producer2 = new Producer("P-2", queue, CAPACITY);
+        Thread consumer1 = new Consumer("C1", queue, CAPACITY);
+        Thread consumer2 = new Consumer("C2", queue, CAPACITY);
+        Thread consumer3 = new Consumer("C3", queue, CAPACITY);
+
+        producer1.start();
+        producer2.start();
+        consumer1.start();
+        consumer2.start();
+        consumer3.start();
+    }
+
+    /**
+     * 生产者
+     */
+    public static class Producer extends Thread{
+        private Queue<Integer> queue;
+        String name;
+        int maxSize;
+        int i = 0;
+
+        public Producer(String name, Queue<Integer> queue, int maxSize){
+            super(name);
+            this.name = name;
+            this.queue = queue;
+            this.maxSize = maxSize;
+        }
+
+        @Override
+        public void run(){
+            while(true){
+                synchronized(queue){
+                    while(queue.size() == maxSize){
+                        try {
+                            System.out .println("Queue is full, Producer[" + name + "] thread waiting for " + "consumer to take something from queue.");
+                            queue.wait();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                    System.out.println("[" + name + "] Producing value : +" + i);
+                    queue.offer(i++);
+                    queue.notifyAll();
+
+                    try {
+                        Thread.sleep(new Random().nextInt(1000));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        }
+    }
+
+    /**
+     * 消费者
+     */
+    public static class Consumer extends Thread{
+        private Queue<Integer> queue;
+        String name;
+        int maxSize;
+
+        public Consumer(String name, Queue<Integer> queue, int maxSize){
+            super(name);
+            this.name = name;
+            this.queue = queue;
+            this.maxSize = maxSize;
+        }
+
+        @Override
+        public void run(){
+            while(true){
+                synchronized(queue){
+                    while(queue.isEmpty()){
+                        try {
+                            System.out.println("Queue is empty, Consumer[" + name + "] thread is waiting for Producer");
+                            queue.wait();
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                    int x = queue.poll();
+                    System.out.println("[" + name + "] Consuming value : " + x);
+                    queue.notifyAll();
+
+                    try {
+                        Thread.sleep(new Random().nextInt(1000));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+}
+判断Queue大小为0或者大于等于queueSize时须使用 while (condition) {}，不能使用 if(condition) {}。其中 while(condition)循环，它又被叫做“自旋锁”。自旋锁以及wait()和notify()方法在线程通信这篇文章中有更加详细的介绍。为防止该线程没有收到notify()调用也从wait()中返回（也称作虚假唤醒），这个线程会重新去检查condition条件以决定当前是否可以安全地继续执行还是需要重新保持等待，而不是认为线程被唤醒了就可以安全地继续执行了。
