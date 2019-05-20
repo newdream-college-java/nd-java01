@@ -1,0 +1,51 @@
+synchronized内部实现原理--关键字无法被继承
+
+synchronized锁的特点
+      1.获取锁的线程必须执行完，才会被释放
+      2.获取锁的线程出现异常，此时JVM让线程自动释放锁
+      3.属于大粒度锁。比如无法做到读写冲突，读读不冲突
+
+      synchronized关键字在应用层的语义是可以把任何一个非null对象作为锁，当synchronized作用在方法上时，锁住的是对象实例(this),作用在静态方法上锁住的就是对象对应的Classs实例，由于Class实例存在于永久代，因此静态方法锁相当于类的一个全局锁，当synchronized作用在一个对象实例上，锁住的就是一个代码块  ps：在HotSpot JVM中 锁被称作对象监视器
+
+例如代码：解决多线程售票发生的线程不安全情况
+
+class TicketRunnable implements Runnable{
+	private int t = 100;
+//	public synchronized void run() {		//此锁为同步方法锁,方法执行完释放(此程序死循环无法释放)
+	public void run() {
+		// TODO Auto-generated method stub
+		while (true) {
+			synchronized(this){				//此锁为同步块级锁,用来将块锁住,解决多个窗口卖票问题--大力度锁工作基本不会用(力度大,效率低)
+				if (t>0) {
+					try {
+						Thread.sleep(100);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					System.out.println(Thread.currentThread().getName()+"---------"+t--);
+				}else {
+					System.exit(-1);
+				}
+			}
+		}
+		
+	}
+	
+}
+//lock
+public class text06 {
+	public static void main(String[] args) {
+		TicketRunnable tr = new TicketRunnable();
+		Thread t1 = new Thread(tr);
+		t1.setName("TicketRunnable01");
+		t1.start();
+		
+		Thread t2 = new Thread(tr);
+		t2.setName("TicketRunnable02");
+		t2.start();
+		
+		Thread t3 = new Thread(tr);
+		t3.setName("TicketRunnable03");
+		t3.start();
+	}
+}
