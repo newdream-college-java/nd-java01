@@ -1,0 +1,140 @@
+解决线程不安全的方法一：Synchronized线程同步的方法
+	1）同步方法锁（锁：this）
+	2）同步块锁（指定锁对象---共享资源对象当做锁对象）
+	3）静态同步方法（锁：类名.class）
+Synchronized锁特点
+	1、获取锁的线程必须执行完，才会释放锁
+	2、获取锁的线程出现异常，此时JVM让线程自动释放锁
+	3、属于大粒度锁。比如无法做到读写冲突，读读不冲突
+Synchronized锁弊端
+	1、大粒度
+	2、不能控制notify对指定线程的唤醒
+	3、死锁
+
+例题代码：
+	实现生产者和消费者
+
+
+package com.cc.concurrent;
+
+import java.util.ArrayList;
+/**
+ * 
+    Object 的wait方法：让当前线程处于阻塞状态(等待...)，同时释放当前线程锁占用的锁。
+                                        必须要通过notify()才能唤醒这个阻塞的线程，继续进行cpu的争抢。
+                                        notify()  唤醒一个线程
+                                        notifyAll()  唤醒多个线程
+思考：if(isProduct)  改为 while(isProduct)  就能解决问题
+    *    
+ */
+class Storage {
+    // 存放生产的 商品------集合
+    ArrayList list = new ArrayList();
+    int i = 0;// 商品的标号
+    // 定义标记---生产的标记 标记为true 表示可以生产，否则只能消费
+    boolean isProduct = true;
+
+    // 生产的行为
+    public  void product() {
+        while (true) {
+            synchronized (list) {// 一般使用共享资源 list是锁
+                while (!isProduct) {// 如果不能生产，就等待
+                    try {
+                        System.out.println(Thread.currentThread().getName()+"---生产者在等待");
+                        // 当前线程处于等待状态，放弃锁。
+		list.wait();
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                // 将生产的商品放到集合
+                System.out.println(Thread.currentThread().getName() + "--正在生产第" + i + "号商品");
+                list.add(new Integer(i));
+                // 生产完了改变标记，等到消费完这个商品才能继续生产商品
+                isProduct = false;
+                //唤醒所有等待的线程
+                list.notifyAll();
+            }
+        }
+
+    }
+    // 消费行为
+    public void custom() {
+        while (true) {
+            synchronized (list) {
+                while (isProduct) {// 如果不能消费 就等待
+                       try {
+                         System.out.println(Thread.currentThread().getName()+"---消费者在等待");
+                        list.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                // 将生产的商品消费掉
+                System.out.println(Thread.currentThread().getName() + "--正在消费第" + i + "号商品");
+                list.remove(new Integer(i));
+                i++;
+                // 消费完了改变标记，等到生产下一个才能继续消费
+                isProduct = true;
+                //唤醒一个等待的线程
+                list.notifyAll();
+            }
+        }
+    }
+}
+
+//生产者----线程
+class Producter extends Thread {
+    private Storage storage;
+
+    public Producter(Storage storage) {
+        this.storage = storage;
+    }
+
+    @Override
+    public void run() {
+        storage.product();
+    }
+}
+
+//消费者---线程
+class Coustomer extends Thread {
+    private Storage storage;
+
+    public Coustomer(Storage storage) {
+        this.storage = storage;
+    }
+
+    @Override
+    public void run() {
+        storage.custom();
+    }
+}
+
+public class PCTest {
+    public static void main(String[] args) {
+        Storage s = new Storage();
+        Thread p1 = new Producter(s);
+        Thread p2 = new Producter(s);
+        Thread p3 = new Producter(s);
+        Thread c1 = new Coustomer(s);
+        Thread c2 = new Coustomer(s);
+        
+        p1.start();
+        p2.start();
+        p3.start();
+        c1.start();
+        c2.start();
+    }
+}

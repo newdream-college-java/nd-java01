@@ -1,0 +1,156 @@
+解决线程不安全的方法二：Lock锁
+	2个重要方法：
+		上锁：lock.lock();lock.tryLock();lock.tryLock(毫秒数);
+		解锁：lock.unlock();必须释放锁，否则产生死锁。为了避免这个问题一定要将lock.unlock();放到finally块。
+
+Lock锁的特点
+	1、Lock不是Java语言内置的，synchronized是Java语言的关键字，因此是内置特性
+	2、锁的释放方式不同（自动、必须手动释放）
+	3、获取锁的方式更灵活
+	4、可以得到线程是否获取锁
+
+
+例题如下：
+	生产者和消费者
+
+
+package com.cc.concurrent;
+
+import java.util.ArrayList;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+/**
+ * 
+    * @ClassName: Storage  
+    * @Description: TODO  
+    * @author 新梦想IT学院.陈超
+    * @date 2019年5月17日 
+     对于PCTest做2点改进：
+     改进1：将synchronized 改为lock
+     
+     改进2：将一个等待队列改2个，一个生产者等待队列 ，一消费者等待队列
+                  生产者只能唤醒消费者等待队列中等待时间最长的那个线程。(通过双向链表  FIFO)
+    *    
+ */
+class Storage2 {
+    
+    // 存放生产的 商品------集合
+    ArrayList list = new ArrayList();
+    int i = 0;// 商品的标号
+    // 定义标记---生产的标记 标记为true 表示可以生产，否则只能消费
+    boolean isProduct = true;
+    //创建lock锁
+    Lock lock = new ReentrantLock();
+    //创建生产者等待队列
+    Condition proCondition = lock.newCondition();
+    //创建消费者等待队列
+    Condition cusCondition = lock.newCondition();
+
+    // 生产的行为
+    public  void product() {
+        while (true) {
+                lock.lock();//获取锁
+                try {
+                    while (!isProduct) {// 如果不能生产，就等待
+                        try {
+                            System.out.println(Thread.currentThread().getName()+"---生产者在等待");
+                            proCondition.await();//将当前阻塞线程放入到生产者阻塞队列
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    }
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    // 将生产的商品放到集合
+                    System.out.println(Thread.currentThread().getName() + "--正在生产第" + i + "号商品");
+                    list.add(new Integer(i));
+                    // 生产完了改变标记，等到消费完这个商品才能继续生产商品
+                    isProduct = false;
+                    //唤醒消费者等待等待队列中等待时间最久的线程
+                    cusCondition.signal();
+                } finally {
+                       lock.unlock();//释放锁
+                }
+        }
+    }
+    // 消费行为
+    public void custom() {
+        while (true) {
+                lock.lock();//获取锁
+                try {
+                    while (isProduct) {// 如果不能消费 就等待
+                        try {
+                          System.out.println(Thread.currentThread().getName()+"---消费者在等待");
+                          cusCondition.await();//将当前阻塞线程放入到消费者阻塞队列
+                     } catch (InterruptedException e) {
+                         e.printStackTrace();
+                     }
+                 }
+                 try {
+                     Thread.sleep(100);
+                 } catch (InterruptedException e) {
+                     e.printStackTrace();
+                 }
+                 // 将生产的商品消费掉
+                 System.out.println(Thread.currentThread().getName() + "--正在消费第" + i + "号商品");
+                 list.remove(new Integer(i));
+                 i++;
+                 // 消费完了改变标记，等到生产下一个才能继续消费
+                 isProduct = true;
+                 //唤醒生产者等待等待队列中等待时间最久的线程
+                 proCondition.signal();
+                } finally {
+                    lock.unlock();//释放锁
+                }
+        }
+    }
+}
+
+//生产者----线程
+class Producter2 extends Thread {
+    private Storage2 storage;
+
+    public Producter2(Storage2 storage) {
+        this.storage = storage;
+    }
+
+    @Override
+    public void run() {
+        storage.product();
+    }
+}
+
+//消费者---线程
+class Coustomer2 extends Thread {
+    private Storage2 storage;
+    public Coustomer2(Storage2 storage) {
+        this.storage = storage;
+    }
+
+    @Override
+    public void run() {
+        storage.custom();
+    }
+}
+
+public class PCTest02 {
+    public static void main(String[] args) {
+        Storage2 s = new Storage2();
+        Thread p1 = new Producter2(s);
+        Thread p2 = new Producter2(s);
+        Thread p3 = new Producter2(s);
+        Thread c1 = new Coustomer2(s);
+        Thread c2 = new Coustomer2(s);
+        
+        p1.start();
+        p2.start();
+        p3.start();
+        c1.start();
+        c2.start();
+    }
+}

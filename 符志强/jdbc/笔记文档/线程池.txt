@@ -1,0 +1,131 @@
+什么是线程池
+	线程池里的每一个线程代码结束后，并不会死亡，而是再次回到线程池中成为空闲状态，等待下一个对象来使用
+为什么需要线程池
+	程序启动一个新线程成本是比较高的，因为它涉及到要与操作系统进行交互。而使用线程池可以很好的提高性能，尤其是当程序中要创建大量生存期很短的线程时，更应该考虑使用线程池。
+创建线程池的2种方式：
+	创建线程池的方式一：（推荐方式）
+	corePoolSize            :线程池初始大小
+	maximumPoolSize  :线程池最大线程数
+	keepAliveTime        :空闲线程存活的最长时间
+	unit                          : 时间单位    
+	workQueue             : 等待队列
+	handler                   ：拒绝策略  （任务数>（maximumPoolSize+等待队列长度））
+                                   默认直接拒绝报,同时异常  AbortHander
+提交五个任务到线程池：（一种情况）
+     提交第1个任务到线程池：coreSize=0<corePoolSize 所以会为改任务创建一个线程对象并
+                                     启动线程。
+     提交第2个任务到线程池：coreSize=1<corePoolSize 所以会为改任务创建一个线程对象并
+                                     启动线程。     
+     提交第3个任务到线程池：coreSize=2!<corePoolSize 此时会将任务放到等待队列（1）。
+     提交第4个任务到线程池：coreSize=2!<corePoolSize 没有空闲线程，此时会将任务放到等待队列（2）。
+     提交第5个任务到线程池：coreSize=2!<corePoolSize 没有空闲线程，判断此时maximumPoolSize>coreSize>=corePoolSize
+      创建一个线程。
+class MyTask implements Runnable{
+    private String name;
+     public  MyTask(String name) {
+         this.name = name;
+     }
+     @Override
+     public void run() {
+         try {
+             System.out.println("task:"+name+"\t正在读取数据.....");
+             Thread.sleep(1000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+         System.out.println("task:"+name+"\t正在读取数据完成");
+     }  
+ }
+public class ThreadPoolTest01 {
+    public static void main(String[] args) {
+        //coreSize   线程的数量     coreSize= 2; 
+        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(2, 
+                5, 
+                300, 
+                TimeUnit.MILLISECONDS, 
+               new  ArrayBlockingQueue<Runnable>(2)
+                );
+        for (int i = 0; i < 5; i++) {
+            //String.valueOf(i) 将整数转为字符串
+            MyTask myTask = new MyTask(String.valueOf(i));
+            //提交任务给线程池
+            threadPool.execute(myTask);   
+        }  
+    }
+}
+
+
+	创建线程池的方式二：（Executros框架提供的线程池）
+
+class MyTask2 implements Runnable{
+    private String name;
+     public  MyTask2(String name) {
+         this.name = name;
+     }
+     @Override
+     public void run() {
+         try {
+             System.out.println("task:"+name+"\t正在读取数据.....");
+             Thread.sleep(1000);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+         System.out.println("task:"+name+"\t正在读取数据完成");
+     }     
+ }
+public class ThreadPoolTest02 {
+    public static void main(String[] args) {
+        //创建线程池的方式二：Executors类
+        //1）等待队列是一个0容量的队列，当提交大批量任务，提交的速度比处理任务的速度快
+        //会导致系统资源被耗光。从而使得系统奔溃。
+        ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();
+        //2)使用一个无界队列，队列大小是无穷大。堆积大量的任务，从而导致oom （out of memery）
+       // ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(3);    
+        for (int i = 0; i < 5; i++) {
+            //String.valueOf(i) 将整数转为字符串
+            MyTask2 myTask = new MyTask2(String.valueOf(i));
+            //提交任务给线程池
+            newCachedThreadPool.execute(myTask);    
+        }
+    }
+}
+
+
+	线程任务有返回值如何处理。
+
+class MyTask3 implements Callable<Integer> {
+    private String name;
+
+    public MyTask3(String name) {
+        this.name = name;
+    }
+    @Override
+    public Integer call() throws Exception {
+        Thread.sleep(3000);
+        int sum = 0;
+        for (int i = 0; i <=100; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+}
+public class ThreadPoolTest03 {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        // 创建线程池的方式二：Executors类
+        // 1）等待队列是一个0容量的队列，当提交大批量任务，提交的速度比处理任务的速度快
+        // 会导致系统资源被耗光。从而使得系统奔溃。
+        ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();
+        // 2)使用一个无界队列，队列大小是无穷大。堆积大量的任务，从而导致oom （out of memery）
+        // ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(3);
+        // String.valueOf(i) 将整数转为字符串
+        MyTask3 myTask = new MyTask3(String.valueOf(1));
+        // 提交任务给线程池
+        Future<Integer> result = newCachedThreadPool.submit(myTask);
+        //可以去做其他事情
+        System.out.println("我去洗脚，洗完脚再过来取和的值");
+        Thread.sleep(1000);  
+        //得到返回值
+        Integer sum = result.get();
+        System.out.println(sum);
+    }
+}
