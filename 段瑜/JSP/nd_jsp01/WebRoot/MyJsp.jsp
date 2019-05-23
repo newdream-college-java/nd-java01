@@ -25,12 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <table>
     <%
-    	Scanner input=new Scanner(System.in);
-    	Stu_infoDaoImgl s=new Stu_infoDaoImgl();
-		Stu_info stuinfo=new Stu_info();
-		s.save(stuinfo);
-		s.Update(stuinfo);
-		s.Delete(stuinfo);
+    	
 		Connection conn=null;
 		PreparedStatement pst=null;
 		ResultSet rs=null;
