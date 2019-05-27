@@ -1,4 +1,4 @@
-package cn.cc.dao.imgl;
+  package cn.cc.dao.imgl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
