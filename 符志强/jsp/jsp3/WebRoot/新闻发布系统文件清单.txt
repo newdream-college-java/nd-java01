@@ -1,0 +1,8 @@
+1、首页 - index.htm
+2、新闻浏览页面 - news_read.htm
+3、登录控制台首页<即"编辑新闻页"> - admin.html
+4、添加新闻页 - news_add.htm
+5、修改新闻页 - news_modify.htm
+6、添加主题页 - topic_add.htm
+7、主题列表页 - topic_list.htm
+8、修改主题页 - topic_modify.htm
