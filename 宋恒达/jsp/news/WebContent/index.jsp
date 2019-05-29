@@ -1,4 +1,12 @@
 
+<%@page import="cn.song.entity.News"%>
+<%@page import="cn.song.dao.impl.NewsDaoImpl"%>
+<%@page import="cn.song.dao.NewsDao"%>
+<%@page import="java.util.Set"%>
+<%@page import="cn.song.entity.Topic"%>
+<%@page import="java.util.Map"%>
+<%@page import="cn.song.dao.impl.TopicDaoImpl"%>
+<%@page import="cn.song.dao.TopicDao"%>
 <%@page import="cn.song.entity.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -150,53 +158,29 @@
 			</div>
 			<div class="content">
 				<ul class="class_date">
-					<li id="class_month"><a href="#"><b>国内</b></a> <a href="#"><b>国际</b></a>
-
-
-						<a href="#"><b>军事</b></a> <a href="#"><b>体育</b></a> <a href="#"><b>娱乐</b></a>
-
-
-						<a href="#"><b>社会</b></a> <a href="#"><b>财经</b></a> <a href="#"><b>科技</b></a>
-
-
-						<a href="#"><b>健康</b></a> <a href="#"><b>汽车</b></a> <a href="#"><b>教育</b></a>
-
-
-						<a href="#"><b>房产</b></a> <a href="#"><b>家居</b></a> <a href="#"><b>旅游</b></a>
-
-
-						<a href="#"><b>文化</b></a> <a href="#"><b>其他</b></a></li>
+					<li id="class_month">
+					<%
+						TopicDao topicDao=new TopicDaoImpl();
+						Map<Integer, Topic> maps=topicDao.findAllTopic();
+						Set<Integer> keys=maps.keySet();
+						for(Integer key:keys) {
+					%>
+					<a href="#"><b><%=maps.get(key).getTitle() %></b></a> </b></a>
+					<% } %>
+						</li>
 				</ul>
 				<ul class="classlist">
-
-					<li><a href="#"> 测试科技新闻 </a> <span> 2011-07-21
-							08:38:05.0</span></li>
-
-					<li><a href="#"> 姚明全家福 </a> <span> 2011-07-20
-							23:00:00.0</span></li>
-
-					<li><a href="#"> "变形金刚3"24位悍金刚列传 </a> <span> 2011-07-20
-							22:58:48.0</span></li>
-
-					<li><a href="#"> 首架F-35A战机交付美国埃格林空军基地 </a> <span>
-							2011-07-20 22:35:02.0</span></li>
-
-					<li><a href="#"> 菲议员拟今日登南沙岛屿 中国驻菲使馆严重关切 </a> <span>
-							2011-07-20 22:34:00.0</span></li>
-
-					<li><a href="#"> 英拉议员资格获泰国选委会确认将当选女总理 </a> <span>
-							2011-07-20 22:32:09.0</span></li>
-
-					<li><a href="#"> 默多克遭男子扔盘子袭击 妻子邓文迪反击护夫 </a> <span>
-							2011-07-20 22:30:31.0</span></li>
-
-					<li><a href="#"> 全国非时政类报刊出版单位2012年全面转制 </a> <span>
-							2011-07-20 22:28:07.0</span></li>
-
-					<li><a href="#"> 中方强烈抗议菲律宾议员登上中国南沙岛屿 </a> <span>
-							2011-07-20 22:27:27.0</span></li>
-
-
+					<%
+						NewsDao newsDao=new NewsDaoImpl();
+						Map<Integer,News> newses=newsDao.showAllNews();
+						Set<Integer> nkeys=newses.keySet();
+						for(Integer nkey:nkeys){
+						
+					%>
+					<li><a href="#"><%=newses.get(nkey).getNsummary() %> </a> <span> <%=newses.get(nkey).getNcreatedate()%></span></li>
+					<%	
+								}
+					%>
 					<p align="right">
 						当前页数:[1/1]&nbsp;&nbsp; <a href="#">首页</a><a href="#">&nbsp;&nbsp;上一页</a><a
 							href="#">&nbsp;&nbsp;下一页</a> <a href="#">&nbsp;&nbsp;末页</a>

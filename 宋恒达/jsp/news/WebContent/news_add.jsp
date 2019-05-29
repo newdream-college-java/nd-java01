@@ -8,7 +8,7 @@
 <title>新闻发布系统管理后台</title>
 <link href="news_add_files/admin.css" rel="stylesheet" type="text/css" />
 </head>
-<%@include file="loginControl.jsp"%>
+	<%@include file="loginControl.jsp"%> 
 <body>
 	<div id="header">
 		<div id="welcome">欢迎使用新闻管理系统！</div>

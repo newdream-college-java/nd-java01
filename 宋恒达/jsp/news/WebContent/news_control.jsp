@@ -14,7 +14,7 @@
 <body>
 	<%
 		request.setCharacterEncoding("utf-8");
-		int ntid=Integer.parseInt(request.getParameter("tid"));
+		int ntid=Integer.parseInt(request.getParameter("ntid"));
 		String ntitle=request.getParameter("ntitle");
 		String nauthor=request.getParameter("nauthor");
 		String nsummary=request.getParameter("nsummary");
@@ -39,7 +39,7 @@
 		}else{
 			message="添加失败！！";
 		}
-		out.print("<scirpt>alert('"+message+"');location.href='news_add.jsp';</script>");
+		out.print("<script>alert('"+message+"');location.href='news_add.jsp';</script>");
 	%>
 </body>
 </html>
