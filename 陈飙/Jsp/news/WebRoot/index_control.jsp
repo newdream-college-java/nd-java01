@@ -32,6 +32,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	//2.拿到表单上的数据，数据在request上。
   	String name=request.getParameter("uname");
   	String pwd=request.getParameter("upwd");
+  	//把获得名字传入集合里面
+  	//String uname=(String)session.getAttribute("uname");
+  		List loginedUsers=new ArrayList();
+  		if(application.getAttribute("logined_user")!=null){
+  			loginedUsers=(ArrayList)application.getAttribute("logined_user");
+  		}
   	//都是字符串不用转型
   	boolean rs=login(name, pwd);
   	if(!rs){
@@ -39,8 +45,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		out.print("<script>alert('登录失败，请重新登录');location.href='index.jsp';</script>");
   	}else{
   	//登录成功
-  	request.getRequestDispatcher("index.jsp").forward(request, response);
+  	//request.getRequestDispatcher("index.jsp").forward(request, response);
+  		loginedUsers.add(name);
+  		session.setAttribute("uname",name);//使用session保存用户信息
   		
+  		application.setAttribute("logined_user", loginedUsers);//把用户保存到集合中
+  		request.getRequestDispatcher("index.jsp").forward(request, response);
   	}
   	 %>
     <%!

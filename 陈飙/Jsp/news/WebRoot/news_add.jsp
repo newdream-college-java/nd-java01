@@ -18,7 +18,7 @@
 <script type="text/javascript">
 	function check(){
 		
-			return false;
+			return true;
 		
 	}
 </script>
@@ -35,7 +35,7 @@
 
   <div id="opt_area">
     <h1 id="opt_type"> 添加新闻： </h1>
-    <form action="" method="post" onsubmit="return check()">
+    <form action="news_add_control.jsp" method="post" onsubmit="return check()">
       <p>
         <label> 主题 </label>
         <select name="ntid" id="nid">

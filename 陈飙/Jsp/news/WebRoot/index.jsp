@@ -96,7 +96,8 @@
 	<div id="header">
 		<div id="top_login">
 			<%
-				if (request.getParameter("uname") == null) {
+				if (session.getAttribute("uname") == null) {
+						//if (request.getParameter("uname") == null) {
 			%>
 			<form action="index_control.jsp" method="post"
 				onsubmit="return check()">
@@ -110,7 +111,8 @@
 			<%
 				} else {
 			%>
-			欢迎你，turing | <a href="#">登录控制台</a> | <a href="#">登出</a>
+			欢迎你，<%=(String) session.getAttribute("uname")%>| <a href="#">登录控制台</a>
+			| <a href="loginOut.jsp">登出</a>
 			<%
 				}
 			%>
@@ -175,53 +177,41 @@
 				<ul class="class_date">
 					<li id="class_month"><a href="#"><b>国内</b></a> <%
  	ResultSet rs1 = getTopics();
- 	while (rs1.next()) {
+  	while (rs1.next()) {
  %> <a href="#"><b><%=rs1.getString("Tname")%></b></a> <%
  	}
- 	rs1.close();
+  	rs1.close();
  %>
 				</ul>
 				<ul class="classlist">
 
 					<li><a href="#"> 测试科技新闻 </a> <span> 2011-07-21
 							08:38:05.0</span></li>
-
-					<li><a href="#"> 姚明全家福 </a> <span> 2011-07-20
-							23:00:00.0</span></li>
-
-					<li><a href="#"> "变形金刚3"24位悍金刚列传 </a> <span> 2011-07-20
-							22:58:48.0</span></li>
-
-					<li><a href="#"> 首架F-35A战机交付美国埃格林空军基地 </a> <span>
-							2011-07-20 22:35:02.0</span></li>
-
-					<li><a href="#"> 菲议员拟今日登南沙岛屿 中国驻菲使馆严重关切 </a> <span>
-							2011-07-20 22:34:00.0</span></li>
-
-					<li><a href="#"> 英拉议员资格获泰国选委会确认将当选女总理 </a> <span>
-							2011-07-20 22:32:09.0</span></li>
-
-					<li><a href="#"> 默多克遭男子扔盘子袭击 妻子邓文迪反击护夫 </a> <span>
-							2011-07-20 22:30:31.0</span></li>
-
-					<li><a href="#"> 全国非时政类报刊出版单位2012年全面转制 </a> <span>
-							2011-07-20 22:28:07.0</span></li>
-
-					<li><a href="#"> 中方强烈抗议菲律宾议员登上中国南沙岛屿 </a> <span>
-							2011-07-20 22:27:27.0</span></li>
+					<%
+					//1.取index_control带过来的数据
+					List<New>news=(List<New>)request.getAttribute("news");
+					//2.显示数据
+					for(New nw:news){%>
+					
+					
+					<li><a href="#"> <%=nw.getNauthor() %></a> <span>
+							<%=nw.getNcreatedate() %></span></li>
+							<%} %>
+							
+							
 					<%
 						ResultSet rs = getTopics01();
-						while (rs.next()) {
+									while (rs.next()) {
 					%>
 					<li><a href="#"> <%=rs.getString("nsummary")%>
 					</a> <span> 2011-07-20 22:27:27.0</span></li>
 					<%
 						}
-						rs.close();
+									rs.close();
 					%>
 					<p align="right">
-						当前页数:[1/1]&nbsp;&nbsp; <a href="#">首页</a><a href="#">&nbsp;&nbsp;上一页</a><a
-							href="#">&nbsp;&nbsp;下一页</a> <a href="#">&nbsp;&nbsp;末页</a>
+						当前页数:[1/1]&nbsp;&nbsp; <a href="index_control02.jsp?curPage=<%=((Integer)request.getAttribute("curPage")+1) %>">首页</a><a href="#">&nbsp;&nbsp;上一页</a><a
+							href="index_control02.jsp?curPage=<%=((Integer)request.getAttribute("curPage")+1)%>">&nbsp;&nbsp;下一页</a> <a href="#">&nbsp;&nbsp;末页</a>
 					</p>
 
 				</ul>
@@ -240,7 +230,7 @@
 			</div>
 		</div>
 	</div>
-
+<%=application.getAttribute("asd") %>
 	<div id="friend">
 		<h1 class="friend_t">
 			<img src="index_files/friend_ico.gif" alt="合作伙伴">
@@ -257,9 +247,26 @@
 			</ul>
 			<div style="margin-left:300px;">
 				<br />本站在线人数：<span
-					style="font-size: 20px;color:red;font-weight:bold;">2</span>人
-				&nbsp;&nbsp;本站访问量已经达到：<span
-					style="font-size: 20px;color:blue;font-weight:bold;">1</span>
+					style="font-size: 20px;color:red;font-weight:bold;"> <%
+ 	List loginusers = null;
+  	if (application.getAttribute("logined_user") != null) {
+  		loginusers = (ArrayList) application
+  				.getAttribute("logined_user");
+  		out.print(loginusers.size());
+  	} else {
+  		out.print(0);
+  	}
+ %></span>人 &nbsp;&nbsp;本站访问量已经达到：<span
+					style="font-size: 20px;color:blue;font-weight:bold;"> <%
+ 	int count = 0;
+  	if(application.getAttribute("con")!=null){
+  		count=(Integer)application.getAttribute("con");
+  	}
+  	application.setAttribute("con", ++count);
+  	Integer icount=(Integer)application.getAttribute("con");
+  	out.print(icount);
+  %>
+				</span>
 			</div>
 		</div>
 	</div>
