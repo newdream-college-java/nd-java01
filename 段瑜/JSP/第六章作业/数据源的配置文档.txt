@@ -1,0 +1,32 @@
+一、jndi获取服务的配置。
+【在tomcat/conf/context.xml】
+在<Context>
+	设置：<Environment name="uName" value="ljc" type="java.lang.String"/>
+    </Context>
+	uName:目录名字
+	ljc：资源
+	java.lang.String：资源类型
+二、jndi连接池的配置。
+	【在tomcat/conf/context.xml】
+<Context>
+	<Resource name="jdbc/news" 
+                       auth="Container"
+                       type="javax.sql.DataSource"  
+                       maxActive="100"  
+                       maxIdle="30" 
+                       maxWait="10000"   
+                       username="root"   
+                       password="z382698." 
+                       driverClassName="com.mysql.jdbc.Driver"  
+                       url="jdbc:mysql://127.0.0.1:3306/newsmanagersystem?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true"/>
+ </Context>
+	jdbc/news ：目录名
+	type:javax.sql.DataSource 资源与目录的类型
+	maxActive：最大活跃连接（最大连接数）  0 为没有限制 
+	maxIdle：最大等待连接数量()       设 0 为没有限制 
+	maxWait：创建数据库连接的最大等待时间（单位毫秒）。设为-1表示无限制。
+	driverClassName:jdbc的数据包为
+	url：数据库的位置，与需要连接的数据库。
+	username：数据库用户名
+	password：数据库密码。
+	

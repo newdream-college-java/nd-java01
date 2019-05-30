@@ -1,0 +1,43 @@
+得到路径接口名：
+第一步：将：javax.naming.Context包导入jsp文件中
+第二步：在jsp中访问Context提供查找jndi的接口
+ 	Context ctx = new InitialContext(); 
+	java:comp/env/为前缀    uName为目录名可以自己设置。
+	String dbName= (String)ctx.lookup("java:comp/env/uName");
+	将得到的目录名显示出来。
+       	 out.println(“dbName: "+ dbName);
+
+
+得到路径与连接时间：
+第一步：将javax.naming.*,javax.sql.*,java.sql.*包导入jsp文件中。
+	1.上下文对象
+	Context cts=new InitialContext();
+	//2.从上下文中获取数据源（连接池）
+    	DataSource ds=(DataSource)cts.lookup("java:comp/env/jdbc/news");
+	将地址池位置显示出来
+    	out.print(ds+"</br>");
+	//从连接池得到链接时间：
+	
+	for(int i=0;i<100;i++){
+    		Connection conn=ds.getConnection();
+		//没有真正关闭 连接，而是将数据库连接放回连接池(服务器)
+    		conn.close();
+    	}
+    	long end=System.currentTimeMillis();
+    	out.print("通过链接池获取链接的时间："+(end-start)+"</br>");
+	//通过jdbc获取链接时间：
+	 start =  System.currentTimeMillis();
+	 Class.forName("com.mysql.jdbc.Driver");
+	得到需要查询的数据库
+      	  String url = "jdbc:mysql://127.0.0.1:3306/newsmanagersystem?	useUnicode=true&characterEncoding=utf8&useSSL=true";
+	for(int i=0;i<100;i++){
+	//从jdbc进入数据库
+             	Connection conn = DriverManager.getConnection(url, "root", "root");
+             	conn.close();//真正关闭的数据库连接  这个连接不能使用了。
+        	 }
+	得到时间
+ 	end =  System.currentTimeMillis();
+	将数据库链接时间显示出来
+         	out.print("通过JDBC获取连接的时间："+(end-start)+"<br/>");
+	
+	
