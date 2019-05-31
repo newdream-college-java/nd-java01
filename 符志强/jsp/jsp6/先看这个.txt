@@ -1,0 +1,6 @@
+工程名改过
+现在是  jsp6
+myeclipse里是  jsp3
+运行的话要使用  xm
+
+如：127.0.0.1:8080/xm/jin.jsp
