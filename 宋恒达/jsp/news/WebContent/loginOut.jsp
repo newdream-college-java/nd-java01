@@ -24,7 +24,7 @@
 		}
 		application.setAttribute("loginUser", lists);	
 		session.invalidate();
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("index_controler.jsp");
 	%>
 </body>
 </html>

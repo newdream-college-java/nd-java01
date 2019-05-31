@@ -1,4 +1,5 @@
 
+<%@page import="java.util.HashMap"%>
 <%@page import="cn.song.entity.News"%>
 <%@page import="cn.song.dao.impl.NewsDaoImpl"%>
 <%@page import="cn.song.dao.NewsDao"%>
@@ -171,8 +172,13 @@
 				</ul>
 				<ul class="classlist">
 					<%
-						NewsDao newsDao=new NewsDaoImpl();
-						Map<Integer,News> newses=newsDao.showAllNews();
+						//NewsDao newsDao=new NewsDaoImpl();
+						//Map<Integer,News> newses=newsDao.showAllNews();
+						request.setCharacterEncoding("utf-8");
+						Map<Integer,News> newses=new HashMap<>();
+						if(request.getAttribute("news")!=null){
+							newses=(Map<Integer,News>)request.getAttribute("news");
+						}
 						Set<Integer> nkeys=newses.keySet();
 						for(Integer nkey:nkeys){
 						
@@ -182,8 +188,8 @@
 								}
 					%>
 					<p align="right">
-						当前页数:[1/1]&nbsp;&nbsp; <a href="#">首页</a><a href="#">&nbsp;&nbsp;上一页</a><a
-							href="#">&nbsp;&nbsp;下一页</a> <a href="#">&nbsp;&nbsp;末页</a>
+						当前页数:[<%=request.getAttribute("nPage") %>/<%=(Integer)request.getAttribute("lastPage")%>]&nbsp;&nbsp; <a href="index_controler.jsp?nPage=1">首页</a><a href="index_controler.jsp?nPage=<%=(Integer)request.getAttribute("nPage")-1 %>">&nbsp;&nbsp;上一页</a><a
+							href="index_controler.jsp?nPage=<%=(Integer)request.getAttribute("nPage")+1 %>">&nbsp;&nbsp;下一页</a> <a href="index_controler.jsp?nPage=<%=(Integer)request.getAttribute("lastPage") %>">&nbsp;&nbsp;末页</a>
 					</p>
 
 				</ul>

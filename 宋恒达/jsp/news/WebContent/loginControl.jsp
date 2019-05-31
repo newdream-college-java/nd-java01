@@ -9,7 +9,7 @@
 <body>
 	<%
 		if (session.getAttribute("uname") == null) {
-			out.print("<script>alert('您尚未登录不允许访问！');location.href='index.jsp';</script>");
+			out.print("<script>alert('您尚未登录不允许访问！');location.href='index_controler.jsp';</script>");
 		}
 	%>
 </body>

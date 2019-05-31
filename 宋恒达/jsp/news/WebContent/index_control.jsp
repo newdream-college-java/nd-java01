@@ -25,7 +25,7 @@
 		//	session.setMaxInactiveInterval(5);
 		//	response.addCookie(cookie);
 				
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("index_controler.jsp");
 		}else{
 			out.print("<script>alert('登录失败，请重新登录！');location.href='index.jsp';</script>");
 		}

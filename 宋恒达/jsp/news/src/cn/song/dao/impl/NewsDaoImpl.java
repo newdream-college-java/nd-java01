@@ -80,5 +80,39 @@ public class NewsDaoImpl extends BaseDao implements NewsDao{
 		}
 		return maps;
 	}
+
+	@Override
+	public Map<Integer, News> showAllNews(int page, int pageSize) {
+		// TODO Auto-generated method stub
+		Map<Integer,News> maps=new HashMap<>();
+		News news=null;
+		try {
+			getConnection();
+			String sql="select * from news limit ?,?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, (page-1)*pageSize);
+			ps.setInt(2, pageSize);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				news=new News();
+				news.setNauthor(rs.getString("nauthor"));
+				news.setNcontent(rs.getString("ncontent"));
+				news.setNcreatedate(rs.getString("ncreatedate"));
+				news.setNmodifydate(rs.getString("nmodifydate"));
+				news.setNpicpath(rs.getString("npicpath"));
+				news.setNsummary(rs.getString("nsummary"));
+				news.setNtid(rs.getInt("ntid"));
+				news.setNtitle(rs.getString("ntitle"));
+				maps.put(rs.getInt("nid"), news);
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return maps;
+	}
 	
 }

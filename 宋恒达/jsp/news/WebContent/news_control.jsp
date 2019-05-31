@@ -1,3 +1,6 @@
+<%@page import="com.jspsmart.upload.SmartUploadException"%>
+<%@page import="com.jspsmart.upload.Request"%>
+<%@page import="com.jspsmart.upload.SmartUpload"%>
 <%@page import="cn.song.dao.impl.NewsDaoImpl"%>
 <%@page import="cn.song.dao.NewsDao"%>
 <%@page import="cn.song.entity.News"%>
@@ -14,12 +17,20 @@
 <body>
 	<%
 		request.setCharacterEncoding("utf-8");
-		int ntid=Integer.parseInt(request.getParameter("ntid"));
-		String ntitle=request.getParameter("ntitle");
-		String nauthor=request.getParameter("nauthor");
-		String nsummary=request.getParameter("nsummary");
-		String ncontent=request.getParameter("ncontent");
+		SmartUpload smartUpload=new SmartUpload();
+		Request request1=smartUpload.getRequest();
+		//文件上传
 		String npicpath=null;
+		try{
+			
+		}catch(SmartUploadException e){
+			
+		}
+		int ntid=Integer.parseInt(request1.getParameter("ntid"));
+		String ntitle=request1.getParameter("ntitle");
+		String nauthor=request1.getParameter("nauthor");
+		String nsummary=request1.getParameter("nsummary");
+		String ncontent=request1.getParameter("ncontent");
 		String nmodifydate=null;
 		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String ncreatedate=simpleDateFormat.format(new Date()).toString();

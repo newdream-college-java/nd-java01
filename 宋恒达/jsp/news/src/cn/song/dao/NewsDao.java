@@ -13,4 +13,5 @@ import cn.song.entity.News;
 public interface NewsDao {
 	boolean addNews(News news);
 	Map<Integer,News> showAllNews();
+	Map<Integer,News> showAllNews(int page,int pageSize);
 }

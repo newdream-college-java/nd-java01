@@ -1,3 +1,9 @@
+<%@page import="java.util.Set"%>
+<%@page import="cn.song.dao.impl.TopicDaoImpl"%>
+<%@page import="cn.song.dao.TopicDao"%>
+<%@page import="cn.song.entity.Topic"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -60,42 +66,20 @@
 
 		<div id="opt_area">
 			<h1 id="opt_type">添加新闻：</h1>
-			<form action="news_control.jsp" method="post" onsubmit="return check()">
+			<form action="news_control.jsp" method="post" onsubmit="return check()" enctype="multipart/form-data">
 				<p>
 					<label> 主题 </label> <select name="ntid" id="nid">
-
-						<option selected="selected" value="1">国内</option>
-
-						<option value="2">国际</option>
-
-						<option value="3">军事</option>
-
-						<option value="4">体育</option>
-
-						<option value="5">娱乐</option>
-
-						<option value="6">社会</option>
-
-						<option value="7">财经</option>
-
-						<option value="8">科技</option>
-
-						<option value="9">健康</option>
-
-						<option value="10">汽车</option>
-
-						<option value="11">教育</option>
-
-						<option value="12">房产</option>
-
-						<option value="13">家居</option>
-
-						<option value="14">旅游</option>
-
-						<option value="15">文化</option>
-
-						<option value="16">其他</option>
-
+						<%
+							Map<Integer,Topic> maps=new HashMap<>(); 
+							TopicDao topicDao=new TopicDaoImpl();
+							maps=topicDao.findAllTopic();
+							Set<Integer> keys=maps.keySet();
+							for(Integer key:keys){
+								%>
+								<option value="<%=key%>"><%=maps.get(key).getTitle() %></option>
+						<%
+							}
+						%>
 					</select>
 				</p>
 				<p>
