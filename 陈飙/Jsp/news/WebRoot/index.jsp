@@ -97,7 +97,7 @@
 		<div id="top_login">
 			<%
 				if (session.getAttribute("uname") == null) {
-						//if (request.getParameter("uname") == null) {
+					//if (request.getParameter("uname") == null) {
 			%>
 			<form action="index_control.jsp" method="post"
 				onsubmit="return check()">
@@ -177,10 +177,10 @@
 				<ul class="class_date">
 					<li id="class_month"><a href="#"><b>国内</b></a> <%
  	ResultSet rs1 = getTopics();
-  	while (rs1.next()) {
+ 	while (rs1.next()) {
  %> <a href="#"><b><%=rs1.getString("Tname")%></b></a> <%
  	}
-  	rs1.close();
+ 	rs1.close();
  %>
 				</ul>
 				<ul class="classlist">
@@ -188,30 +188,56 @@
 					<li><a href="#"> 测试科技新闻 </a> <span> 2011-07-21
 							08:38:05.0</span></li>
 					<%
-					//1.取index_control带过来的数据
-					List<New>news=(List<New>)request.getAttribute("news");
-					//2.显示数据
-					for(New nw:news){%>
-					
-					
-					<li><a href="#"> <%=nw.getNauthor() %></a> <span>
-							<%=nw.getNcreatedate() %></span></li>
-							<%} %>
-							
-							
+						//1.取index_control带过来的数据
+						List<New> news = (List<New>) request.getAttribute("news");
+						//2.显示数据
+						for (New nw : news) {
+					%>
+
+
+					<li><a href="#"> <%=nw.getNauthor()%></a> <span> <%=nw.getNcreatedate()%></span></li>
+					<%
+						}
+					%>
+
+
 					<%
 						ResultSet rs = getTopics01();
-									while (rs.next()) {
+						while (rs.next()) {
 					%>
 					<li><a href="#"> <%=rs.getString("nsummary")%>
 					</a> <span> 2011-07-20 22:27:27.0</span></li>
 					<%
 						}
-									rs.close();
+						rs.close();
 					%>
 					<p align="right">
-						当前页数:[1/1]&nbsp;&nbsp; <a href="index_control02.jsp?curPage=<%=((Integer)request.getAttribute("curPage")+1) %>">首页</a><a href="#">&nbsp;&nbsp;上一页</a><a
-							href="index_control02.jsp?curPage=<%=((Integer)request.getAttribute("curPage")+1)%>">&nbsp;&nbsp;下一页</a> <a href="#">&nbsp;&nbsp;末页</a>
+					<%if((Integer) request.getAttribute("curPage")==1){%>
+					
+					当前页数:[${curPage }/${pageMax }]&nbsp;&nbsp; <a
+							href="index_control02.jsp?curPage=${curPage + 1}">&nbsp;&nbsp;下一页</a>
+						<a
+							href="index_control02.jsp?curPage=${pageMax }">&nbsp;&nbsp;末页</a>
+						
+					
+						
+					
+					
+					
+						
+					<%}else if((Integer) request.getAttribute("curPage")==(Integer) request.getAttribute("pageMax")){%>
+						当前页数:[${curPage }/${pageMax }]&nbsp;&nbsp; <a href="index_control02.jsp?curPage=1">首页</a><a
+							href="index_control02.jsp?curPage=<%=((Integer) request.getAttribute("curPage") - 1)%>">&nbsp;&nbsp;上一页</a>
+					<%}else{
+						%>
+					
+					
+						当前页数:[${curPage }/${pageMax }]&nbsp;&nbsp; <a href="index_control02.jsp?curPage=1">首页</a><a
+							href="index_control02.jsp?curPage=${ curPage - 1}">&nbsp;&nbsp;上一页</a><a
+							href="index_control02.jsp?curPage=${curPage + 1}">&nbsp;&nbsp;下一页</a>
+						<a
+							href="index_control02.jsp?curPage=${pageMax }">&nbsp;&nbsp;末页</a>
+							<%} %>
 					</p>
 
 				</ul>
@@ -230,7 +256,7 @@
 			</div>
 		</div>
 	</div>
-<%=application.getAttribute("asd") %>
+	<%=application.getAttribute("asd")%>
 	<div id="friend">
 		<h1 class="friend_t">
 			<img src="index_files/friend_ico.gif" alt="合作伙伴">
@@ -249,23 +275,23 @@
 				<br />本站在线人数：<span
 					style="font-size: 20px;color:red;font-weight:bold;"> <%
  	List loginusers = null;
-  	if (application.getAttribute("logined_user") != null) {
-  		loginusers = (ArrayList) application
-  				.getAttribute("logined_user");
-  		out.print(loginusers.size());
-  	} else {
-  		out.print(0);
-  	}
+ 	if (application.getAttribute("logined_user") != null) {
+ 		loginusers = (ArrayList) application
+ 				.getAttribute("logined_user");
+ 		out.print(loginusers.size());
+ 	} else {
+ 		out.print(0);
+ 	}
  %></span>人 &nbsp;&nbsp;本站访问量已经达到：<span
 					style="font-size: 20px;color:blue;font-weight:bold;"> <%
  	int count = 0;
-  	if(application.getAttribute("con")!=null){
-  		count=(Integer)application.getAttribute("con");
-  	}
-  	application.setAttribute("con", ++count);
-  	Integer icount=(Integer)application.getAttribute("con");
-  	out.print(icount);
-  %>
+ 	if (application.getAttribute("con") != null) {
+ 		count = (Integer) application.getAttribute("con");
+ 	}
+ 	application.setAttribute("con", ++count);
+ 	Integer icount = (Integer) application.getAttribute("con");
+ 	out.print(icount);
+ %>
 				</span>
 			</div>
 		</div>

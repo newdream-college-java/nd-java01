@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@include file="loginCtrol.jsp" %>
 <html>
 <head>
 <title>新闻发布系统管理后台</title>
@@ -17,12 +18,7 @@
 		</div>
 	</div>
 	<div id="admin_bar">
-		<%//主要的是session能够带数据，在同一浏览器的时候跳转到任何页面，数据不会消失
-			if (session.getAttribute("uname") == null) {
-				out.print("<script>alert('你尚未登录不允许访问！');location.href='index.jsp';</script>");
-				return;
-			}
-		%>
+		
 		<div id="status">
 			管理员： 登录 &nbsp;&nbsp;&nbsp;&nbsp; <a href="#">退出</a>
 		</div>
@@ -40,12 +36,7 @@
 
 	<div id="main">
 		<div id="opt_list">
-			<ul>
-				<li><a href="#">添加新闻</a></li>
-				<li><a href="#">编辑新闻</a></li>
-				<li><a href="#">添加主题</a></li>
-				<li><a href="#">编辑主题</a></li>
-			</ul>
+			<%@include file="nav.jsp" %>
 		</div>
 
 		<div id="opt_area">

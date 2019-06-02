@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<%
+	<%//集合最重要的就是用来存放任何类型的数据，三步走，第一new一个，然后循环 ，添加放入集合里面
 		request.setCharacterEncoding("utf-8");
 		String[] like = request.getParameterValues("box");
 		List<String> list = new ArrayList<String>();

@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		loginedUsers.add(name);
   		session.setAttribute("uname",name);//使用session保存用户信息
   		
-  		application.setAttribute("logined_user", loginedUsers);//把用户保存到集合中
+  		application.setAttribute("logined_user", loginedUsers);//把用户保存到集合中服务器不管一直存在因为域范围
   		request.getRequestDispatcher("index.jsp").forward(request, response);
   	}
   	 %>

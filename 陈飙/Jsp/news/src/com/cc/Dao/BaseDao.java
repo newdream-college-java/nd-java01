@@ -2,11 +2,18 @@ package com.cc.Dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.cc.entity.New;
+
 public class BaseDao {
+	//public Connection conn;
+	//public PreparedStatement pst;
+	//public ResultSet rs;
+	//public int rs;
 	//1.得到的数据库链接，加载驱动；
 		public static Connection getConn(){
 			Connection conn=null;
@@ -17,7 +24,8 @@ public class BaseDao {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			return conn;//用于测出是否成功
+			//return conn;//用于测出是否成功
+			return conn;
 			
 		}
 		//2.关闭统一资源
@@ -48,6 +56,7 @@ public class BaseDao {
 			}
 		}
 		public static void main(String[] args) {
-			System.out.println(getConn());
+			 BaseDao bd=new BaseDao();
+			System.out.println(bd.getConn());
 		}
 }

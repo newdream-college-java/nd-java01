@@ -11,4 +11,7 @@ public interface NewDao {
 	ResultSet select();
 	int insert(New news);
 	List<New> list(int page,int pageSize);
+	int pageMax(int pageSize);
+	List<New> selectAll();
+	int insertAll(New news);
 }

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@include file="loginCtrol.jsp" %>
 <html><head><meta http-equiv="pragma" content="no-cache"/>
 <meta http-equiv="cache-control" content="no-cache"/>
 <title>新闻发布系统管理后台</title>
@@ -26,12 +27,7 @@
 
 <div id="main">
   <div id="opt_list">
-  <ul>
-    <li><a href="#">添加新闻</a></li>
-    <li><a href="#">编辑新闻</a></li>
-    <li><a href="#">添加主题</a></li>
-    <li><a href="#">编辑主题</a></li>
-  </ul>
+ <%@include file="nav.jsp" %>
 </div>
 
   <div id="opt_area">

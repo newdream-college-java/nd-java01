@@ -15,10 +15,10 @@
   <body>
     <%request.setCharacterEncoding("utf-8"); %> 
     你的选择的兴趣爱好是：<br>
-    <%
-    List<String>list=(ArrayList)session.getAttribute("aihao");
-    for(int i=0;i<list.size();i++){
-    out.print(list.get(i)+"<br/>");
+    <%//获取它的值，因为是个集合，所以要强转集合的到小为.size();
+    List<String> list1=(ArrayList)session.getAttribute("aihao");
+    for(int i=0;i<list1.size();i++){
+    out.print(list1.get(i)+"<br/>");
     }
      %>
   </body>
