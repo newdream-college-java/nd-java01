@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>news</display-name>
+  <servlet>
+  	<servlet-name>ToAddServerlet</servlet-name>
+  	<servlet-class>com.cc.serverlet.ToAddServerlet</servlet-class>
+  	<init-param>
+  		<param-name>a</param-name>
+  		<param-value>b</param-value>
+  	</init-param>
+  </servlet>
+  <servlet>
+  	<servlet-name>DoAddServerlet</servlet-name>
+  	<servlet-class>com.cc.serverlet.DoAddServerlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddServerletOk</servlet-name>
+  	<servlet-class>com.cc.serverlet.AddServerletOk</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DoSelectServlet</servlet-name>
+    <servlet-class>com.cc.serverlet.DoSelectServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>index_controls</servlet-name>
+    <servlet-class>com.cc.serverlet.index_controls</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>topic_add_control</servlet-name>
+    <servlet-class>com.cc.serverlet.topic_add_control</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>index_control</servlet-name>
+    <servlet-class>com.cc.serverlet.index_control</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>news_add_control</servlet-name>
+    <servlet-class>com.cc.serverlet.news_add_control</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>topic_delete</servlet-name>
+    <servlet-class>com.cc.serverlet.topic_delete</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+  	<servlet-name>ToAddServerlet</servlet-name>
+  	<url-pattern>/ToAddServerlet</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+  	<servlet-name>DoAddServerlet</servlet-name>
+  	<url-pattern>/DoAddServerlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+  	<servlet-name>AddServerletOk</servlet-name>
+  	<url-pattern>/AddServerletOk</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DoSelectServlet</servlet-name>
+    <url-pattern>/DoSelectServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>index_controls</servlet-name>
+    <url-pattern>/index_controls</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>topic_add_control</servlet-name>
+    <url-pattern>/topic_add_control</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>index_control</servlet-name>
+    <url-pattern>/index_control</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>news_add_control</servlet-name>
+    <url-pattern>/news_add_control</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>topic_delete</servlet-name>
+    <url-pattern>/topic_delete</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index_controls.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
