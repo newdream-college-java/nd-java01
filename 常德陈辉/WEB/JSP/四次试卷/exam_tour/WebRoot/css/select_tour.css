@@ -1,0 +1,16 @@
+.title{
+	line-height: 70px;
+    font-size: 25px;
+}
+table{
+	width: 740px;
+}
+.delete{
+	text-align: center;
+}
+.bottom{
+	border: 1px white solid;
+}
+.head{
+	background-color:gray; 
+}

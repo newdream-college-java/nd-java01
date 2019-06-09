@@ -1,0 +1,7 @@
+.rtext td{
+	border: 1px gray solid;
+}
+.head th{
+	background-color: #c5c4ca;
+	border: 1px white solid;
+}

@@ -1,0 +1,13 @@
+.hand{
+	height: 50px;
+	font-size: 20px;
+	text-align: center;
+	letter-spacing:2px;
+}
+table th{
+	text-align: right;
+	line-height: 30px;	
+	/*ÉèÖÃÎÄ×Ö¼ä¸ô*/
+	letter-spacing:7px;
+	width: 50%
+}

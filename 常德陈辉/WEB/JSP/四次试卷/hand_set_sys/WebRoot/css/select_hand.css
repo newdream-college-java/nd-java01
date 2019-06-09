@@ -1,0 +1,9 @@
+table{
+	border:1px #d4d4d9 solid;
+	width: 60%;
+	line-height: 25px;
+}
+.head{
+	height:50px;
+	font-size:25px;
+}
