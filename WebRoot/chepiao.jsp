@@ -954,74 +954,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  </div>
  <script type="text/template" id="zxs-template">
 		<li class="letter">直辖市</li>
-			<%_.each(datas, function(item){%>
-				<li method="liHotData" data-placeid="<%=item[1][0].get('provinceName')%><%=item[1][0].get('name')%>" data-placetype="<%=item[1][0].get('typeNo')%>" data-presell="<%=item[1][0].get('preDate')%>"> <%=item[1][0].get('name')%></li>
-			<%});%>
+			
 		<li class="let_line"></li>
 </script>
 <!-- 开通城市模板 --> 
 <script type="text/template" id="opencity-template">
-		<% _.each(datas, function(item) {%>
-			<li class="letter"><%=item[0]%></li>
-				<%_.each(item[1],function(value,index,obj) {%>
-					<li method="liHotData" data-placeid="<%=value.get('provinceName')%><%=value.get('name')%>" data-placetype="<%=value.get('typeNo')%>" data-presell="<%=value.get('preDate')%>"><%=value.get('name')%></li>
-					<% if((index+1)%5==0){%>
-						<li class="letter"></li>
-					<%}%>
-				<%});%>
-		<%});%>
+		
 </script>
 
 <!-- 所有省份模板 -->
 <script type="text/template" id="province-template">
 	<li class="ac_even" title="直辖市">直辖市</li>
-	<% _.each(provinces, function(province) {%>
-		<% if(province != '直辖市'){ %>
-		<li class="ac_even" title="<%=province%>"><%=province%></li>
-		<%}%>
-	<%});%>
+	
 </script>
 
 <!-- 省份所属城市模板 -->
 <script type="text/template" id="citysBelongProvince-template">
-<% _.each(datas, function(item) {%>
-			<li class="prov_title" data="<%=item[0]%>" style="display:none">
-					<span class="prov_close"></span>
-			</li>
-			<ul data="<%=item[0]%>" style="display:none">
-					<% _.each(item[1], function(city) {%>
-					
-						<li data="<%=item[0]%>" method="liHotData" data-placeid="<%=city.get('provinceName')%><%=city.get('name')%>" data-placetype="<%=city.get('typeNo')%>" data-presell="<%=city.get('preDate')%>"><%=city.get('name')%></li>
-					
-					<%});%>
-			</ul>
-<%});%>
+
 </script>
 
 
 <!-- 按拼音分组模板  -->
 <script type="text/template" id="shortPinyinGroup-template">
-	<% _.each(shortPinyins, function(pinyin) {%>
-		<li class="letter" data="<%=pinyin%>" style="display:none"><%=pinyin%></li>
-		<% _.each(datas[pinyin], function(value,index,obj) {%>
-			<li style="display:none" method="liHotData" data="<%=pinyin%>" data-placeid="<%=value.get('provinceName')%><%=value.get('name')%>" data-placetype="<%=value.get('typeNo')%>" data-presell="<%=value.get('preDate')%>"><%=value.get('name')%></li>
-			<% if((index+1)%5==0){%>
-				<li class="letter" data="<%=pinyin%>" style="display:none"></li>
-			<%}%>
-		<%});%>
-		<li class="let_line" data="<%=pinyin%>" style="display:none"></li>
-	<%});%>
+	
 </script>
 <script type="text/template" id="endCitys-template">
 	<ul>
 	<p>输入中文/拼音/或↑↓键选择</p>
-	<% _.each(data, function(city,index,obj) {%>
-			<% if(index== 0){%>
-				<li class="hover" title="<%=city.name%>"><i><%=city.name%></i><b><%=city.provinceName%></b></li>
-			<%}else{%>
-				<li title="<%=city.name%>"><i><%=city.name%></i><b><%=city.provinceName%></b></li>
-			<%}%>
-	<%});%>	
+	
  	</ul>	
    	
 </script>
@@ -1029,9 +989,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/template" id="history-template">
 <dl id="dl_searchbox_history">
 	<dt>最近搜索记录：</dt>
-	<% _.each(data, function(city) {%>
-		<dd><a data-placeid="" data-placetype="" data-presell=""><%=city%></a></dd>
-	<%});%>
+	
 </dl>
 </script>
 
