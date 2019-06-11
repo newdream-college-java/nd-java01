@@ -11,15 +11,15 @@
 <body style=" background:#FFF;">
  <div class="loginLogo">
   <div class="logoMid">
-   <h1 class="logo" style="height:71px;padding-top:10px;"><a href="index.html"><img src="Picture/loginlogo.jpg" width="241" height="71" /></a></h1>
+   <h1 class="logo" style="height:71px;padding-top:10px;"><a href="index.jsp"><img src="Picture/loginlogo.jpg" width="241" height="71" /></a></h1>
    <div class="loginReg">
-    还没有会员账号?&nbsp;<a href="login.html">登录</a>
+    还没有会员账号?&nbsp;<a href="login.jsp">登录</a>
    </div><!--loginReg/-->
   </div><!--logoMid/-->
  </div><!--loginLogo/-->
  <div class="loginBox">
   <img src="Picture/chengnuo.jpg" width="295" height="393" class="chengnuo" />
-  <form action="#.html" method="get" class="reg">
+  <form action="#.jsp" method="get" class="reg">
    <div class="regList">
     <label><span class="red">*</span> 账户名</label>
     <input type="text" /> <span style="color:#999;">请输入邮箱/用户名/手机号</span>

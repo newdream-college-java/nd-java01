@@ -11,9 +11,9 @@
 <body style=" background:#FFF;">
  <div class="loginLogo">
   <div class="logoMid">
-   <h1 class="logo" style="height:71px;padding-top:10px;"><a href="index.html"><img src="Picture/loginlogo.jpg" width="241" height="71" /></a></h1>
+   <h1 class="logo" style="height:71px;padding-top:10px;"><a href="index.jsp"><img src="Picture/loginlogo.jpg" width="241" height="71" /></a></h1>
    <div class="loginReg">
-    还没有会员账号?&nbsp;<a href="reg.html">免费注册</a>
+    还没有会员账号?&nbsp;<a href="reg.jsp">免费注册</a>
    </div><!--loginReg/-->
   </div><!--logoMid/-->
  </div><!--loginLogo/-->
@@ -21,7 +21,7 @@
   <div class="loginLeft">
    <img src="Picture/logoinimg.jpg" width="716" height="376" />
   </div><!--loginLeft/-->
-  <form action="vip.html" method="get" class="loginRight">
+  <form action="vip.jsp" method="get" class="loginRight">
    <h2>会员登录</h2>
    <h3>用户名</h3>
    <input type="text" class="name" />
