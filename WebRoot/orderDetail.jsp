@@ -1,15 +1,17 @@
-﻿ 
-<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="keywords" content="12308全国公路客运预订平台,汽车票预, 汽车票查询,汽车票销售,网上汽车票预订,网上汽车票查询,汽车时刻表" />
 	<meta name="description" content="中国道路运输协会与12308共建的一个全国公路客运平台，负责对全国汽车站的联网，实现网络在线即时购票，线下取票服务。同时还提供汽车票查询,汽车时刻表查询,汽车票预订,汽车站查询等。企业电话咨询热线:0755-36637486"/>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>12308全国公路客运预订平台_用户中心_包车订单</title>
-    <meta name="keywords" content="12308,汽车票,长途汽车,汽车票预订,汽车票查询,汽车时刻表,全国汽车站" />
-    <meta name="description" content="12308是中国道路运输协会与全国站场工委合作共建平台，提供网上汽车票查询,汽车时刻表查询,汽车票预订,全国汽车站查询等服务的便民性门户网站！服务热线:400-6841-110."/> 
+	<title>12308全国公路客运预订平台_用户中心_订单详情</title>
 	<link href="http://image.12308.com/favicon.ico" type="image/x-icon" rel="icon" />
 	<link rel="stylesheet" href="Css/userbase.css" type="text/css" />
 	<link rel="stylesheet" href="Css/uindex.css" type="text/css" />
@@ -24,56 +26,57 @@
 	<script type="text/javascript" src="Scripts/common.js"></script>
 
 
-	<link rel="stylesheet" href="Css/kkpager.css">	
-	<script type="text/javascript" src="Scripts/kkpager.js"></script>
-</head>
-<script type="text/javascript">
-$.ajaxSetup({
- contentType: "application/x-www-form-urlencoded; charset=utf-8"
-});
-$(document).ready(function() {
-			$(".select_li").selectbox();
-			placeholder();
-			
-			 $("#dd12").attr("class","active");
-})
+<script type="text/javascript" src="Scripts/jquery.qrcode.min.js"></script>
+<script type="text/javascript" src="Scripts/jquery-barcode-last.min.js"></script>
+<script>
+    
+ $(document).ready(function() {
+	$("#dd11").attr("class","active");
+    initQrcode("","");
+});		
 
-function delOrder(orderNo,orderType){
-    if(!confirm('确定要删除订单吗？')) { 
-       return false; 
+function initQrcode(ticketCode,barCode){
+  var html = "";
+  if(ticketCode!=null && ticketCode!=""){
+    var arr = ticketCode.split(",");
+    for(var i =0;i<arr.length;i++){
+       html +="<li><div id='ewm_"+i+"'";
+       html +=" class='codeImg'><p class='yellow'>旅客凭此二维码上车</p></div></li>";
     }
-
-  $.ajax({
-				type : "POST",
-				dataType : "text",
-				cache : false,
-				url : "/order/usercenter/deleteOrder.sc?orderNo="+orderNo+"&orderType="+orderType,
-				success : function(msg) {
-				    var msg = $.parseJSON(msg);
-				    if(msg.resultCode=="0000"){
-				      alert("删除成功");
-				    }else{
-				      alert("删除失败");
-				    }
-				    location.reload();
-				}
-	});
-};
-
-function submitForm(){
-  var text = $("#textInput").val();
-  if(text=='通过手机号或订单号查询'){
-     text = "";
-  } 
-  $("#text").val(text);
-  $("#currentPage").val(0);
-    var pathData = $("#pathData").val();
-  var path = pathData+"?status="+$("#statusData").val()+"&text="+$("#text").val();
-  window.location.href=path;
+   }
+   if(barCode!=null && barCode!=""){
+    var barCodeArr = barCode.split(",");
+    for(var i =0;i<barCodeArr.length;i++){
+       html +="<li><div id='bar_"+i+"'";
+       html +=" class='codeImg'></div></li>";
+    }
+   }
+    $("#codeUl").html(html);
+  if(ticketCode!=null && ticketCode!=""){
+    var arr = ticketCode.split(",");
+    for(var i =0;i<arr.length;i++){
+       var id = "#ewm_"+i;
+       $(id).qrcode({
+	    render: "table", //table方式 
+	    width: 140, //宽度 
+	    height:140, //高度 
+	    text: arr[i] //任意内容 
+	 }); 
+    }
+   }
+  if(barCode!=null && barCode!=""){
+    var barCodeArr = barCode.split(",");
+    for(var i =0;i<barCodeArr.length;i++){
+       var id = "#bar_"+i;
+        $(id).barcode(barCodeArr[i], "int25", { barWidth: 2, barHeight: 40 });
+    }
+  }
 }
 
-</script>
+	</script>
+</head>
 <body>
+
 <div class="q_pagecontainer">
 	<div class="q_pagewrap">
 <style>
@@ -224,60 +227,134 @@ function submitForm(){
 <!--/right-->
 <!--breadcrumb-->
    <div class="b_ucbreadcrumb">
-    <a href="http://uc.12308.com/user/infoPage.html">个人中心</a><em>&gt;</em>
-    <span id="nowNav">包车订单</span> </div>
-    <!--\breadcrumb--> 
- <div class="stage_main">    
-  <form >
-      <input type = "hidden" id="pathData" value="http://uc.12308.com/order/usercenter/orderListRentBus.html"/>
-      <div class="search_table pis_title">
-                    
-                  <select  class="select_li" onchange="submitForm()" id="statusData">
-                    <option value="-1" >全部订单</option>
-                    <option value="1" >等待支付</option>
-                    <option value="4" >订单关闭</option>
-                    <option value="3" >订单成功</option> 
-                    </select>
-                  <input type="text" id="textInput" class="textbox" value=""  placeholder="通过手机号或订单号查询"/>    
-                  <input type="hidden" name="text" value="" id="text"/>       
-                  <a href="javascript:void(0)" onclick="submitForm()" class="button_ok">搜 索</a>
-        </div>
-
-      <div class="inner">      
-         
-          <table class="order_table order_t_blue">
-              <thead><tr><th colspan="4">订单编号 :bus1604287444839 &nbsp; &nbsp; 下订时间：2016-04-28 13:19:42 </td></th></tr></thead>
-              <tbody>
-              <tr> 
-              <td class="noborder" width="50%">
-              <table class="order_table_box">
-              <tr><td><a class="gray">湖南省委 -- 湘潭市政府</a><b>￥733.00</b> <span> 4 张</span> </td></tr>
-              <tr><td>出发时间：2016-05-06 13:17 </td></tr>
-              <tr><td>返程时间：</td></tr>
-              </table>
-              
-              
-              </td>
-              <td width="16%" class="top"><b class="yellow">￥733.00</b><span class="order_yhq">
-                             <i>优惠券</i><span>0</span></td>
-              <td width="16%" class="top">
-              <a href="javascript:void(0)"><span class="yellow">等待付款</span></a>
-              </td>
-              <td width="18%">
-                   <a href="http://uc.12308.com/order/usercenter/rentBusOrderDetail_22102.html">订单详情</a><br/>
-             <a class="fk_btn" href="http://uc.12308.com/order/usercenter/toPay_bus1604287444839.html"><span>付&nbsp;款</span></a><br/>
-               <a href="http://uc.12308.com/order/usercenter/updateBusOrder.html?id=22102" onclick="javascript:if(!confirm('确定要取消订单吗？取消订单不可恢复！')) { return false; }">取消订单</a><br/>
-              </td>
-               </tr></tbody>
-          </table>
-          
-<input type="hidden" id="totalPage" name="totalPage" value="1"/>
-<input type="hidden" id="totalResult" name="totalResult" value="1"/>
-<input type="hidden" id="currentPage" name="currentPage" value="1"/>
-<div id="kkpager" style="line-height:40px;"></div>
- </form>
-       </div>
-  </div>
+              <input type="hidden" id="barCode" value=""/>
+              <input type="hidden" id="ticketCode" value=""/>
+				<a href="http://uc.12308.com/user/infoPage.html"> 个人中心</a><em>&gt;</em>
+				 <span id="nowNav">我的订单详情</span></div>
+				 <!--\breadcrumb--> 
+				<div style="width:770px">
+					<div class="flowstep">
+				 	<ol class="flowstep-1">
+				 		<li class="step-1">
+				 			<div id="divstep1" class="step-sub">
+					 			<div class="step-name">订购车票</div>
+					  			<div id="step1" class="step-no">1</div>
+					  			<div class="step-time">
+					  			</div>
+				 			</div>
+				 		</li>
+				  		<li class="step-2">
+				  			<div id="divstep2" class="step-sub">
+				  				<div class="step-name">在线支付</div>
+				  				<div id="step2" class="step-no">2</div>
+				  				<div class="step-time"></div>
+			 				</div>
+			 			</li>
+				  		<li class="step-3">
+				  			<div id="divstep3" class="step-sub">
+				  				<div class="step-name">车站出票</div>
+				  				<div id="step3" class="step-no">3</div>
+				  				<div class="step-time"></div>
+			 				</div>
+			 			</li>
+				  		<li class="step-4">
+				  			<div id="divstep4" class="step-sub">
+				  				<div class="step-name">车站取票</div>
+				  				<div id="step4" class="step-no">4</div>
+				  				<div class="step-time"></div>
+				  			</div>
+				  		</li>
+				  		<li class="step-5">
+				  			<div id="divstep5" class="step-sub">
+					  			<div class="step-name">乘车</div>
+					  			<div id="step5" class="step-no">5</div>
+					  			<div class="step-time"></div>
+				  			</div>
+				  		</li>
+				</ol>
+				</div>
+				
+				<div class="flowstep_main"> 
+				<h4><span class="title">基本信息</span></h4>
+				<div class="pay-dialog">
+				<p class="title">订单编号：<span class="yellow">0020160428255726</span></p>				
+				<dl class="trade-detail-imfor">
+				    <dt class="imfor-icon">
+				    	<img src="Picture/gth.png">
+				    </dt>
+				    <dd class="imfor-title">订单状态：<span class="red">
+          	   		 订单关闭
+          	   		 
+				    </span></dd>
+				       <p class="f12 red"><a href="http://uc.12308.com/order/usercenter/againBook_3957863.html">再次预订</a></p></dd>
+				</dl>
+				</div>
+			
+				
+				<div class="inner"> 
+				<p class="titlep">车票信息</p>
+				<table class="user_table detailstable">            
+				    <thead> <tr> <th width="25%" class="pr10">线路/时间</th>
+				              <th width="20%" class="pr10">票价</th>
+				              <th>手续费 </th>
+				              <th>订单金额</th>
+				              <th>优惠</th>
+				              <th>支付金额</th>
+				               </tr></thead>
+				              <tbody><tr> 
+				              <td width="18%" class="pr10">长沙 -- 常德<br/>
+				                                  上车点： 长沙市汽车西站 <br/>
+				                                  下车点： 常德<br>2016-04-30&nbsp;08:10</td>
+				              <td width="15%" class="pr10">全价票：￥64.00 X 1<br>半价票：￥0.00 X 0</td>
+				              <td> &nbsp;&nbsp;--  </td>
+				              <td> <b class="yellow"> ￥64.0</b> </td>
+				              <td><b class="yellow">  ￥0.00</b> </td>
+				              <td><b class="yellow">￥0.00</b></td>
+				               </tr></tbody>
+				          </table>
+				<p class="titlep">保险信息</p>
+				
+				<table class="user_table detailstable">            
+				    <thead> <tr> <th width="10%" class="pr10">保险公司</th>
+				              <th width="24%">保单号</th>
+				              <th width="">投保人 </th>
+				              <th width="24%">身份证</th>
+				              <th width="">手机号码</th>
+				              <th width="10%">状态</th> </tr> </thead>
+							    <tr>
+				              <td class="pr10">
+				                 免费保险                   
+				                				              </td>
+				              <td>10455031900237268080</td>
+				              <td>李大大/1</td>
+				              <td>43************5X</td>
+				              <td>18684858888</td>
+				              <td>
+				              失败
+				              </td>
+				               </tr>
+					         <tbody>               
+						</tbody>
+				          </table>
+	
+	<div class="info_detail">
+			<p class="info" style="width:764px;"><b>1</b><span class="info1">姓名：李大大</span>
+			<span class="info2">证件类型： 第二代身份证</span>
+			<span class="info3">43************5X</span>
+		    <!--<span class="info4">成人（全价票）</span>-->
+		</p>
+	</div>
+				<div class="info_detail">
+				<p class="titlep">联系人信息</p>
+				<p class="info"><span class="info1">联系人：李大大 </span><span class="info2">手机：18684858888</span>
+				<span class="info3">身份证：43010119900605105X</span>
+				</p>
+				
+				</div>
+				
+				</div>
+				</div>
+            </div>
 <!--right/-->
             </div>
             <!--right-->

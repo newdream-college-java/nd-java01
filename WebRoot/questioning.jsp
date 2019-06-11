@@ -1,11 +1,16 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>个人中心_全国汽车票预订平台_长途汽车线路时刻表_修改密码_</title>
-	<link href="http://image.12308.com/favicon.ico" type="image/x-icon" rel="icon" />
-	<meta name="keywords" content="12308,汽车票,长途汽车,汽车票预订,汽车票查询,汽车时刻表,全国汽车站" />
-	<meta name="description" content="12308是中国道路运输协会与全国站场工委合作共建平台，提供网上汽车票查询,汽车时刻表查询,汽车票预订,全国汽车站查询等服务的便民性门户网站！服务热线:400-6841-110."/> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="12308全国公路客运预订平台,汽车票预, 汽车票查询,汽车票销售,网上汽车票预订,网上汽车票查询,汽车时刻表" />
+	<meta name="description" content="中国道路运输协会与12308共建的一个全国公路客运平台，负责对全国汽车站的联网，实现网络在线即时购票，线下取票服务。同时还提供汽车票查询,汽车时刻表查询,汽车票预订,汽车站查询等。企业电话咨询热线:0755-36637486"/>
+
+	<title>12308全国公路客运预订平台_用户中心</title>
 	<link href="http://image.12308.com/favicon.ico" type="image/x-icon" rel="icon" />
 	<link rel="stylesheet" href="Css/userbase.css" type="text/css" />
 	<link rel="stylesheet" href="Css/uindex.css" type="text/css" />
@@ -20,18 +25,9 @@
 	<script type="text/javascript" src="Scripts/common.js"></script>
 
 
-	<script type="text/javascript" src="Scripts/usereditpwd.js"></script>
-	
-		
-	<script type="text/javascript">
-	
-	  $(document).ready(function() {
-	  
-	    $("#dd22").attr("class","active");
-
-	  });
-	</script>
+	<script type="text/javascript" src="Scripts/message.js"></script>
 </head>
+<body>
 <div class="q_pagecontainer">
 	<div class="q_pagewrap">
 <style>
@@ -94,6 +90,7 @@
     </div>
  </div>
 </div><!--mystart-->
+
 		<div class="q_page">
 			<div class="user-wrap">
         <!--left-->
@@ -180,59 +177,29 @@
             <div class="user-right">
 <!--/right-->
 <!--breadcrumb-->
-    <div class="b_ucbreadcrumb color4">
-    <a href="http://uc.12308.com/user/infoPage.html">个人中心</a><em>&gt;</em>
-    <span id="nowNav">修改密码</span> </div>
-    <!--\breadcrumb--> 
- <div class="qn_usercenter_in">
-      <div class="pub-form">
-    	<form id="form">
-		<div class="fm-item pbot-15">
-          <span class="fm-label"><label for="txt_Name3">输入原始密码</label></span>
-   			<input type="password" value="" name="oldPassword" id="oldPassword" class="i-input w240">
-              <div class="msg-box">
-                    <div id="oldPasswordTip" class="msg-weak msg-attention"><i></i>
-                      <label class="valid">请输入原始密码</label>
-                    </div>
-               </div>
-        </div>
-		<div class="fm-item pbot-10">
-          <span class="fm-label"><label for="txt_Name2">新密码</label></span>
-    <div  class="dinbl"><input type="password" value="" name="password" id="password" class="i-input w240">
-    <div class="qiangdu"><span id="one" class="strong strong1">弱</span><span id="two" class="strong strong2">中</span><span id="three" class="strong strong3">强</span></div></div>
-              <div class="msg-box">
-                    <div id="passwordTip" class="msg-weak msg-attention"><i></i>
-                      <label class="valid">请输入新密码</label>
-                    </div>
-               </div>
-        </div>
-        
-        
-         <div class="fm-item pbot-15">
-          <span class="fm-label"><label for="txt_Name3">再次输入密码</label></span>
-   <input type="password" value="" name="confirm_password" id="confirm_password" class="i-input w240">
-              <div class="msg-box">
-                    <div id="confirm_passwordTip" class="msg-weak msg-attention"><i></i>
-                      <label class="valid">请输入用户密码</label>
-                    </div>
-               </div>
-        </div>
-     
-        <div class="fm-item pbot-15">
-              <span class="fm-label"><label for="txt_Name6"></label></span>
-             <a  id="btn_submit" class="button_ok" >确 定</a>
-             <!--<a id="btn_cancel" class="button_canc" >重置</a>-->
-       </div> 
+<div class="qn_usercenter_in">
+ <div class="askfrom_b">
 
-        </form>
-</div> 
+           <h4><span class="left"><i class="i_wen left"></i>问题标题</span><span class="c888 right f12"></span></h4>
+           <div class="ask_t">退款流程</div>
+           <div class="h30"></div>
+           <h4><span class="left"><i class="i_ask left"></i>问题补充<span class="c888 f14"> （选填）</span></span></h4>
+           <div class="ask_t"></div>
+           <div class="h30"></div>
+           
+           <h4><span class="left"><i class="i_da left"></i>客服回复</span></h4>
+           <div class="ask_t">正在处理。。。</div>
+           <div class="h10"></div>
+       </div>  
 </div>
 <!--right/-->
             </div>
             <!--right-->
-            
-</div></div></div></div>
-
+        <!--right-->
+        </div>
+    </div>
+</div>
+ <!--myend-->
 <div class="footer">
 		<div class="footer-container">
 <div class="copyrights">Copyright © 2010-2013 12308.com，All Rights Reserved粤ICP备14020827号</div>

@@ -1,4 +1,10 @@
-﻿<!doctype html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!doctype html>
 <html>
 <head>
 <title>12308-全国汽车票预订平台_长途汽车线路时刻表_汽车票查询_</title>

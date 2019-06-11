@@ -1,4 +1,10 @@
-﻿<!doctype html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!doctype html>
 <html>
 <head>
    <title>我要包车_汽车票查询_12308全国汽车票</title>
@@ -587,4 +593,3 @@ var _hmt = _hmt || [];
 </script>
 </span></body>
 </html>
-

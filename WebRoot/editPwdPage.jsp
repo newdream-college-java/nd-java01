@@ -1,17 +1,17 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="keywords" content="12308全国公路客运预订平台,汽车票预, 汽车票查询,汽车票销售,网上汽车票预订,网上汽车票查询,汽车时刻表" />
-	<meta name="description" content="中国道路运输协会与12308共建的一个全国公路客运平台，负责对全国汽车站的联网，实现网络在线即时购票，线下取票服务。同时还提供汽车票查询,汽车时刻表查询,汽车票预订,汽车站查询等。企业电话咨询热线:0755-36637486"/>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	 <!--禁用缓存部分开始-->
-        <meta http-equiv="Expires" content="0" />
-        <meta http-equiv="Progma" content="no-cache" />
-        <meta http-equiv="cache-control" content="no-cache,must-revalidate" />
-        <!--禁用缓存部分结束-->
-	<title>12308全国公路客运预订平台_用户中心_订单列表</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>个人中心_全国汽车票预订平台_长途汽车线路时刻表_修改密码_</title>
+	<link href="http://image.12308.com/favicon.ico" type="image/x-icon" rel="icon" />
+	<meta name="keywords" content="12308,汽车票,长途汽车,汽车票预订,汽车票查询,汽车时刻表,全国汽车站" />
+	<meta name="description" content="12308是中国道路运输协会与全国站场工委合作共建平台，提供网上汽车票查询,汽车时刻表查询,汽车票预订,全国汽车站查询等服务的便民性门户网站！服务热线:400-6841-110."/> 
 	<link href="http://image.12308.com/favicon.ico" type="image/x-icon" rel="icon" />
 	<link rel="stylesheet" href="Css/userbase.css" type="text/css" />
 	<link rel="stylesheet" href="Css/uindex.css" type="text/css" />
@@ -26,89 +26,18 @@
 	<script type="text/javascript" src="Scripts/common.js"></script>
 
 
-	<link rel="stylesheet" href="Css/kkpager.css">	
-	<script type="text/javascript" src="Scripts/kkpager.js"></script>
-</head>
-<script type="text/javascript">
-$.ajaxSetup({
- contentType: "application/x-www-form-urlencoded; charset=utf-8"
-});
-$(document).ready(function() {
-			$("#startDateData").selectbox();
-			$("#statusData").selectbox();
-			placeholder();
-			
-			$("#dd11").attr("class","active");//左边框显示
-			
-});
-
-function delOrder(orderNo,orderType){
-    if(!confirm('确定要删除订单吗？')) { 
-       return false; 
-    }
-
-  $.ajax({
-				type : "POST",
-				dataType : "text",
-				cache : false,
-				url : "/order/usercenter/deleteOrder.sc?orderNo="+orderNo+"&orderType="+orderType,
-				success : function(msg) {
-				    var msg = $.parseJSON(msg);
-				    if(msg.resultCode=="0000"){
-				      alert("删除成功");
-				    }else{
-				      alert("删除失败");
-				    }
-				    location.reload();
-				}
-	});
-};
-
-function submitPage(n){
-  submitForm(n);
-}
-
-function submitForm(n){
+	<script type="text/javascript" src="Scripts/usereditpwd.js"></script>
 	
-  var text = $("#textInput").val();
-  if(text=='通过手机号或订单号查询'){
-     text = "";
-  } 
-  $("#text").val(text);
-  var pathData = $("#pathData").val();
-  var path = pathData+"?startDate="+$("#startDateData").val()+"&statusData="+$("#statusData").val()+"&text="+$("#text").val()+"&currentPage="+n;
-  window.location.href=path;
-}
+		
+	<script type="text/javascript">
+	
+	  $(document).ready(function() {
+	  
+	    $("#dd22").attr("class","active");
 
-
-function refundOrder(orderNo,orderId){
-  if(orderNo==null || orderNo == ""){
-    alert("网络连接失败，请刷新页面");
-    return false;
-  }
-  $.ajax({
-		  type : "POST",
-		  dataType : "text",
-		  cache : false,
-		  url : "/order/usercenter/refundOrderCheck.sc?orderNo="+orderNo,
-		  success : function(msg) {
-		   var msg = $.parseJSON(msg);
-		       if(msg.resultCode == '0000'){
-		         window.location.href='/order/usercenter/refundOrderPage.sc?orderId='+orderId+"&orderNo="+orderNo;
-		       }else{
-		         alert(msg.resultMsg);
-		         location.reload();
-		       }
-		  }
-	});
-}
-//生成随机数
-function getRandomP(){  
-    return  Math.round(Math.random()*100000);  
-}  
-
-</script>
-<body>
+	  });
+	</script>
+</head>
 <div class="q_pagecontainer">
 	<div class="q_pagewrap">
 <style>
@@ -171,7 +100,6 @@ function getRandomP(){
     </div>
  </div>
 </div><!--mystart-->
-
 		<div class="q_page">
 			<div class="user-wrap">
         <!--left-->
@@ -258,108 +186,59 @@ function getRandomP(){
             <div class="user-right">
 <!--/right-->
 <!--breadcrumb-->
-   <div class="b_ucbreadcrumb">
-    <a href="http://uc.12308.com/user/infoPage.html">个人中心</a><em>&gt;</em><span id="nowNav">出行订单</span> </div>
+    <div class="b_ucbreadcrumb color4">
+    <a href="http://uc.12308.com/user/infoPage.html">个人中心</a><em>&gt;</em>
+    <span id="nowNav">修改密码</span> </div>
     <!--\breadcrumb--> 
- <div class="stage_main">    
-  <form id="dataForm">
-    <input type = "hidden" id="pathData" value="http://uc.12308.com/order/usercenter/orderListAll.html"/>
-      <div class="search_table pis_title">
-                  <select class="select_li" id="startDateData" onchange="submitForm(0)">
-                    <option value="month" >一个月内的订单</option>
-                    <option value="year" >一年内的订单</option>
-                    <option value="history" >历史订单</option>
-                  </select>
-                  <select  class="select_li" id="statusData" onchange="submitForm(0)">
-                    <option value="-1" >全部订单</option>
-                    <option value="1" >等待付款</option>
-                    <option value="2" >等待出票</option>
-                    <option value="3" >订单成功</option>
-                    <option value="4,5" >订单关闭</option>
-                    <option value="7" >待出票</option>
-                  </select>
-                  <input type="text" id="textInput" class="textbox" value=""  placeholder="通过手机号或订单号查询"/>    
-                  <input type="hidden" name="text" value="" id="text"/>       
-                  <a href="javascript:void(0)" onclick="submitForm(0)" class="button_ok">搜 索</a>
+ <div class="qn_usercenter_in">
+      <div class="pub-form">
+    	<form id="form">
+		<div class="fm-item pbot-15">
+          <span class="fm-label"><label for="txt_Name3">输入原始密码</label></span>
+   			<input type="password" value="" name="oldPassword" id="oldPassword" class="i-input w240">
+              <div class="msg-box">
+                    <div id="oldPasswordTip" class="msg-weak msg-attention"><i></i>
+                      <label class="valid">请输入原始密码</label>
+                    </div>
+               </div>
         </div>
+		<div class="fm-item pbot-10">
+          <span class="fm-label"><label for="txt_Name2">新密码</label></span>
+    <div  class="dinbl"><input type="password" value="" name="password" id="password" class="i-input w240">
+    <div class="qiangdu"><span id="one" class="strong strong1">弱</span><span id="two" class="strong strong2">中</span><span id="three" class="strong strong3">强</span></div></div>
+              <div class="msg-box">
+                    <div id="passwordTip" class="msg-weak msg-attention"><i></i>
+                      <label class="valid">请输入新密码</label>
+                    </div>
+               </div>
+        </div>
+        
+        
+         <div class="fm-item pbot-15">
+          <span class="fm-label"><label for="txt_Name3">再次输入密码</label></span>
+   <input type="password" value="" name="confirm_password" id="confirm_password" class="i-input w240">
+              <div class="msg-box">
+                    <div id="confirm_passwordTip" class="msg-weak msg-attention"><i></i>
+                      <label class="valid">请输入用户密码</label>
+                    </div>
+               </div>
+        </div>
+     
+        <div class="fm-item pbot-15">
+              <span class="fm-label"><label for="txt_Name6"></label></span>
+             <a  id="btn_submit" class="button_ok" >确 定</a>
+             <!--<a id="btn_cancel" class="button_canc" >重置</a>-->
+       </div> 
 
-      <div class="inner">      
-         
-          <table class="order_table order_t_blue">
-              <thead><tr><th colspan="4">订单编号 :0020160428253020 &nbsp; &nbsp; 下订时间：2016-04-28 13:14:51</th></tr></thead>
-              <tbody>
-              <tr> 
-              <td class="noborder" width="50%">
-              <table class="order_table_box">
-              <!--<tr><td><a class="gray">长沙市汽车西站 -- 常德</a><b>￥64.00</b> <span> 1 张</span> </td></tr>-->
-              <tr><td><a class="c66">长沙市汽车西站 -- 常德</a></td></tr>
-              <tr><td><p>全价票</p><b>￥64.00 元</b> <span> 1 张</span></td></tr>
-              <tr><td><p>乘车保险</p><b>￥0.00</b> <span> 1 张</span></td></tr>
-              <tr><td><p>手续费  </p><b>￥0.00</b></td></tr>
-              </table>
-              
-              
-              </td>
-              <td width="16%" class="top"><b class="yellow">￥64.00</b></td>
-              <td width="16%" class="top">
-              <a href="javascript:void(0)"><span class="yellow">等待付款</span></a>
-              </td>
-              <td width="18%">
-                   <a href="http://uc.12308.com/order/usercenter/orderDetail_3962523.html">订单详情</a><br/>
-              <input type="hidden" value="0" id="orderType"/>
-             <a class="fk_btn" href="http://uc.12308.com/order/usercenter/toPay_0020160428253020.html"><span>付&nbsp;款</span></a><br/>
-                   <a href="http://uc.12308.com/order/usercenter/updateOrder.html?id=3962523" onclick="javascript:if(!confirm('确定要取消订单吗？取消订单不可恢复！')) { return false; }">取消订单</a><br/>
-              </td>
-               </tr></tbody>
-          </table>
-          
-         
-          <table class="order_table ">
-              <thead><tr><th colspan="4">订单编号 :0020160428255726 &nbsp; &nbsp; 下订时间：2016-04-28 10:38:18</th></tr></thead>
-              <tbody>
-              <tr> 
-              <td class="noborder" width="50%">
-              <table class="order_table_box">
-              <!--<tr><td><a class="gray">长沙市汽车西站 -- 常德</a><b>￥64.00</b> <span> 1 张</span> </td></tr>-->
-              <tr><td><a class="c66">长沙市汽车西站 -- 常德</a></td></tr>
-              <tr><td><p>全价票</p><b>￥64.00 元</b> <span> 1 张</span></td></tr>
-              <tr><td><p>乘车保险</p><b>￥0.00</b> <span> 1 张</span></td></tr>
-              <tr><td><p>手续费  </p><b>￥0.00</b></td></tr>
-              </table>
-              
-              
-              </td>
-              <td width="16%" class="top"><b class="yellow">￥64.00</b></td>
-              <td width="16%" class="top">
-              <a href="javascript:void(0)" ><span class="gray">订单关闭</span></a>
-              </td>
-              <td width="18%">
-                   <a href="http://uc.12308.com/order/usercenter/orderDetail_3957863.html">订单详情</a><br/>
-              <input type="hidden" value="0" id="orderType"/>
-                  <a href="http://uc.12308.com/order/usercenter/againBook_3957863.html">再次预订</a><br/>
-                   <a href="javascript:void(0)" 
-                       onclick="delOrder('0020160428255726','0')">删除订单</a><br/>
-              </td>
-               </tr></tbody>
-          </table>
-          
-          </div>           
-<input type="hidden" id="totalPage" name="totalPage" value="1"/>
-<input type="hidden" id="totalResult" name="totalResult" value="2"/>
-<input type="hidden" id="currentPage" name="currentPage" value="1"/>
-<div id="kkpager" style="line-height:40px;"></div>
- </form>
-       </div>
-  </div>
+        </form>
+</div> 
+</div>
 <!--right/-->
             </div>
-          </div>
             <!--right-->
-        <!--right-->
-        </div>
-    </div>
-</div>
- <!--myend-->
+            
+</div></div></div></div>
+
 <div class="footer">
 		<div class="footer-container">
 <div class="copyrights">Copyright © 2010-2013 12308.com，All Rights Reserved粤ICP备14020827号</div>

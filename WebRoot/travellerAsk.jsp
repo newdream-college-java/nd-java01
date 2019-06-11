@@ -1,7 +1,12 @@
-﻿<!doctype html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta charset="utf-8" />
 <title>客服中心_汽车票查询_12308全国汽车票</title>
 <link href="favicon.ico" type="image/x-icon" />
 <meta name="keywords" content="12308,汽车票,长途汽车,汽车票预订,汽车票查询,汽车时刻表,全国汽车站" />
@@ -454,4 +459,3 @@ var _hmt = _hmt || [];
 </script>
 </span></body>
 </html>
-
