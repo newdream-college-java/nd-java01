@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,com.yb.dao.*,javax.naming.*,javax.sql.*,java.sql.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,com.yb.dao.*,com.yb.dao.impl.*,javax.naming.*,javax.sql.*,java.sql.*" pageEncoding="UTF-8"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -20,10 +20,8 @@
   
   <body>
     <%
-    Context ctx=new InitialContext();
-	DataSource ds=(DataSource) ctx.lookup("java:comp/env/jdbcNews");
-	Connection conn= ds.getConnection(); 
-	out.print(conn);
+    Test ts=new Test();
+    out.print(ts.list());
     	
     %>
   </body>

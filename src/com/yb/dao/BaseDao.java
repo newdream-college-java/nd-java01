@@ -15,20 +15,18 @@ import javax.sql.DataSource;
 public class BaseDao {
 	public Connection conn=null;
 	public PreparedStatement st=null;
-	public ResultSet rs=null;
-	
-	
-	//建立连接
-//	public void getConn(){
-//		try {
-//			Class.forName("com.mysql.jdbc.Driver");
-//			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/parentchildnetwork","root","1997");
-//		} catch (Exception e) {	
-//			// TODO 自动生成的 catch 块
-//			e.printStackTrace();
-//		}
-//	}
-//	
+	public ResultSet rs=null;	
+	//建立连接池
+	public void getConn(){
+		try {
+			Context ctx=new InitialContext();
+			DataSource ds=(DataSource) ctx.lookup("java:comp/env/jdbcNews");
+			conn= ds.getConnection(); 
+		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+	}
 	//关闭连接
 	public void closeAll(ResultSet rs,Connection conn,Statement st){
 		if(rs!=null){
@@ -56,16 +54,7 @@ public class BaseDao {
 			}
 		}		
 	}
-	public void text(){
-		try {
-			Context ctx=new InitialContext();
-			DataSource ds=(DataSource) ctx.lookup("java:comp/env/jdbcNews");
-			conn= ds.getConnection(); 
-		} catch (Exception e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-	}
+	
 	
 	
 	

@@ -10,7 +10,7 @@ public class DaoTest {
 	BaseDao bd=new BaseDao();
 	@Test
 	public void baseDaoTest() {
-		bd.text();
+		bd.getConn();
 		System.out.println(bd.conn);
 	}
 
