@@ -14,10 +14,43 @@ public class BaseDao {
 	public Connection conn;
 	public PreparedStatement pst;
 	public ResultSet rs;
+	/**
+	 * 数据源连接数据库
+	 * @throws NamingException
+	 * @throws SQLException
+	 */
 	public void getConnection() throws NamingException, SQLException {
 		Context context=new InitialContext();
 		DataSource dataSource=(DataSource) context.lookup("java:comp/env/jdbc/book_car_ticket");
 		conn=dataSource.getConnection();
 	}
-	
+	/**
+	 * 数据库关流
+	 */
+	public void closeAll() {
+		if(rs!=null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if(pst!=null) {
+			try {
+				pst.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if(conn!=null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 }
