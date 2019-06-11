@@ -4,6 +4,16 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>easybuy_nd</display-name>
+	
+	
+	<servlet>
+        <servlet-name>ListOrderConditionSvl</servlet-name>
+        <servlet-class>com.cc.servlet.ListOrderConditionSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+       <servlet-name>ListOrderConditionSvl</servlet-name>
+       <url-pattern>/manage/listOrderConditionSvl</url-pattern>
+    </servlet-mapping>
 	<servlet>
 		<servlet-name>ListNewsSvl</servlet-name>
 		<servlet-class>com.cc.servlet.ListNewsSvl</servlet-class>
