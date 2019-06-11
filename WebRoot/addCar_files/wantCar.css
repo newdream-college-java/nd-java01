@@ -1,0 +1,489 @@
+body {
+	font-family: microsoft yahei,simhei;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.banner_n {
+	width: 100%; height: 300px; position: relative; min-width: 1180px;
+}
+.banner_wrap {
+	left: 0px; top: 0px; width: 100%; height: 380px; position: absolute;
+}
+.pic_show {
+	position: relative;
+}
+.pic_show li {
+	height: 300px;
+}
+.pic_show {
+	height: 300px;
+}
+.pic_show li {
+	width: 100%; position: absolute;
+}
+.pic_show li a {
+	height: 300px; text-align: right; display: block;
+}
+.pic_show li a img {
+	float: right;
+}
+.banner_n .dots {
+	top: 280px; width: 250px; height: 30px; text-align: right; right: 50%; margin-right: -603px; position: absolute;
+}
+.banner_n .dots .dot {
+	background: rgb(0, 0, 0); padding: 2px 3px; width: 22px; height: 1px; line-height: 999px; overflow: hidden; margin-right: 10px; display: inline-block; cursor: pointer; -ms-zoom: 1; opacity: 0.7; -moz-opacity: 0.7; -khtml-opacity: 0.7;
+}
+.banner_n .dots .active {
+	background: rgb(255, 102, 0); cursor: default;
+}
+@media all and (max-width:1200px)
+{
+.banner_n {
+	min-width: 1180px;
+}
+.dots {
+	margin-right: -503px;
+}
+}
+.bw-box {
+	padding: 0px 20px; border: 1px solid rgb(214, 214, 214);
+}
+.linebt0 {
+	border-top-color: currentColor; border-top-width: 0px; border-top-style: none;
+}
+.m_title {
+	padding: 20px 0px; height: 28px; text-align: left; color: rgb(51, 51, 51); line-height: 28px; font-weight: normal; border-bottom-color: rgb(217, 217, 217); border-bottom-width: 1px; border-bottom-style: dashed;
+}
+.m_title span {
+	font: 26px/28px "Microsoft Yahei"; padding-left: 15px; border-left-color: rgb(59, 141, 227); border-left-width: 3px; border-left-style: solid; display: inline-block; font-size-adjust: none; font-stretch: normal;
+}
+.txtCon1 {
+	padding: 50px 0px 15px 40px;
+}
+.txtCon1 ul {
+	width: 100%; display: inline-block;
+}
+.txtCon1 li {
+	background: url("img/car_li_arr.png") no-repeat right 30px; width: 22%; text-align: center; padding-right: 2%; float: left;
+}
+.txtCon1 li.cur {
+	background: url("img/car_li_arr_a.png") no-repeat right 30px;
+}
+.txtCon1 li.last {
+	
+}
+.txtCon1 li a {
+	width: 100%; display: block;
+}
+.txtCon1 li .pic {
+	margin: 0px auto; width: 140px; height: 80px; line-height: 0; position: relative;
+}
+.txtCon1 li .pic em {
+	width: 140px; height: 80px; display: inline-block; background-image: url("img/car_type.png"); background-repeat: no-repeat;
+}
+.txtCon1 li .pic .icon1 {
+	
+}
+.txtCon1 li .pic .icon2 {
+	background-position: -140px 0px;
+}
+.txtCon1 li .pic .icon3 {
+	background-position: -420px 0px;
+}
+.txtCon1 li .pic .icon4 {
+	background-position: -280px 0px;
+}
+.txtCon1 li.cur .pic .icon1 {
+	background-position: 0px -88px;
+}
+.txtCon1 li.cur .pic .icon2 {
+	background-position: -140px -88px;
+}
+.txtCon1 li.cur .pic .icon3 {
+	background-position: -420px -88px;
+}
+.txtCon1 li.cur .pic .icon4 {
+	background-position: -280px -88px;
+}
+.txtCon1 li .title {
+	color: rgb(51, 51, 51); line-height: 55px; font-size: 18px;
+}
+.txtCon1 li:hover .pic em {
+	animation:shake_s 2s linear infinite; -webkit-animation: shake_s 5s infinite linear normal; -moz-animation: shake_s 5s infinite linear normal;
+}
+.txtCon2 {
+	
+}
+.pub-form2 {
+	margin: 20px 0px 40px 80px; font-size: 14px;
+}
+.pub-form2 em {
+	color: rgb(255, 62, 3);
+}
+.pub-form2 .s-input-box {
+	width: 480px; display: inline-block;
+}
+.pub-form2 .fm-li {
+	padding-bottom: 20px; padding-left: 100px; vertical-align: middle;
+}
+.pub-form2 .fm-li .fm-label {
+	width: 400px; height: 44px; text-align: right; color: rgb(51, 51, 51); line-height: 44px; font-size: 18px; margin-left: -268px; float: left; display: inline;
+}
+.pub-form2 .fm-li .fm-labelh {
+	height: 150px;
+}
+.pub-form2 .fm-li .i-input {
+	padding: 6px 20px; width: 430px; height: 32px; line-height: 32px; font-size: 16px;
+}
+.pub-form2 .fm-li .msg-info {
+	height: 28px; margin-top: 10px; vertical-align: top; display: inline-block;
+}
+.pub-form2 .msg-info .msg-weak i {
+	top: 2px; padding-right: 2px; margin-left: 0px; display: inline-block; position: relative;
+}
+.pub-form2 .msg-info .msg-weak {
+	padding-left: 3px;
+}
+.input-txt {
+	padding: 7px 0px 7px 20px; width: 450px; height: 32px; color: rgb(51, 51, 51); line-height: 32px; font-size: 16px; display: inline-block;
+}
+.i-input {
+	border: 1px solid rgb(219, 219, 219);
+}
+.i-input:hover {
+	border-color: rgb(59, 141, 227);
+}
+.i-input:focus {
+	border-color: rgb(59, 141, 227);
+}
+.input-img {
+	width: 480px; vertical-align: middle; display: inline-block; position: relative;
+}
+.input-img .cinput {
+	padding: 10px 20px; width: 430px; font-size: 14px;
+}
+.input-img i {
+	text-indent: -99em; overflow: hidden; position: absolute;
+}
+.input-img .date {
+	background: url("img/img.png") no-repeat -312px -127px; top: 13px; width: 24px; height: 21px; right: 20px;
+}
+.input-img .city {
+	background: url("img/c_img.png") no-repeat 0px 0px; top: 7px; width: 24px; height: 30px; right: 20px;
+}
+.cur_poi {
+	cursor: pointer;
+}
+.s-input-box .check_box {
+	padding-top: 15px; padding-bottom: 15px; padding-left: 0px;
+}
+.right.check_box {
+	float: right;
+}
+.check_box {
+	height: 20px; color: rgb(51, 51, 51); line-height: 20px; padding-top: 5px; padding-left: 20px; font-size: 14px; vertical-align: middle;
+}
+.check_box .lo_check {
+	height: 20px; margin-top: 1px; margin-right: 3px; float: left;
+}
+.check_box span {
+	padding: 0px 5px; float: left;
+}
+.check_box b {
+	font-weight: normal;
+}
+.fpiao_box {
+	padding-left: 20px;
+}
+.fpiao_box .s-input-box {
+	width: 480px; display: inline-block;
+}
+.fpiao_box .fm-li {
+	padding-bottom: 0px; vertical-align: middle;
+}
+.fpiao_box .fm-li_b {
+	border: 1px solid rgb(219, 219, 219); width: 480px; padding-left: 116px; margin-right: 5px; display: inline-block; position: relative;
+}
+.fpiao_box .b_0 {
+	border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;
+}
+.fpiao_box .fm-li .fm-label2 {
+	left: 0px; top: 0px; width: 105px; height: 46px; text-align: right; color: rgb(51, 51, 51); line-height: 46px; font-size: 15px; float: left; position: absolute;
+}
+.fpiao_box .fm-li .i-input {
+	padding: 4px 0px; border: 1px solid rgb(255, 255, 255); width: 476px; height: 32px; line-height: 32px; text-indent: 15px; font-size: 15px; display: inline-block;
+}
+.fpiao_box .fm-li .s-input-box {
+	padding: 0px; width: 476px; border-left-color: rgb(219, 219, 219); border-left-width: 1px; border-left-style: solid; display: inline-block;
+}
+.fpiao_box .fm-li .i-input:hover {
+	border-color: rgb(59, 141, 227);
+}
+.fpiao_box .fm-li .i-input:focus {
+	border-color: rgb(59, 141, 227);
+}
+.fpiao_box .fm-li .t_textarea .i-input {
+	height: 82px;
+}
+.btn_box_c {
+	text-align: center;
+}
+.btn_red {
+	background: rgb(247, 101, 81); border-width: 0px 0px 4px; border-style: none none solid; border-color: currentColor currentColor rgb(205, 69, 50); font: 24px/55px "Microsoft YaHei"; border-radius: 5px; width: 400px; height: 55px; text-align: center; color: rgb(255, 255, 255); display: inline-block; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+.btn_gray {
+	background: rgb(247, 101, 81); border-width: 0px 0px 4px; border-style: none none solid; border-color: currentColor currentColor rgb(205, 69, 50); font: 24px/55px "Microsoft YaHei"; border-radius: 5px; width: 400px; height: 55px; text-align: center; color: rgb(255, 255, 255); display: inline-block; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+.btn_red:hover {
+	background: rgb(230, 86, 66); border-width: 0px 0px 4px; border-style: none none solid; border-color: currentColor currentColor rgb(153, 11, 5); color: rgb(255, 255, 255);
+}
+.btn_gray {
+	background: rgb(170, 170, 170); border-width: 0px 0px 4px; border-style: none none solid; border-color: currentColor currentColor rgb(153, 153, 153); color: rgb(255, 255, 255);
+}
+.btn_gray:hover {
+	background: rgb(153, 153, 153); border-width: 0px 0px 4px; border-style: none none solid; border-color: currentColor currentColor rgb(136, 136, 136); color: rgb(255, 255, 255);
+}
+.btn_blue {
+	background: rgb(68, 142, 243); border-width: 0px 0px 4px; border-style: none none solid; border-color: currentColor currentColor rgb(35, 111, 215); font: 24px/55px "Microsoft YaHei"; border-radius: 5px; width: 400px; height: 55px; text-align: center; color: rgb(255, 255, 255); display: inline-block; cursor: pointer; font-size-adjust: none; font-stretch: normal;
+}
+.btn_blue:hover {
+	background: rgb(44, 123, 232); border-width: 0px 0px 4px; border-style: none none solid; border-color: currentColor currentColor rgb(20, 102, 213); color: rgb(255, 255, 255);
+}
+.agreement-content {
+	padding: 10px; border: 1px solid rgb(219, 219, 219); width: 420px; height: 150px; color: rgb(102, 102, 102); line-height: 20px; font-size: 12px; -ms-overflow-x: hidden; -ms-overflow-y: scroll;
+}
+.agreement {
+	width: 400px;
+}
+.txtCon3 {
+	padding: 0px 95px;
+}
+.carBox {
+	padding: 40px 0px; height: 80px; position: relative;
+}
+.carBox li {
+	line-height: 24px; font-size: 15px; float: left;
+}
+.carBox li h4 {
+	color: rgb(51, 51, 51); padding-bottom: 10px; font-size: 24px;
+}
+.carBox li p {
+	color: rgb(153, 153, 153);
+}
+.carBox li p span {
+	color: rgb(51, 51, 51);
+}
+.carBox .carb_type {
+	width: 270px;
+}
+.carBox .carb_xq {
+	width: 430px;
+}
+.carBox .carb_nub {
+	top: 55px; height: 55px; right: 13px; line-height: 55px; position: absolute;
+}
+.carBox .carb_type .img {
+	width: 132px; height: 74px; line-height: 0; overflow: hidden; padding-top: 6px; padding-left: 30px; display: inline-block;
+}
+.carBox .carb_type .img img {
+	width: 132px; height: 74px;
+}
+.carBox_Bot {
+	background: rgb(255, 255, 255); padding: 10px 0px; text-align: center; color: rgb(51, 51, 51); line-height: 55px; font-size: 13px;
+}
+.buynum2 {
+	height: 55px; text-align: center; line-height: 55px; position: relative;
+}
+.buynum2 span {
+	width: 130px; color: rgb(51, 51, 51); line-height: 55px; font-size: 24px; float: left; display: inline-block;
+}
+.buynum2 span b {
+	font-size: 18px; font-weight: normal;
+}
+.buynum2 label {
+	width: 66px; height: 55px; float: left; display: inline-block;
+}
+.buynum2 em {
+	background: url("img/c_img.png") no-repeat; width: 66px; height: 55px; display: inline-block;
+}
+.buynum2 .subperson em {
+	background-position: -66px -50px;
+}
+.buynum2 .subperson:hover em {
+	background-position: 0px -50px;
+}
+.buynum2 .on.subperson em {
+	background-position: 0px -50px;
+}
+.buynum2 .addperson em {
+	background-position: -66px -108px;
+}
+.buynum2 .addperson:hover em {
+	background-position: 0px -108px;
+}
+.buynum2 .on.addperson em {
+	background-position: 0px -108px;
+}
+.carBox_Bot {
+	background: rgb(240, 240, 240); padding: 10px; border: 1px solid rgb(204, 204, 204); color: rgb(51, 51, 51); line-height: 28px; font-size: 18px;
+}
+.txtCon4 {
+	
+}
+.info_box {
+	border-width: 1px 1px 0px; border-style: solid solid none; border-color: rgb(219, 219, 219) rgb(219, 219, 219) currentColor; margin: 0px auto; padding: 0px; width: 800px; line-height: 30px;
+}
+.info_li {
+	padding: 0px 0px 0px 130px; border-bottom-color: rgb(219, 219, 219); border-bottom-width: 1px; border-bottom-style: solid; display: block; position: relative; z-index: 1; min-height: 30px;
+}
+.info_name {
+	left: 0px; top: 50%; width: 120px; height: 46px; text-align: right; color: rgb(153, 153, 153); line-height: 46px; font-size: 18px; margin-top: -23px; position: absolute;
+}
+.info_txt {
+	padding: 12px 10px 12px 1px; color: rgb(51, 51, 51); line-height: 30px; font-size: 18px; display: block;
+}
+.info_li_select {
+	z-index: 2; cursor: pointer;
+}
+.select-boxwrap {
+	height: 0px; vertical-align: middle; display: block; position: relative; z-index: 2; cursor: pointer;
+}
+.select-items {
+	left: 1px; top: 0px; width: 100%; position: absolute; z-index: 2;
+}
+.select-items .copo_box {
+	background: rgb(255, 255, 255); border: 1px solid rgb(177, 177, 177); position: relative; -ms-overflow-x: hidden; -ms-overflow-y: auto; max-height: 400px;
+}
+.select-arrow {
+	background: url("img/img.png") no-repeat -21px -149px; left: 45px; top: -10px; width: 21px; height: 11px; text-indent: -9999px; overflow: hidden; display: inline-block; position: absolute; z-index: 2;
+}
+.icbox {
+	background: url("img/img.png") no-repeat; overflow: hidden; display: inline-block;
+}
+.copo_box ul {
+	padding: 10px 20px 20px; font-family: "Microsoft YaHei","ºÚÌå","simsun"; font-size: 14px; position: relative;
+}
+.copo_box ul li {
+	padding: 7px; height: 30px; margin-top: 5px; border-bottom-color: rgb(221, 221, 221); border-bottom-width: 1px; border-bottom-style: solid; _height: 18px; _margin-top: 8px;
+}
+.copo_box ul li:hover {
+	background: rgb(246, 246, 246);
+}
+.copo_box ul li label {
+	display: block; position: relative; cursor: pointer;
+}
+.copo_box ul li label span.ckbox {
+	background-position: -244px 0px; width: 14px; height: 14px; margin-top: 3px; vertical-align: middle;
+}
+.copo_box ul li label span {
+	background-position: -244px 0px; width: 14px; height: 14px; margin-top: 3px; vertical-align: middle;
+}
+.copo_box ul li label span.ckbox {
+	background-position: -230px 0px;
+}
+.copo_box ul li label input {
+	display: none;
+}
+.copo_box ul li label:hover span.type_txt {
+	color: rgb(255, 87, 65);
+}
+.copo_box ul li label.on span {
+	
+}
+.copo_box ul li label .type_txt span {
+	padding-right: 10px; padding-left: 5px; font-family: Verdana,Geneva,sans-serif;
+}
+.copo_box ul li label .type_txt1 {
+	color: rgb(255, 87, 65);
+}
+.copo_box ul li label .type_txt b {
+	padding-right: 2px; font-size: 20px; font-weight: normal;
+}
+.copo_box ul li label .type_txt2 {
+	color: rgb(102, 102, 102);
+}
+.copo_box ul li label .type_txt3 {
+	color: rgb(136, 136, 136);
+}
+.cyel {
+	color: rgb(255, 87, 65); line-height: 30px;
+}
+.cyel b {
+	padding-right: 2px; font-size: 20px; font-weight: normal;
+}
+.gray.info_select {
+	background: rgb(204, 204, 204);
+}
+.info_right {
+	background: rgb(255, 87, 65); padding: 10px 20px; top: 0px; width: 20px; height: 34px; right: 0px; line-height: 34px; display: inline-block; position: absolute;
+}
+.info_right i {
+	background: url("img/c_img.png") no-repeat -170px -2px; width: 20px; height: 20px; display: inline-block;
+}
+.price {
+	color: rgb(255, 87, 65); font-size: 24px;
+}
+.price span {
+	color: rgb(153, 153, 153); font-size: 14px;
+}
+.det_ul {
+	margin: 0px auto; padding: 20px 0px; width: 800px; color: rgb(51, 51, 51);
+}
+.det_ul li {
+	padding-bottom: 10px; padding-left: 35px; font-size: 16px; position: relative;
+}
+.det_ul li .num {
+	background: url("img/c_img.png") no-repeat -73px -5px; left: 0px; top: 2px; width: 20px; height: 20px; text-align: center; color: rgb(255, 255, 255); line-height: 20px; font-size: 16px; display: inline-block; position: absolute;
+}
+.txtCon5 {
+	
+}
+.info_table {
+	margin: 0px auto; padding: 0px; width: 850px; font-size: 14px;
+}
+.info_table table {
+	border-collapse: collapse;
+}
+.info_table table th {
+	background: rgb(240, 240, 240); border: 1px solid rgb(219, 219, 219); text-align: center; color: rgb(51, 51, 51); line-height: 40px; padding-left: 10px; font-size: 18px; font-weight: normal;
+}
+.info_table table td {
+	padding: 10px 0px 10px 10px; border: 1px solid rgb(219, 219, 219); text-align: center; color: rgb(34, 34, 34); line-height: 26px;
+}
+.info_table .tl {
+	text-align: left;
+}
+.info_table .f18 {
+	font-size: 18px;
+}
+.windowopen {
+	top: 150px; position: fixed; z-index: 9999;
+}
+.windowopen .close {
+	width: 1060px; height: 98px; position: relative;
+}
+.windowopen .close a {
+	background: url("img/close.png") no-repeat 0px 0px; top: 0px; width: 60px; height: 98px; right: -10px; text-indent: 1000px; overflow: hidden; display: block; white-space: nowrap; position: absolute; cursor: pointer;
+}
+.windowopen .close a:hover {
+	opacity: 0.8; -moz-opacity: 0.8; -khtml-opacity: 0.8;
+}
+.windowopen .windowimg {
+	background: url("img/baoche1.png") no-repeat 0px 0px; width: 1160px;
+}
+.windowopen .windowimg ul {
+	background: url("img/baoche2.png") no-repeat 0px 105px; width: 1160px;
+}
+.windowopen .windowimg ul li {
+	width: 900px; height: 350px; color: rgb(51, 51, 51); line-height: 40px; padding-top: 130px; padding-left: 60px; font-family: "Microsoft YaHei","ºÚÌå","simsun"; font-size: 26px;
+}
+.windowopen .windowimg ul li label {
+	background: rgb(255, 0, 0); margin: 0px 3px; padding: 2px 15px; border-radius: 5px; color: rgb(255, 255, 255);
+}
+.windowbg {
+	background: rgb(0, 0, 0); left: 0px; top: 0px; width: 100%; height: 100%; position: fixed; z-index: 9998; opacity: 0.3; -moz-opacity: 0.3; -khtml-opacity: 0.3;
+}

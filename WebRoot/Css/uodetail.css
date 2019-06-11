@@ -1,0 +1,82 @@
+﻿/*orderdetail*/
+.flowstep{width:720px;margin:0 auto;padding:20px 0}
+.flowstep ol{overflow:hidden;zoom:1;margin-left:-30px;width:800px}
+.flowstep li{float:left;text-align:center;width:155px; height:100px;}
+.flowstep .step-name{padding:5px 0;font-weight:700;color:#888}
+.flowstep .step-no{height:34px;line-height:34px;font-family:'arial black';color:#fff;font-size:18px}
+.flowstep .step-time{color:#aaa;padding:8px 0; font-size:11px}
+.flowstep .step-no{ background-attachment: scroll; background-clip: border-box; background-color: rgba(0, 0, 0, 0); background-image: url("../Images/flowstepbg.png"); background-origin: padding-box; background-repeat: no-repeat; background-size: auto auto; background-position:50% -102px;}
+.flowstep .step-5 .step-sub .step-no{background-position:50% -136px}
+
+/* 
+.flowstep-1 .step-1 .step-sub .step-no{background-position: 50% -34px;}
+.flowstep-2 .step-1 .step-sub .step-no{background-position:50% -204px; text-indent:-999em;}
+.flowstep-2 .step-2 .step-sub .step-no{background-position:50% 0}
+.flowstep-3 .step-1 .step-sub .step-no{background-position:50% -204px; text-indent:-999em;}
+.flowstep-3 .step-2 .step-sub .step-no{background-position:50% -170px;text-indent:-999em;}
+.flowstep-3 .step-3 .step-sub .step-no{background-position:50% 0}
+.flowstep-4 .step-1 .step-sub .step-no{background-position:50% -204px; text-indent:-999em;}
+.flowstep-4 .step-2 .step-sub .step-no{background-position:50% -170px;text-indent:-999em;}
+.flowstep-4 .step-3 .step-sub .step-no{background-position:50% -170px;text-indent:-999em;}
+.flowstep-4 .step-4 .step-sub .step-no{background-position:50% 0}
+.flowstep-5 .step-1 .step-sub .step-no{background-position:50% -204px; text-indent:-999em;}
+.flowstep-5 .step-2 .step-sub .step-no{background-position:50% -170px;text-indent:-999em;}
+.flowstep-5 .step-3 .step-sub .step-no{background-position:50% -170px;text-indent:-999em;}
+.flowstep-5 .step-4 .step-sub .step-no{background-position:50% -170px;text-indent:-999em;}
+.flowstep-5 .step-5 .step-sub .step-no{background-position:50% -68px;}
+*/
+.flowstep-1 .step-1 .step-sub .step-no{background-position: 50% -34px;}
+.flowstep-2 .step-1 .step-sub .step-no{background-position:50% -204px; }
+.flowstep-2 .step-2 .step-sub .step-no{background-position:50% 0}
+.flowstep-3 .step-1 .step-sub .step-no{background-position:50% -204px; }
+.flowstep-3 .step-2 .step-sub .step-no{background-position:50% -170px;}
+.flowstep-3 .step-3 .step-sub .step-no{background-position:50% 0}
+.flowstep-4 .step-1 .step-sub .step-no{background-position:50% -204px; }
+.flowstep-4 .step-2 .step-sub .step-no{background-position:50% -170px;}
+.flowstep-4 .step-3 .step-sub .step-no{background-position:50% -170px;}
+.flowstep-4 .step-4 .step-sub .step-no{background-position:50% 0}
+.flowstep-5 .step-1 .step-sub .step-no{background-position:50% -204px; }
+.flowstep-5 .step-2 .step-sub .step-no{background-position:50% -170px;}
+.flowstep-5 .step-3 .step-sub .step-no{background-position:50% -170px;}
+.flowstep-5 .step-4 .step-sub .step-no{background-position:50% -170px;}
+.flowstep-5 .step-5 .step-sub .step-no{background-position:50% -68px;}
+
+.flowstep_main{padding:10px 15px;}
+.flowstep_main h4{border-bottom:1px solid #ddd; padding:0px 5px;padding-bottom:9px;margin-bottom:12px;}
+.flowstep_main h4 .title{color:#333;font:normal 14px SimSun,Arial,sans-serif;font-weight:bold;}
+
+.flowstep2 li{width:240px;}
+.flowstep2 .step-3 .step-sub .step-no{background-position:50% -136px}
+.flowstep2 .flowstep-3 .step-3 .step-sub .step-no{background-position:50% -68px;}
+
+
+.pay-dialog { padding:0 0 10px 5px;}
+.pay-dialog dt,.pay-dialog dd{margin-right:12px;display:inline-block;*display:inline; display:inline-table}
+.pay-dialog .trade-detail-imfor{margin-top:10px;height:48px; vertical-align:middle;}
+.pay-dialog .imfor-icon{margin:0 6px 0 5px; float:left;}
+.pay-dialog .imfor-title{margin-top:5px;line-height:24px;font-size:14px;font-weight:400;}
+/*.pay-dialog .imfor-title a{ color:#3b8de3}
+.pay-dialog .imfor-title a:hover{ color:#f60}*/
+
+.pay-dialog .mt0{margin-top:0px;line-height:18px;}
+.pay-dialog .detail-num{color:red}
+.pay-dialog .title{font-weight:bold;font-size:14px;}
+
+.info_detail { margin-bottom:20px;}
+.info_detail .info{border-bottom:1px solid #ddd; padding:7px 0px; margin-top:5px; overflow:hidden;}
+.info_detail .info b{ padding:2px 6px; background:#3b8de3; color:#fff; float: left; margin-right:10px; border-radius:5px;}
+.info_detail .info span{ width:110px; float: left;}
+.info_detail .info .info2 { width:170px;}
+.info_detail .info .info3 { width:330px;}
+
+.gq_detail { margin-bottom:20px; line-height:22px; font-size:13px;}
+.gq_detail p{ padding-bottom:5px;}
+/*下订单成功等待支付状态*/
+.ticket_b{padding:70px 20px 70px 100px; overflow:hidden; font-size:14px; }
+.ticket_b i{width:90px; height:91px; display:inline-block;float: left; margin:0px 20px;background:url(../Images/bigicon.png) no-repeat  -110px 0;}
+.ticket_ok i{background-position:0 0;}
+.ticket_fail i{background-position:-110px 0;}
+.ticket_ok h2{color:#3ba922;}
+.ticket_fail h2{color:#f70;}
+.ticket_b h2{font-size:22px; font-weight:normal; margin-bottom:10px;}
+.ticket_b .left{ line-height:28px; width:400px;}
