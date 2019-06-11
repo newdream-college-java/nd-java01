@@ -1,17 +1,13 @@
 package com.yb.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
-
 public class BaseDao {
 	public Connection conn=null;
 	public PreparedStatement st=null;
@@ -23,7 +19,6 @@ public class BaseDao {
 			DataSource ds=(DataSource) ctx.lookup("java:comp/env/jdbcNews");
 			conn= ds.getConnection(); 
 		} catch (Exception e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 	}
@@ -53,9 +48,21 @@ public class BaseDao {
 				e.printStackTrace();
 			}
 		}		
-	}
-	
-	
-	
-	
+	}	
+	//增删改
+	public int updateDb(String sql, Object...args) {
+        int result = -1;
+        try {
+            st = conn.prepareStatement(sql);
+            for (int i = 0; i < args.length; i++) {
+                st.setObject(i + 1, args[i]);
+            }
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+        	closeAll(rs,conn,st);
+        }
+        return result;
+    }   
 }
