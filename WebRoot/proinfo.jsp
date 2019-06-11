@@ -15,7 +15,7 @@
   <div class="top">
    <span>您好！欢迎来到素材火商城 请&nbsp;<a href="login.html">[登录]</a>&nbsp;<a href="reg.html">[注册]</a></span>
    <span class="topRight">
-    <a href="vip.html">我的17</a>&nbsp;| 
+    <a href="vip.jsp">我的17</a>&nbsp;| 
     <a href="order.html">我的订单</a>&nbsp;| 
     <a href="login.html">会员中心</a>&nbsp;|
     <a href="contact.html">联系我们</a>
