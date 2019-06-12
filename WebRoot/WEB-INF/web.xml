@@ -4,6 +4,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- jdbc数据源 -->
+	<resource-ref>
+		<res-ref-name>jdbc/news</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
