@@ -48,6 +48,7 @@ public class BaseDao {
 		}
 		return result;
 	}
+		
 
 	// 关闭流
 	public void closeConn(ResultSet rs, Statement pst, Connection conn) {
@@ -72,5 +73,10 @@ public class BaseDao {
 				e.printStackTrace();
 			}
 		}
+	}
+	public static void main(String[] args) {
+		BaseDao bd=new BaseDao();
+		bd.getConn();
+		System.out.println(bd.conn);
 	}
 }
