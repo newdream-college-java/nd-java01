@@ -14,21 +14,24 @@ public class BaseDao {
 	public Connection conn;
 	public PreparedStatement pst;
 	public ResultSet rs;
+
 	/**
-	 * Êı¾İÔ´Á¬½ÓÊı¾İ¿â
+	 * æ•°æ®æºè¿æ¥æ•°æ®åº“
+	 * 
 	 * @throws NamingException
 	 * @throws SQLException
 	 */
 	public void getConnection() throws NamingException, SQLException {
-		Context context=new InitialContext();
-		DataSource dataSource=(DataSource) context.lookup("java:comp/env/jdbc/book_car_ticket");
-		conn=dataSource.getConnection();
+		Context context = new InitialContext();
+		DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc/book_car_ticket");
+		conn = dataSource.getConnection();
 	}
+
 	/**
-	 * Êı¾İ¿â¹ØÁ÷
+	 * æ•°æ®åº“å…³æµ
 	 */
 	public void closeAll() {
-		if(rs!=null) {
+		if (rs != null) {
 			try {
 				rs.close();
 			} catch (SQLException e) {
@@ -36,7 +39,7 @@ public class BaseDao {
 				e.printStackTrace();
 			}
 		}
-		if(pst!=null) {
+		if (pst != null) {
 			try {
 				pst.close();
 			} catch (SQLException e) {
@@ -44,7 +47,7 @@ public class BaseDao {
 				e.printStackTrace();
 			}
 		}
-		if(conn!=null) {
+		if (conn != null) {
 			try {
 				conn.close();
 			} catch (SQLException e) {
