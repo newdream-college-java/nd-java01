@@ -9,7 +9,7 @@ import cn.song.dao.UserDao;
 import cn.song.entity.User;
 
 public class UserDaoImpl extends BaseDao implements UserDao {
-	@Override
+	
 	public boolean register(User user) {
 //		// TODO Auto-generated method stub
 		String sql = "insert into user(u_phone,u_pwd) values(?,?)";
@@ -20,7 +20,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		return false;
 	}
 
-	@Override
+	
 	public boolean login(User user) {
 		// TODO Auto-generated method stub
 		try {
