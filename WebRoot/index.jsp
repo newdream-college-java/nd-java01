@@ -1,6 +1,7 @@
 <%@page import="cn.song.dao.BaseDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="common/tablib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,6 +139,7 @@
 				</ul>
 				<div class="navuserbg"></div>
 				<ul class="navuser" id="login_content">
+					<c:if test="${phone!=null }">
 					<li class="mytrip" id="login_menu"><a tltle="用户中心 "
 						class="ushow" href="http://uc.12308.com">用户中心<em>图标</em></a>
 						<div style="display: none;" class="ubox" id="login_menubox">
@@ -150,13 +152,21 @@
 									href="http://uc.12308.com/user/infoPage.html">个人资料</a></li>
 							</ul>
 						</div></li>
+						</c:if>
+						<c:if test="${phone==null }">
 					<li class="reg"><a title="注册" rel="nofollow"
-						href="register.html">注册</a></li>
-					<li class="out hide" style="display: none;"><a title="退出"
-						rel="nofollow">退出</a></li>
-					<li class="go"><span><a title="登录" href="login.html"
+						href="register.jsp">注册</a></li>
+						</c:if>
+						<c:if test="${phone!=null }">
+					<li class="reg"><a title="退出"
+						rel="nofollow" href="loginOutServlet">退出</a></li>
+						<li class="reg"><a title="phone"
+							rel="nofollow">${phone }</a></li>
+						</c:if>
+						<c:if test="${phone==null }">
+					<li class="go"><span><a title="登录" href="login.jsp"
 							class="logLin">登录</a></span></li>
-
+						</c:if>
 				</ul>
 
 				<!--有订单显示-->
@@ -387,7 +397,7 @@
 								</div>
 								</a></li>
 							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=清远" />
+								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=清远"></a>
 								<div class="ncoach_name">
 									<span class="ncoach_name_start" title="广州">广州</span><i
 										class="ncoach_name_arrow"></i><span class="ncoach_name_end"

@@ -33,8 +33,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <i></i>
         <div class="left">
         <h2>恭喜您，您已成功注册12308会员</h2>
-        <p>您的登录帐号为：<b class="plr10">kklwl@126.com</b>,请妥善保管您的帐户资料</p>
-        <p>现在您可以进入: <a href="http://uc.12308.com" class="plr10 color4">个人中心</a><span>|</span><a href="http://www.12308.com" class="plr10 color4">12308首页</a></p>
+        <p>您的登录帐号为：<b class="plr10">${phone }</b>,请妥善保管您的帐户资料</p>
+        <p>现在您可以进入: <a href="index.jsp" class="plr10 color4">个人中心</a><span>|</span><a href="infoPage.jsp" class="plr10 color4">12308首页</a></p>
         </div>
        </div>  
         </div>
