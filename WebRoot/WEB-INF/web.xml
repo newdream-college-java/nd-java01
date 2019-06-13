@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
@@ -31,15 +30,7 @@
 		<servlet-name>LoginOutServlet</servlet-name>
 		<url-pattern>/loginOutServlet</url-pattern>
 	</servlet-mapping>
-</web-app>
-=======
-<web-app version="2.5" 
-	xmlns="http://java.sun.com/xml/ns/javaee" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	
-  <resource-ref>
+	<resource-ref>
   	<res-ref-name>book_car_ticket</res-ref-name>   
   	<res-type>javax.sql.DataSource</res-type>
   	<res-auth>Container</res-auth>
@@ -53,10 +44,4 @@
   	<servlet-name>ChepiaoServlet</servlet-name>
   	<url-pattern>/chepiaoServlet</url-pattern>
   </servlet-mapping>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  
 </web-app>
-
->>>>>>> branch '宋恒达-pro' of https://github.com/newdream-college-java/nd-java01.git

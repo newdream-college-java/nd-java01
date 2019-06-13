@@ -15,6 +15,8 @@ import cn.song.entity.Station;
 
 public class ChepiaoServlet extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
@@ -22,8 +24,6 @@ public class ChepiaoServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 直接resp req 不拿数据直接传东西过去
-		// 调dao
 		StationDao sta = new StationDaoImpl();
 		List<Station> list = new ArrayList<Station>();
 		List<Station> list1 = new ArrayList<Station>();
@@ -41,7 +41,6 @@ public class ChepiaoServlet extends HttpServlet {
 
 			}
 		}
-		// 跳转
 		req.setAttribute("list1", list1);
 		req.setAttribute("list2", list2);
 		req.getRequestDispatcher("chepiao.jsp").forward(req, resp);
