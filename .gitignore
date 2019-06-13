@@ -1,6 +1,9 @@
-#mac files
+﻿#mac files
 */.DS_Store
 .DS_Store
+
+
+*.mymetadata
 
 
 #java project files 
