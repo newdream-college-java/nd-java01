@@ -13,7 +13,7 @@ import cn.song.dao.impl.UserDaoImpl;
 import cn.song.entity.User;
 
 /**
- * µÇÂ¼ÏìÓ¦
+ * ç™»å½•å“åº”
  * 
  * @author mob
  *
@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 				resp.sendRedirect("index.jsp");
 				return;
 			}
-			out.print("<script>alert('µÇÂ¼Ê§°Ü');location.href='login.jsp';</script>");
+			out.print("<script>alert('ç™»å½•å¤±è´¥');location.href='login.jsp';</script>");
 		}
 
 	}

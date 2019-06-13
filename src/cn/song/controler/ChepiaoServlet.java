@@ -43,6 +43,6 @@ public class ChepiaoServlet extends HttpServlet {
 		}
 		req.setAttribute("list1", list1);
 		req.setAttribute("list2", list2);
-		req.getRequestDispatcher("chepiao.jsp").forward(req, resp);
+		req.getRequestDispatcher("che-piao.jsp").forward(req, resp);
 	}
 }

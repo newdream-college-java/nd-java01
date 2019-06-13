@@ -13,7 +13,7 @@ import cn.song.dao.UserDao;
 import cn.song.dao.impl.UserDaoImpl;
 import cn.song.entity.User;
 /**
- * ×¢²áÏìÓ¦
+ * æ³¨å†Œå“åº”
  * @author mob
  *
  */
@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
 				return;
 			}
 		}
-		out.print("<script>alert('×¢²áÊ§°Ü£¡');location.href='register.jsp';</script>");
+		out.print("<script>alert('æ³¨å†Œå¤±è´¥');location.href='register.jsp';</script>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

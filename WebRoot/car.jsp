@@ -148,7 +148,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="windowbg"></div>
 </div>
 
-<%@ include file="/content/headpublic.jsp" %>
+<%@ include file="/common/headpublic.jsp" %>
 <!--中间部份-->
 <div class="banner_n">
         <!--  banner cms start  -->
