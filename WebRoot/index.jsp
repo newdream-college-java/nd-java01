@@ -255,148 +255,108 @@
 			<div class="mod-bd ne-bd">
 				<div class="tab-ctn" style="top: 0px;">
 					<div class="clearfix pannel" style="display: block;">
-						<ul class="ticket-list clearfix">
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=深圳" />
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="深圳">深圳</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">64.0</span>
-								</div>
-								</a></li>
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=清远"></a>
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="清远">清远</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">41.0</span>
-								</div>
-								</a></li>
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=湛江" />
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="湛江">湛江</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">169.0</span>
-								</div>
-								</a></li>
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=惠州" />
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="惠州">惠州</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">73.0</span>
-								</div>
-								</a></li>
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=阳江" />
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="阳江">阳江</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">88.0</span>
-								</div>
-								</a></li>
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=阳春" />
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="阳春">阳春</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">90.0</span>
-								</div>
-								</a></li>
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=罗定" />
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="罗定">罗定</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">65.0</span>
-								</div>
-								</a></li>
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=信宜" />
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="信宜">信宜</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">150.0</span>
-								</div>
-								</a></li>
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=梅州" />
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="梅州">梅州</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">170.0</span>
-								</div>
-								</a></li>
-							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=茂名" />
-								<div class="ncoach_name">
-									<span class="ncoach_name_start" title="广州">广州</span><i
-										class="ncoach_name_arrow"></i><span class="ncoach_name_end"
-										title="茂名">茂名</span>
-								</div>
-								<div class="ncoach_date">04月29日</div>
-								<div class="ncoach_type">
-									<i class="ncoach_type_bus"></i> <span class="ncoach_type_t1">票价：</span>
-									<span class="ncoach_type_t2">￥</span><span
-										class="ncoach_type_t3">120.0</span>
-								</div>
-								</a></li>
-						</ul>
+						<ul class="ticket-list clearfix" >
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=深圳"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="深圳">深圳</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">64.0</span>
+  						</div></a>
+  					  </li>
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=清远"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="清远">清远</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">41.0</span>
+  						</div></a>
+  					  </li>
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=湛江"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="湛江">湛江</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">169.0</span>
+  						</div></a>
+  					  </li>
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=惠州"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="惠州">惠州</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">73.0</span>
+  						</div></a>
+  					  </li>
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=阳江"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="阳江">阳江</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">88.0</span>
+  						</div></a>
+  					  </li>
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=阳春"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="阳春">阳春</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">90.0</span>
+  						</div></a>
+  					  </li>
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=罗定"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="罗定">罗定</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">65.0</span>
+  						</div></a>
+  					  </li>
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=信宜"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="信宜">信宜</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">150.0</span>
+  						</div></a>
+  					  </li>
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=梅州"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="梅州">梅州</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">170.0</span>
+  						</div></a>
+  					  </li>
+	          		  <li class="list-item"><a href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=茂名"/>
+  						<div class="ncoach_name">
+  						<span class="ncoach_name_start" title="广州">广州</span><i class="ncoach_name_arrow"></i><span class="ncoach_name_end" title="茂名">茂名</span></div>  
+  						<div class="ncoach_date">04月29日</div>
+  						<div class="ncoach_type">
+    					<i class="ncoach_type_bus"></i>
+    					<span class="ncoach_type_t1">票价：</span>
+    					<span class="ncoach_type_t2">￥</span><span class="ncoach_type_t3">120.0</span>
+  						</div></a>
+  					  </li>
+	      </ul>
 						<ul class="ticket-list clearfix" style="display: none;">
 							<li class="list-item"><a
 								href="http://www.12308.com/index/search.html?startCityName=武汉&endCityName=英山" />
