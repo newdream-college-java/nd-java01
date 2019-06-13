@@ -5,6 +5,33 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>easybuy_nd</display-name>
 	
+	<servlet>
+        <servlet-name>AddOrderSvl</servlet-name>
+        <servlet-class>com.cc.servlet.fore.AddOrderSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+       <servlet-name>AddOrderSvl</servlet-name>
+       <url-pattern>/addOrderSvl</url-pattern>
+    </servlet-mapping>
+	<servlet>
+        <servlet-name>FindProductSvl</servlet-name>
+        <servlet-class>com.cc.servlet.fore.FindProductSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+       <servlet-name>FindProductSvl</servlet-name>
+       <url-pattern>/findProductSvl</url-pattern>
+    </servlet-mapping>
+	
+	
+	
+	<servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>com.cc.servlet.fore.IndexServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+       <servlet-name>IndexServlet</servlet-name>
+       <url-pattern>/indexServlet</url-pattern>
+    </servlet-mapping>
 	
 	<servlet>
         <servlet-name>ListOrderConditionSvl</servlet-name>

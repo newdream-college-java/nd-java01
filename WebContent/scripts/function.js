@@ -1,4 +1,12 @@
 // JavaScript Document
+//#################ä¸‹å•#####################
+function addOrderSvl(pid){
+	//alert(pid);
+	location.href="addOrderSvl?pid="+pid;
+}
+
+
+//#################ä¸‹å•#####################
 
 function createXMLHttpRequest(){
 	var xmlhttp;
@@ -21,7 +29,7 @@ function createXMLHttpRequest(){
 	return xmlhttp;
 }
 
-//ÖØÐ´×Ö·û´®µÄtrim()º¯Êý
+//ï¿½ï¿½Ð´ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½trim()ï¿½ï¿½ï¿½ï¿½
 String.prototype.trim = function() {
 	  var m = this.match(/^\s*(\S+(\s+\S+)*)\s*$/);
 	  return (m == null) ? "" : m[1];
@@ -45,8 +53,8 @@ function doAjax(obj,url){
 				if(obj!=null){
 					spanObj.className = "error";
 					spanObj.innerHTML = ajaxRequest.responseText.trim();
-					if(ajaxRequest.responseText.trim()=="¸ÃÓÃ»§ÃûÒÑ¾­×¢²á"){
-						obj.onfocus = null;	//½ûÓÃ»ñÈ¡½¹µãÊÂ¼þ
+					if(ajaxRequest.responseText.trim()=="ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½×¢ï¿½ï¿½"){
+						obj.onfocus = null;	//ï¿½ï¿½ï¿½Ã»ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 						obj.select();
 					}
 				}	
@@ -70,53 +78,53 @@ function CheckItem(obj)
 	switch(obj.name) {
 		case "userName":
 			if(obj.value == "") {
-				msgBox.innerHTML = "ÓÃ»§Ãû²»ÄÜÎª¿Õ";
+				msgBox.innerHTML = "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "passWord":
 			if(obj.value == "") {
-				msgBox.innerHTML = "ÃÜÂë²»ÄÜÎª¿Õ";
+				msgBox.innerHTML = "ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Îªï¿½ï¿½";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "rePassWord":
 			if(obj.value == "") {
-				msgBox.innerHTML = "È·ÈÏÃÜÂë²»ÄÜÎª¿Õ";
+				msgBox.innerHTML = "È·ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Îªï¿½ï¿½";
 				msgBox.className = "error";
 				return false;
 			} else if(obj.value != document.getElementById("passWord").value) {
-				msgBox.innerHTML = "Á½´ÎÊäÈëµÄÃÜÂë²»ÏàÍ¬";
+				msgBox.innerHTML = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½Í¬";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "address":
 			if(obj.value == "") {
-				msgBox.innerHTML = "ÓÊ¼ÄµØÖ·²»ÄÜÎª¿Õ";
+				msgBox.innerHTML = "ï¿½Ê¼Äµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "realName":
 			if(obj.value == "") {
-				msgBox.innerHTML = "ÕæÊµÐÕÃû²»ÄÜÎª¿Õ";
+				msgBox.innerHTML = "ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "guestName":
 			if(obj.value == "") {
-				msgBox.innerHTML = "êÇ³Æ²»ÄÜÎª¿Õ";
+				msgBox.innerHTML = "ï¿½Ç³Æ²ï¿½ï¿½ï¿½Îªï¿½ï¿½";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "guestContent":
 			if(obj.value == "") {
-				msgBox.innerHTML = "ÁôÑÔÄÚÈÝ²»ÄÜÎª¿Õ";
+				msgBox.innerHTML = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½Îªï¿½ï¿½";
 				msgBox.className = "error";
 				return false;
 			}	
@@ -146,22 +154,22 @@ function reloadPrice(id, status,stock)
 	if(status==true) {
 		number.value++;		
 		if(number.value>stock){
-			alert("Ä¿Ç°¿â´æ²»×ã(Ê£Óà"+stock+"¼þ)£¬Çë·µ»ØÐÞ¸Ä¿â´æÊýÁ¿!");
-			priceBox.innerHTML = "£¤" + price * number.value;
+			alert("Ä¿Ç°ï¿½ï¿½æ²»ï¿½ï¿½(Ê£ï¿½ï¿½"+stock+"ï¿½ï¿½)ï¿½ï¿½ï¿½ë·µï¿½ï¿½ï¿½Þ¸Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
+			priceBox.innerHTML = "ï¿½ï¿½" + price * number.value;
 			number.value = stock;
 			number.select();
 			return false;
 		}
 	} else if(status==false){
 		if(number.value == 1) {
-			priceBox.innerHTML = "£¤" + price * number.value;
+			priceBox.innerHTML = "ï¿½ï¿½" + price * number.value;
 			return false;
 		} else {
 			number.value--;			
 		}
 	}
 
-	priceBox.innerHTML = "£¤" + price * number.value;
+	priceBox.innerHTML = "ï¿½ï¿½" + price * number.value;
 	doAjax(null,"servlet/ChangeNumsAction?rnd="+Math.random()+"&ep_id="+id+"&newNums="+number.value);
 	
 }

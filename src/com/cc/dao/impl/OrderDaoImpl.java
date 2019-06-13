@@ -1,16 +1,21 @@
 package com.cc.dao.impl;
 
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cc.constants.EasyBuyEnums;
 import com.cc.dao.BaseDao;
 import com.cc.dao.OrderDao;
+import com.cc.dao.OrderDetailDao;
+import com.cc.dao.ProductDao;
 import com.cc.entity.Order;
-import com.cc.vo.OrderVo;
+import com.cc.entity.OrderDetail;
+import com.cc.entity.Product;
 
 public class OrderDaoImpl extends BaseDao implements OrderDao {
+    private OrderDetailDao orderDetailDao;
+    private ProductDao productDao;
     @Override
     public List<Order> listOrderByCondition(Integer eoId, String eoUserName,int page,int pageSize) {
        System.out.println("eoId="+eoId+"\teoUserName="+eoUserName);
@@ -78,5 +83,52 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
        
        
        
+    }
+    /**
+     * 添加订单付款：
+     * 1.添加一条订单记录               order表
+     * 2.添加多条订单详情记录       order_detail表
+     * 3.改商品的库存                       product
+     */
+    @Override
+    public int addOrder(int id) {
+        
+        try {
+            getConn();
+            conn.setAutoCommit(false);//开启事务  （设置事务部自动提交）
+            
+            Order order = new Order();
+            //1.添加一条订单记录               order表
+            int  result1 = saveOrder(order );
+            //2.添加多条订单详情记录       order_detail表
+            OrderDetail orderDetail = new OrderDetail();
+            int result2 = orderDetailDao.saveOrderDetail(orderDetail );
+            Product pro  =new Product();
+            //3.改商品的库存                       product
+            int result3 = productDao.changeProductStock( pro );
+            if(result1>0&&result2>0&&result3>0) {
+                conn.commit();//提交事务
+            }else {
+                conn.rollback();//回滚事务
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                conn.rollback();//回滚事务
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        }finally {
+             closeConn(rs, pst, conn);
+        }
+        
+        
+        
+        
+        return 0;
+    }
+    private int saveOrder(Order order) {
+        // TODO Auto-generated method stub
+        return 0;
     }
 }
