@@ -46,6 +46,7 @@
 	}
  </script>
 <body>
+<<<<<<< HEAD
 	<!--顶部公用-->
 	<div class="bodyhead">
 		<div class="main-wrap">
@@ -174,6 +175,9 @@
 			</div>
 		</div>
 	</div>
+=======
+<%@ include file="/content/headpublic.jsp" %>
+>>>>>>> branch '宋恒达-pro' of https://github.com/newdream-college-java/nd-java01.git
 
 
 	<!--中间部份-->
