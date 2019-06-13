@@ -1,22 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" 
-	xmlns="http://java.sun.com/xml/ns/javaee" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	
-  <resource-ref>
-  	<res-ref-name>book_car_ticket</res-ref-name>   
-  	<res-type>javax.sql.DataSource</res-type>
-  	<res-auth>Container</res-auth>
-  </resource-ref>
 
-  <servlet>
-  	<servlet-name>ChepiaoServlet</servlet-name>
-  	<servlet-class>cn.song.controler.ChepiaoServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	
+	
+	<servlet>
   	<servlet-name>IndexServlet</servlet-name>
   	<servlet-class>cn.song.controler.IndexServlet</servlet-class>
   </servlet>
@@ -26,14 +20,6 @@
   	<servlet-name>StationDetailSel</servlet-name>
   	<servlet-class>cn.song.controler.StationDetailSel</servlet-class>
   </servlet>
-  
-  
-  
-  <servlet-mapping>
-  	<servlet-name>ChepiaoServlet</servlet-name>
-  	<url-pattern>/chepiaoServlet</url-pattern>
-  </servlet-mapping>
-  
   <servlet-mapping>
   	<servlet-name>IndexServlet</servlet-name>
   	<url-pattern>/indexServlet</url-pattern>
@@ -43,9 +29,42 @@
   	<servlet-name>StationDetailSel</servlet-name>
   	<url-pattern>/stationDetailSel</url-pattern>
   </servlet-mapping>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>cn.song.controler.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/registerServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>cn.song.controler.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/loginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LoginOutServlet</servlet-name>
+		<servlet-class>cn.song.controler.LoginOutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginOutServlet</servlet-name>
+		<url-pattern>/loginOutServlet</url-pattern>
+	</servlet-mapping>
+	<resource-ref>
+  	<res-ref-name>book_car_ticket</res-ref-name>   
+  	<res-type>javax.sql.DataSource</res-type>
+  	<res-auth>Container</res-auth>
+  </resource-ref>
   
+  <servlet>
+  	<servlet-name>ChepiaoServlet</servlet-name>
+  	<servlet-class>cn.song.controler.ChepiaoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ChepiaoServlet</servlet-name>
+  	<url-pattern>/chepiaoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
-

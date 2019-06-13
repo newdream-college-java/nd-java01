@@ -31,7 +31,7 @@
 <META name="GENERATOR" content="MSHTML 10.00.9200.17457">
 </HEAD>
 <BODY>
-<%@ include file="/content/headpublic.jsp" %>
+<%@ include file="/common/headpublic.jsp" %>
 	<!--中间部份-->
 	<DIV class="banner_n">
 		<!--  banner cms start  -->

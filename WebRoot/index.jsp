@@ -1,7 +1,8 @@
 <%@page import="cn.song.dao.BaseDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="content/taglib.jsp" %>
+
+<%@include file="common/tablib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,9 +49,7 @@
 	
  </script>
 <body>
-<%@ include file="/content/headpublic.jsp" %>
-
-
+<%@ include file="/common/headpublic.jsp" %>
 	<!--中间部份-->
 	<div class="banner_n">
 		<!--  banner cms start  -->
@@ -272,7 +271,7 @@
 								</div>
 								</a></li>
 							<li class="list-item"><a
-								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=清远" />
+								href="http://www.12308.com/index/search.html?startCityName=广州&endCityName=清远"></a>
 								<div class="ncoach_name">
 									<span class="ncoach_name_start" title="广州">广州</span><i
 										class="ncoach_name_arrow"></i><span class="ncoach_name_end"

@@ -56,4 +56,30 @@ public class BaseDao {
 			}
 		}
 	}
+	/**
+	 * 增删改统一
+	 */
+	public boolean update(String sql,String...strings) {
+		int result=-1;
+		try {
+			getConnection();
+			pst=conn.prepareStatement(sql);
+			for(int i=0;i<strings.length;i++) {
+				pst.setObject(i+1, strings[i]);
+			}
+			result=pst.executeUpdate();
+			if(result>0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeAll();
+		}
+		return false;
+	}
 }

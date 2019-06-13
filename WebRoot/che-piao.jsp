@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="/content/taglib.jsp"%>
+<%@include file="/common/tablib.jsp"%>
 
 <!doctype html>
 <html>
@@ -21,7 +21,7 @@
 
 </head>
 <body>
-<%@ include file="/content/headpublic.jsp" %>
+<%@ include file="/common/headpublic.jsp" %>
 
 <div class="h20"></div>
 <div class="main-wrap">

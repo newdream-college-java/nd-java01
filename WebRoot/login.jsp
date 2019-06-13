@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="header">
 		<div class="header-container">
 			<div class="logo">
-				<a href="index.html">12308首页</a> <span class="header-title">用户登录</span>
+				<a href="index.jsp">12308首页</a> <span class="header-title">用户登录</span>
 			</div>
 			<div class="navigation color3">
 				<a href="login.html" class="color4040">登录</a> <span class="c999">|</span> <a href="index.html">首页</a>
@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="loginheader">欢迎登录 12308.com</div>
 					<div style="color:red;">注意：登录仅支持手机号和邮箱 </div>
 				<div class="logincontent">
-					<form id="fm1" class="fm-v clearfix" action="/login" method="post">
+					<form id="fm1" class="fm-v clearfix" action="loginServlet" method="post">
 						
 						<input type="hidden" name="redirect" value="">
 						<ul>

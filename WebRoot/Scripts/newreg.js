@@ -1,3 +1,67 @@
+//提交验证
+//function verify() {
+//	var phone=document.getElementById("txt_Phone").value;
+//	var txt_password1 = document.getElementById("txt_password1").value;
+//	var txt_password2 = document.getElementById("txt_password2").value;
+//	var handverifyCode = document.getElementById("handverifyCode").value;
+//	var msg_phone = document.getElementById("msg_phone_div");
+//	var msg_pwd = document.getElementById("msg_pwd");
+//	var msg_re_pwd = document.getElementById("msg_re_pwd");
+//	var handverifyCodeTip = document.getElementById("handverifyCodeTip");
+//	var msg_phone_div_l = document.getElementById("msg_phone_div_l");
+//	var msg_pwd_l=document.getElementById("msg_pwd_l");
+//	var re_msg_pwd_l=document.getElementById("re_msg_pwd_l");
+//	var handverifyCodeTip_l=document.getElementById("handverifyCodeTip_l");
+//	if (phone == "") {
+//		msg_phone.className = "msg-weak msg-error";
+//		msg_phone_div_l.innerHTML = "请输入您正确的手机号码";
+//		return false;
+//	}
+//	if (txt_password1 == "") {
+//		msg_pwd.className = "msg-weak msg-error";
+//		msg_pwd_l.innerHTML="请输入大于6位数字和字母";
+//		return false;
+//	}
+//	if (txt_password2 == "") {
+//		msg_re_pwd.className = "msg-weak msg-error";
+//		re_msg_pwd_l.innerHMTL="两个密码不一致";
+//		return false;
+//	}
+//	if (handverifyCode == "") {
+//		msg_phone.className = "msg-weak msg-error";
+//		handverifyCodeTip_linnerHTML="验证码不能为空";
+//		return false;
+//	}
+//	return true;
+//}
+//手机号填写文本框聚焦
+function phone_focus(){
+	var msg_phone = document.getElementById("msg_phone_div");
+	var msg_phone_div_l = document.getElementById("msg_phone_div_l");
+	msg_phone.className = "msg-weak msg-attention";
+	msg_phone_div_l.innerHTML = "友情提示：请输入手机号";
+}
+//密码文本框填写聚焦
+//function pwd_focus(){
+//	var msg_pwd = document.getElementById("msg_pwd");
+//	var msg_pwd_l=document.getElementById("msg_pwd_l");
+//	msg_pwd.className = "msg-weak msg-attention";
+//	sg_pwd_l.innerHTML="请输入大于6位数字和字母";
+//}
+////确认密码文本框填写聚焦
+//function re_pwd_focus(){
+//	var msg_re_pwd = document.getElementById("msg_re_pwd");
+//	var re_msg_pwd_l=document.getElementById("re_msg_pwd_l");
+//	msg_re_pwd.className = "msg-weak msg-attention";
+//	re_msg_pwd_l.innerHMTL="提示：请输入密码";
+//}
+////验证码填写聚焦
+//function handverifyCode_focus(){
+//	var handverifyCodeTip = document.getElementById("handverifyCodeTip");
+//	var handverifyCodeTip_l=document.getElementById("handverifyCodeTip_l");
+//	msg_phone.className = "msg-weak msg-attention";
+//	handverifyCodeTip_linnerHTML="提示：请输入内容";
+//}
 function changeImg() {
 	$("#randomImg").attr("src", "/randomKey?t=" + Math.random())
 }

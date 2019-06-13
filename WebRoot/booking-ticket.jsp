@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="Css/common.css" /> -->
 </head>
 <body class="graybg" onselectstart="return false">
-	<%@ include file="/content/headpublic.jsp" %>
+	<%@ include file="/common/headpublic.jsp" %>
 	<input type="hidden" id="scheduleId"
 		value="917749A516301467D510CEC5791402AF" />
 	<input type="hidden" id="ticketLimitNum" value="3" />
