@@ -35,6 +35,9 @@ META-INF/ #忽略META-INF 以及该文件夹下的所有文件
 
 build/
 
+*.jar              #忽略所有的jar文件
+**/lib
+**/lib/
 
 */.idea/
 .idea/
