@@ -9,13 +9,15 @@ public class Station {
 	private String sBus;// 途经公交
 	private String sOpenTime;// 开通时间
 	private String sImg;// 车站图片地址
-
+	private String city;//所在城市
+	
 	public Station() {
 		super();
 	}
-
-	public Station(int sId, String sName, String sIntroduction, String sAddress, String sPhone, String sBus,
-			String sOpenTime, String sImg) {
+	
+	public Station(int sId, String sName, String sIntroduction,
+			String sAddress, String sPhone, String sBus, String sOpenTime,
+			String sImg, String city) {
 		super();
 		this.sId = sId;
 		this.sName = sName;
@@ -25,8 +27,9 @@ public class Station {
 		this.sBus = sBus;
 		this.sOpenTime = sOpenTime;
 		this.sImg = sImg;
+		this.city = city;
 	}
-
+	
 	public int getsId() {
 		return sId;
 	}
@@ -91,11 +94,20 @@ public class Station {
 		this.sImg = sImg;
 	}
 
-	@Override
-	public String toString() {
-		return "Station [sId=" + sId + ", sName=" + sName + ", sIntroduction=" + sIntroduction + ", sAddress="
-				+ sAddress + ", sPhone=" + sPhone + ", sBus=" + sBus + ", sOpenTime=" + sOpenTime + ", sImg=" + sImg
-				+ "]";
+	public String getCity() {
+		return city;
 	}
 
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	@Override
+	public String toString() {
+		return "Station [city=" + city + ", sAddress=" + sAddress + ", sBus="
+				+ sBus + ", sId=" + sId + ", sImg=" + sImg + ", sIntroduction="
+				+ sIntroduction + ", sName=" + sName + ", sOpenTime="
+				+ sOpenTime + ", sPhone=" + sPhone + "]";
+	}
+	
 }

@@ -6,4 +6,5 @@ import cn.song.entity.Station;
 
 public interface StationDao {
 	public List<Station> GetStation();
+	Station station(int id);
 }

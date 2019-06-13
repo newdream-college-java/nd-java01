@@ -1,6 +1,7 @@
 <%@page import="cn.song.dao.BaseDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="content/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,6 +44,8 @@
 		}
 		_hmt.push(['_trackEvent', 'index_' + id, 'focus', id]);
 	}
+	
+	
  </script>
 <body>
 <%@ include file="/content/headpublic.jsp" %>
@@ -1271,50 +1274,46 @@
 			<div class="h20"></div>
 			<div class="station-con clearfix">
 				<div class="station-rec">
-					<ul>
-						<li><a href="http://chezhan.12308.com/shenzhen-15.html"><div
+			
+					<c:choose>
+						<c:when test="${sta.sId>0}">
+						<ul>
+						<li><a href="#"><div
 									class="img">
-									<img src="Picture/station.png" alt="">
-								</div></a> <span class="title"><label>深圳罗湖汽车站</label></span></li>
+									<img src="${sta.sImg}" alt="">
+								</div></a> <span class="title"><label>${sta.sName}</label></span></li>
 					</ul>
 					<p class="info">
-						<span class="info_left"></span><span class="info_right"></span> <span>深圳罗湖汽车站，始建于1987年，是公用型国家一级汽车客运站。车站毗邻罗湖口岸和深圳火车站，位于繁华的罗湖商业城1-2层，是深圳市乃至全国公路客运量最大、场站利用率最高的公用型汽车客运站之一。
-							<br /> <br />地址：罗湖区火车站东广场商业城1，2楼 <br />电话：0755-82321670 <br />途径公交：17、25、38、82、83、101
+						<span class="info_left"></span><span class="info_right"></span> <span>${sta.sIntroduction}
+							<br /> <br />${sta.sAddress} <br />${sta.sPhone} <br />${sta.sBus}
 						</span>
 					</p>
+						</c:when>
+						<c:otherwise>
+						<ul>
+						<li><a href="#"><div
+									class="img">
+									<img src="${list_newstation[0].sImg}" alt="">
+								</div></a> <span class="title"><label>${list_newstation[0].sName}</label></span></li>
+					</ul>
+					<p class="info">
+						<span class="info_left"></span><span class="info_right"></span> <span>${list_newstation[0].sIntroduction}
+							<br /> <br />${list_newstation[0].sAddress} <br />${list_newstation[0].sPhone} <br />${list_newstation[0].sBus}
+						</span>
+					</p>
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<div class="station-city">
 					<ul>
-						<li><a href="http://chezhan.12308.com/changsha-22887.html"><div
+					<c:forEach var="station" items="${list_newstation}">
+						<li><a href="#"><div
 									class="st_li">
-									<img src="Picture/33391395132130329.jpg" alt="长沙市汽车南站" /><span
-										class="title"><label>长沙市汽车南站</label></span>
+									<img src="${station.sImg}" alt="${station.sName}" onclick="javascript:location.href='stationDetailSel?id=${station.sId}'"/><span
+										class="title"><label>${station.sName}</label></span>
 								</div></a></li>
-						<li><a href="http://chezhan.12308.com/guangzhou-20614.html"><div
-									class="st_li">
-									<img src="Picture/63361395121170248.jpg" alt="天河客运站" /><span
-										class="title"><label>天河客运站</label></span>
-								</div></a></li>
-						<li><a href="http://chezhan.12308.com/guangzhou-20616.html"><div
-									class="st_li">
-									<img src="Picture/63011395121710540.jpg" alt="广州南站客运站" /><span
-										class="title"><label>广州南站客运站</label></span>
-								</div></a></li>
-						<li><a href="http://chezhan.12308.com/shanghai-18687.html"><div
-									class="st_li">
-									<img src="Picture/92841395298563654.png" alt="上海长途客运总站" /><span
-										class="title"><label>上海长途客运总站</label></span>
-								</div></a></li>
-						<li><a href="http://chezhan.12308.com/lijiang-22180.html"><div
-									class="st_li">
-									<img src="Picture/20761395195612752.jpg" alt="省旅丽江客运站" /><span
-										class="title"><label>省旅丽江客运站</label></span>
-								</div></a></li>
-						<li><a href="http://chezhan.12308.com/quanzhou-19325.html"><div
-									class="st_li">
-									<img src="Picture/99141395199258666.png" alt="泉州市汽车东站" /><span
-										class="title"><label>泉州市汽车东站</label></span>
-								</div></a></li>
+					</c:forEach>
+					
 					</ul>
 				</div>
 
