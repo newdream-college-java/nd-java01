@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -16,7 +17,7 @@
 
 <body>
  <div class="mianCont">
-  <div class="top">
+  <div class="top">r&nbsp;  
    <span>您好！欢迎来到17商城 请&nbsp;<a href="login.jsp">[登录]</a>&nbsp;<a href="reg.jsp">[注册]</a></span>
    <span class="topRight">
     <a href="vip.jsp">我的17</a>&nbsp;| 
@@ -164,7 +165,7 @@
       <dd>
        <a href="vipMy.jsp">个人信息</a>
        <a href="vipPwd.jsp">密码修改</a>
-       <a href="vipAdress.jsp" class="vipCur">收货地址</a>
+       <a href="SpOrderSelectSvl" class="vipCur">收货地址</a>
       </dd>
       <dt>客户服务</dt>
        <dd>
@@ -220,14 +221,18 @@
      <th>电话/手机</th>
      <th>操作</th>
     </tr>
+    <!-- 注册修改 -->
+    <c:forEach var="order" items="${list}">
     <tr>
-     <td>张益达</td>
-     <td>上海 上海市 普陀区</td>
+     <td>${order.spoUser}</td>
+     <td>${order.spoAdress}</td>
      <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
+     <td>${order.spoZip}</td>
+     <td>${order.spoTelephone}</td>
      <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
+    </c:forEach>
+    <!-- 注册修改 -->
     <tr>
      <td>张大炮</td>
      <td>上海 上海市 普陀区</td>
@@ -236,38 +241,8 @@
      <td>13569888523</td>
      <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
     </tr>
-    <tr>
-     <td>李思明</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
-    <tr>
-     <td>成吉思汗</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
-    <tr>
-     <td>忽必烈</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
-    <tr>
-     <td>乾隆</td>
-     <td>上海 上海市 普陀区</td>
-     <td>曹杨路1040弄中友大厦一号楼19楼</td>
-     <td>200000</td>
-     <td>13569888523</td>
-     <td><span class="green upd">[修改]</span> | <span class="green add">[添加]</span> </td>
-    </tr>
+   
+   
    </table><!--vipAdress/-->
    </div>
    <!--contRight/-->

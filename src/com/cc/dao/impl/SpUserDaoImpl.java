@@ -1,6 +1,6 @@
 package com.cc.dao.impl;
 
-
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,16 +11,16 @@ import com.cc.entity.SpUser;
 public class SpUserDaoImpl extends BaseDao implements SpUserDao {
 
 	public List<SpUser> list(String name, int pwd) {
-		List<SpUser> list=new ArrayList<SpUser>();
+		List<SpUser> list = new ArrayList<SpUser>();
 		try {
 			getConn();
-			String sql="select * from sp_user where spu_name=? and spu_pwd=?";
-			pst=conn.prepareStatement(sql);
+			String sql = "select * from sp_user where spu_name=? and spu_pwd=?";
+			pst = conn.prepareStatement(sql);
 			pst.setString(1, name);
 			pst.setInt(2, pwd);
-			rs=pst.executeQuery();
-			while(rs.next()){
-				SpUser su=new SpUser();
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				SpUser su = new SpUser();
 				su.setSpuId(rs.getInt("spu_id"));
 				su.setSpuPwd(rs.getInt("spu_pwd"));
 				su.setSpuTable(rs.getInt("spu_table"));
@@ -33,10 +33,47 @@ public class SpUserDaoImpl extends BaseDao implements SpUserDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 			closeConn(rs, pst, conn);
 		}
 		return list;
 	}
 
+	public List<SpUser> listName(String name) {
+		List<SpUser> list = new ArrayList<SpUser>();
+
+		try {
+			getConn();
+			StringBuffer sql = new StringBuffer(
+					"select * from sp_user where 1=1");
+			if (name != null) {
+				sql.append(" and spu_name=?");
+				pst = conn.prepareStatement(sql.toString());
+				pst.setString(1, name);
+			} else {
+				pst = conn.prepareStatement(sql.toString());
+			}
+
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				SpUser su = new SpUser();
+				su.setSpuId(rs.getInt("spu_id"));
+				su.setSpuName(rs.getString("spu_name"));
+				su.setSpuPwd(rs.getInt("spu_pwd"));
+				su.setSpuRname(rs.getString("spu_rname"));
+				su.setSpuTable(rs.getInt("spu_table"));
+				su.setSpuZip(rs.getString("spu_zip"));
+				su.setSpuNumber(rs.getString("spu_number"));
+				su.setSpuAdress(rs.getString("spu_adress"));
+				list.add(su);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pst, conn);
+		}
+
+		return list;
+
+	}
 }
