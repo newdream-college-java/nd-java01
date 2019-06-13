@@ -45,3 +45,6 @@ gradlew
 gradlew.bat
 unused.txt
 /.classpath
+/*.mymetadata
+.myeclipse
+.settings
