@@ -1,5 +1,4 @@
 package com.yb.servlet;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +13,9 @@ import com.yb.dao.impl.ParentChildThemeDaoImpl;
 import com.yb.dao.impl.GoodsSpuValueDaoImpl;
 import com.yb.entity.ParentChildTheme;
 import com.yb.entity.GoodsSpuValue;
-import com.yb.vo.ParentChildThemeActivityShowVo;
+import com.yb.vo.ParentChildThemeTicketingShowVo;
 
-public class ParentChildThemeActivityShowServlet extends HttpServlet {
+public class ParentChildThemeTicketingShowServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");		
@@ -26,7 +25,7 @@ public class ParentChildThemeActivityShowServlet extends HttpServlet {
 		String cityStr=request.getParameter("city");
 		String activityStr=request.getParameter("activity");
 		String dayStr=request.getParameter("curday");
-		int themeType=1;
+		int themeType=3;
 	    int page=1;
 	    int pageSize=9;
 	    String city=null;
@@ -48,11 +47,10 @@ public class ParentChildThemeActivityShowServlet extends HttpServlet {
 	    int count=numbers.get("count");
 	    int number=numbers.get("number");
 	    List<ParentChildTheme> pctList=pctdi.parentChildThemeList(themeType,page, pageSize, city, activity, day); 
-	    List<ParentChildThemeActivityShowVo> pctasList=new ArrayList<ParentChildThemeActivityShowVo>(); 	    
-	    List<GoodsSpuValue> pgsvdlist=pgsvd.PcnGoodsSpuSpecPrice(themeType);
-	    
+	    List<ParentChildThemeTicketingShowVo> pcttsList=new ArrayList<ParentChildThemeTicketingShowVo>(); 	    
+	    List<GoodsSpuValue> pgsvdlist=pgsvd.PcnGoodsSpuSpecPrice(themeType);	    
 	    for(ParentChildTheme pct:pctList){
-	    	ParentChildThemeActivityShowVo pcta=new ParentChildThemeActivityShowVo();
+	    	ParentChildThemeTicketingShowVo pcta=new ParentChildThemeTicketingShowVo();
 	    	pcta.setPcnpctId(pct.getPcnpctId());
 	    	pcta.setPcnThemeName(pct.getPcnThemeName());
 	    	pcta.setPcnStartTime(pct.getPcnStartTime());
@@ -63,12 +61,13 @@ public class ParentChildThemeActivityShowServlet extends HttpServlet {
 	    	pcta.setImgUrl(pct.getImgUrl());
 	    	for(GoodsSpuValue pgs:pgsvdlist){
 	    		if(pgs.getPcngsvPctId()==pct.getPcnpctId()){
-	    			pcta.setPrice(pgs.getLargePriceAndSmallPrice());
+	    			pcta.setCounterPrice(pgs.getCounterPrice());
+	    			pcta.setNetPurchasing(pgs.getNetPurchasing());  			
 	    		}	    		
 	    	}    	
-	    	pctasList.add(pcta);	    	
-	    }		   
-		request.setAttribute("pctasList", pctasList);
+	    	pcttsList.add(pcta);	    	
+	    }
+		request.setAttribute("pcttsList", pcttsList);
 		request.setAttribute("number",number);
 	    request.setAttribute("pageSize",pageSize);
 	    request.setAttribute("page", page);
@@ -76,7 +75,7 @@ public class ParentChildThemeActivityShowServlet extends HttpServlet {
 	    request.setAttribute("activity", activity);
 	    request.setAttribute("day", day);
 	    request.setAttribute("count", count);
-		request.getRequestDispatcher("qzhd.jsp").forward(request, response);		
+		request.getRequestDispatcher("pw.jsp").forward(request, response);		
+		
 	}
-
 }

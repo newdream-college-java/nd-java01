@@ -49,7 +49,7 @@
 			<div class="qzhd">
             <div class="qzhd-back">阿拉亲子&gt;亲子活动</div>
 				   <div class="qzhd-all">
-                  <h2>您已选择：<span>共有<i>${sum }</i>条活动信息</span></h2>
+                  <h2>您已选择：<span>共有<i>${count }</i>条活动信息</span></h2>
                   <div class="qzhd-all-d" ><p>区域：</p>
                   
                   <a <c:if test="${city==null}"> class="all-p-a"</c:if> href="ParentChildThemeActivityShowServlet?activity=${activity}">全部</a>
@@ -84,7 +84,7 @@
 						<a href="">
 						<img src="${pctasList.getImgUrl() }" width="305"  height="242"/></a>
 						<div class="qzhd-li-t">                                   
-                        <p>${pctList.getPcnThemeName()}</p>
+                        <p>${pctasList.getPcnThemeName()}</p>
                       	<span><i><img src="Picture/time_19.jpg" /></i>${pctasList.getPcnStartTime() }-${pctasList.getPcnEndTime()  }</span>
                         <a><b>￥</b>${pctasList.getPrice()}</a>
                         </div>
@@ -104,7 +104,7 @@
 		       <a href="ParentChildThemeActivityShowServlet?curPage=1&city=${city}&activity=${activity}&curday=${day}">首页</a>      
 		       <a href="ParentChildThemeActivityShowServlet?curPage=${page-1}&city=${city}&activity=${activity}&curday=${day}">上一页</a>
 	 		</c:if>      
-                <c:forEach var="i" begin="1" end="${count }" >
+                <c:forEach var="i" begin="1" end="${number }" >
                 <c:if test="${page!=i }">
                  <a href="ParentChildThemeActivityShowServlet?curPage=${i }&city=${city}&activity=${activity}&curday=${day}">${i }</a>
                 </c:if>
@@ -112,9 +112,9 @@
                 <span class="page-current"> ${i }</span>
                 </c:if>              
                 </c:forEach>
-			<c:if test="${page!=count&&count>0}">
+			<c:if test="${page!=number&&number>0}">
        			<a href="ParentChildThemeActivityShowServlet?curPage=${page+1}&city=${city}&activity=${activity}&curday=${day}">下一页</a>
-       			<a href="ParentChildThemeActivityShowServlet?curPage=${count}&city=${city}&activity=${activity}&curday=${day}">末页</a>
+       			<a href="ParentChildThemeActivityShowServlet?curPage=${number}&city=${city}&activity=${activity}&curday=${day}">末页</a>
        		</c:if>              
             </div>
             </div>

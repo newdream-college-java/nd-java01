@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -55,134 +56,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="qzhd">
             <div class="qzhd-back">阿拉亲子&gt;票务</div>
 				   <div class="qzhd-all">
-                  <h2>您已选择：<span>共有<i>131</i>条活动信息</span></h2>
-                  <div class="qzhd-all-d" ><p>区域：</p><a class="all-p-a">全部</a><a>宁波中心区</a><a>北仑区</a><a>慈溪</a><a>余姚</a><a>宁海</a><a>象山</a><a>奉化</a></div>
-                  <div class="qzhd-all-d" ><p>商家活动：</p><a class="all-p-a">全部</a><a>户外亲子</a><a>室内亲子</a><a>亲子DIY</a><a>农家乐采摘</a><a>儿童剧</a></div>
-                  <div  class="qzhd-all-d"><p>时间：</p><a class="all-p-a">全部</a><a>今天</a><a>最近一周</a><a>网期活动</a></div>
-  					</div>
+                  <h2>您已选择：<span>共有<i>${count }</i>条活动信息</span></h2>
+                <div class="qzhd-all-d" ><p>区域：</p>
+                  
+                  <a <c:if test="${city==null}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?activity=${activity}">全部</a>
+                  <a <c:if test="${city=='天心区'}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?city=天心区&activity=${activity}&curday=${day}">天心区</a>
+                  <a <c:if test="${city=='望城区'}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?city=望城区&activity=${activity}&curday=${day}">望城区</a>
+                  <a <c:if test="${city=='岳麓区'}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?city=岳麓区&activity=${activity}&curday=${day}">岳麓区</a>
+                  <a <c:if test="${city=='雨花区'}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?city=雨花区&activity=${activity}&curday=${day}">雨花区</a>
+                  <a <c:if test="${city=='星沙区'}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?city=星沙区&activity=${activity}&curday=${day}">星沙区</a>                 
+                  </div>
+                  <div class="qzhd-all-d" ><p>商家活动：</p>
+                  <a <c:if test="${activity==null}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?city=${city}">全部</a>
+                  <a <c:if test="${activity==1}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?activity=1&city=${city}&curday=${day}">户外亲子</a>
+                  <a <c:if test="${activity==2}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?activity=2&city=${city}&curday=${day}">室内亲子</a>
+                  <a <c:if test="${activity==3}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?activity=3&city=${city}&curday=${day}">亲子DIY</a>
+                  <a <c:if test="${activity==4}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?activity=4&city=${city}&curday=${day}">农家乐采摘</a>
+                  <a <c:if test="${activity==5}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?activity=5&city=${city}&curday=${day}">儿童剧</a></div>
+                  <div  class="qzhd-all-d"><p>时间：</p>
+                  <a <c:if test="${day==null}"> class="all-p-a"</c:if>  href="ParentChildThemeTicketingShowServlet?activity=${activity}&city=${city}">全部</a>
+                  <a <c:if test="${day==1}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?curday=1&activity=${activity}&city=${city}">今天</a>
+                  <a <c:if test="${day==2}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?curday=2&activity=${activity}&city=${city}">最近一周</a>
+                  <a <c:if test="${day==3}"> class="all-p-a"</c:if> href="ParentChildThemeTicketingShowServlet?curday=3&activity=${activity}&city=${city}&curday=${day}">网期活动</a>
+                  </div>
                     
                     
                     <ul class="pw-main" >
-									<li><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
+                    <c:forEach var="pcttsList" items="${pcttsList }" varStatus="status">
+               			<c:if test="${(status.index-1)%3!=0}">
+               				<li>									
+						</c:if>
+						<c:if test="${(status.index-1)%3==0}">					
+							<li style="margin:0px 10px">									
+						</c:if>
+						<a href=""><img src="${pcttsList.getImgUrl() }"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
+                                    <p>${pcttsList.getPcnThemeName()}</p>
+                                    <a><b>￥</b>${pcttsList.getCounterPrice() }</a>
+                                    <span>门店价<b>￥${pcttsList.getNetPurchasing()}</b></span>
                                     <div class="pw-li-t-d">
                                     立即购买&gt;&gt;
                                     </div>
                                     </div>
                                     </li>
-                                    <li style="margin:0px 10px"><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-									<li><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li style="margin:0px 10px"><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    
-                                    <li><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li style="margin:0px 10px"><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-									<li><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li style="margin:0px 10px"><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_12.jpg"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
+                             </c:forEach>       
 							<div style="clear:both;"></div>		
 					</ul>
                     <div class="page-normal">
-                <span class="page-current">1</span>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
-                <a href="#" class="page-next">下一页</a>
+                  <c:if test="${page!=1}">
+		       <a href="ParentChildThemeTicketingShowServlet?curPage=1&city=${city}&activity=${activity}&curday=${day}">首页</a>      
+		       <a href="ParentChildThemeTicketingShowServlet?curPage=${page-1}&city=${city}&activity=${activity}&curday=${day}">上一页</a>
+	 		</c:if>      
+                <c:forEach var="i" begin="1" end="${number }" >
+                <c:if test="${page!=i }">
+                 <a href="ParentChildThemeTicketingShowServlet?curPage=${i }&city=${city}&activity=${activity}&curday=${day}">${i }</a>
+                </c:if>
+               	<c:if test="${page==i }">
+                <span class="page-current"> ${i }</span>
+                </c:if>              
+                </c:forEach>
+			<c:if test="${page!=number&&number>0}">
+       			<a href="ParentChildThemeTicketingShowServlet?curPage=${page+1}&city=${city}&activity=${activity}&curday=${day}">下一页</a>
+       			<a href="ParentChildThemeTicketingShowServlet?curPage=${number}&city=${city}&activity=${activity}&curday=${day}">末页</a>
+       		</c:if>  
             </div>
             </div>
 		</div>

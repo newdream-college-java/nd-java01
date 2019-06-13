@@ -1,7 +1,9 @@
 package com.yb.dao.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.yb.dao.BaseDao;
 import com.yb.dao.ParentChildThemeDao;
@@ -128,11 +130,11 @@ public class ParentChildThemeDaoImpl extends BaseDao implements ParentChildTheme
 		}
 		return pctList;
 	}
-	public Integer count(Integer themeType,int pagesize,String city,Integer activity,Integer day) {
-		int count=0;
+	public Map<String,Integer> numbers(Integer themeType,int pagesize,String city,Integer activity,Integer day) {
+		Map<String,Integer> numbers=new HashMap<String,Integer>();
 		try {
 			getConn();
-			StringBuffer sql=new StringBuffer("select ceil(count(*)/?) cot from pcn_parent_child_theme");
+			StringBuffer sql=new StringBuffer("select count(*) count,ceil(count(*)/?) number from pcn_parent_child_theme");
 			if(city!=null&&activity!=null&&day==null){		
 				sql.append(" where pcntt_id=? and pcnpct_site like ? and pcnpct_merchant_activity=?");
 				st=conn.prepareStatement(sql.toString());				
@@ -211,34 +213,17 @@ public class ParentChildThemeDaoImpl extends BaseDao implements ParentChildTheme
 			}
 			rs=st.executeQuery();
 			if(rs.next()){
-				count=rs.getInt("cot");
+				int number=rs.getInt("number");
+				int count=rs.getInt("count");
+				numbers.put("number",number);
+				numbers.put("count",count);
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
 			closeAll(rs,conn,st);
 		}	
-		return count;
+		return numbers;
 	}
-	public int countSum(Integer themeType){
-		int sum=0;
-		try {
-			getConn();
-			StringBuffer sql=new StringBuffer("select count(*) sum from pcn_parent_child_theme where pcntt_id=?");
-			st=conn.prepareStatement(sql.toString());	
-			st.setInt(1, themeType);
-			rs=st.executeQuery();
-			if(rs.next()){
-				sum=rs.getInt("sum");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally{
-			closeAll(rs,conn,st);
-		}	
-		
-		return sum;
-	}
-
-
 }
