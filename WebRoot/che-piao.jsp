@@ -646,78 +646,24 @@
 <div class="comprob_b dashedl">
 	<h4>常见问题</h4>
 	<ul class="ul_wenda c54">
-			<li class="cur">
+		<c:forEach var="chepiaoProblem" items="${chepiaoProblemList}">
+			<c:set var="prContent" value="${chepiaoProblem.prContent}" />
+			 <c:if test="${prContent==null}">
+			 <c:set var="prContent" value="还没有人回答这个问题" />
+			</c:if>	
+			<li class="">
 			<div class="d_wen">
 				<i class="i_wen"></i><span class="i_arr"></span>
 				<p>
-					<a href="http://www.12308.com/help/q8586.html" target="_blank">空调、卧空、JN空调、座椅快客、快客空卧有什么区别？</a>
+					<a href="http://www.12308.com/help/q8586.html" target="_blank">${chepiaoProblem.pContent}</a>
 				</p>
 			</div>
 			<div class="d_da">
 				<i class="i_da"></i>
-				<p>空调、JN空调是普通的空调坐席；卧空是空调卧铺；座椅快客是快速的坐席大巴车；快客空卧是快速空调卧铺，以上信息仅供参考，具体车型以客运站信息为准。</p>
+				<p>${prContent}</p>
 			</div>
 		</li>
-		<li class="">
-			<div class="d_wen">
-				<i class="i_wen"></i><span class="i_arr"></span>
-				<p>
-					<a href="http://www.12308.com/help/q8501.html" target="_blank">为什么出发地栏提示找不到输入的城市名称？</a>
-				</p>
-			</div>
-			<div class="d_da">
-				<i class="i_da"></i>
-				<p>该区域暂未开通网上预售票功能，您暂不能通过12308平台预订呦~敬请您持续关注平台。</p>
-			</div>
-		</li>
-		<li class="">
-			<div class="d_wen">
-				<i class="i_wen"></i><span class="i_arr"></span>
-				<p>
-					<a href="http://www.12308.com/help/q8502.html" target="_blank">为什么查询不到返程的车次信息？</a>
-				</p>
-			</div>
-			<div class="d_da">
-				<i class="i_da"></i>
-				<p>如果查询不到返程车次信息，表示返程线路暂未开通网上预订。</p>
-			</div>
-		</li>
-		<li class="">
-			<div class="d_wen">
-				<i class="i_wen"></i><span class="i_arr"></span>
-				<p>
-					<a href="http://www.12308.com/help/q8503.html" target="_blank">为什么车次信息中没显示目的地车站名？</a>
-				</p>
-			</div>
-			<div class="d_da">
-				<i class="i_da"></i>
-				<p>12308暂时无法查询到目的地车站信息，建议您向乘车站窗口或咨询台工作人员进行咨询噢。</p>
-			</div>
-		</li>
-		<li class="">
-			<div class="d_wen">
-				<i class="i_wen"></i><span class="i_arr"></span>
-				<p>
-					<a href="http://www.12308.com/help/q8504.html" target="_blank">为什么车次信息中没显示抵达目的地的时间？</a>
-				</p>
-			</div>
-			<div class="d_da">
-				<i class="i_da"></i>
-				<p>由于长途汽车行驶途中存在不确定因素，所以暂无法查询到准确的抵达时间，请您向车站窗口或咨询台工作人员进行咨询哟。</p>
-			</div>
-		</li>
-		<li class="">
-			<div class="d_wen">
-				<i class="i_wen"></i><span class="i_arr"></span>
-				<p>
-					<a href="http://www.12308.com/help/q8505.html" target="_blank">为什么去往同一地点的不同车次票价有差异？</a>
-				</p>
-			</div>
-			<div class="d_da">
-				<i class="i_da"></i>
-				<p>感谢您对12308的支持。由于不同车次的车型、行车路线有所差异，同一路线的不同车次票价会略有不同，详细情况您可以向乘车站进行咨询呢。</p>
-			</div>
-		</li>
+		</c:forEach>
 	</ul>
 </div>
 <div class="h20"></div>
