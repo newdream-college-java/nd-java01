@@ -13,6 +13,8 @@ public class Ticket {
 	private int tTicketNumber;// 总票数
 	private String tStartStationName;//起始站名称;
 	private String tEndStationName; //终点站名称
+	private int tTicketBookNumber;//已经预定的票数
+	private String goCarTypeName; //车的类型
 	public int gettId() {
 		return tId;
 	}
@@ -85,6 +87,18 @@ public class Ticket {
 				+ tEndStationId + ", tStartTime=" + tStartTime + ", tDistance=" + tDistance + ", tFormerPrice="
 				+ tFormerPrice + ", tNowPrice=" + tNowPrice + ", tTicketNumber=" + tTicketNumber
 				+ ", tStartStationName=" + tStartStationName + ", tEndStationName=" + tEndStationName + "]";
+	}
+	public int gettTicketBookNumber() {
+		return tTicketBookNumber;
+	}
+	public void settTicketBookNumber(int tTicketBookNumber) {
+		this.tTicketBookNumber = tTicketBookNumber;
+	}
+	public String getGoCarTypeName() {
+		return goCarTypeName;
+	}
+	public void setGoCarTypeName(String goCarTypeName) {
+		this.goCarTypeName = goCarTypeName;
 	}
 	
 
