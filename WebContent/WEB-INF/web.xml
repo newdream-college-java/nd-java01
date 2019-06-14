@@ -6,6 +6,16 @@
 	<display-name>easybuy_nd</display-name>
 	
 	
+	<servlet>
+        <servlet-name>AddCarSvl</servlet-name>
+        <servlet-class>com.cc.servlet.fore.AddCarSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+       <servlet-name>AddCarSvl</servlet-name>
+       <url-pattern>/addCarSvl</url-pattern>
+    </servlet-mapping>
+	
+	
 	
 	<servlet>
         <servlet-name>LoginSvl</servlet-name>

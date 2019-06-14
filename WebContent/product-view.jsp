@@ -86,7 +86,7 @@ var basePath = "${basePath}";
                  <p>库　存：<font color="red">无货  </font>       </p>
                 </c:if>
                 
-              <div class="button"><input type="button" name="button"  onclick="addOrderSvl(${pro.epId})"/><a href="#">放入购物车</a></div>
+              <div class="button"><input type="button" name="button"  onclick="addOrderSvl(${pro.epId})"/><a href="addCarSvl?pid=${pro.epId}">放入购物车</a></div>
             </div>
             <div class="clear"></div>
         </div>

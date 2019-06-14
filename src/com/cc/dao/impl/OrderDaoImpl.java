@@ -91,20 +91,23 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
      * 3.改商品的库存                       product
      */
     @Override
-    public int addOrder(int id) {
+    public int addOrder(int id,Product product) {
         
         try {
             getConn();
             conn.setAutoCommit(false);//开启事务  （设置事务部自动提交）
             
             Order order = new Order();
-            //1.添加一条订单记录               order表
+          //1.校验库存查询库存：购买数量必须小于或者等于库存
+            //1.1根据id查询数据库中的商品的存库
+            //1.2 拿库存与product的count比较
+            //2.添加一条订单记录               order表
             int  result1 = saveOrder(order );
-            //2.添加多条订单详情记录       order_detail表
+            //3.添加多条订单详情记录       order_detail表
             OrderDetail orderDetail = new OrderDetail();
             int result2 = orderDetailDao.saveOrderDetail(orderDetail );
             Product pro  =new Product();
-            //3.改商品的库存                       product
+            //4.扣商品的库存                       product
             int result3 = productDao.changeProductStock( pro );
             if(result1>0&&result2>0&&result3>0) {
                 conn.commit();//提交事务

@@ -11,6 +11,7 @@ public class Product {
     private int epcId;
     private int epcChildId;
     private String epFileName;
+    private int count = 1;//商品的购买数量
     
     
     public Product() {
@@ -94,6 +95,8 @@ public class Product {
         this.epcChildId = epcChildId;
         this.epFileName = epFileName;
     }
+    
+    
 
     @Override
     public String toString() {
@@ -101,6 +104,60 @@ public class Product {
                 + epDescription + ", epStock=" + epStock + ", epcId=" + epcId + ", epcChildId=" + epcChildId
                 + ", epFileName=" + epFileName + "]\n";
     }
+
+    @Override
+    public int hashCode() {
+        return 100;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Product other = (Product) obj;
+        if (epDescription == null) {
+            if (other.epDescription != null)
+                return false;
+        } else if (!epDescription.equals(other.epDescription))
+            return false;
+        if (epFileName == null) {
+            if (other.epFileName != null)
+                return false;
+        } else if (!epFileName.equals(other.epFileName))
+            return false;
+        if (epId != other.epId)
+            return false;
+        if (epName == null) {
+            if (other.epName != null)
+                return false;
+        } else if (!epName.equals(other.epName))
+            return false;
+        if (epPrice == null) {
+            if (other.epPrice != null)
+                return false;
+        } else if (!epPrice.equals(other.epPrice))
+            return false;
+        if (epStock != other.epStock)
+            return false;
+        if (epcChildId != other.epcChildId)
+            return false;
+        if (epcId != other.epcId)
+            return false;
+        return true;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+    
   
     
 }

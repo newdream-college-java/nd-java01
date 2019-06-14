@@ -19,6 +19,7 @@ public class AddOrderSvl extends HttpServlet {
         int pid = -1;
         if(pidStr!=null&&pidStr.trim().length()>0) {
             pid= Integer.parseInt(pidStr);
+            
         }else {
             //TODO 
         }

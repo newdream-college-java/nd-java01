@@ -175,9 +175,10 @@ function reloadPrice(id, status,stock)
 	var number = document.getElementById("number_id_" + id);
 	if(status==true) {
 		number.value++;		
+		alert("购买数量："+number.value+"----库存："+stock);
 		if(number.value>stock){
 			alert("目前库存不足(剩余"+stock+"件)，请返回修改库存数量!");
-			priceBox.innerHTML = "¥" + price * number.value;
+			priceBox.innerHTML = "¥" + price * (number.value-1);
 			number.value = stock;
 			number.select();
 			return false;
@@ -190,8 +191,9 @@ function reloadPrice(id, status,stock)
 			number.value--;			
 		}
 	}
-
+	
 	priceBox.innerHTML = "¥" + price * number.value;
+	
 	doAjax(null,"servlet/ChangeNumsAction?rnd="+Math.random()+"&ep_id="+id+"&newNums="+number.value);
 	
 }
