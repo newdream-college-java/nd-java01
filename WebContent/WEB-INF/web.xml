@@ -5,6 +5,24 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>easybuy_nd</display-name>
 	
+	
+	
+	<servlet>
+        <servlet-name>LoginSvl</servlet-name>
+        <servlet-class>com.cc.servlet.fore.LoginSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+       <servlet-name>LoginSvl</servlet-name>
+       <url-pattern>/loginSvl</url-pattern>
+    </servlet-mapping>
+	<servlet>
+        <servlet-name>CreateCodeSvl</servlet-name>
+        <servlet-class>com.cc.servlet.fore.CreateCodeSvl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+       <servlet-name>CreateCodeSvl</servlet-name>
+       <url-pattern>/createCodeSvl</url-pattern>
+    </servlet-mapping>
 	<servlet>
         <servlet-name>AddOrderSvl</servlet-name>
         <servlet-class>com.cc.servlet.fore.AddOrderSvl</servlet-class>

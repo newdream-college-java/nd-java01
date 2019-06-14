@@ -7,6 +7,7 @@ function addOrderSvl(pid){
 
 
 //#################下单#####################
+//JavaScript Document
 
 function createXMLHttpRequest(){
 	var xmlhttp;
@@ -29,7 +30,28 @@ function createXMLHttpRequest(){
 	return xmlhttp;
 }
 
-//��д�ַ�����trim()����
+function createXMLHttpRequest(){
+	var xmlhttp;
+	try{
+		xmlhttp=new XMLHttpRequest();
+		if(xmlhttp.overrideMimeType){
+			xmlhttp.overrideMimeType("text/xml");
+		}
+	}catch(e1){
+		try{
+			xmlhttp = new ActiveXObject("Msxml2.XMLTTP");
+		}catch(e2){
+			try{
+				xmlhttp = new ActiveXObject("Microsoft.XMLTTP");
+			}catch(e3){
+				xmlhttp = null;
+			}
+		}
+	}
+	return xmlhttp;
+}
+
+//重写字符串的trim()函数
 String.prototype.trim = function() {
 	  var m = this.match(/^\s*(\S+(\s+\S+)*)\s*$/);
 	  return (m == null) ? "" : m[1];
@@ -53,8 +75,8 @@ function doAjax(obj,url){
 				if(obj!=null){
 					spanObj.className = "error";
 					spanObj.innerHTML = ajaxRequest.responseText.trim();
-					if(ajaxRequest.responseText.trim()=="���û����Ѿ�ע��"){
-						obj.onfocus = null;	//���û�ȡ�����¼�
+					if(ajaxRequest.responseText.trim()=="该用户名已经注册"){
+						obj.onfocus = null;	//禁用获取焦点事件
 						obj.select();
 					}
 				}	
@@ -78,53 +100,53 @@ function CheckItem(obj)
 	switch(obj.name) {
 		case "userName":
 			if(obj.value == "") {
-				msgBox.innerHTML = "�û�������Ϊ��";
+				msgBox.innerHTML = "用户名不能为空";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "passWord":
 			if(obj.value == "") {
-				msgBox.innerHTML = "���벻��Ϊ��";
+				msgBox.innerHTML = "密码不能为空";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "rePassWord":
 			if(obj.value == "") {
-				msgBox.innerHTML = "ȷ�����벻��Ϊ��";
+				msgBox.innerHTML = "确认密码不能为空";
 				msgBox.className = "error";
 				return false;
 			} else if(obj.value != document.getElementById("passWord").value) {
-				msgBox.innerHTML = "������������벻��ͬ";
+				msgBox.innerHTML = "两次输入的密码不相同";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "address":
 			if(obj.value == "") {
-				msgBox.innerHTML = "�ʼĵ�ַ����Ϊ��";
+				msgBox.innerHTML = "邮寄地址不能为空";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "realName":
 			if(obj.value == "") {
-				msgBox.innerHTML = "��ʵ��������Ϊ��";
+				msgBox.innerHTML = "真实姓名不能为空";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "guestName":
 			if(obj.value == "") {
-				msgBox.innerHTML = "�ǳƲ���Ϊ��";
+				msgBox.innerHTML = "昵称不能为空";
 				msgBox.className = "error";
 				return false;
 			}
 			break;
 		case "guestContent":
 			if(obj.value == "") {
-				msgBox.innerHTML = "�������ݲ���Ϊ��";
+				msgBox.innerHTML = "留言内容不能为空";
 				msgBox.className = "error";
 				return false;
 			}	
@@ -154,22 +176,22 @@ function reloadPrice(id, status,stock)
 	if(status==true) {
 		number.value++;		
 		if(number.value>stock){
-			alert("Ŀǰ��治��(ʣ��"+stock+"��)���뷵���޸Ŀ������!");
-			priceBox.innerHTML = "��" + price * number.value;
+			alert("目前库存不足(剩余"+stock+"件)，请返回修改库存数量!");
+			priceBox.innerHTML = "¥" + price * number.value;
 			number.value = stock;
 			number.select();
 			return false;
 		}
 	} else if(status==false){
 		if(number.value == 1) {
-			priceBox.innerHTML = "��" + price * number.value;
+			priceBox.innerHTML = "¥" + price * number.value;
 			return false;
 		} else {
 			number.value--;			
 		}
 	}
 
-	priceBox.innerHTML = "��" + price * number.value;
+	priceBox.innerHTML = "¥" + price * number.value;
 	doAjax(null,"servlet/ChangeNumsAction?rnd="+Math.random()+"&ep_id="+id+"&newNums="+number.value);
 	
 }
