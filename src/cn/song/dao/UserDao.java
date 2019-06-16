@@ -4,11 +4,20 @@ import cn.song.entity.User;
 
 public interface UserDao {
 	/**
-	 * ×¢²á¹¦ÄÜ
+	 * ×¢ï¿½á¹¦ï¿½ï¿½
 	 */
 	boolean register(User user);
+
 	/**
-	 * µÇÂ¼¹¦ÄÜ
+	 * ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 	 */
 	boolean login(User user);
+
+	boolean update(User user);
+
+	User select(String phone);
+
+	boolean updatePhone(String phone1, String phone2);
+
+	boolean updateEmail(String email, String phone);
 }

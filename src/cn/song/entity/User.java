@@ -1,16 +1,17 @@
 package cn.song.entity;
 
 public class User {
-	private int uId;// ÓÃ»§id
-	private String tRealName;// ÕæÊµĞÕÃû
-	private String tIdNumber;// Éí·İÖ¤ºÅ
-	private String uName;// ÓÃ»§Ãû
-	private String uPwd;// ÃÜÂë
-	private String uNickname;// êÇ³Æ
-	private String uSex;// ĞÔ±ğ
-	private String uPhone;// ÊÖ»úºÅ
-	private String uEmail;// ÓÊÏä
-	private int uIsAdult;// ÊÇ·ñ³ÉÈË
+	private int uId;// ç”¨æˆ·id
+	private String tRealName;// çœŸå®å§“å
+	private String tIdNumber;// èº«ä»½è¯å·
+	private String uName;// ç”¨æˆ·å
+	private String uPwd;// å¯†ç 
+	private String uNickname;// æ˜µç§°
+	private String uSex;// æ€§åˆ«
+	private String uPhone;// æ‰‹æœºå·
+	private String uEmail;// é‚®ç®±
+	private int uIsAdult;// æ˜¯å¦æˆäºº
+	private String uBirthday;// å‡ºç”Ÿæ—¥æœŸ
 
 	public int getuId() {
 		return uId;
@@ -92,11 +93,19 @@ public class User {
 		this.uIsAdult = uIsAdult;
 	}
 
+	public String getuBirthday() {
+		return uBirthday;
+	}
+
+	public void setuBirthday(String uBirthday) {
+		this.uBirthday = uBirthday;
+	}
+
 	@Override
 	public String toString() {
 		return "User [uId=" + uId + ", tRealName=" + tRealName + ", tIdNumber=" + tIdNumber + ", uName=" + uName
 				+ ", uPwd=" + uPwd + ", uNickname=" + uNickname + ", uSex=" + uSex + ", uPhone=" + uPhone + ", uEmail="
-				+ uEmail + ", uIsAdult=" + uIsAdult + "]";
+				+ uEmail + ", uIsAdult=" + uIsAdult + ", uBirthday=" + uBirthday + "]";
 	}
 
 }

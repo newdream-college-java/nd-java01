@@ -42,6 +42,9 @@
 </script>
 </head>
 <body>
+<c:if test="${phone==null}">
+	<script>alert("没有登录，无法修改，请登录");location.href="login.jsp"</script>
+	</c:if>
 <div class="q_pagecontainer">
 	<div class="q_pagewrap">
 		<style>
