@@ -29,8 +29,12 @@ public class LoginServlet extends HttpServlet {
 		String pwd = req.getParameter("password");
 		String url=req.getParameter("url-request");
 		PrintWriter out = resp.getWriter();
+<<<<<<< HEAD
+=======
+		out.print("<script>alert('" + phone + pwd + "');</script>");
+>>>>>>> branch '宋恒达-pro' of https://github.com/newdream-college-java/nd-java01.git
 		if (phone != null && pwd != null && phone.trim().length() > 0 && pwd.trim().length() > 0) {
-		
+
 			User user = new User();
 			user.setuPhone(phone);
 			user.setuPwd(pwd);
@@ -38,14 +42,18 @@ public class LoginServlet extends HttpServlet {
 			if (userDao.login(user)) {
 				req.getSession().setAttribute("phone", phone);
 				req.getSession().setAttribute("pwd", pwd);
+<<<<<<< HEAD
 				if(url.equals("")) {
 					resp.sendRedirect("index.jsp");
 				}else {
 					out.print("<script>location.href='"+url+"'</script>");
 				}
+=======
+				resp.sendRedirect("indexServlet");
+>>>>>>> branch '宋恒达-pro' of https://github.com/newdream-college-java/nd-java01.git
 				return;
 			}
-			out.print("<script>alert('登录失败');location.href='login.jsp';</script>");
+			out.print("<script>alert('登录失败');location.href='indexServlet';</script>");
 		}
 	}
 

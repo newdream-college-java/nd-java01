@@ -77,8 +77,12 @@
 					target="_blank">12308手机订票</a>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</div>
 	<style>
+=======
+<style>
+>>>>>>> branch '宋恒达-pro' of https://github.com/newdream-college-java/nd-java01.git
 .navmenu li.ico em {
 	position: absolute;
 	background: url("Images/ico.gif") no-repeat 0px 15px;
@@ -135,7 +139,7 @@
 								<li class=""><a tltle="我的提问 " rel="nofollow"
 									href="http://uc.12308.com/message/questionList.html">我的提问</a></li>
 								<li class=""><a tltle="个人资料 " rel="nofollow"
-									href="http://uc.12308.com/user/infoPage.html">个人资料</a></li>
+									href="infoPageSelectServlet">个人资料</a></li>
 							</ul>
 						</div></li>
 				</c:if>
