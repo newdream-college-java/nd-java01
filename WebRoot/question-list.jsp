@@ -1,8 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@include file="/common/tablib.jsp"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -38,6 +35,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</script>
 </head>
 <body>
+	<c:if test="${phone==null}">
+	<script>alert("没有登录，无法查看，请登录");location.href="login.jsp"</script>
+	</c:if>
 <div class="q_pagecontainer">
 <div class="q_pagewrap">
 <style>
@@ -91,9 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          <a title="退出" rel="nofollow" href="http://www.12308.com/loginout.jsp">退出</a>
 	        </li>
 	        <li class="go">
-              <span><a class="name" href="#">
-								349959253@qq.com
-                 	 		</a></span>
+              <span><a class="name" href="#">${phone}</a></span>
             </li>
         </ul>
              
@@ -201,10 +199,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <p><a id="add_one_user" class="btn" href="http://www.12308.com/help/travellerAsk.html"><span>添加提问</span></a></p>
     </div>
      <input type="hidden" id="hid_status" name="status" value="4"/>
-      <div class="inner">      
+      <div class="inner">    
+      	  
           <table class="user_table center_table">
               <thead><tr>
-              <th class="pr10" width="60%">提问标题</th>
+              <th class="pr10" width="60%">${chepiao}</th>
               <th width="20%">提问时间</th>
               <th width="20%">操作</th> </tr> </thead>
               <tbody>

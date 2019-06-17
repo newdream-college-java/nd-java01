@@ -60,7 +60,7 @@ $(document).ready(function() {
     // bind to the form's submit event 
     $('#form').submit(function() { 
         $(this).ajaxSubmit(options); 
-        return false; 
+        return true; 
     }); 
 	
 	$("#btn_submit").click(function() {

@@ -1,10 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
 
+<%@include file="/common/tablib.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -142,7 +138,7 @@
 						<li class="out"><a title="退出" rel="nofollow"
 							href="http://www.12308.com/loginout.jsp">退出</a></li>
 						<li class="go"><span><a class="name" href="#">
-									349959253@qq.com </a></span></li>
+									${phone}</a></span></li>
 					</ul>
 
 				</div>
@@ -257,7 +253,7 @@
 					<!--\breadcrumb-->
 					<div class="qn_usercenter_in">
 						<div class="pub-form">
-							<form id="form">
+							<form id="form" action="updatePWDServlet" method="post">
 								<div class="fm-item pbot-15">
 									<span class="fm-label"><label for="txt_Name3">输入原始密码</label></span>
 									<input type="password" value="" name="oldPassword"
@@ -299,8 +295,8 @@
 								</div>
 
 								<div class="fm-item pbot-15">
-									<span class="fm-label"><label for="txt_Name6"></label></span> <a
-										id="btn_submit" class="button_ok">确 定</a>
+									<span class="fm-label"><label for="txt_Name6"></label></span> 
+									<input id="btn_submit" class="button_ok" value="确认">
 									<!--<a id="btn_cancel" class="button_canc" >重置</a>-->
 								</div>
 

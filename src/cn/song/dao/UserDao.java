@@ -20,4 +20,6 @@ public interface UserDao {
 	boolean updatePhone(String phone1, String phone2);
 
 	boolean updateEmail(String email, String phone);
+
+	boolean updatePWD(String confirm_password, String phone);
 }

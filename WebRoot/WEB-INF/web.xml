@@ -98,5 +98,21 @@
   	<servlet-name>InfoPageUpdatePhoneServlet</servlet-name>
   	<url-pattern>/infoPageUpdatePhoneServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>UpdatePWDServlet</servlet-name>
+  	<servlet-class>cn.song.controler.UpdatePWDServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdatePWDServlet</servlet-name>
+  	<url-pattern>/updatePWDServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>QuestionAllListServlet</servlet-name>
+  	<servlet-class>cn.song.controler.QuestionAllListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QuestionAllListServlet</servlet-name>
+  	<url-pattern>/questionAllListServlet</url-pattern>
+  </servlet-mapping>
   
 </web-app>

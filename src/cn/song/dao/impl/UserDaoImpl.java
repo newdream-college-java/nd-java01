@@ -147,4 +147,26 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		return false;
 
 	}
+
+	@Override
+	public boolean updatePWD(String confirm_password, String phone) {
+		int result = -1;
+		try {
+			getConnection();
+			String sql = "update user set u_pwd=? where u_phone=?";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, confirm_password);
+			pst.setString(2, phone);
+			result = pst.executeUpdate();
+			if (result > 0) {
+				return true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return false;
+	}
 }

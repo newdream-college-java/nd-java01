@@ -51,7 +51,7 @@ public class ChepiaoServlet extends HttpServlet {
 		// 问题列表开始
 		ChepiaoProblemDao chepiaoProblem = new ChepiaoProblemDaoImpl();
 		List<ChepiaoProblem> chepiaoProblemList = new ArrayList<ChepiaoProblem>();
-		chepiaoProblemList = chepiaoProblem.getChepiaoProblem();
+		chepiaoProblemList = chepiaoProblem.getChepiaoProblem(1, 5);
 		req.setAttribute("chepiaoProblemList", chepiaoProblemList);
 		req.getRequestDispatcher("che-piao.jsp").forward(req, resp);
 	}

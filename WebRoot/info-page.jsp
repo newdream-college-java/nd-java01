@@ -171,7 +171,7 @@
 											<a id="dd21" class="noclass" href="http://uc.12308.com/user/infoPage.html">基本信息</a>
 										</dd>
 										<dd>
-											<a id="dd22" class="noclass" href="http://uc.12308.com/user/editPwdPage.html">修改密码</a>
+											<a id="dd22" class="noclass" href="edit-pwd-page.jsp">修改密码</a>
 										</dd>
 										<dd>
 											<a id="dd23" class="noclass" href="http://uc.12308.com/passenger/listPage.html">常用旅客信息</a>
