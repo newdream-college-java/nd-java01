@@ -13,8 +13,7 @@
   	<servlet-name>IndexServlet</servlet-name>
   	<servlet-class>cn.song.controler.IndexServlet</servlet-class>
   </servlet>
-  
-  
+
   <servlet>
   	<servlet-name>StationDetailSel</servlet-name>
   	<servlet-class>cn.song.controler.StationDetailSel</servlet-class>
@@ -83,4 +82,54 @@
   	<servlet-name>BookTicketDoServlet</servlet-name>
   	<url-pattern>/bookTicketDoServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>InfoPageUpdateServlet</servlet-name>
+  	<servlet-class>cn.song.controler.InfoPageUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InfoPageUpdateServlet</servlet-name>
+  	<url-pattern>/infoPageUpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>InfoPageSelectServlet</servlet-name>
+  	<servlet-class>cn.song.controler.InfoPageSelectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InfoPageSelectServlet</servlet-name>
+  	<url-pattern>/infoPageSelectServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>InfoPageUpdateEmailServlet</servlet-name>
+  	<servlet-class>cn.song.controler.InfoPageUpdateEmailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InfoPageUpdateEmailServlet</servlet-name>
+  	<url-pattern>/infoPageUpdateEmailServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  	<servlet-name>InfoPageUpdatePhoneServlet</servlet-name>
+  	<servlet-class>cn.song.controler.InfoPageUpdatePhoneServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InfoPageUpdatePhoneServlet</servlet-name>
+  	<url-pattern>/infoPageUpdatePhoneServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>UpdatePWDServlet</servlet-name>
+  	<servlet-class>cn.song.controler.UpdatePWDServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdatePWDServlet</servlet-name>
+  	<url-pattern>/updatePWDServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>QuestionAllListServlet</servlet-name>
+  	<servlet-class>cn.song.controler.QuestionAllListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QuestionAllListServlet</servlet-name>
+  	<url-pattern>/questionAllListServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

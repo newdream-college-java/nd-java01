@@ -45,7 +45,7 @@ $(document).ready(function() {
 
     var options = { 
     		type : "post",
-    		url : "/user/editPwd.sc?time=" + (new Date()).getTime(),
+    		url : "/user/editPwd.jsp?time=" + (new Date()).getTime(),
             success:function(responseText, statusText){
 				var result = $.parseJSON(responseText);
 				if (result.success) {
@@ -60,7 +60,7 @@ $(document).ready(function() {
     // bind to the form's submit event 
     $('#form').submit(function() { 
         $(this).ajaxSubmit(options); 
-        return false; 
+        return true; 
     }); 
 	
 	$("#btn_submit").click(function() {

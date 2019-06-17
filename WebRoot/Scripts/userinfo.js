@@ -1,4 +1,4 @@
-$(document).ready(
+ $(document).ready(
 		function() {
 			$('#sendCodeBtn').removeAttr("disabled");
 			$('#sendCodeBtn').attr('class','hqyzm_btn color1'); 
@@ -85,13 +85,13 @@ $(document).ready(
 			// bind to the form2's submit event
 			$('#form2').submit(function() {
 				$(this).ajaxSubmit(options);
-				return false;
+				return true;
 			});
 			
 			// bind to the form3's submit event
 			$('#form3').submit(function() {
 				$(this).ajaxSubmit(options);
-				return false;
+				return true;
 			});
 
 			$("#submit1").click(function() {
