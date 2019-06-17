@@ -1,10 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-
+<%@include file="common/tablib.jsp"%>
 <!doctype html>
 <html>
 <head>
@@ -16,12 +11,12 @@
 <meta name="keywords" content="12308,汽车票,长途汽车,汽车票预订,汽车票查询,汽车时刻表,全国汽车站" />
 <meta name="description"
 	content="12308是提供网上汽车票查询,汽车时刻表查询,汽车票预订,全国汽车站查询等服务的便民性门户网站！服务热线:400-6841-110." />
-<link rel="stylesheet" href="Css/buy-min-201604.css" />
-<!--<link rel="stylesheet" href="Css/common.css" />
-<link rel="stylesheet" href="Css/base.css" />
-<link rel="stylesheet" href="Css/chepiao.css" />
-<link rel="stylesheet" href="Css/mright.css" />
-<link rel="stylesheet" href="Css/common.css" /> -->
+<link rel="stylesheet" href="Css/buy-min-201604.css" type="text/css"/>
+<link rel="stylesheet" href="Css/common.css" type="text/css"/>
+<link rel="stylesheet" href="Css/base.css" type="text/css"/>
+<link rel="stylesheet" href="Css/chepiao.css" type="text/css"/>
+<link rel="stylesheet" href="Css/mright.css" type="text/css"/>
+<link rel="stylesheet" href="Css/common.css" type="text/css"/>
 </head>
 <body class="graybg" onselectstart="return false">
 	<%@ include file="/common/headpublic.jsp" %>
@@ -58,7 +53,7 @@
 		<div class="ticketorder">
 			<div class="tickettitle ticket_h1">
 				<h1>
-					<em>&nbsp;</em>长沙（长沙市汽车西站）- 常德
+					<em>&nbsp;</em>${ticket.tStartStationName }（${ticket.startStation.sName }）- ${ticket.tEndStationName }
 				</h1>
 				&nbsp;<a href="http://www.12308.com/index/search.html"
 					class="color4">[返回修改车次]</a>
@@ -78,20 +73,20 @@
 						<th>总价</th>
 					</tr>
 					<tr>
-						<td class="first"><p class="th_o">高档空调</p>
-							<p class="th_t">X0601</p></td>
+						<td class="first"><p class="th_o">${ticket.goCarTypeName }</p>
+							<p class="th_t">${ticket.tName }</p></td>
 						<td class="second"><span class="start">起</span>
 							<p class="green">
-								<a href="javascript:void(0);" id="buy_startCityName">长沙市汽车西站</a>
+								<a href="javascript:void(0);" id="buy_startCityName">${ticket.startStation.sName }</a>
 							</p> <span class="end">到</span>
 							<p class="yellow">
-								<a href="javascript:void(0);" id="buy_endCityName">常德</a>
+								<a href="javascript:void(0);" id="buy_endCityName"> ${ticket.tEndStationName }</a>
 							</p></td>
-						<td class="third"><span id="buy_startDate">2016-05-02</span>
-							07:30</td>
-						<td>185 km</td>
+						<td class="third"><span id="buy_startDate">${fn:substring(ticket.tStartTime,0,10)}</span>
+							${fn:substring(ticket.tStartTime,11,16)}</td>
+						<td>${ticket.tDistance } km</td>
 						<td class="fifth" id="priceView"><p>
-								成人（全价票）<span class="allprice">¥<b class="ticketPrice">64.0</b>x1
+								成人（全价票）<span class="allprice">¥<b class="ticketPrice">${ticket.tNowPrice }</b>x1
 								</span>
 							</p></td>
 						<td><span class="sprice">¥<span class="baoxianPrice">0.0</span></span>

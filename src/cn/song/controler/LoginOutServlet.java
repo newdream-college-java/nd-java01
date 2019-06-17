@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
- * ÍË³öµÇÂ¼ÏìÓ¦
+ * ç™»å½•å“åº”
  * @author mob
  *
  */
@@ -24,7 +24,6 @@ public class LoginOutServlet extends HttpServlet{
 		if(phone!=null&&pwd!=null&&phone.trim().length()>0&&pwd.trim().length()>0) {
 			req.getSession().removeAttribute("phone");
 			req.getSession().removeAttribute("pwd");
-			resp.sendRedirect("index.jsp");
 			return;
 		}
 	}

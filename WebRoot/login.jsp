@@ -24,7 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body id="cas" class="fl-theme-iphone">	
 <!-- 12308.com Baidu tongji analytics -->
 
-
 <body>
 
 	<div class="header">
@@ -53,6 +52,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						
 						<input type="hidden" name="redirect" value="">
 						<ul>
+							<c:if test="${url!=null }">
+							<li>
+								<input type="hidden" name="url-request"  value="${url }" />
+							</li>
+							</c:if>
 							<li>
 								<input id="username" name="username" tabindex="1" style="color:#a9a9a9;" value="手机号码/邮箱" class="l_input txt" type="text" onfocus="if (this.value==&#39;手机号码/邮箱&#39;) {this.value=&#39;&#39;;this.style.color=&#39;#333&#39;};" onblur="trimvalue(this)" value="" autocomplete="false"/>
 							</li>

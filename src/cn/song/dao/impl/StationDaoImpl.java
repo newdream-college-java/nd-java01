@@ -12,7 +12,8 @@ import cn.song.entity.Station;
 
 public class StationDaoImpl extends BaseDao implements StationDao {
 
-	public List<Station> GetStation() {
+	@Override
+	public List<Station> getStation() {
 		List<Station> list = new ArrayList<Station>();
 		String sql = "select * from station where s_open_time<=now() order by s_open_time desc;";
 		// 根据时间排序 小于等于时间才可以取出，只要四条
@@ -32,7 +33,6 @@ public class StationDaoImpl extends BaseDao implements StationDao {
 				sta.setsBus(rs.getString("s_bus"));
 				sta.setsOpenTime(rs.getString("s_open_time"));
 				sta.setsImg(rs.getString("s_img"));
-				sta.setCity(rs.getString("city"));
 				list.add(sta);
 			}
 		} catch (Exception e) {
@@ -45,10 +45,10 @@ public class StationDaoImpl extends BaseDao implements StationDao {
 	}
 
 	public Station station(int id) {
-		Station sta=null;
+		Station sta = null;
 		try {
 			getConnection();
-			String sql="select * from station where s_id=?";
+			String sql = "select * from station where s_id=?";
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, id);
 			rs = pst.executeQuery();
@@ -66,7 +66,7 @@ public class StationDaoImpl extends BaseDao implements StationDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 			closeAll();
 		}
 		return sta;

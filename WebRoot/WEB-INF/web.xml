@@ -75,4 +75,12 @@
   	<servlet-name>BookTicketServlet</servlet-name>
   	<url-pattern>/bookTicketServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>BookTicketDoServlet</servlet-name>
+  	<servlet-class>cn.song.controler.BookTicketDoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookTicketDoServlet</servlet-name>
+  	<url-pattern>/bookTicketDoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

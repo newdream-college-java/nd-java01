@@ -10,7 +10,18 @@ public class Station {
 	private String sOpenTime;// 开通时间
 	private String sImg;// 车站图片地址
 	private String city;//所在城市
+	private String isSelect;
 	
+	
+
+	public String getIsSelect() {
+		return isSelect;
+	}
+
+	public void setIsSelect(String isSelect) {
+		this.isSelect = isSelect;
+	}
+
 	public Station() {
 		super();
 	}
@@ -109,5 +120,23 @@ public class Station {
 				+ sIntroduction + ", sName=" + sName + ", sOpenTime="
 				+ sOpenTime + ", sPhone=" + sPhone + "]";
 	}
-	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return 100;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		if(obj==this) {
+			return true;
+		}
+		if(obj instanceof Station) {
+			obj=(Station)obj;
+			if(((Station) obj).getsName().equals(this.getsName())) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
