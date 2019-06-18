@@ -94,6 +94,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 				user.setuEmail(rs.getString("u_email"));
 				user.setuIsAdult(rs.getInt("u_is_adult"));
 				user.setuBirthday(rs.getString("u_birthday"));
+				user.setuMoney(rs.getInt("u_money"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

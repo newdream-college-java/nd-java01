@@ -12,13 +12,27 @@ public class User {
 	private String uEmail;// 邮箱
 	private int uIsAdult;// 是否成人
 	private String uBirthday;// 出生日期
+	private int uMoney;// 钱包
 
-	public int getuId() {
-		return uId;
+	public User() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setuId(int uId) {
+	public User(int uId, String tRealName, String tIdNumber, String uName, String uPwd, String uNickname, String uSex,
+			String uPhone, String uEmail, int uIsAdult, String uBirthday, int uMoney) {
+		super();
 		this.uId = uId;
+		this.tRealName = tRealName;
+		this.tIdNumber = tIdNumber;
+		this.uName = uName;
+		this.uPwd = uPwd;
+		this.uNickname = uNickname;
+		this.uSex = uSex;
+		this.uPhone = uPhone;
+		this.uEmail = uEmail;
+		this.uIsAdult = uIsAdult;
+		this.uBirthday = uBirthday;
+		this.uMoney = uMoney;
 	}
 
 	public String gettRealName() {
@@ -101,11 +115,23 @@ public class User {
 		this.uBirthday = uBirthday;
 	}
 
+	public int getuMoney() {
+		return uMoney;
+	}
+
+	public void setuMoney(int uMoney) {
+		this.uMoney = uMoney;
+	}
+
+	public void setuId(int uId) {
+		this.uId = uId;
+	}
+
 	@Override
 	public String toString() {
 		return "User [uId=" + uId + ", tRealName=" + tRealName + ", tIdNumber=" + tIdNumber + ", uName=" + uName
 				+ ", uPwd=" + uPwd + ", uNickname=" + uNickname + ", uSex=" + uSex + ", uPhone=" + uPhone + ", uEmail="
-				+ uEmail + ", uIsAdult=" + uIsAdult + ", uBirthday=" + uBirthday + "]";
+				+ uEmail + ", uIsAdult=" + uIsAdult + ", uBirthday=" + uBirthday + ", uMoney=" + uMoney + "]";
 	}
 
 }
