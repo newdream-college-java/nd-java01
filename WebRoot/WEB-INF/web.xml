@@ -74,6 +74,23 @@
   	<url-pattern>/chepiaoServlet</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+  	<servlet-name>BookTicketServlet</servlet-name>
+  	<servlet-class>cn.song.controler.BookTicketServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookTicketServlet</servlet-name>
+  	<url-pattern>/bookTicketServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>BookTicketDoServlet</servlet-name>
+  	<servlet-class>cn.song.controler.BookTicketDoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookTicketDoServlet</servlet-name>
+  	<url-pattern>/bookTicketDoServlet</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
   	<servlet-name>InfoPageUpdateServlet</servlet-name>
   	<servlet-class>cn.song.controler.InfoPageUpdateServlet</servlet-class>
@@ -122,6 +139,7 @@
   	<servlet-name>QuestionAllListServlet</servlet-name>
   	<url-pattern>/questionAllListServlet</url-pattern>
   </servlet-mapping>
+
     <servlet>
   	<servlet-name>QuestionOldListServlet</servlet-name>
   	<servlet-class>cn.song.controler.QuestionOldListServlet</servlet-class>
@@ -145,5 +163,13 @@
   <servlet-mapping>
   	<servlet-name>QuestioningServlet</servlet-name>
   	<url-pattern>/questioningServlet</url-pattern>
+  	  </servlet-mapping>
+  <servlet>
+  	<servlet-name>ToPayServlet</servlet-name>
+  	<servlet-class>cn.song.controler.ToPayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ToPayServlet</servlet-name>
+  	<url-pattern>/toPayServlet</url-pattern>
   </servlet-mapping>
 </web-app>
