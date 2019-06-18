@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=utf-8");
 		String phone = req.getParameter("username");
 		String pwd = req.getParameter("password");
-		String url=req.getParameter("url-request");
+		String url = req.getParameter("url-request");
 		PrintWriter out = resp.getWriter();
 		if (phone != null && pwd != null && phone.trim().length() > 0 && pwd.trim().length() > 0) {
 			User user = new User();
@@ -38,10 +38,10 @@ public class LoginServlet extends HttpServlet {
 				req.setAttribute("userid", userDao.selectIdByPhone(phone));
 				req.getSession().setAttribute("phone", phone);
 				req.getSession().setAttribute("pwd", pwd);
-				resp.sendRedirect("index.jsp");
+				resp.sendRedirect("indexServlet");
 				return;
 			}
-			out.print("<script>alert('登录失败');location.href='login.jsp';</script>");
+			out.print("<script>alert('登录失败');location.href='indexServlet';</script>");
 		}
 	}
 
