@@ -7,8 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.song.dao.TicketDao;
+import cn.song.dao.UserDao;
 import cn.song.dao.impl.TicketDaoImpl;
+import cn.song.dao.impl.UserDaoImpl;
 import cn.song.entity.Ticket;
+import cn.song.entity.User;
 /**
  * 预订响应
  * @author mob
@@ -31,10 +34,14 @@ public class BookTicketDoServlet extends HttpServlet{
 			return;
 		}else {
 			int ticketId=Integer.parseInt(req.getParameter("ticketId"));
+			String phone=(String)req.getSession().getAttribute("phone");
+			UserDao userDao=new UserDaoImpl();
+			User user=userDao.select(phone);
 			req.setAttribute("ticketId", ticketId);
 			TicketDao ticketDao=new TicketDaoImpl();
 			Ticket ticket=ticketDao.showBookTicket(ticketId);
 			req.setAttribute("ticket", ticket);
+			req.setAttribute("user", user);
 			req.getRequestDispatcher("booking-ticket.jsp").forward(req, resp);
 			return;
 		}
