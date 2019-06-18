@@ -8,7 +8,15 @@
 	</welcome-file-list>
 	
 	
-	
+	  <filter>
+    <filter-name>QustionFilter</filter-name>
+    <filter-class>cn.song.filter.QustionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>QustionFilter</filter-name>
+    <!-- -过滤的规则：过滤所有的请求 -->
+	<url-pattern>/*</url-pattern>
+  </filter-mapping>
 	<servlet>
   	<servlet-name>IndexServlet</servlet-name>
   	<servlet-class>cn.song.controler.IndexServlet</servlet-class>
@@ -114,5 +122,28 @@
   	<servlet-name>QuestionAllListServlet</servlet-name>
   	<url-pattern>/questionAllListServlet</url-pattern>
   </servlet-mapping>
-  
+    <servlet>
+  	<servlet-name>QuestionOldListServlet</servlet-name>
+  	<servlet-class>cn.song.controler.QuestionOldListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QuestionOldListServlet</servlet-name>
+  	<url-pattern>/questionOldListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>QuestionNewListServlet</servlet-name>
+  	<servlet-class>cn.song.controler.QuestionNewListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QuestionNewListServlet</servlet-name>
+  	<url-pattern>/questionNewListServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  	<servlet-name>QuestioningServlet</servlet-name>
+  	<servlet-class>cn.song.controler.QuestioningServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QuestioningServlet</servlet-name>
+  	<url-pattern>/questioningServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

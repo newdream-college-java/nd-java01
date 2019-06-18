@@ -169,4 +169,24 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		}
 		return false;
 	}
+
+	@Override
+	public int getUidByUphone(String phone) {
+		int result = 0;
+		try {
+			getConnection();
+			String sql = "select u_id from user where u_phone=?;";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, phone);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt("u_id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return result;
+	}
 }

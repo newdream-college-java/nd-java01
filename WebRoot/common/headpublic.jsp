@@ -100,7 +100,7 @@
 								<li class=""><a tltle="我的订单 " rel="nofollow"
 									href="http://uc.12308.com/order/usercenter/orderListAll.html">我的订单</a></li>
 								<li class=""><a tltle="我的提问 " rel="nofollow"
-									href="http://uc.12308.com/message/questionList.html">我的提问</a></li>
+									href="questionAllListServlet">我的提问</a></li>
 								<li class=""><a tltle="个人资料 " rel="nofollow"
 									href="infoPageSelectServlet">个人资料</a></li>
 							</ul>

@@ -14,7 +14,7 @@ import cn.song.dao.ChepiaoProblemDao;
 import cn.song.dao.impl.ChepiaoProblemDaoImpl;
 import cn.song.vo.ChepiaoProblem;
 
-public class QuestionAllListServlet extends HttpServlet {
+public class QuestionOldListServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
@@ -22,14 +22,16 @@ public class QuestionAllListServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		HttpSession session = req.getSession();
 		String curpage = req.getParameter("curpage");
-		int ye = (int) session.getAttribute("zongye");
+		int ye = (int) session.getAttribute("fenye1");
 		int uId = (int) session.getAttribute("uId");
 		int cpage = 1;
 		int pageSize = 4;
+
 		if (curpage != null) {
 			cpage = Integer.parseInt(curpage);
 			if (cpage < 1) {
@@ -42,10 +44,10 @@ public class QuestionAllListServlet extends HttpServlet {
 
 		List<ChepiaoProblem> chepiao = new ArrayList<ChepiaoProblem>();
 		ChepiaoProblemDao chepiaoList = new ChepiaoProblemDaoImpl();
-		chepiao = chepiaoList.getChepiaoProblem(cpage, pageSize, uId);
+		chepiao = chepiaoList.getChepiaoProblem(cpage, pageSize, 0, uId);
 		req.setAttribute("chepiao", chepiao);
 		req.setAttribute("cpage", cpage);
-		req.setAttribute("cS", 1);
+		req.setAttribute("cS", 2);
 		req.getRequestDispatcher("question-list.jsp").forward(req, resp);
 
 	}

@@ -81,9 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          <a title="退出" rel="nofollow" href="http://www.12308.com/loginout.jsp">退出</a>
 	        </li>
 	        <li class="go">
-              <span><a class="name" href="#">
-								349959253@qq.com
-                 	 		</a></span>
+              <span><a class="name" href="#">${phone}</a></span>
             </li>
         </ul>
              
@@ -179,16 +177,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--breadcrumb-->
 <div class="qn_usercenter_in">
  <div class="askfrom_b">
-
            <h4><span class="left"><i class="i_wen left"></i>问题标题</span><span class="c888 right f12"></span></h4>
-           <div class="ask_t">退款流程</div>
+           <div class="ask_t">${chepiaoProblem.pContent}</div>
            <div class="h30"></div>
-           <h4><span class="left"><i class="i_ask left"></i>问题补充<span class="c888 f14"> （选填）</span></span></h4>
+           <h4><span class="left"><i class="i_ask left"></i>问题补充<span class="c888 f14">${chepiaoProblem.pSupply}</span></span></h4>
            <div class="ask_t"></div>
            <div class="h30"></div>
            
            <h4><span class="left"><i class="i_da left"></i>客服回复</span></h4>
-           <div class="ask_t">正在处理。。。</div>
+           <div class="ask_t">${chepiaoProblem.prContent}</div>
            <div class="h10"></div>
        </div>  
 </div>
