@@ -238,7 +238,7 @@
 			<a class="disabled" href="questionAllListServlet?curpage=${cpage-1}">&lt;</a>
 			<span class="curr">${cpage}</span>
 			<a class="disabled" href="questionAllListServlet?curpage=${cpage+1}">&gt;</a>
-			<a class="disabled" href="questionAllListServlet?curpage=${ye}">&gt;|</a>
+			<a class="disabled" href="questionAllListServlet?curpage=${zongye}">&gt;|</a>
 			<span class="normalsize">共${zongye}页/${zongtiao}条数据</span>
 		</c:if>
 		<c:if test="${cS==2}">
