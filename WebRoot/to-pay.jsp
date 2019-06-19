@@ -1,8 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -26,67 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 .navmenu li.ico a.cur{color:#0096ff;}
 .navmenu li.ico a:hover{color:#f60;}
 </style>
-<!--顶部公用-->
-<div class="bodyhead">
- <div class="main-wrap">
-  <h1 class="logo"><a title="12308全国汽车票网" href="http://www.12308.com">12308全国汽车票网</a></h1>
-  <div class="headr">
-  <div class="toolkit">
-     <span class="a_mapp"><i class="to_mapp"></i><span>手机APP</span>
-         <div class="to_code_box"><div class="to_code_hd"><span class="arr"></span>
-         <div class="code_hd">
-         <p>司机端下载</p><a href="http://qiye.12308.com/download.html"><img src="Picture/driver_code.png" width="94px" height="94px"/></a></div>
-         <div class="code_line"></div>
-         <div class="code_hd">
-         <p>客户端下载</p><a href="http://app.12308.com/"><img src="Picture/clients_code.png" width="94px" height="94px"/></a></div>
-         </div></div>
-     </span>
-     <a href="http://weibo.com/12308com" class="link a_weibo" target="_blank"><i class="to_weibo"></i><span>微博</span></a>
-     <a href="http://app.12308.com/weixin.html" class="link a_weixin" target="_blank"><i class="to_weixin"></i><span>微信</span>
-     <div class="to_code_box"><div class="to_code_hd"><span class="arr"></span>
-     <div class="code_hd"><p>扫描关注微信</p><img src="Picture/weixin_code.png" width="94px" height="94px"/></div>
-     </div></div></a>
-  </div>
-  <div class="handapp"><a title="12308司机端下载" href="http://qiye.12308.com/download.html" target="_blank">12308手机订票</a></div>
- </div>
-</div>
-<!--导航菜单-->
- <div class="bodymenu">
-    <div class="mainnav">
-         <ul class="navmenu">
-        <li class="nav_0"><a href="http://www.12308.com" title="首页"><i></i>首页<span></span></a></li>
-        <li class="nav_1"><a href="http://www.12308.com/index/chepiao.html" title="汽车票预订"><i></i>汽车票预订<span></span></a></li>
-        <!--<li class="nav_2 ico"><a href="http://www.12308.com/huodong/index.html" tts="link_3316" title="春运特价票"><i></i>春运特价票<span></span></a></li>-->
-        <li class="nav_3"><a href="http://www.12308.com/news/index.html" title="资讯中心"><i></i>资讯中心<span></span></a></li>
-        <li class="nav_4"><a href="http://www.12308.com/help.html" title="客服中心"><i></i>客服中心<span></span></a></li>
-        <li class="nav_5"><a href="http://www.12308.com/baoche/index.html" title="我要包车"><i></i>我要包车<span></span></a></li>
-        </ul>
-        <div class="navuserbg"></div>
-       <ul id="login_content" class="navuser">
-	        <li id="login_menu" class="mytrip">
-               <a href="http://uc.12308.com" class="ushow">用户中心<em>图标</em></a>
-	           <div id="login_menubox" class="ubox">		        
-		        <ul>
-                   <li class=""><a href="http://uc.12308.com/order/usercenter/orderListAll.html" rel="nofollow">我的订单</a></li>
-                    <li class=""><a href="http://uc.12308.com/message/questionList.html" rel="nofollow">我的提问</a></li>
-                    <li class=""><a href="http://uc.12308.com/user/infoPage.html" rel="nofollow">个人资料</a></li>
-		        </ul>
-	        </div>
-	        </li>
-	       <li class="reg">
-	          <a href="http://uc.12308.com/register/registerPage.html" rel="nofollow" title="注册">注册</a>
-	        </li>
-	        <li class="out hide" style="display: none;">
-	          <a href="http://uc.12308.com/auth/logout.html" rel="nofollow" title="退出">退出</a>
-	        </li>
-	        <li class="go">
-              <span><a class="logLin" id="logLin" href="http://uc.12308.com" title="登录">登录</a></span>
-            </li>
-	       
-        </ul>
-    </div>
- </div>
-
+<%@include file="common/tablib.jsp" %>
 	<!--中间部份-->
 	<div class="h20"></div>
 	<div class="main-wrap">
@@ -105,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			        <i></i>
 			        <div class="left">
 			        <h2 id="t_msg">您的订单提交成功，请在10分钟内尽快付款，以免订单失效！</h2>
-			        <p>订单编号：<span>0020160428220742</span><span class="plr10">|</span>应付金额<b>64</b>元</p>
+			        <p>订单编号：<span>${tripOrder.toNumber }</span><span class="plr10">|</span>应付金额<b>${tripOrder.toPrice }</b>元</p>
 			        <p>支付剩余时间：<span class="time" id="t_time"></span></p>
 		        </div>
 	       </div>  
@@ -115,9 +51,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <table>
               <tbody><tr>
                <th>车票信息</th>
-                <td class="line">长沙市汽车西站 -- 常德</td>
-                	<td class="line18">座次：<span>高档空调  </span></td>
-                <td class="line18">发车时间:<span>2016-05-02 07:30</span></p>
+                <td class="line">${ticket.startStation.sName } -- ${ticket.endStation.sName }</td>
+                	<td class="line18">座次：<span>${ticket.goCarTypeName }  </span></td>
+                <td class="line18">发车时间:<span>${fn:substring(ticket.tStartTime,0,16)}</span></p>
                 </td>
               </tr>
             </tbody></table>
@@ -504,7 +440,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </ul>
            </div>
 	  <div class="btns">
-			<input type="button" value="下一步" class="btn_y200" id="confirtopay" name="confirtopay">
+			<a class="btn_y200" href="payServlet?orderNo=${orderNo}&issueNo=${tripOrder.issureNo}">支付</a>
 			
 	   </div>
    </div>

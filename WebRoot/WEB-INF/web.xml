@@ -139,4 +139,28 @@
   	<servlet-name>ToPayServlet</servlet-name>
   	<url-pattern>/toPayServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+  	<servlet-name>PayServlet</servlet-name>
+  	<servlet-class>cn.song.controler.PayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PayServlet</servlet-name>
+  	<url-pattern>/payServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>OrderListAllServlet</servlet-name>
+  	<servlet-class>cn.song.controler.OrderListAllServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>OrderListAllServlet</servlet-name>
+  	<url-pattern>/orderListAllServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>OrderDetailServlet</servlet-name>
+  	<servlet-class>cn.song.controler.OrderDetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>OrderDetailServlet</servlet-name>
+  	<url-pattern>/orderDetailServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

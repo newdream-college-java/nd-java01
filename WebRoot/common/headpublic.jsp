@@ -77,12 +77,7 @@
 					target="_blank">12308手机订票</a>
 			</div>
 		</div>
-<<<<<<< HEAD
-	</div>
-	<style>
-=======
 <style>
->>>>>>> branch '宋恒达-pro' of https://github.com/newdream-college-java/nd-java01.git
 .navmenu li.ico em {
 	position: absolute;
 	background: url("Images/ico.gif") no-repeat 0px 15px;
@@ -114,7 +109,7 @@
 	<div class="bodymenu">
 		<div class="mainnav">
 			<ul class="navmenu">
-				<li class="nav_0"><a href="index.html" title="首页"><i></i>首页<span></span></a></li>
+				<li class="nav_0"><a href="indexServlet" title="首页"><i></i>首页<span></span></a></li>
 				<li class="nav_1"><a href="chepiao.html" id="booking_menu"
 					onclick="javascript:_hmt.push(['_trackEvent', 'index_booking_menu', 'click', 'booking_menu']);"
 					title="汽车票预订"><i></i>汽车票预订<span></span></a></li>

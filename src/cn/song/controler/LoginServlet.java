@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 			user.setuPwd(pwd);
 			UserDao userDao = new UserDaoImpl();
 			if (userDao.login(user)) {
-				req.setAttribute("userid", userDao.selectIdByPhone(phone));
+				req.getSession().setAttribute("userid", userDao.selectIdByPhone(phone));
 				req.getSession().setAttribute("phone", phone);
 				req.getSession().setAttribute("pwd", pwd);
 				resp.sendRedirect("index.jsp");

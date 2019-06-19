@@ -12,7 +12,7 @@ public class TripOrder {
 	private int toUserId;
 	private int toNum;
 	private int toPrice;
-	private int issureId;
+	private String issureNo;
 	public int getToId() {
 		return toId;
 	}
@@ -79,10 +79,11 @@ public class TripOrder {
 	public void setToPrice(int toPrice) {
 		this.toPrice = toPrice;
 	}
-	public int getIssureId() {
-		return issureId;
+	public String getIssureNo() {
+		return issureNo;
 	}
-	public void setIssureId(int issureId) {
-		this.issureId = issureId;
+	public void setIssureNo(String issureNo) {
+		this.issureNo = issureNo;
 	}
+	
 }

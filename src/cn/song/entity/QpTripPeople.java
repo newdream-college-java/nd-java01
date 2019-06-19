@@ -4,7 +4,7 @@ public class QpTripPeople {
 	private String qtpName;
 	private String qtpPhone;
 	private String qtCardNo;
-	private int orderId;
+	private String  orderNo;
 	public String getQtpName() {
 		return qtpName;
 	}
@@ -24,11 +24,10 @@ public class QpTripPeople {
 	public void setQtpPhone(String qtpPhone) {
 		this.qtpPhone = qtpPhone;
 	}
-	public int getOrderId() {
-		return orderId;
+	public String getOrderNo() {
+		return orderNo;
 	}
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
 	}
-	
 }

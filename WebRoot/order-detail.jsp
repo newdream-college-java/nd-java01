@@ -1,8 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@include file="common/tablib.jsp" %>>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -85,59 +82,7 @@ function initQrcode(ticketCode,barCode){
 .navmenu li.ico a.cur{color:#0096ff;}
 .navmenu li.ico a:hover{color:#f60;}
 </style>
-<div class="bodyhead">
-  <div class="main-wrap">
-  <h1 class="logo"><a title="12308全国汽车票网" href="http://www.12308.com">12308全国汽车票网</a></h1>
-  <div class="headr">
-  <div class="toolkit">
-  	 <span class="a_mapp" target="_blank"><i class="to_mapp"></i><span>手机APP</span>
-     <div class="to_code_box"><div class="to_code_hd"><span class="arr"></span>
-     <div class="code_hd"><p>司机端下载</p><a href="http://qiye.12308.com/download.html" target="_blank"><img src="Picture/driver_code.png" width="94px" height="94px" /></a></div>
-     <div class="code_line"></div>
-     <div class="code_hd"><p>客户端下载</p><a href="http://app.12308.com/" target="_blank"><img src="Picture/clients_code.png" width="94px" height="94px"/></a></div>
-     </div></div></span>
-     <a href="http://qiye.12308.com" class="link a_ched" target="_blank"><i class="to_ched"></i><span>车队入驻</span></a>
-     <a href="http://weibo.com/12308com" class="link weibo" target="_blank"><i class="to_weibo"></i><span>微博</span></a>
-     <a href="http://app.12308.com/weixin.html" class="link weixin" target="_blank">
-     <i class="to_weixin"></i><span>微信</span>
-     <div class="to_code_box"><div class="to_code_hd"><span class="arr"></span>
-     <div class="code_hd"><p>扫描关注微信</p><img src="Picture/weixin_code.png" width="94px" height="94px"/></div>
-     </div></div></a>
-  </div>
-  <div class="handapp"><a title="12308司机端下载" href="http://qiye.12308.com/download.html" target="_blank">12308手机订票</a></div>
- </div>
-</div>
-
-<!--导航菜单-->
- <div class="bodymenu">
-    <div class="mainnav"> 
-        <ul class="navmenu">
-						<li class="nav_0">
-							<!--class="cur"-->
-							<a href="http://www.12308.com" title="首页" target="_blank">首页</a>
-						</li>
-						<li class="nav_1"><a href="http://www.12308.com/index/chepiao.html" title="汽车票预定" target="_blank">汽车票预定</a>
-						</li>
-						<li class="nav_2 ico"><a href="http://www.12308.com/huodong/wyindex.html" tts="link_3316" title="全国特价票"><i></i>全国特价票<span></span></a></li>
-						<li class="nav_3"><a href="http://www.12308.com/news/index.html" target="_blank" title="资讯中心">资讯中心</a>
-						</li>
-						<li class="nav_4"><a href="http://www.12308.com/help/help.html" title="客服中心"><i></i>客服中心<span></span></a></li>
-						<li class="nav_5"><a href="http://www.12308.com/baoche/index.html" title="我要包车"><i></i>我要包车<span></span></a></li>
-					</ul>
-					<div class="navuserbg"></div>
-        <ul class="navuser" id="login_content">
-			<li class="out">
-	          <a title="退出" rel="nofollow" href="http://www.12308.com/loginout.jsp">退出</a>
-	        </li>
-	        <li class="go">
-              <span><a class="name" href="#">
-								349959253@qq.com
-                 	 		</a></span>
-            </li>
-        </ul>
-             
-    </div>
- </div>
+<%@include file="common/headpublic.jsp" %>>
 </div><!--mystart-->
 
 		<div class="q_page">
@@ -277,16 +222,27 @@ function initQrcode(ticketCode,barCode){
 				<div class="flowstep_main"> 
 				<h4><span class="title">基本信息</span></h4>
 				<div class="pay-dialog">
-				<p class="title">订单编号：<span class="yellow">0020160428255726</span></p>				
+				<p class="title">订单编号：<span class="yellow">${orderListVo.tripOrder.toNumber }</span></p>				
 				<dl class="trade-detail-imfor">
 				    <dt class="imfor-icon">
 				    	<img src="Picture/gth.png">
 				    </dt>
 				    <dd class="imfor-title">订单状态：<span class="red">
-          	   		 订单关闭
-          	   		 
+          	   		 <c:if test="${orderListVo.tripOrder.toStatus==0 }">
+          	   		 	等待付款
+          	   		 </c:if>
+          	   		 <c:if test="${orderListVo.tripOrder.toStatus==2 }">
+          	   		 	预定成功
+          	   		 </c:if>
 				    </span></dd>
-				       <p class="f12 red"><a href="http://uc.12308.com/order/usercenter/againBook_3957863.html">再次预订</a></p></dd>
+				       <p class="f12 red"><a href="http://uc.12308.com/order/usercenter/againBook_3957863.html">
+				       <c:if test="${orderListVo.tripOrder.toStatus==0 }">
+          	   		 	付款
+          	   		 </c:if>
+          	   		 <c:if test="${orderListVo.tripOrder.toStatus==2 }">
+          	   		 	退款
+          	   		 </c:if>
+				       </a></p></dd>
 				</dl>
 				</div>
 			
@@ -302,18 +258,25 @@ function initQrcode(ticketCode,barCode){
 				              <th>支付金额</th>
 				               </tr></thead>
 				              <tbody><tr> 
-				              <td width="18%" class="pr10">长沙 -- 常德<br/>
-				                                  上车点： 长沙市汽车西站 <br/>
-				                                  下车点： 常德<br>2016-04-30&nbsp;08:10</td>
-				              <td width="15%" class="pr10">全价票：￥64.00 X 1<br>半价票：￥0.00 X 0</td>
+				              <td width="18%" class="pr10">${orderListVo.startStation.city } -- ${orderListVo.endStation.city }<br/>
+				                                  上车点： ${orderListVo.startStation.sName } <br/>
+				                                  下车点： ${orderListVo.endStation.sName }<br>${orderListVo.ticket.tStartTime }</td>
+				              <td width="15%" class="pr10">全价票：￥${orderListVo.ticket.tNowPrice } X ${orderListVo.tripOrder.toNum}<br>半价票：￥0.00 X 0</td>
 				              <td> &nbsp;&nbsp;--  </td>
-				              <td> <b class="yellow"> ￥64.0</b> </td>
+				              <td> <b class="yellow"> ￥${orderListVo.tripOrder.toPrice }</b> </td>
 				              <td><b class="yellow">  ￥0.00</b> </td>
-				              <td><b class="yellow">￥0.00</b></td>
+				              <td><b class="yellow">
+				              <c:if test="${orderListVo.tripOrder.toStatus==0 }">
+          	   		 	￥0.00
+          	   		 </c:if>
+          	   		 <c:if test="${orderListVo.tripOrder.toStatus==2 }">
+          	   		 	${orderListVo.ticket.tNowPrice*orderListVo.tripOrder.toNum }
+          	   		 </c:if>
+				              </b></td>
 				               </tr></tbody>
 				          </table>
 				<p class="titlep">保险信息</p>
-				
+				<c:if test="${orderListVo.inssure!=null }">
 				<table class="user_table detailstable">            
 				    <thead> <tr> <th width="10%" class="pr10">保险公司</th>
 				              <th width="24%">保单号</th>
@@ -323,31 +286,31 @@ function initQrcode(ticketCode,barCode){
 				              <th width="10%">状态</th> </tr> </thead>
 							    <tr>
 				              <td class="pr10">
-				                 免费保险                   
+				                 ${orderListVo.inssure.inCompany }                   
 				                				              </td>
-				              <td>10455031900237268080</td>
-				              <td>李大大/1</td>
-				              <td>43************5X</td>
-				              <td>18684858888</td>
+				              <td>${orderListVo.inssure.inPocicyNo }</td>
+				              <td>${user.tRealName }/1</td>
+				              <td>${user.tIdNumber }</td>
+				              <td>${user.uPhone }</td>
 				              <td>
-				              失败
+				              ${orderListVo.inssure.inPolicyStatus } 
 				              </td>
 				               </tr>
 					         <tbody>               
 						</tbody>
 				          </table>
-	
+				</c:if>
 	<div class="info_detail">
-			<p class="info" style="width:764px;"><b>1</b><span class="info1">姓名：李大大</span>
+			<p class="info" style="width:764px;"><b>1</b><span class="info1">姓名：${user.tRealName }</span>
 			<span class="info2">证件类型： 第二代身份证</span>
-			<span class="info3">43************5X</span>
+			<span class="info3">${user.tIdNumber}</span>
 		    <!--<span class="info4">成人（全价票）</span>-->
 		</p>
 	</div>
 				<div class="info_detail">
 				<p class="titlep">联系人信息</p>
-				<p class="info"><span class="info1">联系人：李大大 </span><span class="info2">手机：18684858888</span>
-				<span class="info3">身份证：43010119900605105X</span>
+				<p class="info"><span class="info1">联系人：${tripPeople.qtpName }</span><span class="info2">手机：${tripPeople.qtpPhone }</span>
+				<span class="info3">身份证：${tripPeople.qtCardNo}</span>
 				</p>
 				
 				</div>
