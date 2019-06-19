@@ -36,7 +36,7 @@
 	</script>
 </head>
 <body>
-	<c:if test="${phone==null}">
+	<c:if test="${userid==null}">
 	<script>alert("没有登录，无法查看，请登录");location.href="login.jsp"</script>
 	</c:if>
 <div class="q_pagecontainer">
@@ -209,7 +209,7 @@
 	       <li class="active"><a href="questionNewListServlet">已解决的问题(${fentiao1})</a></li>
 		</c:if>	
     </ul>
-    <p><a id="add_one_user" class="btn" href="http://www.12308.com/help/travellerAsk.html"><span>添加提问</span></a></p>
+    <p><a id="add_one_user" class="btn" href="traveller-ask.jsp"><span>添加提问</span></a></p>
     </div>
      <input type="hidden" id="hid_status" name="status" value="4"/>
       <div class="inner">    
@@ -225,8 +225,8 @@
               <td  class="pr10"> <a title="${chepiao.pContent}" href="questioningServlet?pId=${chepiao.pId}">${chepiao.pContent}</a></td>
               <td>${chepiao.pTime}</td>
               <td>
-              <a title="修改" href="http://uc.12308.com/message/questioning_100988.html">修改</a>|
-              <a title="删除" href="http://uc.12308.com/message/saveQuestioning_100988_4.html" >删除</a>
+              <a title="修改" href="updateQuestionServlet?pId=${chepiao.pId}">修改</a>|
+              <a title="删除" href="deleteQuestionServlet?pId=${chepiao.pId}&status=${chepiao.pStatus}" >删除</a>
               </td>
                </tr>
                </c:forEach>

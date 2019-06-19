@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.song.dao.BaseDao;
-import cn.song.dao.ChepiaoProblemDao;
+import cn.song.dao.ProblemDao;
 import cn.song.vo.ChepiaoProblem;
 
-public class ChepiaoProblemDaoImpl extends BaseDao implements ChepiaoProblemDao {
+public class ProblemDaoImpl extends BaseDao implements ProblemDao {
 
 	@Override
 	public List<ChepiaoProblem> getChepiaoProblem(int page, int pageSize) {
@@ -180,6 +180,86 @@ public class ChepiaoProblemDaoImpl extends BaseDao implements ChepiaoProblemDao 
 			closeAll();
 		}
 		return chepiaoProblem;
+	}
+
+	@Override
+	public boolean deleteProblem(int pId, int status) {
+		int result1 = 0;
+		int result2 = 0;
+		try {
+			getConnection();
+			conn.setAutoCommit(false);
+			String sql1 = "delete from problem where p_id = ?;";
+			pst = conn.prepareStatement(sql1);
+			pst.setInt(1, pId);
+			result1 = pst.executeUpdate();
+
+			String sql2 = "delete from problem_reply where pr_pt_id = ?;";
+			pst = conn.prepareStatement(sql2);
+			pst.setInt(1, pId);
+			result2 = pst.executeUpdate();
+			if (status == 1) {
+				if (result1 == result2 && result1 == 1 && result2 == 1) {
+					conn.commit();
+					return true;
+				}
+			} else if (status == 0) {
+				if (result1 == 1 && result2 == 0) {
+					conn.commit();
+					return true;
+				}
+			} else {
+				conn.rollback();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean addProblem(String pContent, String pSupply, int pTypeId, int uId) {
+		int result;
+		try {
+			getConnection();
+			String sql = "insert into problem values(null,?,?,?,now(),0,?);";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, pContent);
+			pst.setString(2, pSupply);
+			pst.setInt(3, pTypeId);
+			pst.setInt(4, uId);
+			result = pst.executeUpdate();
+			if (result == 1) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return false;
+	}
+
+	@Override
+	public int modifyAsk(String question, String supply, int pid) {
+		int result = -1;
+		try {
+			getConnection();
+			String sql = "update problem set p_content = ?,p_supply = ? where p_id = ?;";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, question);
+			pst.setString(2, supply);
+			pst.setInt(3, pid);
+			result = pst.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return result;
 	}
 
 }

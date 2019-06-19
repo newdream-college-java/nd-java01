@@ -15,7 +15,9 @@
   <filter-mapping>
     <filter-name>QustionFilter</filter-name>
     <!-- -过滤的规则：过滤所有的请求 -->
-	<url-pattern>/*</url-pattern>
+	<servlet-name>QuestionAllListServlet</servlet-name>
+	<servlet-name>QuestionNewListServlet</servlet-name>
+	<url-pattern>/traveller-ask.jsp</url-pattern>
   </filter-mapping>
 	<servlet>
   	<servlet-name>IndexServlet</servlet-name>
@@ -172,4 +174,38 @@
   	<servlet-name>ToPayServlet</servlet-name>
   	<url-pattern>/toPayServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>DeleteQuestionServlet</servlet-name>
+  	<servlet-class>cn.song.controler.DeleteQuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteQuestionServlet</servlet-name>
+  	<url-pattern>/deleteQuestionServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+  	<servlet-name>AddQuestionServlet</servlet-name>
+  	<servlet-class>cn.song.controler.AddQuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddQuestionServlet</servlet-name>
+  	<url-pattern>/addQuestionServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>UpdateQuestionServlet</servlet-name>
+  	<servlet-class>cn.song.controler.UpdateQuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateQuestionServlet</servlet-name>
+  	<url-pattern>/updateQuestionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>ModifyServlet</servlet-name>
+  	<servlet-class>cn.song.controler.ModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ModifyServlet</servlet-name>
+  	<url-pattern>/modifyServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

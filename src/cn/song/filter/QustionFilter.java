@@ -1,6 +1,7 @@
 package cn.song.filter;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -12,10 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import cn.song.dao.ChepiaoProblemDao;
-import cn.song.dao.UserDao;
-import cn.song.dao.impl.ChepiaoProblemDaoImpl;
-import cn.song.dao.impl.UserDaoImpl;
+import cn.song.dao.ProblemDao;
+import cn.song.dao.ProblemTypeDao;
+import cn.song.dao.impl.ProblemDaoImpl;
+import cn.song.dao.impl.ProblemTypeDaoImpl;
+import cn.song.entity.ProblemType;
 
 public class QustionFilter implements Filter {
 
@@ -31,13 +33,12 @@ public class QustionFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
-		String phone = (String) session.getAttribute("phone");
-		UserDao ud = new UserDaoImpl();
-		int uId = ud.getUidByUphone(phone);
+		int uId = (int) session.getAttribute("userid");
 		// 做点改进
-		ChepiaoProblemDao chepiaoList = new ChepiaoProblemDaoImpl();
+		ProblemDao chepiaoList = new ProblemDaoImpl();
 		int i = chepiaoList.getAllCountByProblem(uId);
-		System.out.println(i);
+		ProblemTypeDao problemTypeDao = new ProblemTypeDaoImpl();
+		List<ProblemType> proTypelist = problemTypeDao.selectProblemType();
 		int ye = 0;
 		if (i % 4 > 0) {
 			ye = i / 4 + 1;
@@ -64,7 +65,7 @@ public class QustionFilter implements Filter {
 		session.setAttribute("fentiao1", i1);
 		session.setAttribute("fenye2", ye2);
 		session.setAttribute("fentiao2", i2);
-		session.setAttribute("uId", uId);
+		session.setAttribute("proTypelist", proTypelist);
 		chain.doFilter(request, response);
 	}
 

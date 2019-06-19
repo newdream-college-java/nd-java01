@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.song.dao.ChepiaoProblemDao;
+import cn.song.dao.ProblemDao;
 import cn.song.dao.StationDao;
-import cn.song.dao.impl.ChepiaoProblemDaoImpl;
+import cn.song.dao.impl.ProblemDaoImpl;
 import cn.song.dao.impl.StationDaoImpl;
 import cn.song.entity.Station;
 import cn.song.vo.ChepiaoProblem;
@@ -49,7 +49,7 @@ public class ChepiaoServlet extends HttpServlet {
 		req.setAttribute("list2", list2);
 		// 新开通车站部分代码结束
 		// 问题列表开始
-		ChepiaoProblemDao chepiaoProblem = new ChepiaoProblemDaoImpl();
+		ProblemDao chepiaoProblem = new ProblemDaoImpl();
 		List<ChepiaoProblem> chepiaoProblemList = new ArrayList<ChepiaoProblem>();
 		chepiaoProblemList = chepiaoProblem.getChepiaoProblem(1, 5);
 		req.setAttribute("chepiaoProblemList", chepiaoProblemList);

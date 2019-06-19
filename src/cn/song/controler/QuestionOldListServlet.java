@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import cn.song.dao.ChepiaoProblemDao;
-import cn.song.dao.impl.ChepiaoProblemDaoImpl;
+import cn.song.dao.ProblemDao;
+import cn.song.dao.impl.ProblemDaoImpl;
 import cn.song.vo.ChepiaoProblem;
 
 public class QuestionOldListServlet extends HttpServlet {
@@ -28,7 +28,7 @@ public class QuestionOldListServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		String curpage = req.getParameter("curpage");
 		int ye = (int) session.getAttribute("fenye1");
-		int uId = (int) session.getAttribute("uId");
+		int uId = (int) session.getAttribute("userid");
 		int cpage = 1;
 		int pageSize = 4;
 
@@ -43,7 +43,7 @@ public class QuestionOldListServlet extends HttpServlet {
 		}
 
 		List<ChepiaoProblem> chepiao = new ArrayList<ChepiaoProblem>();
-		ChepiaoProblemDao chepiaoList = new ChepiaoProblemDaoImpl();
+		ProblemDao chepiaoList = new ProblemDaoImpl();
 		chepiao = chepiaoList.getChepiaoProblem(cpage, pageSize, 0, uId);
 		req.setAttribute("chepiao", chepiao);
 		req.setAttribute("cpage", cpage);

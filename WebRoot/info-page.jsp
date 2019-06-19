@@ -56,6 +56,42 @@
                 $(".select_li").selectbox();
 	    
 	  });
+	  function checkNull(obj){
+	  	if(obj.value==""){
+	  		document.getElementById("tishi").innerHTML="昵称不能为空！";
+	  		document.getElementById("tishi").style.color="red";
+	  	}else{
+	  		document.getElementById("tishi").innerHTML="";
+	  		document.getElementById("tishi").style.color="black";
+	  	}
+	  }
+	  function checkNull1(obj){
+	  	if(obj.value==""){
+	  		document.getElementById("shengri").innerHTML="生日不能为空！";
+	  		document.getElementById("shengri").style.color="red";
+	  	}else{
+	  		document.getElementById("shengri").innerHTML="";
+	  		document.getElementById("shengri").style.color="black";
+	  	}
+	  }
+	  function checkNull2(obj){
+	  	if(obj.value==""){
+	  		document.getElementById("xingbie").innerHTML="性别不能为空！";
+	  		document.getElementById("xingbie").style.color="red";
+	  	}else{
+	  		document.getElementById("xingbie").innerHTML="";
+	  		document.getElementById("xingbie").style.color="black";
+	  	}
+	  }
+	  function checkNull3(obj){
+	  	if(obj.value==""){
+	  		document.getElementById("yonghu").innerHTML="用户不能为空！";
+	  		document.getElementById("yonghu").style.color="red";
+	  	}else{
+	  		document.getElementById("yonghu").innerHTML="";
+	  		document.getElementById("yonghu").style.color="black";
+	  	}
+	  }
 	</script>
 	<style>
 		.navmenu li.ico i{background:url("Images/ico.gif") no-repeat 0px 15px;height:50px;left: 120px;top: -35px;width:65px;display:block;}
@@ -249,37 +285,38 @@
 									<form action="infoPageUpdateServlet" method="post">
 									<div class="fm-item pbot-15">
                                       <span class="fm-label"><label>昵称：</label></span>
-                                                    <input maxlength="45" type="text" value="" id="uNickname"  name="uNickname" class="i-input w200">
+                                                    <input maxlength="45" type="text" value="" id="uNickname"  name="uNickname" class="i-input w200" onblur="checkNull(this)">
                                            <div class="msg-box">
                                                 <div id="nickNameTip" class="msg-weak msg-inline msg-attention"><i></i>
-                                                    <label class="valid">请输入昵称</label>
+                                                    <label class="valid" id="tishi" style="display: inline">请输入昵称</label>
+                                                    
                                                 </div>
                                            </div>
                                     </div> 
                                     <div class="fm-item pbot-15">
                                       <span class="fm-label"><label>生日：</label></span>
-                                                    <input maxlength="45" type="text" value="" id="uBirthday"  name="uBirthday" class="i-input w200">
+                                                    <input maxlength="45" type="text" value="" id="uBirthday"  name="uBirthday" class="i-input w200" onblur="checkNull1(this)"/>
                                            <div class="msg-box">
                                                 <div id="nickNameTip" class="msg-weak msg-inline msg-attention"><i></i>
-                                                    <label class="valid">请输入生日</label>
+                                                    <label class="valid" id="shengri">请输入生日</label>
                                                 </div>
                                            </div>
                                     </div>
                                     <div class="fm-item pbot-15">
                                       <span class="fm-label"><label>性别：</label></span>
-                                                    <input maxlength="45" type="text" value="" id="uGender"  name="uGender" class="i-input w200">
+                                                    <input maxlength="45" type="text" value="" id="uGender"  name="uGender" class="i-input w200" onblur="checkNull2(this)"/>
                                            <div class="msg-box">
                                                 <div id="nickNameTip" class="msg-weak msg-inline msg-attention"><i></i>
-                                                    <label class="valid">请输入性别</label>
+                                                    <label class="valid" id="xingbie">请输入性别</label>
                                                 </div>
                                            </div>
                                     </div>
                                     <div class="fm-item pbot-15">
                                       <span class="fm-label"><label>用户：</label></span>
-                                                    <input maxlength="45" type="text" value="" id="uName"  name="uName" class="i-input w200">
+                                                    <input maxlength="45" type="text" value="" id="uName"  name="uName" class="i-input w200" onblur="checkNull3(this)"/>
                                            <div class="msg-box">
                                                 <div id="nickNameTip" class="msg-weak msg-inline msg-attention"><i></i>
-                                                    <label class="valid">请输入用户</label>
+                                                    <label class="valid" id="yonghu">请输入用户</label>
                                                 </div>
                                            </div>
                                     </div>  
