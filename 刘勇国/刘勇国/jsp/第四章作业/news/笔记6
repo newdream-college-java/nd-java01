@@ -1,0 +1,41 @@
+一、EL表达式     Express Language  表达式语言
+    作用：优化我们域中值的获取。
+    语法：${域范围.键}
+         取pageContext域中值：${pageContextScope.键}
+         取request域中值：${requestScope.键}
+         取session域中值：${sessionScope.键}
+         取application域中值：${applicationScope.键}
+    
+    
+  二、 没有写域范围时：取值的规则：首先到pageContext取，
+                                 如果没有,就到request中取，
+                                 如果没有，就到session中取，
+                                 如果没有，就到application中取.
+    
+三、对于值是对象，数组，集合的情况
+    情况1：值是对象
+            ${键.属性名} 或者 ${键['属性名']}
+      
+            注意：对象所属的类必须要写get方法和set方法，否则报错。
+      
+      情况2：值是数组
+            ${键[下标].属性名} 或者 ${键[下标]['属性名']}
+            注意：对象所属的类必须要写get方法和set方法，否则报错。
+        
+      情况3：值是Collection集合
+          ${键[下标].属性名} 或者 ${键[下标]['属性名']}
+            
+            注意：对象所属的类必须要写get方法和set方法，否则报错。
+        情况4：值是map集合
+           ${键.键.属性名} 或 ${键['键'].属性名} 或者 ${键['键']['属性名']}
+            
+            注意：对象所属的类必须要写get方法和set方法，否则报错。
+  四、el表达式中可以使用 
+        1.关系运算符
+        2.逻辑运算符
+        3.empty 操作 判断变量不存在
+  五、获取请求参数的值
+    之前：
+        <%String name = request.getParameter("name");  out.print(name); %>
+    现在：
+        ${param.name} 或者${paramValues.name}（复选框）
