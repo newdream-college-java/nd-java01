@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="tongyongsql"
+  id="myeclipse.1561280314311"
+  context-root="/tongyongsql"
+  j2ee-spec="5.0"
+  archive="tongyongsql.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
