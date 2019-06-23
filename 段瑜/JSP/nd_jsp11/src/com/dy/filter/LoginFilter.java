@@ -11,6 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class LoginFilter implements Filter{
 
@@ -22,20 +23,14 @@ public class LoginFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		HttpServletRequest req=(HttpServletRequest)request;
-		HttpServletResponse res = (HttpServletResponse) response;
-		if(req.getMethod().equalsIgnoreCase("post")){
-			req.setCharacterEncoding("utf-8");
+		HttpSession session=((HttpServletRequest)request).getSession();
+		String name= (String) session.getAttribute("uname");
+		String pwd= (String) session.getAttribute("pwd");
+		if(pwd!=null&&name!=null){
+			chain.doFilter(request, response);
 		}else{
-			Enumeration<String> parameterNames=req.getParameterNames();
-			while(parameterNames.hasMoreElements()){
-				String key=(String)parameterNames.nextElement();
-				String[] values=req.getParameterValues(key);
-				for(int i=0;i<values.length;i++){
-					values[i]=new String(values[i].getBytes("iso-8859-1"),"utf-8");
-					chain.doFilter(req, res);
-				}
-			}
+			((HttpServletResponse)response).sendRedirect("Myservlet.jsp");
+		}		
 	}
 
 	public void init(FilterConfig arg0) throws ServletException {

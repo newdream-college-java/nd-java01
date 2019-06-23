@@ -24,6 +24,6 @@ public class LoginServlet extends HttpServlet{
 		HttpSession session=req.getSession();
 		session.setAttribute("uname", name);
 		session.setAttribute("pwd", pwd);
-		resp.sendRedirect("/save/save.jsp");
+		resp.sendRedirect("save/save.jsp");
 	}
 }

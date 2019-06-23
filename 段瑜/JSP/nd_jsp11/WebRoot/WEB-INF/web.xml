@@ -6,6 +6,14 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name>nd_filter</display-name>
   <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.dy.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>EncodServlet</servlet-name>
     <servlet-class>com.dy.servlet.Encodeservlet</servlet-class>
   </servlet>
@@ -21,6 +29,15 @@
     <servlet-name>MyServlet</servlet-name>
     <url-pattern>/myServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>LikeServlet</servlet-name>
+    <servlet-class>com.dy.servlet.LikeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LikeServlet</servlet-name>
+    <url-pattern>/LikeServlet</url-pattern>
+  </servlet-mapping>
+  
    <filter>
     <filter-name>EncodeFilter</filter-name>
     <filter-class>com.dy.filter.EncodeFilter</filter-class>
@@ -37,8 +54,26 @@
   <filter-mapping>
   	<filter-name>Myfilter</filter-name>
     <!-- -过滤的规则：过滤所有的请求 -->
-     <url-pattern>/*</url-pattern> 
+     <url-pattern></url-pattern> 
   </filter-mapping>
+  <filter>
+  	<filter-name>LoginFilter</filter-name>
+    <filter-class>com.dy.filter.LoginFilter</filter-class>
+  </filter>	
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+    <!-- -过滤的规则：过滤所有的请求 -->
+     <url-pattern>/save/save.jsp</url-pattern> 
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+    <!-- -过滤的规则：过滤所有的请求 -->
+     <url-pattern>/save/save.jsp</url-pattern>   
+  </filter-mapping>
+  <filter>
+    <filter-name>LikeFilter</filter-name>
+    <filter-class>com.dy.filter.LikeFilter</filter-class>
+  </filter>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
