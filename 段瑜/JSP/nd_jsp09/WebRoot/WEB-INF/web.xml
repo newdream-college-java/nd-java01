@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    
+  </welcome-file-list>
+  <servlet>
+	<servlet-name>MyServlet</servlet-name>
+	<servlet-class>com.cc.MyServlet</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>ToselectServlet</servlet-name>
+	<servlet-class>com.cc.ToselectServlet</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>DoselectServlet</servlet-name>
+	<servlet-class>com.cc.DoselectServlet</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>OkselectServlet</servlet-name>
+	<servlet-class>com.cc.OkselectServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>DoselectServlet</servlet-name>
+	<url-pattern>/doselectServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>ToselectServlet</servlet-name>
+	<url-pattern>/ToselectServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>OkselectServlet</servlet-name>
+	<url-pattern>/OkselectServlet</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>MyServlet</servlet-name>
+	<url-pattern>/MyServlet</url-pattern>
+</servlet-mapping>
+<context-param>
+	<param-name>params</param-name>
+	<param-value>utf-8</param-value>
+</context-param>
+</web-app>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name>nd_filter</display-name>
+  <servlet>
+    <servlet-name>EncodServlet</servlet-name>
+    <servlet-class>com.dy.servlet.Encodeservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EncodServlet</servlet-name>
+    <url-pattern>/encodServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>com.dy.servlet.Myservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/myServlet</url-pattern>
+  </servlet-mapping>
+   <filter>
+    <filter-name>EncodeFilter</filter-name>
+    <filter-class>com.dy.filter.EncodeFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>EncodeFilter</filter-name>
+    <!-- -过滤的规则：过滤所有的请求 -->
+     <url-pattern></url-pattern> 
+  </filter-mapping>
+  <filter>
+  	<filter-name>Myfilter</filter-name>
+    <filter-class>com.dy.filter.Myfilter</filter-class>
+  </filter>	
+  <filter-mapping>
+  	<filter-name>Myfilter</filter-name>
+    <!-- -过滤的规则：过滤所有的请求 -->
+     <url-pattern>/*</url-pattern> 
+  </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
