@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  <servlet-name>DoLogin</servlet-name>
+  <servlet-class>servlet.DoLogin</servlet-class>
+  </servlet> 
+  
+   <servlet-mapping>
+    <servlet-name>DoLogin</servlet-name>
+    <url-pattern>/DoLogin</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  <servlet-name>DoRegist</servlet-name>
+  <servlet-class>servlet.DoRegist</servlet-class>
+  </servlet> 
+  
+   <servlet-mapping>
+    <servlet-name>DoRegist</servlet-name>
+    <url-pattern>/DoRegist</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  <servlet-name>DoGoodList</servlet-name>
+  <servlet-class>servlet.DoGoodList</servlet-class>
+  </servlet> 
+  
+   <servlet-mapping>
+    <servlet-name>DoGoodList</servlet-name>
+    <url-pattern>/DoGoodList</url-pattern>
+  </servlet-mapping>
+  
+ 	<servlet>
+ 	 <servlet-name>DoIndex</servlet-name>
+  	<servlet-class>servlet.DoIndex</servlet-class>
+  	</servlet> 
+  
+  	 <servlet-mapping>
+    <servlet-name>DoIndex</servlet-name>
+    <url-pattern>/DoIndex</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+ 	 <servlet-name>DoNewsInformation</servlet-name>
+  	<servlet-class>servlet.DoNewsInformation</servlet-class>
+  	</servlet> 
+  
+  	 <servlet-mapping>
+    <servlet-name>DoNewsInformation</servlet-name>
+    <url-pattern>/DoNewsInformation</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>DoProductView</servlet-name>
+    <url-pattern>/DoProductView</url-pattern>
+  </servlet-mapping>
+  
+ 	<servlet>
+ 	 <servlet-name>DoProductView</servlet-name>
+  	<servlet-class>servlet.DoProductView</servlet-class>
+  	</servlet> 
+  	
+  	 <servlet-mapping>
+    <servlet-name>DoNewsView</servlet-name>
+    <url-pattern>/DoNewsView</url-pattern>
+  </servlet-mapping>
+  
+ 	<servlet>
+ 	 <servlet-name>DoNewsView</servlet-name>
+  	<servlet-class>servlet.DoNewsView</servlet-class>
+  	</servlet> 
+  
+  
+</web-app>
