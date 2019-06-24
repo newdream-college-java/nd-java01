@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>使用className改变样式</title>
+		<style type="text/css">
+			#left {
+				background-image: url(images/left.jpg);
+				background-repeat: no-repeat;
+				height: 32px;
+				width: 10px;
+			}
+			
+			ul {
+				margin: 0px;
+				padding: 0px;
+				float: left;
+				list-style: none;
+			}
+			
+			li {
+				background-image: url(images/bg1.jpg);
+				background-repeat: no-repeat;
+				height: 32px;
+				width: 83px;
+				text-align: center;
+				line-height: 35px;
+				font-size: 14px;
+				color: white;
+				font-weight: bold;
+				float: left;
+			}
+			.li1{
+				background-image: url(images/bg2.jpg);
+				background-repeat: no-repeat;
+				height: 32px;
+				width: 83px;
+				text-align: center;
+				line-height: 35px;
+				font-size: 14px;
+				color: black;
+				font-weight: bold;
+				float: left;
+			}
+		</style>
+		<script type="text/javascript">
+			function interAndOut(){
+				var len=document.getElementsByTagName("li");
+				for(var i=0;i<len.length;i++){
+					len[i].onmouseover=function(){
+						this.className="li1"
+					}
+					len[i].onmouseout=function(){
+						this.className="li"
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body onload="interAndOut()">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+			<tr>
+				<td colspan="3"><img src="images/top.jpg" alt="logo" /></td>
+			</tr>
+			<tr>
+				<td id="left"></td>
+				<td style="width:664px;">
+					<ul>
+						<li>首 页</li>
+						<li>家用电器</li>
+						<li>手机数码</li>
+						<li>日用百货</li>
+						<li>书 籍</li>
+						<li>帮助中心</li>
+						<li>免费开店</li>
+						<li>全球咨询</li>
+					</ul>
+				</td>
+				<td><img src="images/search.jpg" alt="搜索" /></td>
+			</tr>
+		</table>
+
+	</body>
+
+</html>

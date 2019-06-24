@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		ul,li{
+			padding: 0px;
+			margin: 0px;
+			list-style-type: none;
+		}
+		p{
+			font-size: 16px;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript">
+		function hiddenOrshow(){
+			var a = document.getElementById("x");
+			if(a.style.display=="none"){
+				a.style.display="block";
+			}else{
+				a.style.display="none";
+			}
+
+		}
+	</script>
+</head>
+<body onload="hiddenOrshow()">
+	<p><img src="images/doc.gif" />树形菜单</p>
+	<button onclick="hiddenOrshow()">点我隐藏文学艺术</button>
+	<ul id="x" style="display: block;"><img src="images/fclose.gif">文学艺术
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>
