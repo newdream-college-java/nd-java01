@@ -9,10 +9,8 @@ public class Station {
 	private String sBus;// 途经公交
 	private String sOpenTime;// 开通时间
 	private String sImg;// 车站图片地址
-	private String city;//所在城市
-	private String isSelect;
-	
-	
+	private String city;// 所在城市
+	private String isSelect;// 始发站查询条件
 
 	public String getIsSelect() {
 		return isSelect;
@@ -25,10 +23,9 @@ public class Station {
 	public Station() {
 		super();
 	}
-	
-	public Station(int sId, String sName, String sIntroduction,
-			String sAddress, String sPhone, String sBus, String sOpenTime,
-			String sImg, String city) {
+
+	public Station(int sId, String sName, String sIntroduction, String sAddress, String sPhone, String sBus,
+			String sOpenTime, String sImg, String city) {
 		super();
 		this.sId = sId;
 		this.sName = sName;
@@ -40,7 +37,7 @@ public class Station {
 		this.sImg = sImg;
 		this.city = city;
 	}
-	
+
 	public int getsId() {
 		return sId;
 	}
@@ -115,25 +112,26 @@ public class Station {
 
 	@Override
 	public String toString() {
-		return "Station [city=" + city + ", sAddress=" + sAddress + ", sBus="
-				+ sBus + ", sId=" + sId + ", sImg=" + sImg + ", sIntroduction="
-				+ sIntroduction + ", sName=" + sName + ", sOpenTime="
-				+ sOpenTime + ", sPhone=" + sPhone + "]";
+		return "Station [city=" + city + ", sAddress=" + sAddress + ", sBus=" + sBus + ", sId=" + sId + ", sImg=" + sImg
+				+ ", sIntroduction=" + sIntroduction + ", sName=" + sName + ", sOpenTime=" + sOpenTime + ", sPhone="
+				+ sPhone + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated method stub
 		return 100;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
-		if(obj==this) {
+		if (obj == this) {
 			return true;
 		}
-		if(obj instanceof Station) {
-			obj=(Station)obj;
-			if(((Station) obj).getsName().equals(this.getsName())) {
+		if (obj instanceof Station) {
+			obj = obj;
+			if (((Station) obj).getsName().equals(this.getsName())) {
 				return true;
 			}
 		}

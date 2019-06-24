@@ -23,7 +23,7 @@
 
 
 	<link rel="stylesheet" href="Css/kkpager.css">	
-	<script type="text/javascript" src="Scripts/kkpager.js"></script>
+
 	
 	<script type="text/javascript">
 	
@@ -32,10 +32,11 @@
 	    $("#dd41").attr("class","active");
 
 	  });
+
 	</script>
 </head>
 <body>
-	<c:if test="${phone==null}">
+	<c:if test="${userid==null}">
 	<script>alert("没有登录，无法查看，请登录");location.href="login.jsp"</script>
 	</c:if>
 <div class="q_pagecontainer">
@@ -192,35 +193,72 @@
   <form method="post" action="http://uc.12308.com/message/questionList.html">
     <div class="tab_nav">                          
 	<ul>    
-		<li class="active"><a href="javascript:void(0)" onclick="tabChange('4');">全部提问(1)</a></li>
-        <li ><a href="javascript:void(0)" onclick="tabChange('1');">正在处理的问题(0)</a></li>
-        <li ><a href="javascript:void(0)" onclick="tabChange('2');">已解决的问题(0)</a></li>
+		<c:if test="${cS==1}">
+		   <li class="active"><a href="questionAllListServlet">全部提问(${zongtiao})</a></li>
+	       <li><a href="questionOldListServlet">正在处理的问题(${fentiao2})</a></li>
+	       <li ><a href="questionNewListServlet">已解决的问题(${fentiao1})</a></li>
+		</c:if>	
+		<c:if test="${cS==2}">
+		   <li><a href="questionAllListServlet">全部提问(${zongtiao})</a></li>
+	       <li class="active"><a href="questionOldListServlet">正在处理的问题(${fentiao2})</a></li>
+	       <li ><a href="questionNewListServlet">已解决的问题(${fentiao1})</a></li>
+		</c:if>	
+		<c:if test="${cS==3}">
+		   <li><a href="questionAllListServlet">全部提问(${zongtiao})</a></li>
+	       <li><a href="questionOldListServlet">正在处理的问题(${fentiao2})</a></li>
+	       <li class="active"><a href="questionNewListServlet">已解决的问题(${fentiao1})</a></li>
+		</c:if>	
     </ul>
-    <p><a id="add_one_user" class="btn" href="http://www.12308.com/help/travellerAsk.html"><span>添加提问</span></a></p>
+    <p><a id="add_one_user" class="btn" href="traveller-ask.jsp"><span>添加提问</span></a></p>
     </div>
      <input type="hidden" id="hid_status" name="status" value="4"/>
       <div class="inner">    
       	  
           <table class="user_table center_table">
               <thead><tr>
-              <th class="pr10" width="60%">${chepiao}</th>
+              <th class="pr10" width="60%"></th>
               <th width="20%">提问时间</th>
               <th width="20%">操作</th> </tr> </thead>
               <tbody>
+              <c:forEach var="chepiao" items="${chepiao}">
               <tr> 
-              <td  class="pr10"> <a title="退款流程" href="http://uc.12308.com/message/questioning_100988.html">退款流程</a></td>
-              <td></td>
+              <td  class="pr10"> <a title="${chepiao.pContent}" href="questioningServlet?pId=${chepiao.pId}">${chepiao.pContent}</a></td>
+              <td>${chepiao.pTime}</td>
               <td>
-              <a title="修改" href="http://uc.12308.com/message/questioning_100988.html">修改</a>|
-              <a title="删除" href="http://uc.12308.com/message/saveQuestioning_100988_4.html" >删除</a>
+              <a title="修改" href="updateQuestionServlet?pId=${chepiao.pId}">修改</a>|
+              <a title="删除" href="deleteQuestionServlet?pId=${chepiao.pId}&status=${chepiao.pStatus}" >删除</a>
               </td>
                </tr>
+               </c:forEach>
                </tbody>
           </table>
-<input type="hidden" id="totalPage" name="totalPage" value="1"/>
-<input type="hidden" id="totalResult" name="totalResult" value="1"/>
-<input type="hidden" id="currentPage" name="currentPage" value="1"/>
-<div id="kkpager" style="line-height:40px;"></div>
+<div id="kkpager" style="line-height:40px;">
+		<c:if test="${cS==1}">
+		   	<a class="disabled" href="questionAllListServlet?curpage=1">|&lt;</a>
+			<a class="disabled" href="questionAllListServlet?curpage=${cpage-1}">&lt;</a>
+			<span class="curr">${cpage}</span>
+			<a class="disabled" href="questionAllListServlet?curpage=${cpage+1}">&gt;</a>
+			<a class="disabled" href="questionAllListServlet?curpage=${zongye}">&gt;|</a>
+			<span class="normalsize">共${zongye}页/${zongtiao}条数据</span>
+		</c:if>
+		<c:if test="${cS==2}">
+			<a class="disabled" href="questionOldListServlet?curpage=1">|&lt;</a>
+			<a class="disabled" href="questionOldListServlet?curpage=${cpage-1}">&lt;</a>
+			<span class="curr">${cpage}</span>
+			<a class="disabled" href="questionOldListServlet?curpage=${cpage+1}">&gt;</a>
+			<a class="disabled" href="questionOldListServlet?curpage=${fenye2}">&gt;|</a>
+			<span class="normalsize">共${fenye2}页/${fentiao2}条数据</span>
+		</c:if>	
+		<c:if test="${cS==3}">
+		   	<a class="disabled" href="questionNewListServlet?curpage=1">|&lt;</a>
+			<a class="disabled" href="questionNewListServlet?curpage=${cpage-1}">&lt;</a>
+			<span class="curr">${cpage}</span>
+			<a class="disabled" href="questionNewListServlet?curpage=${cpage+1}">&gt;</a>
+			<a class="disabled" href="questionNewListServlet?curpage=${fenye1}">&gt;|</a>
+			<span class="normalsize">共${fenye1}页/${fentiao1}条数据</span>
+		</c:if>	
+	
+</div>
  </form>
 </div>
 </div>

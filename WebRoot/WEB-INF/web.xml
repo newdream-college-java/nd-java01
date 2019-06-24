@@ -4,11 +4,21 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>indexServlet</welcome-file>
 	</welcome-file-list>
 	
 	
-	
+	  <filter>
+    <filter-name>QustionFilter</filter-name>
+    <filter-class>cn.song.filter.QustionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>QustionFilter</filter-name>
+    <!-- -过滤的规则：过滤所有的请求 -->
+	<servlet-name>QuestionAllListServlet</servlet-name>
+	<servlet-name>QuestionNewListServlet</servlet-name>
+	<url-pattern>/traveller-ask.jsp</url-pattern>
+  </filter-mapping>
 	<servlet>
   	<servlet-name>IndexServlet</servlet-name>
   	<servlet-class>cn.song.controler.IndexServlet</servlet-class>
@@ -131,6 +141,31 @@
   	<servlet-name>QuestionAllListServlet</servlet-name>
   	<url-pattern>/questionAllListServlet</url-pattern>
   </servlet-mapping>
+
+    <servlet>
+  	<servlet-name>QuestionOldListServlet</servlet-name>
+  	<servlet-class>cn.song.controler.QuestionOldListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QuestionOldListServlet</servlet-name>
+  	<url-pattern>/questionOldListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>QuestionNewListServlet</servlet-name>
+  	<servlet-class>cn.song.controler.QuestionNewListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QuestionNewListServlet</servlet-name>
+  	<url-pattern>/questionNewListServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  	<servlet-name>QuestioningServlet</servlet-name>
+  	<servlet-class>cn.song.controler.QuestioningServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QuestioningServlet</servlet-name>
+  	<url-pattern>/questioningServlet</url-pattern>
+  	  </servlet-mapping>
   <servlet>
   	<servlet-name>ToPayServlet</servlet-name>
   	<servlet-class>cn.song.controler.ToPayServlet</servlet-class>
@@ -162,5 +197,39 @@
   <servlet-mapping>
   	<servlet-name>OrderDetailServlet</servlet-name>
   	<url-pattern>/orderDetailServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>DeleteQuestionServlet</servlet-name>
+  	<servlet-class>cn.song.controler.DeleteQuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteQuestionServlet</servlet-name>
+  	<url-pattern>/deleteQuestionServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+  	<servlet-name>AddQuestionServlet</servlet-name>
+  	<servlet-class>cn.song.controler.AddQuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddQuestionServlet</servlet-name>
+  	<url-pattern>/addQuestionServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>UpdateQuestionServlet</servlet-name>
+  	<servlet-class>cn.song.controler.UpdateQuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateQuestionServlet</servlet-name>
+  	<url-pattern>/updateQuestionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>ModifyServlet</servlet-name>
+  	<servlet-class>cn.song.controler.ModifyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ModifyServlet</servlet-name>
+  	<url-pattern>/modifyServlet</url-pattern>
   </servlet-mapping>
 </web-app>

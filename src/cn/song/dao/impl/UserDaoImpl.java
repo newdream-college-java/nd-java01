@@ -94,6 +94,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 				user.setuEmail(rs.getString("u_email"));
 				user.setuIsAdult(rs.getInt("u_is_adult"));
 				user.setuBirthday(rs.getString("u_birthday"));
+				user.setuMoney(rs.getInt("u_money"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,17 +172,38 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 	}
 
 	@Override
-	public int selectIdByPhone(String phone) {
-		// TODO Auto-generated method stub
-		int uId=-1;
+
+	public int getUidByUphone(String phone) {
+		int result = 0;
 		try {
 			getConnection();
-			String sql="select u_id from user where u_phone=?";
-			pst=conn.prepareCall(sql);
-			pst.setString(1,phone);
-			rs=pst.executeQuery();
-			if(rs.next()) {
-				uId=rs.getInt("u_id");
+			String sql = "select u_id from user where u_phone=?;";
+			pst = conn.prepareStatement(sql);
+			pst.setString(1, phone);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt("u_id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeAll();
+		}
+		return result;
+	}
+
+	@Override
+	public int selectIdByPhone(String phone) {
+		// TODO Auto-generated method stub
+		int uId = -1;
+		try {
+			getConnection();
+			String sql = "select u_id from user where u_phone=?";
+			pst = conn.prepareCall(sql);
+			pst.setString(1, phone);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				uId = rs.getInt("u_id");
 			}
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
@@ -189,9 +211,10 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			closeAll();
 		}
 		return uId;
+
 	}
 }

@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
-<%@include file="/common/tablib.jsp"%>
+<%@include file="common/tablib.jsp"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -12,14 +11,19 @@
 <link rel="stylesheet" href="Css/base.css" />
 <link rel="stylesheet" href="Css/help.css" />
 <link rel="stylesheet" href="Css/validate.css" />
-<script src="Scripts/require.js" data-main="http://cdn-resource-alias.12308.com/2015/js/common/help-main.js">
-
-</script> 
+<script src="Scripts/require.js" data-main="http://cdn-resource-alias.12308.com/2015/js/common/help-main.js"></script> 
+<script type="text/javascript">
+	function checkStatus(){
+		var num=document.getElementById("question_type").value;
+		if(num==-1){
+			alert("请选择问题类型后再提交！");
+			
+		}
+		
+	};
+</script>
 </head>
 <body>
-	<c:if test="${userid==null}">
-	<script>alert("没有登录，无法查看，请登录");location.href="login.jsp"</script>
-	</c:if>
 	<!--顶部公用-->
 <!--顶部公用-->
 <div class="bodyhead">
@@ -221,70 +225,15 @@
 								<li><a href="http://www.12308.com/help/complainAndAdvise.html">投诉建议</a></li>
 							</ul>
 							<div class="aq_content">
-<script type="text/javascript">
-var travelAsk = {
-	submit:function(){
-		var question = document.addHelp.question.value;
-		if(question==null||$.trim(question)==""){
-			$($(".msg-weak")[0]).css("display","block");
-			return;
-		}else{
-			$($(".msg-weak")[0]).css("display","none");
-		}
-		var desc = document.addHelp.desc.value;
-		var code = document.addHelp.code.value;
-		if(code==-1){
-			$($(".msg-weak")[1]).css("display","block");
-			return;
-		}else{
-			$($(".msg-weak")[1]).css("display","none");
-		}
-		var nick = document.addHelp.nick.value;
-		_obj.overlay.loadingShow();
-		$.ajax({
-			url : "http://www.12308.com/help/add.html",
-			type: 'POST',
-			data : {
-				question:question,
-				desc:desc,
-				code:code,
-				nick:nick
-			},
-			success : function(msg) {
-				_obj.overlay.loadingHide();
-				var jsonData = $.parseJSON(msg);
-				if(jsonData.rsCode=="0"){
-					var desc = "保存成功,我们会尽快处理您的疑问.";
-					var charLength = (desc+"").split("").length;
-					_obj.openDialog.show(0,charLength,desc);
-					//清空内容
-					$("#asktitle_input").val("");
-					$("#askinfo_area").val("");
-					$(".ask_select").val("-1");
-					$("#isanon").attr("checked",false);
-				}else{
-					var desc = jsonData.rsDesc;
-					var charLength = (desc+"").split("").length;
-					_obj.openDialog.show(1,charLength,desc);
-				}
-			},
-			error:function(){
-				_obj.overlay.loadingHide();
-				var desc = "保存失败,请稍后再试.";
-				var charLength = (desc+"").split("").length;
-				_obj.openDialog.show(1,charLength,desc);
-			}
-		});
-	}
-}
-</script>
+
 <div class="aq_con_b">
 	<div class="askfrom_b">
 		<h4>
 			<span class="left"><i class="i_ask left"></i>请把您的问题告诉我们</span><span class="c888 right f12">专业客服为您在线解答</span>
 		</h4>
-		<form action="addQuestionServlet" method="post" name="addHelp">
-		<input type="text" placeholder="请详细输入您的问题 ，会有助于你获得满意的解答。" name="question" class="ask_input" id="asktitle_input">
+		<form action="modifyServlet" method="post" name="addHelp">
+		<input name='problemid' type=hidden value="${pid}">
+		<input type="text" name="question" class="ask_input" id="asktitle_input" />
 		<div class="msg-info">
 			<div class="msg-weak msg-error" style="display: none;">
 				<i></i> <label class="valid">提示：请输入内容</label>
@@ -294,16 +243,11 @@ var travelAsk = {
 		<h4>
 			问题补充<span class="c888 f14"> （选填）</span>
 		</h4>
-		<textarea placeholder="如问题标题无法详细阐述你的问题，你可以在此补充。" name="desc" class="ask_input ask_text" id="askinfo_area"></textarea>
+		<textarea  name="desc" class="ask_input ask_text" id="askinfo_area" ></textarea>
 		<div class="h20"></div>
 		<div class="ask_bd">
 			<span class="left"> 
-				<select name="code" class="ask_select">
-								<option value="-1">选择分类</option>
-								<c:forEach var="proType" items="${proTypelist}">
-								<option value="${proType.ptId}">${proType.ptType}</option>
-								</c:forEach>
-				</select>
+				
 				<div class="msg-info">
 					<div class="msg-weak msg-error" style="display: none;">
 						<i></i> <label class="valid">提示：请选择分类</label>
@@ -311,7 +255,7 @@ var travelAsk = {
 				</div>
 			</span>
 			<div class="askbutton right">
-				<input type="submit" title="提交问题" rel="nofollow" class="btn_blue right" value="提交问题"/><span class="c888 right"><input type="checkbox" id="isanon" name="nick" value="1"><label>匿名</label></span>
+				<input type="submit" value="提交修改" class="btn_blue right" style="height: 41" />
 			</div>
 		</div>
 		</form>

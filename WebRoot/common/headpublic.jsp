@@ -77,7 +77,8 @@
 					target="_blank">12308手机订票</a>
 			</div>
 		</div>
-<style>
+	</div>
+	<style>
 .navmenu li.ico em {
 	position: absolute;
 	background: url("Images/ico.gif") no-repeat 0px 15px;
@@ -109,7 +110,7 @@
 	<div class="bodymenu">
 		<div class="mainnav">
 			<ul class="navmenu">
-				<li class="nav_0"><a href="indexServlet" title="首页"><i></i>首页<span></span></a></li>
+				<li class="nav_0"><a href="index.html" title="首页"><i></i>首页<span></span></a></li>
 				<li class="nav_1"><a href="chepiao.html" id="booking_menu"
 					onclick="javascript:_hmt.push(['_trackEvent', 'index_booking_menu', 'click', 'booking_menu']);"
 					title="汽车票预订"><i></i>汽车票预订<span></span></a></li>
@@ -126,7 +127,7 @@
 			<ul class="navuser" id="login_content">
 				<c:if test="${phone!=null }">
 					<li class="mytrip" id="login_menu"><a tltle="用户中心 "
-						class="ushow" href="http://uc.12308.com">用户中心<em>图标</em></a>
+						class="ushow" href="infoPageSelectServlet">用户中心<em>图标</em></a>
 						<div style="display: none;" class="ubox" id="login_menubox">
 							<ul>
 								<li class=""><a tltle="我的订单 " rel="nofollow"

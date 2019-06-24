@@ -22,6 +22,8 @@ public interface UserDao {
 	boolean updateEmail(String email, String phone);
 
 	boolean updatePWD(String confirm_password, String phone);
-	
+
+	int getUidByUphone(String phone);
+
 	int selectIdByPhone(String phone);
 }
