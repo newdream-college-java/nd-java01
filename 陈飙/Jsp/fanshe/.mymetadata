@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="fanshe"
+  id="myeclipse.1561105306043"
+  context-root="/fanshe"
+  j2ee-spec="5.0"
+  archive="fanshe.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
