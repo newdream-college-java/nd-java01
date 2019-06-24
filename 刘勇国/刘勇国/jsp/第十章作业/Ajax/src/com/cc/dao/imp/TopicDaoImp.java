@@ -1,0 +1,98 @@
+package com.cc.dao.imp;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import com.cc.dao.BaseDao;
+import com.cc.dao.TopicDao;
+public class TopicDaoImp extends BaseDao implements TopicDao {
+	public int save(String name) {	
+		Connection conn=null;
+		PreparedStatement st=null;
+		int result=-1;
+		try {
+			conn = BaseDao.getConn();
+			String sql="insert into topic values(null,?)";
+			st=conn.prepareStatement(sql);
+			st.setString(1,name);
+			result=st.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closeConn(null, conn, st);
+		}	
+		return result;
+	}
+	public boolean getName(String name) {
+		boolean falg=false;	
+		Connection conn=null;
+		PreparedStatement st=null;
+		ResultSet rs=null;
+		try {
+			conn = BaseDao.getConn();
+			StringBuffer sql=new StringBuffer("select * from Topic where tname=?");
+
+				st=conn.prepareStatement(sql.toString());
+				st.setString(1,name);
+				rs=st.executeQuery();
+			if(rs.next()){
+				falg=true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closeConn(rs, conn, st);
+		}	
+		return falg;
+	}
+
+	public List<String> list() {
+		List<String> alist=new ArrayList<String>();
+		Connection conn=null;
+		PreparedStatement st=null;
+		ResultSet rs=null;
+		try {
+			conn = BaseDao.getConn();
+			StringBuffer sql=new StringBuffer("select * from Topic");
+				st=conn.prepareStatement(sql.toString());
+				rs=st.executeQuery();
+				while(rs.next()){
+					alist.add(rs.getString("tname"));
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closeConn(rs,conn,st);
+		}	
+		return alist;
+	}
+	public int id(String name) {
+		int id=-1;
+		Connection conn=null;
+		PreparedStatement st=null;
+		ResultSet rs=null;
+		try {
+			conn = BaseDao.getConn();
+			String sql="select tid from topic where tname=?";
+			st=conn.prepareStatement(sql);
+			st.setString(1,name);
+			rs=st.executeQuery();
+			if(rs.next()){
+				id=rs.getInt("tid");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			closeConn(null, conn, st);
+		}	
+		return id;
+	}
+	public static void main(String[] args){
+		int id=new TopicDaoImp().save("¹³×Ó");
+		System.out.println(id);
+	}
+	
+	
+}
