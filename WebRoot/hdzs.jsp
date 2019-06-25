@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -28,10 +29,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="topall">
 	<div class="top-line">
     <div class="top-line-box">
-    <a>登录</a><a class="top-line-a-on">注册</a><form class="search-form"  id="search-form">
-	 		<input type="text" class="search-text" name="q" id="search_input" autocomplete="off" placeholder="请输入搜索关键字"/>
-	 		<input type="submit" class="search-button" value=""/>
-	 	</form>
+    <c:if test="${list[0].pcnuName!=null}">
+   		<a >退出登录</a>
+	   	<a href="dd_zl.jsp?">${list[0].pcnuName}</a>
+   	</c:if>
+   	<c:if test="${list[0].pcnuName==null}">
+    <a href="denglu.jsp">登录</a><a class="top-line-a-on" href="zhuce.jsp">注册</a>
+    </c:if>
+    <form class="search-form"  id="search-form" action="SearchServlet" method="post">
+		<input type="text" class="search-text" name="name" id="search_input" autocomplete="off" placeholder="请输入搜索关键字" value="${name}"/>
+		<input type="submit" class="search-button" value=""/>
+	</form>
         </div>
     </div>
     <div  style="clear:both;"></div>
@@ -42,11 +50,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <div class="nav">
   <ul>
-   <li ><a href="index.html">首页</a></li>
-    <li><a href="qzhd.html">亲子活动</a></li>
-    <li><a href="qzly-1.html">亲子旅游</a></li>
-    <li><a href="pw.html">票务</a></li>
-    <li class="wbg"><a href="hdzs.html">活动展示</a></li>
+   <li ><a href="IndexShowServlet">首页</a></li>
+    <li><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+    <li><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+    <li><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+    <li class="wbg"><a href="ActivityDisplayShowServlet">活动展示</a></li>
     <li><a>关于我们</a></li>
   </ul>
 </div>
@@ -80,49 +88,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <p><i>S</i><b>活动展示</b><span>show</span></p>
                     </div>
                  	<ul class="hdzs-main" >
-									<li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li class="last"><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li class="last"><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li class="last"><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li class="last"><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
+                 	<c:forEach var="pctasList" items="${pctasList }" varStatus="status">
+                 		<c:if test="${(status.index+1)%4!=0}">
+               				<li>									
+						</c:if>
+						<c:if test="${(status.index+1)%4==0}">					
+							<li class="last">								
+						</c:if>
+							<a href="ParentChildThemeParticularsShowServlet?pctid=${pctasList.pcnpctId}"><img src="${pctasList.pcnpctimgUrl }" width="236" height="185"/></a>					                                    
+							<span>${pctasList.pcnpctThemeName}</span>
+                             </li>
+                     </c:forEach>
 							<div style="clear:both;"></div>		
 					</ul>
                     <div class="page-normal">
-                <span class="page-current">1</span>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
-                <a href="#" class="page-next">下一页</a>
+                <c:if test="${page!=1}">
+		       <a href="ActivityDisplayShowServlet?curPage=1">首页</a>      
+		       <a href="ActivityDisplayShowServlet?curPage=${page-1}">上一页</a>
+	 		</c:if>      
+                <c:forEach var="i" begin="1" end="${count }" >
+                <c:if test="${page!=i }">
+                 <a href="ActivityDisplayShowServlet?curPage=${i }">${i }</a>
+                </c:if>
+               	<c:if test="${page==i }">
+                <span class="page-current"> ${i }</span>
+                </c:if>              
+                </c:forEach>
+			<c:if test="${page!=count}">
+       			<a href="ActivityDisplayShowServlet?curPage=${page+1}">下一页</a>
+       			<a href="ActivityDisplayShowServlet?curPage=${count}">末页</a>
+       		</c:if>  
                 
               
             </div>
@@ -133,12 +128,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--footer end-->
 <div class="footer-b">
         	<ul>
-            	<li><a href="index.html">首页</a></li>
-                <li><a href="qzhd.html">亲子活动</a></li>
-                <li><a href="qzly.html">亲子旅游</a></li>
-                <li><a href="index.html">区域活动</a></li>
-                <li><a href="pw.html">票务</a></li>
-                <li><a href="hdzs.html">活动展示</a></li>
+            	<li><a href="IndexShowServlet">首页</a></li>
+                <li><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+                <li><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+                <li><a href="ActivityDisplayShowServlet">区域活动</a></li>
+                <li><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+                <li><a href="ActivityDisplayShowServlet">活动展示</a></li>
                 <div style="clear:both;"></div>
             </ul>
             <p>	COPYRIGHT&nbsp;&nbsp;&nbsp;2015-2016&nbsp;&nbsp;&nbsp;版权所有：阿拉亲子&nbsp;浙IPC备14003668号-2</p>

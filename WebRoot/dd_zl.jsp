@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -31,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="login">
 			<div class="siderNav">
 				<ul class="topmenu" id="jq_topmenu">
-                <li class="first"><a href="index.html">首页</a>|<a>关于我们</a></li>
+                <li class="first"><a href="IndexShowServlet">&nbsp;首页</a>|<a>关于我们</a></li>
               
 				</ul>
 			</div>
@@ -50,38 +51,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="demo-left">
         <div class="demo-left-top">
         <p><img src="Picture/dingdan_03.jpg" /></p>
-        <h3>addasd</h3>
+        <h3>${list[0].pcnuName}</h3>
         </div>
         	<ul>
-            <li class="title2-on"><a >我的资料</a></li>
-            <li class=""><a >我的订单</a></li>
+
+            <li class="dd_zl.jsp"><a >我的资料</a></li>
+            <li class=""><a href="myorderListServlet?pcnuid=${list[0].pcnuId}">我的订单</a></li>
             <li class=""><a >意见反馈</a></li>		
             </ul>
         	</div>
         <div class="demo-right">
         <h2>个人资料</h2>
+ <form action="pcnuserUpdateServlet" method="post">      
             <table width="400" border="0" class="demo-table">
+            <input type="hidden" name="pcnuid" value="${list[0].pcnuId}">
   <tr>
     <td style="text-align:right">用户名</td>
-    <td>哈哈</td>
-    <td><a >[修改]</a></td>
+    <td><input type="text" name="uname" value="${list[0].pcnuName}"> </td>
+    <td><button type="submit" class="ele7">[修改]</button></td>
   </tr>
   <tr>
     <td style="text-align:right">密码</td>
-    <td>3165465</td>
-    <td><a class="ele7">[修改]</a></td>
+    <td><input type="text" name="pwd" value="${list[0].pcnuPassword }"></td>
+    <td><button type="submit" class="ele7">[修改]</button></td>
   </tr>
   <tr>
     <td style="text-align:right">手机号</td>
-    <td>12345678912</td>
-    <td><a>[修改]</a></td>
+    <td><input type="text" name="sms" value="${list[0].pcnuNumber}"></td>
+    <td><button type="submit" class="ele7">[修改]</button></td>
   </tr>
   <tr>
     <td style="text-align:right">邮箱</td>
-    <td>1564554@qq.com</td>
-    <td><a>[修改]</a></td>
+    <td><input type="text" name="email" value="${list[0].pcnuEmail }"></td>
+    <td><button type="submit" class="ele7">[修改]</button></td>
   </tr>
 </table>
+</form> 
 <div class="tsgl-top" id="blk7" style="display:none;">
  <a id="close7" class="closeBtn br ">×</a>
    					<div class="tsgl-top-p1"><label><span class="p1-text">当前密码</span><input name="" type="text" placeholder="请输入当前密码"/></label></div>
@@ -103,12 +108,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="footer-b">
         	<ul>
-            	<li><a href="index.html">首页</a></li>
-                <li><a href="qzhd.html">亲子活动</a></li>
-                <li><a href="qzly.html">亲子旅游</a></li>
-                <li><a href="index.html">区域活动</a></li>
-                <li><a href="pw.html">票务</a></li>
-                <li><a href="hdzs.html">活动展示</a></li>
+            	<li><a href="IndexShowServlet.java">首页</a></li>
+                <li><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+                <li><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+                <li><a href="ActivityDisplayShowServlet">区域活动</a></li>
+                <li><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+                <li><a href="ActivityDisplayShowServlet">活动展示</a></li>
                 <div style="clear:both;"></div>
             </ul>
             <p>	COPYRIGHT&nbsp;&nbsp;&nbsp;2015-2016&nbsp;&nbsp;&nbsp;版权所有：阿拉亲子&nbsp;浙IPC备14003668号-2</p>

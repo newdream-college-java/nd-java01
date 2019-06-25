@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -15,13 +17,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>阿拉亲子</title>
 
 <link rel="stylesheet" href="Content/qzhd-1.css" type="text/css" />
-
+<script type="text/javascript" src="Scripts/spinner.js"></script>
 <script type="text/javascript" src="Scripts/jquery1.42.min.js"></script>
 <script type="text/javascript" src="Scripts/jquery.superslide.2.1.1.js"></script>
 <script type="text/javascript" src="Scripts/public.js"></script>
 <script type="text/javascript" src="Scripts/jquery.spinner.js"></script>
 </head>
-
 <body>
 	
 	<div id="web">	
@@ -29,10 +30,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="topall">
 	<div class="top-line">
     <div class="top-line-box">
-    <a>登录</a><a class="top-line-a-on">注册</a><form class="search-form"  id="search-form">
-	 		<input type="text" class="search-text" name="q" id="search_input" autocomplete="off" placeholder="请输入搜索关键字"/>
+   <c:if test="${list[0].pcnuName!=null}">
+   		<a href="SignoutServlet">退出登录</a>
+	   	<a href="dd_zl.jsp?">${list[0].pcnuName}</a>
+   	</c:if>
+   	<c:if test="${list[0].pcnuName==null}">
+    <a href="denglu.jsp">登录</a><a class="top-line-a-on" href="zhuce.jsp">注册</a>
+    	</c:if>
+    <form class="search-form"  id="search-form" action="SearchServlet">
+	 		<input type="text" class="search-text" name="q" id="search_input" autocomplete="off" placeholder="请输入搜索关键字" onkeyup="upperCase(this)"/>
 	 		<input type="submit" class="search-button" value=""/>
-	 	</form>
+	</form>
         </div>
     </div>
     <div  style="clear:both;"></div>
@@ -43,81 +51,119 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <div class="nav">
   <ul>
-   <li ><a href="index.html">首页</a></li>
-    <li class="wbg"><a href="qzhd.html">亲子活动</a></li>
-    <li><a href="qzly-1.html">亲子旅游</a></li>
-    <li><a href="pw.html">票务</a></li>
-    <li ><a href="hdzs.html">活动展示</a></li>
+   <li ><a href="IndexShowServlet">首页</a></li>
+    
+    <li <c:if test="${coctpVo.pcnttId==1}">class="wbg"  </c:if>><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+    
+    <li <c:if test="${coctpVo.pcnttId==2}">class="wbg"  </c:if>><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+    <li <c:if test="${coctpVo.pcnttId==3}">class="wbg"  </c:if>><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+    <li><a href="ActivityDisplayShowServlet">活动展示</a></li>
     <li><a>关于我们</a></li>
   </ul>
 </div>
 		<div class="main">
 			
             <div class="main-top" >
-            <h2>新梦想少儿足球免费试踢啦！</h2>
+            <h2>${coctpVo.pcnpctThemeName }</h2>
             <div id="demo1" class="picBtnTop">
                 <div class="hd">
                     <ul>
-                        <li><img src="Picture/slide_03.jpg" /></li>
-                        <li><img src="Picture/slide_03.jpg" /></li>
-                        <li><img src="Picture/slide_03.jpg" /></li>
+                     <c:forEach var="themeImage" items="${themeImageList }">
+                        <li><img src="${themeImage.pcntiImagePath}" /></li>
+                   	</c:forEach>
                     </ul>
+                   
                 </div>
                 <div class="bd">
                     <ul>
+                    <c:forEach var="themeImage" items="${themeImageList }">
                         <li>
                             
-                            <div class="pic"><a href=""><img src="Picture/slide_03.jpg" /></a></div>
+                            <div class="pic"><a href=""><img src="${themeImage.pcntiImagePath}" /></a></div>
                             
                         </li>
-                        <li>
-                            
-                            <div class="pic"><a href=""><img src="Picture/slide_03.jpg" /></a></div>
-                            
-                        </li>
-                        <li>
-                            
-                            <div class="pic"><a href=""><img src="Picture/slide_03.jpg" /></a></div>
-                            
-                        </li>
+                      </c:forEach>
                     </ul>
                 </div>
 		</div>
-		<div class="table-right">
-        	<h1><b>￥</b>105.00</h1>
-            <span>推荐理由：魔法奇园是全国第一个沉浸式体感交互主题乐园，是全国最高端的高科技乐园，超越你的想象</span>
-            <span><img src="Picture/hd-n_06.jpg" />宁波市江东区<i style="font-style:normal; padding-left:50px;"><img src="Picture/hd-n_03_03.jpg" style="padding:5px 5px 0px 0px;" />自驾</i></span>
+		<div class="table-right" id="price_id">
+		<c:if test="${coctpVo.pcnttId==1}">
+        	<h1><b>￥</b>${goodsSpuValue.largePriceAndSmallPrice }.00</h1>
+        	<input type="hidden" value="${goodsSpuValue.largePriceAndSmallPrice }"/>
+        </c:if>
+        <c:if test="${coctpVo.pcnttId==2||coctpVo.pcnttId==3}">
+        	<h1><b>￥</b>${goodsSpuValue.adultPrice}.00</h1>
+        	<input type="hidden" value="${goodsSpuValue.adultPrice}"/>
+        </c:if>  
+            <span>推荐理由：${coctpVo.pcnpctReason}</span>
+            <span><img src="Picture/hd-n_06.jpg" />${coctpVo.pcnSite}<i style="font-style:normal; padding-left:50px;"><img src="Picture/hd-n_03_03.jpg" style="padding:5px 5px 0px 0px;" />${coctpVo.pcnpctTripMode}</i></span>
             <div class="table-right-box">
             <div class="table-right-b-t1">
             	<p>出行日期：</p>
-                <span class="table-span">8月15日（一日游）</span>
-                <span>8月15日（一日游）</span>
+               
+                
+     <c:set var="now" value="<%=new java.util.Date()%>" />
+     <c:forEach var="i" begin="0" end="1">       
+     <fmt:formatDate value="${date[i]}" pattern="MM月dd日" var="d" />
+
+       <span>${d}（${coctpVo.pcnpctTravelDays}）</span>
+       </c:forEach>   
+                
+               
                 <div style="clear:both;"></div>
             </div>
             <div style="clear:both;"></div>
             <div class="table-right-b-t2">
-            	<p>出行日期：</p>
+            	<p>价格：</p>
                	<div class="table-right-b-t2-box">
+               	
                 <div class="table-right-b-t2-m">
-                <div id="d" class="Spinner"></div>
-                <b>成人</b><i>￥80</i>
-                <div style="clear:both;"></div>
+                 <c:if test="${coctpVo.pcnttId==1}">
+                <div id="" class="Spinner">
+                	<a class="DisDe" onclick="reloadPrice(this,false)"><i>-</i></a>
+                	<input class="Amount" value="1" maxlength="5"/>
+                	<a class="Increase" onclick="reloadPrice(this,true)"><i>+</i></a>
                 </div>
+                
+               
+                <b>一大一小</b><i>￥${goodsSpuValue.largePriceAndSmallPrice }</i>
+                <input type="hidden" value="${goodsSpuValue.largePriceAndSmallPrice }"/>
+               
+                </c:if>
+                <div style="clear:both;"></div>
+                 
+                </div>
+                
 				<div class="table-right-b-t2-m">
-                <div id="d1" class="Spinner"></div>
-                <b>一大一小</b><i>￥80</i>
+				<c:if test="${coctpVo.pcnttId==2||coctpVo.pcnttId==3}">
+                <div id="" class="Spinner">
+                	<a class="DisDe" onclick="reloadPrice(this,false)"><i>-</i></a>
+                	<input class="Amount" value="1" maxlength="5" id="number_id"/>
+                	<a class="Increase" onclick="reloadPrice(this,true)"><i>+</i></a>
+                </div>
+                </c:if>
+                <c:if test="${coctpVo.pcnttId==1}">
+                <div id="" class="Spinner">
+                	<a class="DisDe" onclick="reloadPrice(this,false)"><i>-</i></a>
+                	<input class="Amount" value="0" maxlength="5" id="number_id"/>
+                	<a class="Increase" onclick="reloadPrice(this,true)"><i>+</i></a>
+                </div>
+                </c:if>
+                <b>成人</b><i>￥${goodsSpuValue.adultPrice}</i>
+                <input type="hidden" value="${goodsSpuValue.adultPrice}"/>
                 <div style="clear:both;"></div>
                 </div>
                 <div class="table-right-b-t2-m">
-                <div id="d2" class="Spinner"></div>
-                <b>成人</b><i>￥80</i>
+                <div id="" class="Spinner">
+               	 	<a class="DisDe" onclick="reloadPrice(this,false)"><i>-</i></a>
+                	<input class="Amount" value="0" maxlength="5"/>
+                	<a class="Increase" onclick="reloadPrice(this,true)"><i>+</i></a>
+                	</div>
+                <b>儿童</b><i>￥${goodsSpuValue.childrenPrice}</i>
+                <input type="hidden" value="${goodsSpuValue.childrenPrice}"/>
                 <div style="clear:both;"></div>
                 </div>
-                <div class="table-right-b-t2-m">
-                <div id="d3" class="Spinner"></div>
-                <b>一大一小</b><i>￥80</i>
-                <div style="clear:both;"></div>
-                </div>
+               
                 <div style="clear:both;"></div>
                 </div>
             </div>
@@ -141,43 +187,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
             <div class="content2-main-r">
             <img src="Picture/hd-n_03.jpg" width="100%"/>
+            <c:forEach var="recommen" items="${recommendList }">
             	<p>
-                <img src="Picture/index_16.jpg"/>
-                <span>杭州烂苹果乐园</span>
+                <img src="${recommen.pcnpctimgUrl }"/>
+                <span>${recommen.pcnpctThemeName}</span>
                 </p>
-                <p>
-                <img src="Picture/index_16.jpg"/>
-                <span>杭州烂苹果乐园</span>
-                </p>
-                <p>
-                <img src="Picture/index_16.jpg"/>
-                <span>杭州烂苹果乐园</span>
-                </p>
+           
+             </c:forEach>
             </div>
 			<div class="bd">
 				
                
 				
 				<ul>
-					<p>宁波西溪水上世界是宁波最大、最先进、最安全、水上游乐项目最多的水上世界。园内有惊险刺激的巨兽碗，儿童池，游泳池，皮筏滑梯，高速滑梯，环型漂流河，合家欢喜池，三彩竞赛滑梯，具保健功能的水疗五星池，具亚热带风情的休息亭及宁波地区最大海浪池。<br />
-
-　　为了让游客真正体验顶级的水上世界，水上世界为广大市民带来了众多的惊喜体验，小朋友可以和爸爸妈妈同时体验水的乐趣，增进亲情，几位好友可以同时体验水的激情，增进友情，水上世界不仅是一个好玩的场所，更是一个亲情友情的释放地。水上世界为了让广大市民在盛夏有不同的水体验，在整体设计上下了一番苦心，每个设备带给每位游客的体验感觉是截然不同，有的体验落差带给游客随浪花飞流直下的感受，有的带给游客随着水卷入万丈漩涡的感受，造浪池的9种不同海浪会带给您不一样的感受，让游客仿佛置身于大海之中，最长的漂流河给游
-客带来舒适享受的浪漫之旅，最大的宝贝水城给小朋友一个不一样的童话水世界。</p>
-<span><img src="Picture/hd-n_07.jpg" /><span>
+					<p>${coctpVo.introductionContent}</p>
+<span><img src="${coctpVo.introductionContentImg}" /><span>
 				</ul>
                 <ul>
-					<p>宁波西溪水上世界是宁波最大、最先进、最安全、水上游乐项目最多的水上世界。园内有惊险刺激的巨兽碗，儿童池，游泳池，皮筏滑梯，高速滑梯，环型漂流河，合家欢喜池，三彩竞赛滑梯，具保健功能的水疗五星池，具亚热带风情的休息亭及宁波地区最大海浪池。<br />
-
-　　为了让游客真正体验顶级的水上世界，水上世界为广大市民带来了众多的惊喜体验，小朋友可以和爸爸妈妈同时体验水的乐趣，增进亲情，几位好友可以同时体验水的激情，增进友情，水上世界不仅是一个好玩的场所，更是一个亲情友情的释放地。水上世界为了让广大市民在盛夏有不同的水体验，在整体设计上下了一番苦心，每个设备河给游
-客带来舒适享受的浪漫之旅，最大的宝贝水城给小朋友一个不一样的童话水世界。</p>
-<span><img src="Picture/hd-n_07.jpg" /><span>
+					<p>${coctpVo.expenseContent}</p>
+<span><img src="${coctpVo.expenseContentImg}" /><span>
 				</ul>
                 <ul>
-					<p>宁波西溪水上世界是宁波最大、最先进、最安全、水上游乐项目最多的水上世界。园内有惊险刺激的巨兽碗，儿童池，游泳池，皮筏滑梯，高速滑梯，环型漂流河，合家欢喜池，三彩竞赛滑梯，具保健功能的水疗五星池，具亚热带风情的休息亭及宁波地区最大海浪池。<br />
-
-　
-客带来舒适享受的浪漫之旅，最大的宝贝水城给小朋友一个不一样的童话水世界。</p>
-<span><img src="Picture/hd-n_07.jpg" /><span>
+					<p>${coctpVo.trafficRouteContent}</p>
+<span><img src="${coctpVo.trafficRouteContentImg}" /><span>
 				</ul>
                 
 			</div>
@@ -194,12 +226,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--footer end-->
 <div class="footer-b">
         	<ul>
-            	<li><a href="index.html">首页</a></li>
-                <li><a href="qzhd.html">亲子活动</a></li>
-                <li><a href="qzly.html">亲子旅游</a></li>
-                <li><a href="index.html">区域活动</a></li>
-                <li><a href="pw.html">票务</a></li>
-                <li><a href="hdzs.html">活动展示</a></li>
+            	<li><a href="IndexShowServlet">首页</a></li>
+                <li><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+                <li><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+                <li><a href="ActivityDisplayShowServlet">区域活动</a></li>
+                <li><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+                <li><a href="ActivityDisplayShowServlet">活动展示</a></li>
                 <div style="clear:both;"></div>
             </ul>
             <p>	COPYRIGHT&nbsp;&nbsp;&nbsp;2015-2016&nbsp;&nbsp;&nbsp;版权所有：阿拉亲子&nbsp;浙IPC备14003668号-2</p>

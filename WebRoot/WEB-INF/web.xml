@@ -13,6 +13,73 @@
     <servlet-name>ParentChildThemeTicketingShowServlet</servlet-name>
     <servlet-class>com.yb.servlet.ParentChildThemeTicketingShowServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ParentChildThemeParticularsShowServlet</servlet-name>
+    <servlet-class>com.yb.servlet.ParentChildThemeParticularsShowServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ParentChildThemeTravelServlet</servlet-name>
+    <servlet-class>com.yb.servlet.ParentChildThemeTravelServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>com.yb.servlet.SearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ActivityDisplayShowServlet</servlet-name>
+    <servlet-class>com.yb.servlet.ActivityDisplayShowServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>IndexShowServlet</servlet-name>
+    <servlet-class>com.yb.servlet.IndexShowServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PcnuseListServlet</servlet-name>
+  	<servlet-class>com.yb.servlet.PcnuseListServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PcnuserSaveServlet</servlet-name>
+  	<servlet-class>com.yb.servlet.PcnuserSaveServlet</servlet-class>
+  </servlet>
+    <servlet>
+  	<servlet-name>PcnuserUpdateServlet</servlet-name>
+  	<servlet-class>com.yb.servlet.PcnuserUpdateServlet</servlet-class>
+  </servlet>
+    <servlet>
+  	<servlet-name>PcnuserSelectServlet</servlet-name>
+  	<servlet-class>com.yb.servlet.PcnuserSelectServlet</servlet-class>
+  </servlet>
+    <servlet>
+  	<servlet-name> MyorderListServlet</servlet-name>
+  	<servlet-class>com.yb.servlet.MyorderListServlet</servlet-class>
+  </servlet>
+    <servlet>
+  	<servlet-name> DetailsListServlet</servlet-name>
+  	<servlet-class>com.yb.servlet.DetailsListServlet</servlet-class>
+  </servlet>
+    <servlet>
+  	<servlet-name> CreateCodeServlet</servlet-name>
+  	<servlet-class>com.yb.servlet.CreateCodeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SignoutServlet</servlet-name>
+    <servlet-class>com.yb.servlet.SignoutServlet</servlet-class>
+  </servlet>
+
+
+
 
 
   <servlet-mapping>
@@ -22,6 +89,58 @@
   <servlet-mapping>
     <servlet-name>ParentChildThemeTicketingShowServlet</servlet-name>
     <url-pattern>/ParentChildThemeTicketingShowServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ParentChildThemeParticularsShowServlet</servlet-name>
+    <url-pattern>/ParentChildThemeParticularsShowServlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>ParentChildThemeTravelServlet</servlet-name>
+    <url-pattern>/ParentChildThemeTravelServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ActivityDisplayShowServlet</servlet-name>
+    <url-pattern>/ActivityDisplayShowServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IndexShowServlet</servlet-name>
+    <url-pattern>/IndexShowServlet</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+  	<servlet-name>PcnuseListServlet</servlet-name>
+  	<url-pattern>/pcnuseListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PcnuserSaveServlet</servlet-name>
+  	<url-pattern>/pcnuserSaveServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PcnuserUpdateServlet</servlet-name>
+  	<url-pattern>/pcnuserUpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PcnuserSelectServlet</servlet-name>
+  	<url-pattern>/pcnuserSelectServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name> MyorderListServlet</servlet-name>
+  	<url-pattern>/myorderListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name> DetailsListServlet</servlet-name>
+  	<url-pattern>/detailsListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CreateCodeServlet</servlet-name>
+  	<url-pattern>/createCodeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SignoutServlet</servlet-name>
+    <url-pattern>/SignoutServlet</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

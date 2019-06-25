@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="login">
 			<div class="siderNav">
 				<ul class="topmenu" id="jq_topmenu">
-                <li class="first"><a href="index.html">首页</a>|<a>关于我们</a></li>
+                <li class="first"><a href="IndexShowServlet">首页</a>|<a>关于我们</a></li>
               
 				</ul>
 			</div>
@@ -61,8 +61,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h3>addasd</h3>
         </div>
         	<ul>
-            <li class="title2"><a href="myziliao.html">我的资料</a></li>
-            <li class="title2"><a href="mydingdan.html">我的订单</a></li>
+            <li class="title2"><a href="dd_zl.jsp">我的资料</a></li>
+            <li class="title2"><a href="myorderListServlet">我的订单</a></li>
             <li class="title2"><a href="#">意见反馈</a></li>		
             </ul>
         	</div>
@@ -78,68 +78,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </tr>
             </table>
         </div>
+        <c:forEach var="list" items="${Mylist}">
         <div style="clear:both;"></div>
         <div  class="tb-min" >
-         <p class="tb-title2">2015/7/7<span>订单号：14454545645989</span></p>
+         <p class="tb-title2">${list.pcni_time}<span>订单号：${list.pcni_order_number}</span></p>
        
         	 <table width="100%" border="1"class="tb-title1" >
            
               <tr >
-                <td class="ddc" width="40%"><a>新梦想少儿足球免费试踢啦！</a></td>
-                <td class="ddc" width="17%" ><p>成人，1人，￥80/人</p><p>儿童，1人，￥80/人</p></td>
-                <td class="ddc" width="8%" >2</td>
-                <td class="ddc" width="20%" >100.00</td>
-                <td class="ddc" width="15%"><p>交易完成</p><p>查看详情</p></td>
-              </tr>
-              <tr >
-                <td class="ddc" width="40%"><a>新梦想少儿足球免费试踢啦！</a></td>
-                <td class="ddc" width="17%" ><p>成人，1人，￥80/人</p><p>儿童，1人，￥80/人</p></td>
-                <td class="ddc" width="8%" >2</td>
-                <td class="ddc" width="20%" >100.00</td>
-                <td class="ddc" width="15%"><p>交易完成</p><p>查看详情</p></td>
+                <td class="ddc" width="40%"><a>${list.pcnpct_theme_name}</a></td>
+                <td class="ddc" width="17%" ><p>${list.pcngs_name},￥${list.pcngsv_value}/人</p></td>
+                <td class="ddc" width="8%" >${list.pcnpt_quantity}</td>
+                <td class="ddc" width="20%" >${list.pcnpt_order_amount}</td>
+                <td class="ddc" width="15%"><p><c:if test="${list.pcni_transaction_status==1}">交易完成</c:if>
+                							<c:if test="${list.pcni_transaction_status==2}">交易未完成</c:if>
+                							</p><a href="detailsListServlet?id=${list.pcni_id}">查看详情</a></td>
               </tr>
 			</table>
         </div>
-        <div style="clear:both;"></div>
-         <div  class="tb-min" >
-         <p class="tb-title2">2015/7/7<span>订单号：1465646654989</span></p>
-       
-        	 <table width="100%" border="1"class="tb-title1" >
-           
-              <tr >
-                <td class="ddc" width="40%"><a>新梦想少儿足球免费试踢啦！</a></td>
-                <td class="ddc" width="17%" ><p>成人，1人，￥80/人</p><p>儿童，1人，￥80/人</p></td>
-                <td class="ddc" width="8%" >2</td>
-                <td class="ddc" width="20%" >100.00</td>
-                <td class="ddc" width="15%"><p>交易完成</p><p>查看详情</p></td>
-              </tr>
-			</table>
-        </div>
-        <div style="clear:both;"></div>
-        <div  class="tb-min" >
-         <p class="tb-title2">2015/7/7<span>订单号：1465646654989</span></p>
-       
-        	 <table width="100%" border="1"class="tb-title1" >
-           
-              <tr >
-                <td class="ddc" width="40%"><a>新梦想少儿足球免费试踢啦！</a></td>
-                <td class="ddc" width="17%" ><p>成人，1人，￥80/人</p><p>儿童，1人，￥80/人</p></td>
-                <td class="ddc" width="8%" >2</td>
-                <td class="ddc" width="20%" >100.00</td>
-                <td class="ddc" width="15%"><p>交易完成</p><p>查看详情</p></td>
-              </tr>
-			</table>
-        </div>
+        </c:forEach>
       <div style="clear:both;"></div>
           <div class="page-normal">
-                <span class="page-current">1</span>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
-                <a href="#" class="page-next">下一页</a>
+          		<c:if test="${apg==1}">
+                <a href="myorderListServlet?apg=1" class="page-next">上一页</a>
+                </c:if>
+                <c:if test="${apg!=1}">
+                <a href="myorderListServlet?apg=${apg-1}" class="page-next">上一页</a>
+                </c:if>
+                <a <c:if test="${apg==1}">class="page-current"</c:if> href="myorderListServlet?apg=1">1</a>
+                <a <c:if test="${apg==2}">class="page-current"</c:if> href="myorderListServlet?apg=2">2</a>
+                <a <c:if test="${apg==3}">class="page-current"</c:if> href="myorderListServlet?apg=3">3</a>
+                <a <c:if test="${apg==4}">class="page-current"</c:if> href="myorderListServlet?apg=4">4</a>
+                <a <c:if test="${apg==5}">class="page-current"</c:if> href="myorderListServlet?apg=5">5</a>
+                <a <c:if test="${apg==6}">class="page-current"</c:if> href="myorderListServlet?apg=6">6</a>
+                <a <c:if test="${apg==7}">class="page-current"</c:if> href="myorderListServlet?apg=7">7</a>
+                <c:set var="a" value="${count}"></c:set>
+                <c:if test="${apg <a}">
+                <a href="myorderListServlet?apg=${apg+1}" class="page-next">下一页</a>
+                </c:if>
+                 <c:if test="${apg == a}">
+                <a href="myorderListServlet?apg=${count}" class="page-next">下一页</a>
+                </c:if>
             </div>
         </div>
             <div style="clear:both;"></div>

@@ -1,23 +1,25 @@
 package com.yb.vo;
 
+import java.util.Date;
+
 public class ParentChildThemeTicketingShowVo {
 	private int pcnpctId;
 	private String pcnThemeName;
-	private String pcnStartTime;
-	private String pcnEndTime;
+	private Date pcnStartTime;
+	private Date pcnEndTime;
 	private int pcnStatus;
 	private String pcnSite;
 	private int pcnMerchantActivity;
 	private String imgUrl;
-	private int counterPrice;
-	private int netPurchasing;
+	private int adultPrice;
+	private int storePrice;
 	public ParentChildThemeTicketingShowVo() {
 	
 	}
 	public ParentChildThemeTicketingShowVo(int pcnpctId, String pcnThemeName,
-			String pcnStartTime, String pcnEndTime, int pcnStatus,
+			Date pcnStartTime, Date pcnEndTime, int pcnStatus,
 			String pcnSite, int pcnMerchantActivity, String imgUrl,
-			int counterPrice, int netPurchasing) {
+			int adultPrice, int storePrice) {
 		super();
 		this.pcnpctId = pcnpctId;
 		this.pcnThemeName = pcnThemeName;
@@ -27,8 +29,8 @@ public class ParentChildThemeTicketingShowVo {
 		this.pcnSite = pcnSite;
 		this.pcnMerchantActivity = pcnMerchantActivity;
 		this.imgUrl = imgUrl;
-		this.counterPrice = counterPrice;
-		this.netPurchasing = netPurchasing;
+		this.adultPrice = adultPrice;
+		this.storePrice = storePrice;
 	}
 	public int getPcnpctId() {
 		return pcnpctId;
@@ -42,16 +44,16 @@ public class ParentChildThemeTicketingShowVo {
 	public void setPcnThemeName(String pcnThemeName) {
 		this.pcnThemeName = pcnThemeName;
 	}
-	public String getPcnStartTime() {
+	public Date getPcnStartTime() {
 		return pcnStartTime;
 	}
-	public void setPcnStartTime(String pcnStartTime) {
+	public void setPcnStartTime(Date pcnStartTime) {
 		this.pcnStartTime = pcnStartTime;
 	}
-	public String getPcnEndTime() {
+	public Date getPcnEndTime() {
 		return pcnEndTime;
 	}
-	public void setPcnEndTime(String pcnEndTime) {
+	public void setPcnEndTime(Date pcnEndTime) {
 		this.pcnEndTime = pcnEndTime;
 	}
 	public int getPcnStatus() {
@@ -78,17 +80,17 @@ public class ParentChildThemeTicketingShowVo {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	public int getCounterPrice() {
-		return counterPrice;
+	public int getAdultPrice() {
+		return adultPrice;
 	}
-	public void setCounterPrice(int counterPrice) {
-		this.counterPrice = counterPrice;
+	public void setAdultPrice(int adultPrice) {
+		this.adultPrice = adultPrice;
 	}
-	public int getNetPurchasing() {
-		return netPurchasing;
+	public int getStorePrice() {
+		return storePrice;
 	}
-	public void setNetPurchasing(int netPurchasing) {
-		this.netPurchasing = netPurchasing;
+	public void setStorePrice(int storePrice) {
+		this.storePrice = storePrice;
 	}
 	@Override
 	public String toString() {
@@ -97,8 +99,8 @@ public class ParentChildThemeTicketingShowVo {
 				+ pcnStartTime + ", pcnEndTime=" + pcnEndTime + ", pcnStatus="
 				+ pcnStatus + ", pcnSite=" + pcnSite + ", pcnMerchantActivity="
 				+ pcnMerchantActivity + ", imgUrl=" + imgUrl
-				+ ", counterPrice=" + counterPrice + ", netPurchasing="
-				+ netPurchasing + "]";
+				+ ", adultPrice=" + adultPrice + ", storePrice="
+				+ storePrice + "]";
 	}
 	
 }

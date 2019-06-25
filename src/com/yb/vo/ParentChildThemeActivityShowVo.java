@@ -1,10 +1,12 @@
 package com.yb.vo;
 
+import java.util.Date;
+
 public class ParentChildThemeActivityShowVo {
 	private int pcnpctId;
 	private String pcnThemeName;
-	private String pcnStartTime;
-	private String pcnEndTime;
+	private Date pcnStartTime;
+	private Date pcnEndTime;
 	private int pcnStatus;
 	private String pcnSite;
 	private int pcnMerchantActivity;
@@ -14,7 +16,7 @@ public class ParentChildThemeActivityShowVo {
 	
 	}
 	public ParentChildThemeActivityShowVo(int pcnpctId, String pcnThemeName,
-			String pcnStartTime, String pcnEndTime, int pcnStatus,
+			Date pcnStartTime, Date pcnEndTime, int pcnStatus,
 			String pcnSite, int pcnMerchantActivity, String imgUrl, int price) {
 		super();
 		this.pcnpctId = pcnpctId;
@@ -39,16 +41,16 @@ public class ParentChildThemeActivityShowVo {
 	public void setPcnThemeName(String pcnThemeName) {
 		this.pcnThemeName = pcnThemeName;
 	}
-	public String getPcnStartTime() {
+	public Date getPcnStartTime() {
 		return pcnStartTime;
 	}
-	public void setPcnStartTime(String pcnStartTime) {
+	public void setPcnStartTime(Date pcnStartTime) {
 		this.pcnStartTime = pcnStartTime;
 	}
-	public String getPcnEndTime() {
+	public Date getPcnEndTime() {
 		return pcnEndTime;
 	}
-	public void setPcnEndTime(String pcnEndTime) {
+	public void setPcnEndTime(Date pcnEndTime) {
 		this.pcnEndTime = pcnEndTime;
 	}
 	public int getPcnStatus() {

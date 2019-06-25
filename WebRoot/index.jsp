@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -25,25 +27,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="topall">
 	<div class="top-line">
     <div class="top-line-box">
-    <a>登录</a><a class="top-line-a-on">注册</a><form class="search-form"  id="search-form">
-	 		<input type="text" class="search-text" name="q" id="search_input" autocomplete="off" placeholder="请输入搜索关键字"/>
-	 		<input type="submit" class="search-button" value=""/>
-	 	</form>
+    <c:if test="${list[0].pcnuName!=null}">
+   		<a href="SignoutServlet">退出登录</a>
+	   	<a href="dd_zl.jsp?">${list[0].pcnuName}</a>
+   	</c:if>
+   	<c:if test="${list[0].pcnuName==null}">
+    <a href="denglu.jsp">登录</a><a class="top-line-a-on" href="zhuce.jsp">注册</a>
+    </c:if>
+    <form class="search-form"  id="search-form" action="SearchServlet" method="post">
+				 		<input type="text" class="search-text" name="name" id="search_input" autocomplete="off" placeholder="请输入搜索关键字" value="${name}"/>
+				 		<input type="submit" class="search-button" value=""/>
+   </form>
         </div>
     </div>
     <div  style="clear:both;"></div>
   <div class="top">
-  <img src="images/denglu_02.jpg" />
+  <img src="Picture/denglu_02.jpg" />
   <img src="Picture/index_03.jpg" style="float:right;" />
   </div>
 </div>
 <div class="nav">
   <ul>
-   <li class="wbg"><a href="index.html">首页</a></li>
-    <li><a href="qzhd.html">亲子活动</a></li>
-    <li><a href="qzly-1.html">亲子旅游</a></li>
-    <li><a href="pw.html">票务</a></li>
-    <li ><a href="hdzs.html">活动展示</a></li>
+   <li  class="wbg"><a href="IndexShowServlet">首页</a></li>
+    <li><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+    <li><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+    <li><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+    <li ><a href="ActivityDisplayShowServlet">活动展示</a></li>
     <li><a>关于我们</a></li>
   </ul>
 </div>
@@ -66,62 +75,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div class="main">
         <div class="container-tit">
-                	<div class="container-tit-p1"><img src="Picture/index_05.jpg" /><p><a href="qzhd.html">亲子活动</a></p></div>
-                  <div class="container-tit-p2"><img src="Picture/index_05.jpg" style="padding-left:100px;"/><p><a href="qzly.html">亲子旅游</a></p></div>
-                  <div class="container-tit-p3"><img src="Picture/index_05.jpg" /><p><a href="pw.html">票务</a></p></div>
+                	<div class="container-tit-p1"><img src="Picture/index_05.jpg" /><p><a href="ParentChildThemeActivityShowServlet">亲子活动</a></p></div>
+                  <div class="container-tit-p2"><img src="Picture/index_05.jpg" style="padding-left:100px;"/><p><a href="ParentChildThemeTravelServlet">亲子旅游</a></p></div>
+                  <div class="container-tit-p3"><img src="Picture/index_05.jpg" /><p><a href="ParentChildThemeTicketingShowServlet">票务</a></p></div>
                 </div>
                  <div style=" clear:both;"></div>
 			<div class="qzhd">
 				    <div class="title">
                     <p><i>A</i><b>亲子活动</b><span>activities</span></p>
-                    <span class="more">more</span>
+                   <a href="ParentChildThemeActivityShowServlet"><span class="more">more</span></a>
                     </div>
                     
                     
                     <ul class="qzhd-main" >
-									<li><a href=""><img src="Picture/index_15.jpg" width="305"  height="242"/></a>					                                    <div class="qzhd-li-t">
-                                    <p>新梦想少儿足球免费试踢啦！</p>
-                                    <span><i><img src="Picture/time_19.jpg" /></i>2015年07月01日-2015年09月01日</span>
-                                    <a><b>￥</b>70</a>
-                                    </div>
-                                    <div class="guanbi">已关闭</div>
-                                    <div class="black"></div>
-                                    </li>
-									<li style="margin:0px 36px;"><a href=""><img src="Picture/index_15.jpg" width="305"  height="242"/></a>					                                    <div class="qzhd-li-t">
-                                    <p>新梦想少儿足球免费试踢啦！</p>
-                                    <span><i><img src="Picture/time_19.jpg" /></i>2015年07月01日-2015年09月01日</span>
-                                    <a><b>￥</b>70</a>
-                                    </div>
-                                     <div class="jinxin">进行中</div>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_15.jpg" width="305"  height="242"/></a>					                                    <div class="qzhd-li-t">
-                                    <p>新梦想少儿足球免费试踢啦！</p>
-                                    <span><i><img src="Picture/time_19.jpg" /></i>2015年07月01日-2015年09月01日</span>
-                                    <a><b>￥</b>70</a>
-                                    </div>
-                                     <div class="jinxin">进行中</div>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_15.jpg" width="305"  height="242"/></a>					                                    <div class="qzhd-li-t">
-                                    <p>新梦想少儿足球免费试踢啦！</p>
-                                    <span><i><img src="Picture/time_19.jpg" /></i>2015年07月01日-2015年09月01日</span>
-                                    <a><b>￥</b>70</a>
-                                    </div>
-                                    <div class="jinxin">进行中</div>
-                                    </li>
-                                    <li style="margin:0px 36px;"><a href=""><img src="Picture/index_15.jpg" width="305"  height="242"/></a>					                                    <div class="qzhd-li-t">
-                                    <p>新梦想少儿足球免费试踢啦！</p>
-                                    <span><i><img src="Picture/time_19.jpg" /></i>2015年07月01日-2015年09月01日</span>
-                                    <a><b>￥</b>70</a>
-                                    </div>
-                                    <div class="jinxin">进行中</div>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_15.jpg" width="305"  height="242"/></a>					                                    <div class="qzhd-li-t">
-                                    <p>新梦想少儿足球免费试踢啦！</p>
-                                    <span><i><img src="Picture/time_19.jpg" /></i>2015年07月01日-2015年09月01日</span>
-                                    <a><b>￥</b>70</a>
-                                    </div>
-                                    <div class="jinxin">进行中</div>
-                                    </li>
+					<c:forEach var="activityVoList" items="${activityVoList }" varStatus="status">
+               			<c:if test="${(status.index-1)%3!=0}">
+               				<li>									
+						</c:if>
+						<c:if test="${(status.index-1)%3==0}">					
+							<li style="margin:0px 36px;">									
+						</c:if>
+						<a href="ParentChildThemeParticularsShowServlet?pctid=${activityVoList.pcnpctId}">
+						<img src="${activityVoList.imgUrl }" width="305"  height="242"/></a>
+						<div class="qzhd-li-t">                                   
+                        <p>${activityVoList.pcnThemeName}</p>
+                      	<span><i><img src="Picture/time_19.jpg" />
+                      		<fmt:formatDate value="${activityVoList.pcnStartTime }" var="startDate" pattern="yyyy年MM月dd日"/>
+                      	<fmt:formatDate value="${activityVoList.pcnEndTime }" var="endDate" pattern="yyyy年MM月dd日"/>
+                      	</i>${startDate}-${endDate }</span>
+                        <a><b>￥</b>${activityVoList.price}</a>
+                        </div>
+                        <c:if test="${activityVoList.pcnStatus==1}">
+                        <div class="jinxin">进行中</div>
+                        </c:if>
+                        <c:if test="${activityVoList.pcnStatus!=1}">
+                        <div class="guanbi">已关闭</div>
+                         <div class="black"></div>                
+                        </c:if>
+                        </li>                              
+                        </c:forEach>
 							<div style="clear:both;"></div>		
 					</ul>
             </div>
@@ -129,28 +121,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="qzly">
             	<div class="title">
                     <p><i>T</i><b>亲子旅游</b><span>tourism</span></p>
-                    <span class="more">more</span>
-                    </div>
+                    <a href="ParentChildThemeTravelServlet"><span class="more">more</span></a>
+             </div>
                     <div class="qzly-main">
                     	<div class="content2-main">
 			<div class="hd">
 				<ul>
-                <li class="on">全部</li>
-                <li>一日游</li>
-                <li>二日游</li>
-                <li>周边游</li>
-                 <li>国内游</li>
-                <li>境外游</li>
+                <li <c:if test="${pcnpctTravelDays==0}">class="on"</c:if>><a href="IndexShowServlet">全部</a></li>
+                <li <c:if test="${pcnpctTravelDays==1}">class="on"</c:if>><a href="IndexShowServlet?pcnpctTravelDays=1">一日游</a></li>
+                <li <c:if test="${pcnpctTravelDays==2}">class="on"</c:if>><a href="IndexShowServlet?pcnpctTravelDays=2">二日游</a></li>
+                <li <c:if test="${pcnpctTravelDays==3}">class="on"</c:if>><a href="IndexShowServlet?pcnpctTravelDays=3">周边游</a></li>
+                <li <c:if test="${pcnpctTravelDays==4}">class="on"</c:if>><a href="IndexShowServlet?pcnpctTravelDays=4">国内游</a></li>
+                <li <c:if test="${pcnpctTravelDays==5}">class="on"</c:if>><a href="IndexShowServlet?pcnpctTravelDays=5">境外游</a></li>
                 </ul>
 			</div>
 			<div class="bd">
+			
+					              
+			
 				<ul>
-					<li><img src="Picture/index_08.jpg" width="205"  height="138"/></li>
-                    <li><img src="Picture/index_08.jpg" width="205"  height="138"/></li>
-					<li><img src="Picture/index_08.jpg" width="205"  height="138"/></li>
-                    <li><img src="Picture/index_08.jpg" width="205"  height="138"/></li>
-                    <li><img src="Picture/index_08.jpg" width="205"  height="138"/></li>
-					<li><img src="Picture/index_08.jpg" width="205"  height="138"/></li>
+				<c:forEach var="travelVoList" items="${travelVoList}">	
+					<li>
+					<a href="ParentChildThemeParticularsShowServlet?pctid=${travelVoList.pcnpctid}">
+					<img src="${travelVoList.image}" width="205"  height="138"/>
+					</a>
+					</li>
+                
+				</c:forEach>
 				</ul>
 				
                
@@ -159,54 +156,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
         
         <div class="sideMenu" style="margin:0 auto">
+        	
         	<img src="Picture/qzly_03.jpg" />
-			<h3><img src="Picture/1_03.jpg" />上海科技馆</h3>
+        	<c:forEach var="activityIntroduction" items="${ activityIntroductionList}" varStatus="statud">
+			<h3><img src="Picture/1_0${statud.index+1}.jpg" />${ activityIntroduction.theme}</h3>
+			
 			<ul>
-				<img src="Picture/1-p_07.jpg" width="125" height="79" />
+				<a href="ParentChildThemeParticularsShowServlet?pctid=${activityIntroduction.pcnpctid}">
+				<img src="${activityIntroduction.image}" width="125" height="79" />
+				</a>
              <div class="sideMenu-t">
-             <b>常州恐龙园</b>
-             <span>中华恐龙园享有"东恐龙园享有"东方侏恐龙园享有"东方侏恐龙园享有"东方侏罗纪"中华恐龙园享有"东方侏中华恐龙园享有"东方侏
-美誉</span>
+             <b>${ activityIntroduction.theme}</b>
+             <span>${ activityIntroduction.reason}</span>
              </div>
 			</ul>
 
-			<h3><img src="Picture/2_07.jpg" />幻灯片/焦点图系列</h3>
+		
 
-			<ul>
-				<img src="Picture/1-p_07.jpg" width="125" height="79" />
-             <div class="sideMenu-t">
-             <b>常州恐龙园</b>
-             <span>中华恐龙园享有"东恐龙园享有"东方侏恐龙园享有"东方侏恐龙园享有"东方侏罗纪"中华恐龙园享有"东方侏中华恐龙园享有"东方侏
-美誉</span>
-             </div>
-			</ul>
-			<h3><img src="Picture/1_06.jpg" />南京海底世界</h3>
-			<ul>
-				<img src="Picture/1-p_07.jpg" width="125" height="79" />
-             <div class="sideMenu-t">
-             <b>常州恐龙园</b>
-             <span>中华恐龙园享有"东恐龙园享有"东方侏恐龙园享有"东方侏恐龙园享有"东方侏罗纪"中华恐龙园享有"东方侏中华恐龙园享有"东方侏
-美誉</span>
-             </div>
-			</ul>
-            <h3><img src="Picture/1_09.jpg"/>上海动物园</h3>
-			<ul>
-				<img src="Picture/1-p_07.jpg" width="125" height="79" />
-             <div class="sideMenu-t">
-             <b>常州恐龙园</b>
-             <span>中华恐龙园享有"东恐龙园享有"东方侏恐龙园享有"东方侏恐龙园享有"东方侏罗纪"中华恐龙园享有"东方侏中华恐龙园享有"东方侏
-美誉</span>
-             </div>
-			</ul>
-            <h3><img src="Picture/1_11.jpg" />常州动物园</h3>
-			<ul>
-				<img src="Picture/1-p_07.jpg" width="125" height="79" />
-             <div class="sideMenu-t">
-             <b>常州恐龙园</b>
-             <span>中华恐龙园享有"东恐龙园享有"东方侏恐龙园享有"东方侏恐龙园享有"东方侏罗纪"中华恐龙园享有"东方侏中华恐龙园享有"东方侏
-美誉</span>
-             </div>
-			</ul>
+			</c:forEach>
 		</div>
         
         <div style="clear:both;"></div>
@@ -215,63 +182,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="pw">
             	<div class="title">
                     <p><i>T</i><b>票务</b><span>ticket</span></p>
-                    <span class="more">more</span>
+                    <a href="ParentChildThemeTravelServlet"><span class="more">more</span></a>
                     </div>
                  	<ul class="pw-main" >
-									<li><a href=""><img src="Picture/index_12.jpg"  width="326" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
+						<c:forEach var="ticketShowVo" items="${ticketShowVoList }" varStatus="status">
+               			<c:if test="${(status.index-1)%3!=0}">
+               				<li>									
+						</c:if>
+						<c:if test="${(status.index-1)%3==0}">					
+							<li style="margin:0px 10px">									
+						</c:if>
+						<a href="ParentChildThemeParticularsShowServlet?pctid=${ticketShowVo.pcnpctId}">
+						<img src="${ticketShowVo.imgUrl }"  width="322" height="247"/></a>					                                    <div class="pw-li-t">
+                                    <p>${ticketShowVo.pcnThemeName}</p>
+                                    <a><b>￥</b>${ticketShowVo.adultPrice }</a>
+                                    <span>门店价<b>￥${ticketShowVo.storePrice}</b></span>
                                     <div class="pw-li-t-d">
                                     立即购买&gt;&gt;
                                     </div>
                                     </div>
                                     </li>
-                                    <li style="margin:0px 10px"><a href=""><img src="Picture/index_12.jpg"  width="326" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_12.jpg"  width="326" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-									<li><a href=""><img src="Picture/index_12.jpg"  width="326" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li style="margin:0px 10px"><a href=""><img src="Picture/index_12.jpg"  width="326" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_12.jpg"  width="326" height="247"/></a>					                                    <div class="pw-li-t">
-                                    <p>北仑凤凰山海港乐园门票</p>
-                                    <a><b>￥</b>145</a>
-                                    <span>门店价<b>￥160</b></span>
-                                    <div class="pw-li-t-d">
-                                    立即购买&gt;&gt;
-                                    </div>
-                                    </div>
-                                    </li>
+                             </c:forEach>       
 							<div style="clear:both;"></div>		
 					</ul>
             </div>
@@ -279,26 +210,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="hdzs">
             	<div class="title">
                     <p><i>S</i><b>活动展示</b><span>show</span></p>
-                    <span class="more">more</span>
+                   
+                     <a href="ActivityDisplayShowServlet"><span class="more">more</span></a>
                     </div>
                  	<ul class="hdzs-main" >
-									<li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li class="last"><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    <li class="last"><a href=""><img src="Picture/index_16.jpg" width="236" height="185"/></a>					                                    <span>杭州烂苹果乐园</span>
-                                    </li>
-                                    
+					<c:forEach var="displayShowVo" items="${displayShowVoList }" varStatus="status">
+                 		<c:if test="${(status.index+1)%4!=0}">
+               				<li>									
+						</c:if>
+						<c:if test="${(status.index+1)%4==0}">					
+							<li class="last">								
+						</c:if>
+							<a href="ParentChildThemeParticularsShowServlet?pctid=${displayShowVo.pcnpctId}"><img src="${displayShowVo.pcnpctimgUrl }" width="236" height="185"/></a>					                                    
+							<span>${displayShowVo.pcnpctThemeName}</span>
+                             </li>
+                     </c:forEach>
 							<div style="clear:both;"></div>		
 					</ul>
             </div>
@@ -310,7 +236,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<div class="footer-t-l">
                     <div class="title">
                         <p><i>A</i><b>亲子活动</b><span>activities</span></p>
-                        <span class="more">more</span>
+                        <a href="ParentChildThemeActivityShowServlet"><span class="more">more</span></a>
                      </div>
                      <p>由带队总指导员宣布 “成长体验营”成立并正式开始，任命各级训导员并进行授旗仪式，集体宣誓，承诺，辅导员、学员代表发言；团队建设：夏令营纪律学习、设计队名旗帜，建立团队归属感，团队荣誉感。认识小伙伴扩大社交圈...</p>
                  </div>
@@ -320,12 +246,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div><!--footer end-->
 <div class="footer-b">
         	<ul>
-            	<li><a href="index.html">首页</a></li>
-                <li><a href="qzhd.html">亲子活动</a></li>
-                <li><a href="qzly.html">亲子旅游</a></li>
-                <li><a href="index.html">区域活动</a></li>
-                <li><a href="pw.html">票务</a></li>
-                <li><a href="hdzs.html">活动展示</a></li>
+            	<li><a href="IndexShowServlet">首页</a></li>
+                <li><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+                <li><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+                <li><a href="ActivityDisplayShowServlet">区域活动</a></li>
+                <li><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+                <li><a href="ActivityDisplayShowServlet">活动展示</a></li>
                 <div style="clear:both;"></div>
             </ul>
             <p>	COPYRIGHT&nbsp;&nbsp;&nbsp;2015-2016&nbsp;&nbsp;&nbsp;版权所有：阿拉亲子&nbsp;浙IPC备14003668号-2</p>

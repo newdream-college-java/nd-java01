@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="login">
 			<div class="siderNav">
 				<ul class="topmenu" id="jq_topmenu">
-                <li class="first"><a href="index.html">首页</a>|<a>关于我们</a></li>
+                <li class="first"><a href="IndexShowServlet">首页</a>|<a>关于我们</a></li>
               
 				</ul>
 			</div>
@@ -45,12 +45,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div class="demo-left">
         <div class="demo-left-top">
-        <p><img src="Picture/dingdan_03.jpg" /></p>
-        <h3>addasd</h3>
+        <h3>订单详情</h3>
         </div>
         	<ul>
-            <li class="title2-on"><a >我的资料</a></li>
-            <li class=""><a >我的订单</a></li>
+            <li class="dd_zl.jsp"><a >我的资料</a></li>
+            <li class=""><a href="myorderListServlet">我的订单</a></li>
             <li class=""><a >意见反馈</a></li>		
             </ul>
         	</div>
@@ -58,34 +57,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h2>订单详情</h2>
             <div class="demo-right-tb">
                 <div class="demo-right-th">
-                    <p>新梦想少儿足球免费试踢啦!<span><img src="Picture/sc_03.jpg" /></span></p>
+                    <p>${Dtlist[0].pcnpctthemename }<span><img src="Picture/sc_03.jpg" /></span></p>
                 </div>
                 <div class="demo-right-tr">
-                	<p class="demo-right-s1">目的地：体育馆</p>
+                	<p class="demo-right-s1">目的地：${Dtlist[0].pcnpctsite}</p>
                     <p class="demo-right-s2">联系人信息</p>
                     <div style="clear:both;"></div>
                 </div>
                 <div style="clear:both;"></div>
                 <div class="demo-right-tr">
-                	<p class="demo-right-s1">出行方式：自驾</p>
-                    <p class="demo-right-s2">姓名：王磊</p>
+                	<p class="demo-right-s1">出行方式：<c:if test="${Dtlist[0].pcnpcttripmode==1}">自驾</c:if><c:if test="${Dtlist[0].pcnpcttripmode==2}">跟团</c:if> </p>
+                    <p class="demo-right-s2">姓名：${Dtlist[0].pcnptlinkmanname}</p>
                     <div style="clear:both;"></div>
                 </div>
                 <div style="clear:both;"></div>
                 <div class="demo-right-tr">
-                	<p class="demo-right-s1">订购信息：成人，1人，￥80/人</p>
-                    <p class="demo-right-s2">手机号：13526272334</p>
+                	<p class="demo-right-s1">订购信息：<c:forEach var="dtlist" items="${Dtlist}">
+                		${dtlist.pcngsname}，${dtlist.pcnptquantity}人，￥${dtlist.pcngsvvalue}/人<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;								</c:forEach> </p>
+
+                    <p class="demo-right-s2">手机号：${Dtlist[0].pcnptlinkmannumber}</p>
                     <div style="clear:both;"></div>
                 </div>
                 <div style="clear:both;"></div>
                 <div class="demo-right-tr">
-                	<p class="demo-right-s1" style="text-indent:80px;">儿童，1人，￥80/人</p>
-                    <p class="demo-right-s2">备注：无</p>
+                	<p class="demo-right-s1" style="text-indent:80px;"></p>
+                    <p class="demo-right-s2">备注：${Dtlist[0].pcnptremark}</p>
                     <div style="clear:both;"></div>
                 </div>
                 <div class="demo-right-tr">
                 	<p class="demo-right-s1 demo-right-last1">
-                    	<span>实际付款：￥<b>130</b></span>
+                    	<span>实际付款：￥<b>${Dtlist[0].pcnptorderamount}</b></span>
                     </p>
                     <p class="demo-right-s2 demo-right-last2"></p>
                     <div style="clear:both;"></div>
@@ -101,13 +103,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <div class="footer-b">
-        	<ul>
-            	<li><a href="index.html">首页</a></li>
-                <li><a href="qzhd.html">亲子活动</a></li>
-                <li><a href="qzly.html">亲子旅游</a></li>
-                <li><a href="index.html">区域活动</a></li>
-                <li><a href="pw.html">票务</a></li>
-                <li><a href="hdzs.html">活动展示</a></li>
+        	<<ul>
+            	<li><a href="IndexShowServlet.java">首页</a></li>
+                <li><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+                <li><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+                <li><a href="ActivityDisplayShowServlet">区域活动</a></li>
+                <li><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+                <li><a href="ActivityDisplayShowServlet">活动展示</a></li>
                 <div style="clear:both;"></div>
             </ul>
             <p>	COPYRIGHT&nbsp;&nbsp;&nbsp;2015-2016&nbsp;&nbsp;&nbsp;版权所有：阿拉亲子&nbsp;浙IPC备14003668号-2</p>

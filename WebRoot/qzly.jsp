@@ -1,9 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,com.yb.dao.impl.*,com.yb.entity.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -27,10 +27,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="topall">
 	<div class="top-line">
     <div class="top-line-box">
-    <a>登录</a><a class="top-line-a-on">注册</a><form class="search-form"  id="search-form">
-	 		<input type="text" class="search-text" name="q" id="search_input" autocomplete="off" placeholder="请输入搜索关键字"/>
-	 		<input type="submit" class="search-button" value=""/>
-	 	</form>
+    <c:if test="${list[0].pcnuName!=null}">
+   		<a href="SignoutServlet">退出登录</a>
+	   	<a href="dd_zl.jsp?">${list[0].pcnuName}</a>
+   	</c:if>
+   	<c:if test="${list[0].pcnuName==null}">
+    <a href="denglu.jsp">登录</a><a class="top-line-a-on" href="zhuce.jsp">注册</a>
+   </c:if>
+  <form class="search-form"  id="search-form" action="SearchServlet" method="post">
+				 		<input type="text" class="search-text" name="name" id="search_input" autocomplete="off" placeholder="请输入搜索关键字" value="${name}"/>
+				 		<input type="submit" class="search-button" value=""/>
+	</form>
         </div>
     </div>
     <div  style="clear:both;"></div>
@@ -41,11 +48,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <div class="nav">
   <ul>
-   <li ><a href="index.html">首页</a></li>
-    <li><a href="qzhd.html">亲子活动</a></li>
-    <li class="wbg"><a href="qzly-1.html">亲子旅游</a></li>
-    <li><a href="pw.html">票务</a></li>
-    <li ><a href="hdzs.html">活动展示</a></li>
+   <li ><a href="IndexShowServlet">首页</a></li>
+    <li><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+    <li  class="wbg"><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+    <li><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+    <li ><a href="ActivityDisplayShowServlet">活动展示</a></li>
     <li><a>关于我们</a></li>
   </ul>
 </div>
@@ -59,126 +66,66 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="qzly-main">
                     	<div class="content2-main">
 			<div class="hd">
-
-
 				<ul>
-                <li>一日游</li>
-                <li>二日游</li>
-                <li>周边游</li>
-                 <li>国内游</li>
-                <li>境外游</li>
+                <li <c:if test="${TravelDays==1 }">class="on"</c:if> ><a  href="ParentChildThemeTravelServlet?pcnpctTravelDays=1&names=${name}">一日游</a></li>
+                <li <c:if test="${TravelDays==2 }">class="on"</c:if> ><a href="ParentChildThemeTravelServlet?pcnpctTravelDays=2&names=${name}">二日游</a></li>
+                <li <c:if test="${TravelDays==3 }">class="on"</c:if> ><a href="ParentChildThemeTravelServlet?pcnpctTravelDays=3&names=${name}">周边游</a></li>
+                <li <c:if test="${TravelDays==4 }">class="on"</c:if> ><a href="ParentChildThemeTravelServlet?pcnpctTravelDays=4&names=${name}">国内游</a></li>
+                <li <c:if test="${TravelDays==5 }">class="on"</c:if> ><a href="ParentChildThemeTravelServlet?pcnpctTravelDays=5&names=${name}">境外游</a></li>
                 </ul>
 			</div>
 			<div class="bd">
 				<ul>
-					<li><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-                    <li><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-					<li><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-                    <li class="last"><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-                    <li><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-					<li><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-                    <li><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-                    <li class="last"><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-                    <li><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-					<li><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-                    <li><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
-                    <li class="last"><img src="Picture/index_08.jpg" width="205"  height="138"/>
-                    <div>
-                    <b>南京海底世界</b>
-                    <span>地址：江苏省南京市玄武区四方城8号</span>
-                    <span>费用：成人票：150元/人；儿童票：100元</span>
-                    <span>年龄：3岁以上</span>
-                    </div>
-                    </li>
+					<c:set var="i" value="0"/>
+					<c:forEach var="a" items="${Travellist}">	
+					 	<c:set var="i" value="${i+1}"/>
+						<li	
+							<c:if test="${i%4==0}"> class="last"</c:if>
+						>
+						<a href="ParentChildThemeParticularsShowServlet?pctid=${a.pcnpctid}">
+						<img src="${a.image}" width="205"  height="138"/></a>
+	                    <div>
+		                    <b>${a.theme}</b>
+		                    <span>地址：${a.address}</span>
+						    <span> 费用：成人票：${a.crPrice}元/人；儿童票：${a.etPrice1}元			
+							</span>
+		                    <span>年龄：3岁以上</span>
+	                    </div>
+	                    </li>                  
+					</c:forEach>
+				
                      <div style="clear:both;"></div>
                     <div class="page-normal">
-                <span class="page-current">1</span>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
-                <a href="#" class="page-next">下一页</a>
+                     <c:if test="${curPage!=1}">
+                <a href="ParentChildThemeTravelServlet?pcnpctTravelDays=${TravelDays}&curPage=1&names=${name}">首页</a>
+   				<a href="ParentChildThemeTravelServlet?pcnpctTravelDays=${TravelDays}&curPage=${curPage-1}&names=${name}" class="page-next">上一页</a>
+                
+       			</c:if>
+                    <c:if test="${pcnpctTravelDays<1}">
+                    <c:forEach var="i" begin="1" end="${count}" step="1">
+                			<a <c:if test="${curPage==i}">
+                				class="page-current"
+                			</c:if> 
+                				href="ParentChildThemeTravelServlet?pcnpctTravelDays=${TravelDays}&curPage=${i}&names=${name}">${i}
+                			</a>	
+                	</c:forEach>
+                	</c:if> 
+               
+                	 <c:if test="${pcnpctTravelDays>0}">
+                    <c:forEach var="i" begin="1" end="${count}" step="1">
+                			<a <c:if test="${curPage==i}">
+                				class="page-current"
+                			</c:if> 
+                				href="ParentChildThemeTravelServlet?pcnpctTravelDays=${TravelDays}&curPage=${i}&names=${name}">${i}
+                			</a>	
+                	</c:forEach>
+                	</c:if> 
+                	<c:if test="${curPage!=count&&count!=0}">
+                <a href="ParentChildThemeTravelServlet?pcnpctTravelDays=${TravelDays}&curPage=${curPage+1}&names=${name}" class="page-next">下一页</a>
+                <a href="ParentChildThemeTravelServlet?pcnpctTravelDays=${TravelDays}&curPage=${count}&names=${name}">末页</a>
+            		</c:if> 
             		</div>
-                   
+               
 				</ul>
 			</div>
 		</div>
@@ -194,12 +141,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--footer end-->
 <div class="footer-b">
         	<ul>
-            	<li><a href="index.html">首页</a></li>
-                <li><a href="qzhd.html">亲子活动</a></li>
-                <li><a href="qzly.html">亲子旅游</a></li>
-                <li><a href="index.html">区域活动</a></li>
-                <li><a href="pw.html">票务</a></li>
-                <li><a href="hdzs.html">活动展示</a></li>
+            	<li><a href="IndexShowServlet.java">首页</a></li>
+                <li><a href="ParentChildThemeActivityShowServlet">亲子活动</a></li>
+                <li><a href="ParentChildThemeTravelServlet">亲子旅游</a></li>
+                <li><a href="ActivityDisplayShowServlet">区域活动</a></li>
+                <li><a href="ParentChildThemeTicketingShowServlet">票务</a></li>
+                <li><a href="ActivityDisplayShowServlet">活动展示</a></li>
                 <div style="clear:both;"></div>
             </ul>
             <p>	COPYRIGHT&nbsp;&nbsp;&nbsp;2015-2016&nbsp;&nbsp;&nbsp;版权所有：阿拉亲子&nbsp;浙IPC备14003668号-2</p>

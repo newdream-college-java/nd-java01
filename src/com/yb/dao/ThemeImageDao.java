@@ -1,0 +1,10 @@
+package com.yb.dao;
+
+import java.util.List;
+
+import com.yb.entity.ThemeImage;
+
+public interface ThemeImageDao {
+	//≤È—Ø÷˜Ã‚ΩÈ…‹Õº∆¨
+	List<ThemeImage> themeImageList(Integer pctid);
+}

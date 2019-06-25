@@ -32,6 +32,15 @@ public class BaseDao {
 				e.printStackTrace();
 			}
 		}
+		
+		if(st!=null){
+			try {
+				st.close();
+			} catch (SQLException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+		}
 		if(conn!=null){
 			try {
 				conn.close();
@@ -40,14 +49,6 @@ public class BaseDao {
 				e.printStackTrace();
 			}
 		}
-		if(st!=null){
-			try {
-				st.close();
-			} catch (SQLException e) {
-				// TODO 自动生成的 catch 块
-				e.printStackTrace();
-			}
-		}		
 	}	
 	//增删改
 	public int updateDb(String sql, Object...args) {

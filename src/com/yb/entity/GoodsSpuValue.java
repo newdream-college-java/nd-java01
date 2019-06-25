@@ -1,30 +1,35 @@
 package com.yb.entity;
 
 public class GoodsSpuValue {
-	private int pcngsvId;
-	private int pcngsvPctId;
-	private int pcngsvGsid;
-	private int adultPrice;
-	private int childrenPrice;	
-	private int largePriceAndSmallPrice;
-	private int counterPrice;
-	private int netPurchasing;
+	private int pcngsvId;//属性值id
+	private int pcngsvPctId;//主题id
+	private int pcngsvGsid;	//属性名id
+	private int largePriceAndSmallPrice;//一大一小
+	private int adultPrice;//成人价
+	private int childrenPrice;//儿童价
+	private int storePrice;//门店价
+	
 	public GoodsSpuValue() {
 	
 	}
+	
+	
+
 	public GoodsSpuValue(int pcngsvId, int pcngsvPctId, int pcngsvGsid,
-			int adultPrice, int childrenPrice, int largePriceAndSmallPrice,
-			int counterPrice, int netPurchasing) {
+			int largePriceAndSmallPrice, int adultPrice, int childrenPrice,
+			int storePrice) {
 		super();
 		this.pcngsvId = pcngsvId;
 		this.pcngsvPctId = pcngsvPctId;
 		this.pcngsvGsid = pcngsvGsid;
+		this.largePriceAndSmallPrice = largePriceAndSmallPrice;
 		this.adultPrice = adultPrice;
 		this.childrenPrice = childrenPrice;
-		this.largePriceAndSmallPrice = largePriceAndSmallPrice;
-		this.counterPrice = counterPrice;
-		this.netPurchasing = netPurchasing;
+		this.storePrice = storePrice;
 	}
+
+
+
 	public int getPcngsvId() {
 		return pcngsvId;
 	}
@@ -61,27 +66,30 @@ public class GoodsSpuValue {
 	public void setLargePriceAndSmallPrice(int largePriceAndSmallPrice) {
 		this.largePriceAndSmallPrice = largePriceAndSmallPrice;
 	}
-	public int getCounterPrice() {
-		return counterPrice;
+	
+	
+	public int getStorePrice() {
+		return storePrice;
 	}
-	public void setCounterPrice(int counterPrice) {
-		this.counterPrice = counterPrice;
+
+	public void setStorePrice(int storePrice) {
+		this.storePrice = storePrice;
 	}
-	public int getNetPurchasing() {
-		return netPurchasing;
-	}
-	public void setNetPurchasing(int netPurchasing) {
-		this.netPurchasing = netPurchasing;
-	}
+
+
+
 	@Override
 	public String toString() {
-		return "PcnGoodsSpuValue [pcngsvId=" + pcngsvId + ", pcngsvPctId="
-				+ pcngsvPctId + ", pcngsvGsid=" + pcngsvGsid + ", adultPrice="
-				+ adultPrice + ", childrenPrice=" + childrenPrice
+		return "GoodsSpuValue [pcngsvId=" + pcngsvId + ", pcngsvPctId="
+				+ pcngsvPctId + ", pcngsvGsid=" + pcngsvGsid
 				+ ", largePriceAndSmallPrice=" + largePriceAndSmallPrice
-				+ ", counterPrice=" + counterPrice + ", netPurchasing="
-				+ netPurchasing + "]";
+				+ ", adultPrice=" + adultPrice + ", childrenPrice="
+				+ childrenPrice + ", storePrice=" + storePrice + "]";
 	}
+
+	
+	
+	
 	
 	
 }
