@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="监听器12"
+  id="myeclipse.1561547513676"
+  context-root="/监听器12"
+  j2ee-spec="5.0"
+  archive="监听器12.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
