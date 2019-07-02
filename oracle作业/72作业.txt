@@ -1,0 +1,47 @@
+
+1、查询出每个员工的编号，姓名，职位
+SELECT emp_id,ename,job  from emp;
+2、查询每个员工的岗位名称
+SELECT ename,job  from emp;
+3、计算出每个员工一年的基本工资，同时显示出姓名和编号
+SELECT ename,emp_id,sal*12 as 年薪 from emp;
+4、计算出每个员工的年薪，每个月公司会补贴餐补200，交通300；
+SELECT ename,emp_id,(sal+500)*12 as 年薪加奖金 from emp;
+年薪=（工资+奖金）*12
+5、查询出基本工资高于2000 的员工信息
+SELECT * from emp where sal>2000;
+6、查询出名字叫‘张三的所有信息
+SELECT * from emp where ename='张三';
+7、查询出工资范围在1500—3000的全部员工信息（包括1500和3000）
+SELECT * from emp where sal BETWEEN 1500 and 3000;
+8、查询出所有员工姓名是以‘李’开的信息；
+SELECT * from emp where ename like '李%';
+9、查询出员工姓名中第二个字是‘m’的信息
+SELECT * from emp where ename like '_m%'
+10、查询出所有员工信息，要求按工资排序；
+SELECT * from emp ORDER BY sal DESC;
+11、查询出测试部工作的员工姓名、基本工资、入职日期，部门名称；
+SELECT ename,sal,hiredate,dname from dept d,emp e WHERE d.dname='软件技术部'  and d.dept_id=e.dept_id;
+12、查询出所有员工的姓名，部门名称及工资；
+SELECT e.ename,e.sal,d.dname from emp e,dept d WHERE e.dept_id=d.dept_id;
+13、查出与“某某”员工在同一个部门工作的人员信息（前提不知道该员工在哪个部门）
+SELECT * from emp where job=(SELECT job from emp where ename='李健聪')
+14、查出薪资等于部门编号为3的员工的薪资的员工信息；
+SELECT * from emp where sal=(SELECT sal from emp where dept_id=3);
+15、查出薪资高于部门编号为3的员工的薪资的员工信息；
+SELECT * from emp where sal>(SELECT sal from emp where dept_id=5); 
+16、查出高于整个公司平均薪资的人员信息；
+SELECT * from emp where sal>(SELECT avg(sal) as 平均 from emp );
+17、查出每个部门有多少人；以及部门编号和部门ID
+SELECT count(*),dept_id from dept GROUP BY  dept_id;
+java一班的同学 做  二班的同学先不做
+
+18、1、列出与 “某某1” 从事相同工作的所有员工及部门名称，部门人数。
+select count(*),dept_id from emp  where job=(select job from emp where ename='李健聪') group by dept_id;
+
+
+SELECT d.dept_id,d.dname,e.ename from emp e,dept d where e.job=(SELECT job from emp where ename='李健聪') GROUP BY d.dept_id;
+19、2、列出薪金比 “某某1” 或 “某某2” 多的所有员工的编号，姓名，部门名称，其领导姓名，部门人数。
+SELECT * from emp where sal>(SELECT sal from emp where ename='刘勇国' or ename='某某2');
+20、3、列出受雇日期早于其直接上级的所有员工的编号，姓名，部门名称，部门位置，部门人数。
+SELECT * from emp e,emp m WHERE e.emp_id=m.mgr and e.hiredate>m.hiredate;
