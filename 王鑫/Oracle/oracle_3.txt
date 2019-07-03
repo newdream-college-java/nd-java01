@@ -1,0 +1,67 @@
+--1、查询出雇员表中所有员工的姓名；雇佣日期；和工资调整日期（工作6个月后的第一个星期一）。其格式要求是类似于：“1981-09-23”。
+SELECT ENAME,HIREDATE "雇用日期",TO_CHAR(NEXT_DAY(ADD_MONTHS(HIREDATE, 6), 'Monday'),'yyyy-mm-dd')  FROM SCOTT.EMP
+
+--2、查出每个员工的名字（ename）、雇佣日期到现在的日期间隔的月数（要求为整数），该列命名为MONTHS_WORKED，并以该列的降序排序
+SELECT ENAME,HIREDATE "雇佣日期" , CEIL(MONTHS_BETWEEN(SYSDATE, HIREDATE)) "MONTHS_WORKED"  FROM SCOTT.EMP ORDER BY MONTHS_WORKED DESC
+
+--3、写一个查询，查询出雇员的姓名，以及姓名的长度。要求其姓名的第一个字母为大写，其它的字母为小写。
+SELECT INITCAP(ENAME) ,LENGTH(ename) "姓名长度" FROM SCOTT.EMP
+
+--4、写一个查询来查询出雇员的名字，部门号，部门名称。
+SELECT e.ENAME,e.DEPTNO,d.Dname FROM SCOTT.EMP e , SCOTT.DEPT d WHERE e.deptno = d.deptno;
+
+--5、查出每个雇员的编号、姓名、其管理者的编号和姓名。各个列分别命名为：Emp#,EmpName,EmpM#,EmpName.
+SELECT e1.empno "Emp#",e1.ENAME "EmpName",e1.MGR "EmpM#",e2.ename "EmpName" FROM SCOTT.EMP e1 , SCOTT.EMP e2 WHERE e1.MGR=e2.EMPNO;
+
+--6、修改第5题的查询，使得没有管理者的员工的信息也可以显示出来。
+SELECT e1.empno,e1.ENAME,e1.MGR,e2.ename FROM SCOTT.EMP e1 LEFT JOIN SCOTT.EMP e2 ON e1.MGR=e2.EMPNO;
+
+--7、查出所有员工的最高、最低、平均的工资,以及工资的总和，列名分别是maxSal,minSal,avgSal,sumSal。这些数值都用四舍五入进行处理。
+SELECT MAX(saL) "maxSal",MIN(sal) "minSal",ROUND(AVG(SAL),2) "avgSal",SUM(sal) "sumSal" FROM SCOTT.EMP
+
+--8、按照工作类型分类，查出每种工作的名称和其员工的最高、最低、平均的工资、工资的总和，这些数值都用四舍五入进行处理。
+SELECT MAX(e.sal),MIN(e.sal),AVG(e.sal),SUM(e.sal) FROM SCOTT.EMP e , (SELECT deptno from SCOTT.DEPT) d WHERE e.DEPTNO = d.DEPTNO;
+
+--9、查出每种工作的名称和从事该工作的人数。
+SELECT DISTINCT JOB ,COUNT(ENAME) FROM SCOTT.EMP GROUP BY JOB;
+
+--10、查出不当领导的职工姓名。
+SELECT * FROM SCOTT.EMP WHERE EMPNO  NOT IN (SELECT MGR FROM SCOTT.EMP WHERE MGR IS NOT NULL);
+
+--11、按照工作分类，查出最高工资和最低工资的差额,该列命名为difference。
+SELECT DEPTNO,MAX(SAL)-MIN(SAL) "difference" FROM SCOTT.EMP GROUP BY DEPTNO;
+
+--12、查出与BLACK在同一个部门的所有雇员的姓名和雇佣日期。
+SELECT ENAME,HIREDATE FROM SCOTT.EMP WHERE DEPTNO = (SELECT DEPTNO FROM SCOTT.EMP WHERE ENAME = 'BLAKE');
+
+--13、查出工资高于平均工资的所有员工的编号和姓名，其结果按照工资的降序排列。
+SELECT EMPNO,ENAME,SAL FROM SCOTT.EMP WHERE (SELECT AVG(SAL) FROM SCOTT.EMP)<SAL ORDER BY SAL DESC;
+
+--14、查出所有名字中包含一个"T"的员工所在的部门号，和这些部门所包含的所有员工编号和姓名
+SELECT EMPNO,ENAME FROM SCOTT.EMP WHERE DEPTNO in (SELECT DISTINCT DEPTNO FROM SCOTT.EMP WHERE ENAME LIKE '%T%');
+
+--15、查出所有工作在Dallas的员工的姓名、部门编号、工作
+SELECT ENAME,DEPTNO,JOB FROM SCOTT.EMP WHERE (SELECT DEPTNO FROM SCOTT.DEPT WHERE LOC = 'DALLAS')=DEPTNO;
+
+--16、查出由King直接管辖的所有员工的姓名和工资
+SELECT ENAME,SAL FROM SCOTT.EMP WHERE (SELECT EMPNO FROM SCOTT.EMP WHERE ENAME='KING')=MGR;
+
+--17、查询销售部（Sales)的编号，所有员工的名字和工作
+SELECT DEPTNO,ENAME,JOB FROM SCOTT.EMP WHERE (SELECT DEPTNO FROM SCOTT.DEPT WHERE DNAME='SALES') = DEPTNO;
+
+--18、部门号、薪水相匹配的所有雇员的名字、部门号。
+SELECT E1.ENAME,E2.DEPTNO FROM SCOTT.EMP e1,SCOTT.EMP e2 WHERE e1.DEPTNO = E2.DEPTNO AND E1.SAL = E2.SAL AND E1.EMPNO != E2.EMPNO;
+
+--19、查询出与在Dallas的任何一个雇员的薪水和佣金相匹配的所有雇员的姓名、部门名称和工资。
+SELECT  s.ename,s.sal from (SELECT * from SCOTT.emp where DEPTNO!=(SELECT DEPTNO from SCOTT.DEPT where loc='DALLAS')) s where (s.sal+nvl(s.COMM,0)) not in (SELECT DISTINCT (sal+nvl(COMM,0)) from SCOTT.EMP where DEPTNO=(SELECT DEPTNO from SCOTT.DEPT where loc='DALLAS'));
+
+--20、查询出所有工资和佣金与Scott相同的雇员的姓名、雇佣日期和工资。注意：结果中不包括Scott
+SELECT * FROM SCOTT.EMP where (SELECT NVL(comm,0)+sal FROM SCOTT.EMP WHERE ENAME = 'SCOTT')=sal AND ENAME != 'SCOTT';
+
+
+
+
+
+
+
+
