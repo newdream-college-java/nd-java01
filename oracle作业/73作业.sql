@@ -1,4 +1,4 @@
---1、查询出雇员表中所有员工的姓名；雇佣日期；和工资调整日期（工作6个月后的第一个星期一）
+﻿--1、查询出雇员表中所有员工的姓名；雇佣日期；和工资调整日期（工作6个月后的第一个星期一）
 select ENAME,HIREDATE,TO_CHAR(NEXT_DAY(ADD_MONTHS(HIREDATE, 6), '星期一'),'yyyy-mm-dd') from emp
 --2、查出每个员工的名字（ename）、雇佣日期到现在的日期间隔的月数（要求为整数），该列命名为MONTHS_WORKED，并以该列的降序排序
 select ename,FLOOR(MONTHS_BETWEEN(SYSDATE, HIREDATE)) MONTHS_WORKED from emp ORDER BY MONTHS_WORKED DESC
@@ -16,7 +16,7 @@ select ROUND(MAX(sal))maxSal,ROUND(MIN(sal)) minSal,ROUND(AVG(sal)) avgSal,ROUND
 select job,ROUND(MAX(sal))maxSal,ROUND(MIN(sal)) minSal,ROUND(AVG(sal)) avgSal,ROUND(SUM(sal)) sumSal from emp GROUP BY job
 --9、查出每种工作的名称和从事该工作的人数。
 select job,COUNT(ename) from emp GROUP BY job
---10、查出不当领导的职工姓名。
+--10、查出不当领导的职工姓名。  红蓝白 往下 
 select ename from emp where empno not in(select m.empno from emp e,emp m where e.mgr =m.empno);
 --11、按照工作分类，查出最高工资和最低工资的差额,该列命名为difference。
 select job,MAX(sal)-MIN(sal) difference from emp group by job
