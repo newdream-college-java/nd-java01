@@ -1,0 +1,153 @@
+--练习一
+set serveroutput on;
+declare
+	dno number;
+begin
+	dno:='&dno';
+	update scott.emp set sal=sal+100 where deptno=dno;
+	if sql%ROWCOUNT>0 then 
+	raise_application_error(-20001,'用户成功更新了1条数据');
+	else
+	raise_application_error(-20002,'部门不存在');
+	end if;end;
+/
+
+--练习二，显示游标
+  --使用显示游标编写一个程序，以显示scott用户中emp表和dept表中的empno，ename，sal，deptno，dname五个字段值。
+--方式一：
+select * from scott.emp;
+select * from scott.dept;
+set serveroutput on;
+declare 
+     cursor e1 is select empno,ename,sal from scott.emp;     --定义游标
+     cursor d1 is select deptno,dname from scott.dept;    --定义游标
+     r e1%rowtype;      --定义一个行对象，用于获得游标的值
+     d d1%rowtype;
+begin
+     if e1%isopen then
+          close e1;
+     end if;               
+    open e1;          --判断游标是否打开.如果开了将其关闭，然后在打开
+     dbms_output.put_line('empno ename sal');
+     loop
+    fetch e1 into r;     --取值
+    exit when e1%NOTFOUND;     --如果游标没有取到值，退出循环.
+    dbms_output.put_line(r.empno||' '||r.ename||' '||r.sal);    --输出结果,需要 set serverout on 才能显示.
+    end loop;
+    
+    if d1%isopen then
+        close d1;
+    end if;               
+    open d1;          --判断游标是否打开.如果开了将其关闭，然后在打开
+     dbms_output.put_line('deptno dname');
+     loop
+    fetch d1 into d;     --取值
+    exit when d1%NOTFOUND;     --如果游标没有取到值，退出循环.
+    dbms_output.put_line(d.deptno||' '||d.dname);    --输出结果,需要 set serverout on 才能显示.
+    end loop;
+end;
+/
+--方式二：
+set serveroutput on;
+declare 
+     cursor e1 is select e.empno,e.ename,e.sal,d.deptno,d.dname from scott.emp e,scott.dept d where e.deptno=d.deptno;     --定义游标
+     r scott.emp.empno%type;      --定义一个行对象，用于获得游标的值
+     r1 scott.emp.ename%type;
+     r2 scott.emp.sal%type;
+     r3 scott.dept.deptno%type;
+     r4 scott.dept.dname%type;
+begin
+     if e1%isopen then
+          close e1;
+     end if;               
+    open e1;          --判断游标是否打开.如果开了将其关闭，然后在打开
+     dbms_output.put_line('empno ename sal deptno dname');
+     loop
+    fetch e1 into r,r1,r2,r3,r4;     --取值
+    exit when e1%NOTFOUND;     --如果游标没有取到值，退出循环.
+   dbms_output.put_line(r||' '||r1||' '||r2||' '||r3||' '||r4);    --输出结果,需要 set serverout on 才能显示.
+    end loop;
+end;
+/
+
+--练习三
+--显示各部门的名称和该部门的员工名称
+set serveroutput on;
+declare 
+cursor dept1 is select deptno,dname from scott.dept;
+type java01 is ref cursor;
+emp1 java01;
+ename1 scott.emp.ename%type;
+deptno1 scott.dept.deptno%type;
+dname1 scott.dept.dname%type;
+count1 number;
+BEGIN
+open dept1;
+loop
+	fetch dept1 into deptno1,dname1;
+  exit when dept1%notfound;
+  dbms_output.put_line('部门编号：'||deptno1||'，名称：'||dname1);
+  open emp1 for select ename from scott.emp where deptno = deptno1;
+  count1:=0;
+  loop
+    fetch emp1 into ename1;
+    count1:=count1+1;
+    exit when emp1%notfound;
+    dbms_output.put_line('员工'||count1||':'||ename1);
+  end loop;
+  dbms_output.put_line(chr(13));
+end loop;
+close dept1;
+end;
+/
+--方式二：
+  set serveroutput on;
+  declare
+    cursor e1 is select * from scott.emp;
+    cursor d1 is select * from scott.dept;
+    s int:=0;
+  begin
+    for b in d1 loop
+     s:=0;
+    dbms_output.put_line('部门编号'||b.deptno||'部门名称'||b.dname);
+    for i in e1 loop
+      if b.deptno = i.deptno then
+      s:=s+1;
+    dbms_output.put_line('员工'||s||':'||i.ename);
+    end if;
+    end loop;
+    end loop;
+    end;
+    /
+
+--练习五，REF游标
+  --以scott用户登入，编写一段代码，提示用户要查看哪个的记录，如果用户输入'E'则显示emp表中的empno，ename列的值；如果用户输入'D'则显示dept表
+  --中的deptno，dname列的值。
+  set serveroutput on;
+  declare
+    tips char:='&您要查看表（E为emp表，D为dept表）';
+    type table1 is ref cursor;
+    test1 table1;
+    emp_row emp%rowtype;
+    dept_row dept%rowtype;
+  begin
+    if tips='E' then
+      open test1 for select * from emp;
+        loop
+          fetch test1 into emp_row;
+          exit when test1%notfound;
+          dbms_output.put_line('员工编号'||emp_row.empno||'员工姓名'||emp_row.ename);
+        end loop;
+      close test1;
+    elsif tips='D' then
+      open test1 for select * from dept;
+       loop
+          fetch test1 into dept_row;
+          exit when test1%notfound;
+          dbms_output.put_line('员工编号'||dept_row.deptno||'部门名'||dept_row.dname);
+       end loop;
+      close test1;
+    else
+      dbms_output.put_line('您输入有误');
+    end if;
+  end;
