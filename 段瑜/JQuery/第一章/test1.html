@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<span id="d1"></span>
+		<script type="text/javascript">
+			var student=new Object;
+			student.name="高乐乐",
+			student.age=15,
+			student.introduce="我叫高乐乐，我是一个初中三年级的学生，我非常喜欢音乐和打篮球",
+				student.showStudent=function(){ 
+					var str="姓名："+this.name+"<br/>"+"年龄："+this.age+"<br/>"+"自我介绍："+this.introduce;
+					document.getElementById("d1").innerHTML=str;
+				}
+			student.showStudent();
+		</script>
+		
+	</body>
+</html>
