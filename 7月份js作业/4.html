@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Student(name,age,info){
+				this.name=name;
+				this.age=age;
+				this.info=info;
+				this.showInfo=function(){
+					return "姓名:"+this.name+"<br />年龄: "+this.age+"<br />自我介绍:"+this.info+"<br /> <br />";
+				}
+			}
+			var student=new Student("王小明",16,"我是一名高三的学生，每天三斤屎,越吃越牛逼");
+			student.showInfo();
+			
+			var student2=new Student("刘勇国",17,"我是一名培训机构的学生，每天三斤屎,越吃越牛逼");
+			student2.showInfo();
+			
+			document.getElementById("p1").innerHTML="asd";
+			document.getElementsByName()
+		</script>
+		1
+		<p id="p1" class="p1"></p>
+		<p id="p2"></p>
+		1
+	</body>
+</html>
