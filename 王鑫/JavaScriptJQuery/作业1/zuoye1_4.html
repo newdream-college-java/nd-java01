@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--
+    	4、创建一个构造函数Student，表示学生，要求如下：
+		添加属性：姓名、年龄和自我介绍。
+		添加方法：在一个P标签中显示该姓名、年龄和自我介绍。
+		创建两个学生对象，输入两个学生的姓名、年龄和自我介绍。
+		在页面中显示两个对象的方法输出的信息，如图5-14所示。
+		
+		创建构造函数Student,添加属性和方法，在方法中使用createElement()创建p标签。使用innerHTML把姓名、年龄和自我介绍显示在此p标签中，使用return返回p标签。
+		使用.new创建两个学生对象。
+		使用getElementById()和appendChild()把创建的学生对象信息追加到页面中。
+    -->
+	<body>
+		<p id="stuInfo"></p>
+		<script>
+			function Student(name,age,present){
+				this.name = name;
+				this.age = age;
+				this.present = present;
+				this.showInfo = function(){
+					var p1=document.createElement("p");
+					p1.innerHTML="姓名:"+this.name+"<br/>年龄："+this.age+"<br/>自我介绍："+this.present;
+					return p1;
+				}
+			}
+			var name = "王小明"; 
+			var age = 16;
+			var present = "我是高中一年级的学生，身高1.8米，很帅，很喜欢语文和英语。";
+			var stu1 = new Student(name,age,present);
+			
+			var name = "黄妞妞";
+			var age = 6;
+			var present = "我今年6岁了，非常可爱,马上就可以上小学了,就可能有好多好多的小朋友了。";
+			var stu2 = new Student(name,age,present);
+			
+			document.getElementById("stuInfo").appendChild(stu1.showInfo());
+			document.getElementById("stuInfo").appendChild(stu2.showInfo());
+		</script>
+	</body>
+</html>

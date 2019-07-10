@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--
+    	3.创建一个对象student，表示一个学生对象，要求如下：
+		添加属性：姓名、年龄和自我介绍。
+		添加方法：输出该学生的姓名、年龄和自我介绍。
+		提示：
+			使用new创建对象student，添加属性。
+			添加方法，在方法中使用字符串把学生的信息使用字符“+”串起来；使用return返回该字符串。
+			使用getElementById()和innerHTML把方法中的字符串显示在页面中。
+    -->
+	<body>
+		<p id="stuInfo"></p>
+		<script>
+			function Student(name,age,present){
+				this.name = name;
+				this.age = age;
+				this.present = present;
+				this.showinfo = function(){
+					return "姓名："+this.name+"<br/>年龄："+this.age+"<br/>自我介绍："+this.present;
+				}
+			}
+			var name = "高乐乐";
+			var age = 15;
+			var present = "我叫高乐乐，我是一名初三的学生，我非常喜欢音乐和打篮球";
+			var stu = new Student(name,age,present);
+			document.getElementById("stuInfo").innerHTML=stu.showinfo();
+		</script>
+	</body>
+</html>
