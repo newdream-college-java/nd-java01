@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body >
+		<span id="names">x</span><br />
+		<!--机制html先加载script,所也标签必须放在script上面，不然一直会得到空值 -->
+		<script type="text/javascript">
+			//var name;
+			//var str;
+			var student=new Object();
+			student.name="高乐乐";
+			student.age="15";
+			student.introduce="我叫高乐乐，我是一个初中三年级的学生，我非常喜欢音乐和打篮球";
+			student.showStudent=function(){
+				//alert(this.name+this.age+this.introduce);
+				//return this.name+this.age+this.introduce;
+				var str="姓名:"+this.name+"<br/>"+"年龄:"+this.age+"<br/>"+"自我介绍:"+this.introduce;
+				//return str;
+				//var name=document.getElementById("names");
+				
+				document.getElementById("names").innerHTML=str;
+				//console.log(name);
+				//document.write("姓名:"+this.name+"<br/>"+"年龄:"+this.age+"<br/>"+"自我介绍:"+this.introduce)
+			}
+			student.showStudent();
+			//document.getElementById("names").innerHTML=str;
+			//alert(student.name)
+			//console.log(student.name);
+			//console.log(document.getElementById("name"));
+			//document.getElementById("name").innerHTML=student.name;
+			
+			/*function show(){
+				alert(1);
+				//var name=document.getElementById(id);
+				//alert(name);
+				//name.innerHTML=showStudent.name;
+				var st=new student();
+				alert(st.name);
+			}*/
+		</script>
+		
+		
+		
+	</body>
+</html>
