@@ -1,0 +1,8 @@
+1-5.D,C,D,BC,C
+6-10.AB,C,C,C,D
+11-15.BC,D,B,D,B
+16-20.B,A,D,CD,D(D 表单事件 )
+21-25.B,B,B,B,A
+26-30.A,A,A,D,D
+31-35.C,B,B,A,A
+36-40.D,B,A,D,C
