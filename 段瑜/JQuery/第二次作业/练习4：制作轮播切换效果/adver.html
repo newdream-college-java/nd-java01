@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> 广告图片轮播切换</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="adver">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <div class="arrowLeft"><</div><div class="arrowRight">></div>
+</div>
+	<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+	<script>
+		$("li").click(function(){
+			var sum=$(this).html();
+			$("li").css("background","black");
+			$(this).css("background","orange");
+			$(".adver").css("background","url(images/adver0"+sum+".jpg)")
+
+		})
+	</script>
+</body>
+</html>
