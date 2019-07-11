@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p id="stuInfo"></p>
+		<script>
+			function Student(name,age,present){
+				this.name = name;
+				this.age = age;
+				this.present = present;
+				this.showinfo = function(){
+					return "姓名："+this.name+"<br/>年龄："+this.age+"<br/>自我介绍："+this.present;
+				}
+			}
+			var name = "高乐乐";
+			var age = 15;
+			var present = "我叫高乐乐，我是一名初三的学生，我非常喜欢音乐和打篮球";
+			var stu = new Student(name,age,present);
+			document.getElementById("stuInfo").innerHTML=stu.showinfo();
+		</script>
+
+</body>
+</html>
