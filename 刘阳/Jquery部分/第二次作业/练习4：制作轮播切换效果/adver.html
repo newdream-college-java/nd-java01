@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> 广告图片轮播切换</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+</head>
+<body>
+<div class="adver" id="change">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+	<script>
+		$("li:eq(1)").click(function(){
+			document.getElementById("change").className="adver2";
+			$("li:eq(1)").css("background-color","#FFA500");
+			$("li:eq(0),li:eq(2),li:eq(3),li:eq(4),li:eq(5)").css("background-color","#000");
+		});
+		$("li:eq(2)").click(function(){
+			document.getElementById("change").className="adver3";
+			$("li:eq(2)").css("background-color","#FFA500");
+			$("li:eq(0),li:eq(1),li:eq(3),li:eq(4),li:eq(5)").css("background-color","#000");
+		});
+		$("li:eq(3)").click(function(){
+			document.getElementById("change").className="adver4";
+			$("li:eq(3)").css("background-color","#FFA500");
+			$("li:eq(0),li:eq(1),li:eq(2),li:eq(4),li:eq(5)").css("background-color","#000");
+		});
+		$("li:eq(4)").click(function(){
+			document.getElementById("change").className="adver5";
+			$("li:eq(4)").css("background-color","#FFA500");
+			$("li:eq(0),li:eq(1),li:eq(3),li:eq(2),li:eq(5)").css("background-color","#000");
+		});
+		$("li:eq(5)").click(function(){
+			document.getElementById("change").className="adver6";
+			$("li:eq(5)").css("background-color","#FFA500");
+			$("li:eq(0),li:eq(1),li:eq(3),li:eq(4),li:eq(2)").css("background-color","#000");
+		});
+		$("li:eq(0)").click(function(){
+			window.location.reload();
+		});
+	</script>
+</body>
+</html>
