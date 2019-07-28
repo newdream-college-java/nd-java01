@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 其他配置1：数据库信息详情 -->
+	<properties resource="jdbc.properties"></properties>
+	<!-- 其他配置2：数据库信息详情 -->
+	<typeAliases>
+		<!-- 自己取别名 -->
+		<!-- <typeAlias type="com.yb.entity.User" alias="User"/>-->
+		<!-- 自动取别名，别名为类名 -->
+		<package name="com.yb.entity"/>
+	</typeAliases>
+	<!-- 数据库信息配置 -->
+	<environments default="deveLopment">
+		<environment id="deveLopment">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- sql映射 -->
+	<mappers>
+		<mapper resource="sqlmap/Fwjd.xml"/>
+		<mapper resource="sqlmap/Fwlx.xml"/>
+		<mapper resource="sqlmap/Fwqx.xml"/>
+		<mapper resource="sqlmap/Fwxx.xml"/>
+		<mapper resource="sqlmap/User.xml"/>
+		<package name="com.yb.mapper"/>
+	</mappers>
+</configuration>

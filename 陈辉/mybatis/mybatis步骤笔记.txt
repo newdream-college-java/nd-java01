@@ -1,0 +1,53 @@
+Mapper步骤一：(其实就是对于jdbc的封装)
+一：先导包
+二：建立连接，在项目里面建一个config文件：1：在到config文件里面
+建一个jdbc.propertis，配置驱动，密码，用户，数据库的连接地址
+2：在建一个mybatis-config.xml文件在里面配置
+（<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="jdbc.properties">
+	</properties>
+	<typeAliases>
+	<package name="com.cc.entity"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />		
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<package name="com.cc.mapper"></package>
+</configuration>）
+
+
+下一步建一个实体类根据表名在entity包下面创建
+在建一个mapper包：mapper包下面建 2个文件夹（
+分别是  xxx.xml和xxx.java）
+1:xxx.java代表的是一个接口，里面表名实现的抽象方法
+2：xxx.xml里面进行配置   书写sql语句  语法和mysql一样，
+：：注意的是 抽象方法的名字跟执行语句的名字id要保持一致，后面接上返回值，之后再到单元测试类中进行测试
+
+
+
+
+
+
+
+
+Mybatis高级结果映射（一对一，一对多，多对多映射）：
+而 ResultMap 就是 MyBatis 对这个问题的答案。 （解决了三范式的规律）
+
+一、单向和双向
+
+　　　　包括一对一，一对多，多对多这三种情况，但是每一种又分为单向和双向，在hibernate中我们就详细解析过这单向和双向是啥意思，在这里，在重复一遍，就拿一对多这种关系来讲，比如有员工和部门，一个部门中有多个员工，从部门方看，是一对多关系，而多名员工属于一个部门，是多对一关系，那么如果我们的业务需求只需要通过部门查找到所有的员工，那么我们就只需要进行单向一对多的映射，如果我们需要通过员工来查询出对应的部门，那么我们就需要进行单向多对一的映射，而如果我们这两个业务需求都需要实现，也就是不管从哪一方进行查找，都需要能够找到对方，那么此时就应该编写双向一对多或者双向多对一(双向一对多和双向多对一是一样的意思)。所以，不管是编写哪一种，都是根据业务需求来进行决策的。这就是单向和双向的意思。
+
+　　　　什么是多对多？ 
+
+　　　　　　　多对多就是不管从哪一方看，都是一对多，那么该关系就是多对多。比如学生跟选修课之间，从学生方看，一个学生能选多门选修课，一对多关系，从选修课之间，一门选修课可以被多个学生选择，也是一对多关系，那么学生跟选修课就是多对多关系。多对多关系之间都会由第三张表来表示这种关系。而不会相互设置外键。
