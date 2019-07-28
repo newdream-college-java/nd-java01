@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper	namespace="com.yb.mapper.FwqxMapper">
+	<sql id="Fwqx_column_List">qxid,qx</sql>
+	<select id="listAll" resultType="com.yb.entity.Fwqx">
+		select <include refid="Fwqx_column_List"/> from fwqx
+	</select>
+	<insert id="addFwqx" parameterType="com.yb.entity.Fwqx">
+		insert into fwqx
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="qxid!=null">
+				qxid,
+			</if>
+			<if test="qx!=null">
+				qx,
+			</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="qxid!=null">
+				#{qxid},
+			</if>
+			<if test="qx!=null">
+				#{qx},
+			</if>
+		</trim>
+	</insert>
+	<update id="modifyFwqx" parameterType="com.yb.entity.Fwqx">
+		update Fwqx
+		<set>
+			<if test="qx!=null">
+				qx=#{qx},
+			</if>
+		</set>
+		where qxid = #{qxid}
+	</update>
+	<delete id="removeFwqx" parameterType="com.yb.entity.Fwqx">
+		delete from fwqx where qxid=#{qxid};
+	</delete>
+</mapper>

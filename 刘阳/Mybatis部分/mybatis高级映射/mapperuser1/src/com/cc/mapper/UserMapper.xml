@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.mapper.UserMapper">
+	 <!-- sql片段 --><!--
+        <sql id="Base_Column_List">
+             uid,uname,upass
+        </sql>
+       <select id="findAll" resultType="com.cc.entity.User">
+           select <include refid="Base_Column_List"/> from user
+       </select>
+      <update id="updateAuthor" parameterType="User">
+		update user1
+		<set>
+			<if test="uname!=null">
+				uname=#{uname},
+			</if>
+			<if test="upass!=null">
+				upass=#{upass},
+			</if>
+		</set>
+		where uid = #{uid}
+	</update>
+	--><insert id="adduser" parameterType="User">
+	<selectKey keyProperty="uid" order="AFTER" resultType="int">
+		Select last_insert_id()
+	</selectKey>
+		insert into user1
+		 <trim  prefix="(" suffix=")"  suffixOverrides=",">
+            <if test="uname!=null">
+                uname,
+            </if>
+            <if test="upass!=null">
+                upass,
+            </if>
+            
+        </trim>
+        values
+         <trim  prefix="(" suffix=")"  suffixOverrides=",">
+            <if test="uname!=null">
+                #{uname},
+            </if>
+            <if test="upass!=null">
+                #{upass},
+            </if>
+        </trim>
+	</insert>
+	<delete id="dropuser" parameterType="int">
+        delete from user1 where uid=#{uid}
+	</delete>
+</mapper>

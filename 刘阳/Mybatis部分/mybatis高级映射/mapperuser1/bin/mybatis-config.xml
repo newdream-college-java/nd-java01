@@ -1,0 +1,40 @@
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 一、加载数据库信息 -->
+    <!-- 其他配置1.数据库的驱动 -->
+	<!-- 加载jdbc.properties数据库信息文件 -->
+	<properties resource="jdbc.properties">
+	</properties>
+	<!-- 其他配置2.实体类的别名alias别名-->
+	 <typeAliases>
+    	<!-- 方式一:自己给类取别名 -->
+    	<typeAlias type="com.cc.entity.User" alias="User"/>
+    	<!-- 方式二:自动将指定的包下所有类取别名，别名是类名（自动生成，大小写都可调用） -->
+    	<package name="com.cc.entity"/>
+    </typeAliases>
+	<environments default="development">
+		<!-- 对应的数据库信息 -->
+		<environment id="development">
+			<!-- 事务管理方式：采用jdbc -->
+			<transactionManager type="JDBC" />
+			<!-- 数据源的类型 -->
+			<dataSource type="POOLED">
+				<!-- 驱动 -->
+				<property name="driver" value="${driver}" />
+				<!-- 协议地址 -->
+				<property name="url" value="${url}" />
+				<!-- 用户名 -->
+				<property name="username" value="${username}" />
+				<!-- 密码 -->
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 二、sql映射文件-->
+	<mappers>
+	   <mapper resource="sqlmap/User.xml"/>
+	   <package name="com.cc.mapper"/>
+	</mappers>
+</configuration>

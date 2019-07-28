@@ -1,0 +1,100 @@
+一、mybatis的源码地址 github
+
+    https://github.com/mybatis/mybatis-3/releases
+    
+ 二、mapper的参数传递
+    使用@Param注解 
+    
+ 三、高级映射
+ 3、1  一对一：订单---->用户 ：一对一
+        方式一：自定义po
+            3.1 mybatis默认属性名必须和字段名一致，才能将字段值映射到属性上。
+                 开启驼峰命名映射，mybatis字段与驼峰命名法的字段映射。
+                 在mybatis-config.xml中加入如下配置
+              <!-- setting 设置驼峰命名映射 -->            
+               <settings>
+                <!-- 数据库order表:user_id =====>Order类：userId -->
+                <setting name="mapUnderscoreToCamelCase" value="true"/>
+            </settings>
+         方式二：通过resultMap
+         
+            
+ 3、2  一对多：订单表orders----订单详情表orderdetail
+ 
+ 3、3 复杂的一对多
+        user表(主)----->items商品表(从):一对多
+  分析：
+        user表------>order表：一对多
+        
+        order表----->orderdetail订单详情:一对多
+        
+        orderdetail表---->items表：一对一
+ 方式：
+        resultMap的方式
+        
+        
+ 3、4 多对多
+    一个多对多：两个一对多
+    
+ 四、延迟加载
+ 
+ 
+ 
+      Order类-------->User类：一对一
+      
+      按以前的写法，查询order信息的时候，一定会把用户信息查询出来
+        如果只需要Order信息 就只要查询Order的信息，不会查询用户的信息
+        当我们需要Order的用户的信息的时候，才去查询用户信息。
+        
+ 第一步：开启mybatis的延迟加载  mybatis-config.xml文件中
+ 
+    <!-- 全局配置参数 -->
+    <settings>
+        <!-- 延迟加载总开关 -->
+        <setting name="lazyLoadingEnabled" value="true" />  
+        <!-- 设置按需加载 -->
+        <setting name="aggressiveLazyLoading" value="false" />
+    </settings>
+ 第二步：编写mapper接口方法和mapper映射文件
+ 第三步：测试
+ 
+ 
+ 
+  作业一：
+ user用户-->orders订单：一对多
+ orders订单-->user用户：一对一                              完成
+    
+ orders订单-->订单详情ordersdetail：一对多          完成
+ 订单详情ordersdetail-->orders订单: 一对一
+ 
+用户与订单：一对多
+ 根据用户id--->订单----->订单详情--->商品              完成
+ 订单与商品：一对多
+ 根据订单id---->订单详情--->商品
+ 
+ 订单详情ordersdetail-->items商品表：一对一
+ items商品表-->订单详情ordersdetail:   一对多
+ 
+ user用户-->items商品表：多对多
+
+ orders订单-->items商品表：多对多
+ 
+ 
+ 作业二：写文档  mybatis
+ 
+ 
+ 
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
