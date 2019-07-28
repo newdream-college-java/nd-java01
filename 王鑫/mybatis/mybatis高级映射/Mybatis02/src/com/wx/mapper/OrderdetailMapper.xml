@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wx.mapper.OrderdetailMapper">
+	<sql id="Base_column_List">id,orders_id,items_id,items_num</sql>
+	<select id="list" resultType="orderdetail">
+		select
+		<include refid="Base_column_List" />
+		from orderdetail
+	</select>
+
+	<insert id="insert" parameterType="orderdetail">
+		insert into orderdetail
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id!=null">
+				id,
+			</if>
+			<if test="ordersId!=null">
+				orders_id,
+			</if>
+			<if test="itemsId!=null">
+				items_id,
+			</if>
+			<if test="itemsNum!=null">
+				items_num,
+			</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id!=null">
+				#{id},
+			</if>
+			<if test="ordersId!=null">
+				#{ordersId},
+			</if>
+			<if test="itemsId!=null">
+				#{itemsId},
+			</if>
+			<if test="itemsNum!=null">
+				#{itemsNum},
+			</if>
+		</trim>
+
+	</insert>
+
+
+	<!--
+		订单详情ordersdetailorders订单: 一对一 OrderdetailCustom findOrders(int a);
+	-->
+	<select id="findOrders" resultType="OrderdetailCustom">
+		SELECT
+		Orderdetail.*,
+		orders.createtime,
+		orders.number,
+		orders.id
+		FROM
+		orders,
+		orderdetail
+		WHERE
+		orders.id =
+		orderdetail.orders_id and orderdetail.id=#{id}
+	</select>
+	<!-- 订单详情ordersdetail>>>items商品表：一对一 -->
+	<!-- Orderdetail findItems(int b); -->
+	<resultMap type="Orderdetail" id="OrderdetailByItems">
+		<result property="id" column="orderdetail_id" />
+				<result property="itemsId" column="items_id" />
+				<result property="itemsNum" column="items_num" />
+				<association property="items" javaType="Items">
+					<result property="name" column="items_name" />
+					<result property="detail" column="items_detail" />
+				</association>
+	</resultMap>
+	<select id="findItems" resultMap="OrderdetailByItems">
+		SELECT
+		orderdetail.id orderdetail_id,
+		orderdetail.items_num,
+		orderdetail.items_id,
+		items.name items_name,
+		items.detail items_detail
+		FROM
+		orderdetail,
+		items
+		WHERE 
+		items.id = orderdetail.items_id
+		and orderdetail.id=#{orderdetailId}
+	</select>
+</mapper>
