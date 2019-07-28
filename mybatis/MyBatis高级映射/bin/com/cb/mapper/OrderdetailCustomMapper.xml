@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cb.mapper.OrderdetailCustomMapper">
+	<select id="findOrders" resultType="OrderdetailCustom">
+		SELECT
+		Orderdetail.*,
+		orders.createtime,
+		orders.number,
+		orders.id
+		FROM
+		orders,
+		orderdetail
+		WHERE
+		orders.id =
+		orderdetail.orders_id and orderdetail.id=#{id}
+	</select>
+</mapper>
