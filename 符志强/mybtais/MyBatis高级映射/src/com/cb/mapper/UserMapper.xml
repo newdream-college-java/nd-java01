@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cb.mapper.UserMapper">
+	<!-- 一对多复杂 -->
+	<resultMap type="User" id="UserByItems">
+		<result property="username" column="username" />
+		<result property="sex" column="sex" />
+		<collection property="orders" ofType="Orders">
+			<result property="id" column="id" />
+			<result property="userId" column="user_id" />
+			<result property="number" column="number" />
+			<result property="createtime" column="createtime" />
+			<result property="note" column="note" />
+			<collection property="orderdetails" ofType="Orderdetail">
+				<result property="id" column="orderdetail_id" />
+				<result property="itemsId" column="items_id" />
+				<result property="itemsNum" column="items_num" />
+				<association property="items" javaType="Items">
+					<result property="name" column="items_name" />
+					<result property="detail" column="items_detail" />
+				</association>
+			</collection>
+		</collection>
+	</resultMap>
+
+	<select id="findItems" resultMap="UserByItems">
+		SELECT
+		orders.*,
+		user.username,
+		user.sex ,
+		orderdetail.id orderdetail_id,
+		orderdetail.items_num,
+		orderdetail.items_id,
+		items.name items_name,
+		items.detail items_detail
+		FROM
+		orders,
+		USER,
+		orderdetail,
+		items
+		WHERE orders.user_id = user.id
+		AND
+		orders.id = orderdetail.orders_id
+		AND items.id = orderdetail.items_id
+		and user.id=1
+  	</select>
+
+	<!-- 多对多 -->
+	<resultMap type="User" id="UserByItemsAll">
+		<result property="username" column="username" />
+		<result property="sex" column="sex" />
+		<collection property="items" ofType="items">
+			<result property="name" column="items_name" />
+			<result property="detail" column="items_detail" />
+			<collection property="user" ofType="User">
+				<result property="username" column="username" />
+				<result property="sex" column="sex" />
+			</collection>
+		</collection>
+	</resultMap>
+	<select id="findALL" resultMap="UserByItemsAll">
+		SELECT
+		user.username,
+		user.sex ,
+		items.name items_name,
+		items.detail items_detail
+		FROM
+		orders,
+		USER,
+		orderdetail,
+		items
+		WHERE orders.user_id = user.id
+		AND orders.id =
+		orderdetail.orders_id
+		AND items.id = orderdetail.items_id	
+  	</select>
+
+
+	<!-- //一对多 user ===orders订单User findOrders(int B);-->
+	<resultMap type="User" id="UserByOrders">
+		<result property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="birthday" column="birthday" />
+		<result property="sex" column="sex" />
+		<result property="address" column="address" />
+		<collection property="orders" ofType="Orders">
+			<result property="number" column="number" />
+			<result property="createtime" column="createtime" />
+		</collection>
+	</resultMap>
+	<select id="findOrders" resultMap="UserByOrders">
+		SELECT
+		user.*,
+		orders.number,
+		orders.createtime
+		FROM
+		orders,
+		USER
+		WHERE
+		orders.user_id = user.id and
+		user.id=#{id}
+  	</select>
+</mapper>

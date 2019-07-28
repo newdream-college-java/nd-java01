@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cb.mapper.OrderMapper">
+
+	<resultMap type="Orders" id="orderMapUser">
+
+		<result property="id" column="id" />
+		<result property="userId" column="user_id" />
+		<result property="number" column="number" />
+		<result property="createtime" column="createtime" />
+		<result property="note" column="note" />
+		<association property="user" javaType="User">
+			<result property="username" column="username" />
+			<result property="sex" column="sex" />
+		</association>
+	</resultMap>
+
+	<select id="findId" resultMap="orderMapUser">
+		SELECT
+		orders.*,
+		user.username,
+		user.sex
+		FROM
+		orders,
+		USER
+		WHERE orders.user_id = user.id and
+		orders.id=#{orderId}
+  </select>
+	<!-- 继承上面已经写好了的， -->
+	<resultMap type="Orders" id="orderMapDetail" extends="orderMapUser">
+		<collection property="orderdetails" ofType="Orderdetail">
+			<result property="id" column="orderdetail_id" />
+			<result property="itemsId" column="items_id" />
+			<result property="itemsNum" column="items_num" />
+		</collection>
+	</resultMap>
+	<select id="findByDatetail" resultMap="orderMapDetail">
+		SELECT
+		orders.*,
+		orderdetail.id orderdetail_id,
+		orderdetail.items_num,
+		orderdetail.items_id
+		FROM
+		orders,
+		orderdetail
+		WHERE orders.id =
+		orderdetail.orders_id and orders.id=4
+		
+  </select>
+
+	<!-- 订单与商品：一对多根据订单id>>>>订单详情>>>>>>>>商品(解释里面不能写注释横杆) -->
+	<!-- Orders findItems(int a); -->
+	<resultMap type="Orders" id="OrdersByItems">
+		<result property="id" column="id" />
+		<result property="userId" column="user_id" />
+		<result property="number" column="number" />
+		<result property="createtime" column="createtime" />
+		<result property="note" column="note" />
+		<collection property="orderdetails" ofType="Orderdetail">
+			<result property="id" column="orderdetail_id" />
+			<result property="itemsId" column="items_id" />
+			<result property="itemsNum" column="items_num" />
+			<association property="items" javaType="Items">
+				<result property="name" column="items_name" />
+				<result property="detail" column="items_detail" />
+			</association>
+		</collection>
+	</resultMap>
+	<select id="findItems" resultMap="OrdersByItems">
+		SELECT
+		orders.*,
+		orderdetail.id
+		orderdetail_id,
+		orderdetail.items_num,
+		orderdetail.items_id,
+		items.name
+		items_name,
+		items.detail items_detail
+		FROM
+		orders,
+		orderdetail,
+		items
+		WHERE
+		orders.id = orderdetail.orders_id
+		AND items.id = orderdetail.items_id
+		and
+		orders.id=#{ordersId}
+  </select>
+
+	<!-- orders订单>>>>items商品表：多对多 -->
+	<!-- List<Orders>findAllItems(); -->
+	<resultMap type="Orders" id="OrdersByFindAllItems">
+		<result property="id" column="id" />
+		<result property="number" column="number" />
+		<result property="createtime" column="createtime" />
+		<collection property="items" ofType="Items">
+			<result property="name" column="items_name" />
+			<result property="detail" column="items_detail" />
+			<collection property="orders" ofType="Orders">
+				<result property="id" column="id" />
+				<result property="number" column="number" />
+				<result property="createtime" column="createtime" />
+			</collection>
+		</collection>
+	</resultMap>
+	<select id="findAllItems" resultMap="OrdersByFindAllItems">
+		SELECT
+		orders.createtime,
+		orders.number,
+		orders.id,
+		items.name items_name,
+		items.detail
+		items_detail
+		FROM
+		orders,
+		orderdetail,
+		items
+		WHERE
+		orders.id =
+		orderdetail.orders_id
+		AND items.id = orderdetail.items_id
+  </select>
+</mapper>
