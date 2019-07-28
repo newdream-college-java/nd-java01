@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		
+	</style>
+	<script type="text/javascript">
+		function onew(){
+			open('new.html','图片广告','width=300,height=300,toolbar=0,location=no,resizable=no,scrollbars=no,left=1200,top=450',);
+		}
+		function tijiao(){
+			confirm("您本次购买的商品信息如下：\n\n商品名称：诺基亚N95；\n商品数量：1件；\n商品单价：2200；\n运费：20元；\n\n费用总计：2400元；\n\n请确认以上信息是否有误");
+			alert("您的订单已提交")
+		}
+		function quanping(){
+			window.open("3.html","","fullscreen=yes");
+		}
+	</script>
+</head>
+<body onload="onew()">
+	<table align="center" border="1px">
+		<tr>
+			<td colspan="5">简易购物车</td>
+		</tr>
+		<tr>
+			<td>商品名称</td>
+			<td>数量（件）</td>
+			<td>单价（元）</td>
+			<td>运费（元）</td>
+			<td>合计（元）</td>
+		</tr>
+		<tr>
+			<td>诺基亚N95</td>
+			<td>1</td>
+			<td>2200</td>
+			<td>20</td>
+			<td>2400</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<button onclick="tijiao()">提交订单</button>
+				<button onclick="quanping()">全屏显示</button>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

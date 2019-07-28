@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yb.mapper.FwjdMapper">
+	<sql id="LISTALL_FINL">jdid,jd,qxid</sql>
+	<select id="listAll" resultType="com.yb.entity.Fwjd">
+		select <include refid="LISTALL_FINL"/> from fwjd;
+	</select>
+	<insert id="addFwid" parameterType="com.yb.entity.Fwjd">
+		insert into fwjd
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="jdid!=null">
+				jdid,
+			</if>
+			<if test="jd!=null">
+				jd,
+			</if>
+			<if test="qxid!=null">
+				qxid,
+			</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="jdid!=null">
+				#{jdid},
+			</if>
+			<if test="jd!=null">
+				#{jd},
+			</if>
+			<if test="qxid!=null">
+				#{qxid},
+			</if>
+		</trim>
+	</insert>
+	<update id="modifyFwjd" parameterType="com.yb.entity.Fwjd">
+		update fwjd
+		<set>
+			<if test="jd!=null">
+				jd=#{jd},
+			</if>
+			<if test="qxid!=null">
+				qxid=#{qxid},
+			</if>
+		</set>
+		where jdid = #{jdid}
+	</update>
+	<delete id="removeFwjd" parameterType="int">
+		delete from fwjd where jdid = #{id}
+	</delete>
+</mapper>

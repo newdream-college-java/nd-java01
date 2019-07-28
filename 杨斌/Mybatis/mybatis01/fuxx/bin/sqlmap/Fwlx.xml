@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="newdreawFwlx">
+	<sql id="LISTALL_FINL">lxid,fwlx</sql>
+	<select id="listAll" resultType="com.yb.entity.Fwlx">
+		select <include refid="LISTALL_FINL"/> from fwlx;
+	</select>
+	<insert id="addFwlx" parameterType="com.yb.entity.Fwlx">
+		insert into fwlx
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="lxid!=null">
+				lxid,
+			</if>
+			<if test="fwlx!=null">
+				fwlx,
+			</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="lxid!=null">
+				#{lxid},
+			</if>
+			<if test="fwlx!=null">
+				#{fwlx},
+			</if>
+		</trim>
+	</insert>
+	<update id="modifyFwlx" parameterType="com.yb.entity.Fwlx">
+		update fwlx
+		<set>
+			<if test="fwlx!=null">
+				fwlx=#{fwlx},
+			</if>
+		</set>
+		where lxid = #{lxid}
+	</update>
+	<delete id="removeFwlx" parameterType="int">
+		delete from fwlx where lxid = #{lxid}
+	</delete>
+</mapper>

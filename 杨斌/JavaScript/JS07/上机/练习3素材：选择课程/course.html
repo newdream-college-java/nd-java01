@@ -1,0 +1,57 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>选择课程</title>
+<script type="text/javascript">
+  var xueqi=new Array();
+  xueqi['第一学期']=['Java','SqlServer基础','C#','HTML'];
+  xueqi['第二学期']=['Struts','ASP.NET','Ajax','Spring','Hibemate'];
+  xueqi['第三学期']=['Javascript','SqlServer高级','NET','JSP'];
+  window.onload=function(){
+    var selTerm=document.getElementById("selTerm");
+    for(var key in xueqi){
+      selTerm.add(new Option(key,key));
+    }
+  }
+  function chanss(obj){
+   
+    var valff=obj.value;
+    var sel=xueqi[valff]; 
+    console.log(valff);
+    var selCoursss=document.getElementById("selCourse");
+    console.log(selCoursss);
+    selCoursss.options.length=1;
+    for(var i=0;i<sel.length;i++){
+      selCoursss.add(new Option(sel[i],sel[i]));
+      console.log(selCoursss);
+    }
+  }
+</script>
+
+</head>
+
+<body>
+<form name="myform" id="myform">
+
+  <table border="0"  align="center" >
+    <tr>
+      <td colspan="2" align="center">考 试 申 请</td>
+    </tr>
+    <tr>
+      <td>学期</td>
+      <td><select id="selTerm" onchange="chanss(this)" >
+        <option>--请选择学期--</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>课程</td>
+      <td><select id="selCourse" >
+        <option>--请选择对应学期的课程--</option>
+      </select></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

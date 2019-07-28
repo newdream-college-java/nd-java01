@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var sum;
+		function show(){
+			var a1=parseInt(prompt("请输入第一个整数"));
+			var a2=parseInt(prompt("请输入第二个整数"));
+			var b=prompt("请输入运算符");
+
+			if(b=="/"){
+				sum=a1/a2;
+			}else if(b=="-"){
+				sum=a1-a2;
+			}else if(b=="+"){
+				sum=a1+a2;
+			}else if (b=="*"){
+				sum=a1*a2;
+			}else{
+				sum="输入错误"
+			}
+		}
+		show();
+		alert(sum);
+	</script>
+</head>
+<body>
+	<button onclick="show()">显示五次Hellow word</button>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>com.cc.servlet.TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/testServlet</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+		<filter-name>TestFilter</filter-name>
+		<filter-class>com.cc.filter.TestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>TestFilter</filter-name>
+		<servlet-name>TestServlet</servlet-name>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>Encodeservlet</servlet-name>
+		<servlet-class>com.cc.servlet.Encodeservlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Encodeservlet</servlet-name>
+		<url-pattern>/encodeservlet</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+		<filter-name>EcodeFilter</filter-name>
+		<filter-class>com.cc.filter.EcodeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>EcodeFilter</filter-name>
+		<servlet-name>Encodeservlet</servlet-name>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.cc.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/loginServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.cc.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/save/save.jsp</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>PersonData</servlet-name>
+		<servlet-class>com.cc.servlet.PersonData</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PersonData</servlet-name>
+		<url-pattern>/personData</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<filter-name>PersonDataFilter</filter-name>
+		<filter-class>com.cc.filter.PersonDataFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PersonDataFilter</filter-name>
+		<servlet-name>PersonData</servlet-name>
+	</filter-mapping>
+	
+	
+	<servlet>
+		<servlet-name>LoginTextSel</servlet-name>
+		<servlet-class>com.cc.servlet.LoginTextSel</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginTextSel</servlet-name>
+		<url-pattern>/loginTextSel</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

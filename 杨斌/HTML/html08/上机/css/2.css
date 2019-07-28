@@ -1,0 +1,27 @@
+*,body,ul,li{
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+.tb{
+	width: 430px;
+	height: 130px;
+	position: relative;
+
+
+}
+.bq{
+	position: absolute;
+	right: 7px;
+	bottom: 2px;
+}
+.tb .bq ul li{
+	width: 20px;
+	height: 20px;
+	border: 1px #666 solid;
+	text-align: center;
+	font-size: 12px;
+	float: left;
+	background-color: white;
+	margin-left: 5px;
+}

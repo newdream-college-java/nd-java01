@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function show(){
+			var a=new Date();
+			var year=a.getFullYear();
+			var month=a.getMonth()+1;
+			var date=a.getDate();
+			var hour=a.getHours();
+			var day=a.getDay();
+			var minutes=a.getMinutes();
+			var seconds=a.getSeconds();
+			var week;
+			switch(day){
+				case 1:
+					week="一";
+					break;
+				case 2:
+					week="二";
+					break;
+				case 3:
+					week="三";
+					break;
+				case 4:
+					week="四";
+					break;
+				case 5:
+					week="五";
+					break;
+				case 6:
+					week="六";
+					break;
+				case 7:
+					week="七";
+					break;
+			}
+			var dates;
+			var ap;
+			if(date<=12){
+
+				ap="PM"
+			}else{
+				ap="AM"
+			}
+			document.getElementById("dates").innerHTML=year+"年"+month+"月"+date+"日"+hour+":"+minutes+":"+seconds+ap+"&nbsp;星期"+week;
+		}
+		var interval=setInterval("show()",1000);
+	</script>
+</head>
+<body onload="show()">
+	<div id="box" style="font-size: 30px;font-weight: bold;margin: 0px;"><p>你好，欢迎访问新梦想商场！</p><p id="dates"></p> <br/></div>
+</body>
+</html>

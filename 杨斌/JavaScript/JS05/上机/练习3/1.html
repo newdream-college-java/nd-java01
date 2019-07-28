@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.dd{
+		background: url(advpic.jpg) 0px 0px no-repeat;
+		width: 120px;
+		height: 150px;
+		position: absolute;
+		left: 900px;
+		top: 270px;
+	}
+	#sss{
+		position: relative;
+		left: 50px;
+		top: -3px;
+	}
+</style>
+<script type="text/javascript">
+	var tit;
+	var lit;
+	var gg;
+	window.onload=function(){
+		gg=document.getElementById("ca");
+		console.log(gg);
+		if(gg.currentStyle){
+			tit=parseInt(document.currentStyle.top);
+			lit=parseInt(document.currentStyle.left);
+		}else{
+			tit=parseInt(document.defaultView.getComputedStyle(gg,null).top);
+			left=parseInt(document.defaultView.getComputedStyle(gg,null).left);
+		}
+		console.log(tit);
+	}
+	function move(){
+		var newtop=parseInt(document.documentElement.scrollTop)+tit+"px";
+		var newleft=parseInt(document.documentElement.scrollLeft)+lit+"px";
+		console.log(newtop);
+		if(gg.currentStyle){
+			document.currentStyle.top=newtop;
+			document.currentStyle.left=newleft;
+		}else{
+			gg.style.top=newtop;
+			gg.style.left=newleft;
+		}
+	}
+	window.onscroll=move;
+	function ik(){
+		gg.className="";
+		gg.innerHTML="";
+	}
+</script>
+<body style="text-align: center;">
+	<img src="contentpic.jpg">
+	<div class="dd" id="ca">
+		<input type="image" src="close.jpg" name="" id="sss" onclick="ik()">
+	</div>
+	
+</body>
+</html>

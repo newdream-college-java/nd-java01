@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div{
+			float: left;
+			margin-left:100px;
+		}
+		.ss{
+			border: 1px #666666 solid;
+		}
+		.cc{
+			border: 1px orange solid;
+		}
+	</style>
+	<script type="text/javascript">
+		function ss(obj){
+			obj.className="cc"
+		}
+		function aa(obj){
+			obj.className="ss"
+		}
+	</script>
+</head>
+<body>
+	<div ><img src="images/new_01.jpg" class="ss" onmouseover="ss(this)" onmouseout="aa(this)"></div>
+	<div><img src="images/new_02.jpg" class="ss" onmouseover="ss(this)" onmouseout="aa(this)"></div>
+	<div><img src="images/new_03.jpg" class="ss" onmouseover="ss(this)" onmouseout="aa(this)"></div>
+</body>
+</html>

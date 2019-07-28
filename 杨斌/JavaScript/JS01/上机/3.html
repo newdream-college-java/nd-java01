@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		var k=prompt("请输入打印的行数");
+			var kg=k;
+			for(var i=1;i<=k;i++){
+				for(var q=1;q<kg;q++){
+					document.write("&nbsp;&nbsp;")
+				}
+				for(var q=0;q<i;q++){
+					document.write("*&nbsp;&nbsp;&nbsp;")
+				}
+				kg--;
+				document.write("<br/>")
+			}
+			for(var j=k-1;j>0;j--){
+				for(var q=0;q<=kg;q++){
+					document.write("&nbsp;&nbsp;")
+				}
+				for(var q=0;q<j;q++){
+					document.write("*&nbsp;&nbsp;&nbsp;")
+				}
+				document.write("<br/>")
+				kg++;
+			}			
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

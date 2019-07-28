@@ -1,0 +1,91 @@
+第一步：
+mysql官网下载jdbc驱动包并导入到工程当中
+Class.forName("com.mysql.jdbc.Driver")
+加载mysql驱动
+
+第二步：
+Connection cn=DriverManager.getConnection(url, user, password);
+创建Connection连接到数据库
+url：jdbc:mysql://127.0.0.1:3306/java01?useUnicode=true&characterEncoding=utf8&useSSL=true
+user：用户名
+password：mima
+
+第三步：
+Statement st = conn.createStatement();
+创建Statement对象操作数据库
+
+第四步：
+st.executeUpdate(sql语句);返回的结果是影响的行数
+向数据库发送sql语句
+
+第五步：
+用int result=st.executeUpdate返回的int数字判断发送是否成功，大于1则成功，否则失败
+ if(result>0) {
+            System.out.println("操作成功");
+        }else {
+            System.out.println("操作失败");
+        }
+
+第六步：
+关闭连接，不然会一直保存再内存当中，原则是：先开后关
+st.close();
+cn.close();
+
+以上适用增删改
+
+
+
+
+
+
+
+
+
+
+
+
+查询：
+第一步：
+mysql官网下载jdbc驱动包并导入到工程当中
+Class.forName("com.mysql.jdbc.Driver")
+加载mysql驱动
+
+第二步：
+Connection cn=DriverManager.getConnection(url, user, password);
+创建Connection连接到数据库
+url：jdbc:mysql://127.0.0.1:3306/java01?useUnicode=true&characterEncoding=utf8&useSSL=true
+user：用户名
+password：mima
+
+第三步：
+Statement st = conn.createStatement();
+创建Statement对象操作数据库
+
+第四步：
+ResultsetSet rs=st.executeQuery(sql语句);返回的是查询到的字符串数据
+得到查询数据
+
+第五步：
+Emp emp=null;
+List list=new ArrayList();
+while(rs.next()) {
+            int empno =rs.getInt("empno")
+            String name= rs.getString("ename")
+            String job = rs.getInt("job");
+            int mgr = rs.getInt("mgr");
+            Date hiredate = rs.getDate("hiredate");
+            int sal= rs.getInt("sal");
+            int comm = rs.getInt("comm");
+            int deptno= rs.getInt("deptno");
+            emp= new emp(empno,name,job,mgr,hiredate,sal,comm,deptno);
+            list.add(s1);
+        }
+创建一个emp对象将查询到的数据全部保存到对象当中，再用集合将对象保存
+
+第六步：
+关闭连接，不然会一直保存再内存当中，原则是：先开后关
+st.close();
+cn.close();
+
+
+

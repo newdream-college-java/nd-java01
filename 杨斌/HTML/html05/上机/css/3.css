@@ -1,0 +1,43 @@
+h3{
+	font-size: 18px;
+	color: white;
+	font-weight: bold;
+	line-height: 35px;
+	background-color: #0f7cbf;
+	text-indent: 1em;
+	margin: 0px;
+}
+#b1{
+	margin-top: 0px;
+}
+p{
+	background-color: #e4f1fa;
+}
+p a{
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+	
+}
+.bt a:link{
+	text-decoration: none;
+	color: #0f7cbf;
+}
+.bt a:hover{
+	text-decoration: underline;
+}
+a{
+	font-size: 12px;
+	line-height: 20px;
+	margin: 15px;
+	
+}
+a:link{
+	color: #666666;
+	text-decoration: none;
+
+}
+a:hover{
+	color: #f60;
+	text-decoration: underline;
+}

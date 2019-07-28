@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var o=0;
+		var j=0;
+		function show(){
+			for(var i=1;i<=5;i++){
+				var a=prompt("请输入第"+i+"个整数")
+				if(a%2==0){
+					o++;
+				}else{
+					j++;
+				}
+			}
+			
+		}
+		show();
+		document.write("偶数"+o+"个<br/>"+"奇数"+j+"个<br/>")
+	</script>
+</body>
+</html>

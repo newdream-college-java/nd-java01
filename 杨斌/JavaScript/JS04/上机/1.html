@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function addRow(){
+			var tableObj = document.getElementById("m");
+			var newRow = tableObj.insertRow(tableObj.rows.length-1);
+			var newTd0 = newRow.insertCell(0);
+			newTd0.innerHTML="幸福从天而降";
+			var newTd1=newRow.insertCell(1);
+			newTd1.innerHTML="&yen;18.50";
+			newTd1.style.textAlign="center";
+		}
+		function removeRow(){
+			var tableObj = document.getElementById("m");
+			tableObj.deleteRow(1);
+		}
+		function updateRow(){
+			var tableObj=document.getElementById("m");
+			var bt=tableObj.rows[0];
+			bt.style.textAlign="center";
+			bt.style.textWeight="bold";
+			bt.style.backgroundColor="#cccccc";
+		}
+		function copyRow(){
+			var tableObj=document.getElementById("m");
+			var fz=tableObj.rows[tableObj.rows.length-1];
+			var zc=fz.cloneNode(true);
+			tableObj.appendChild(zc);
+		}
+		function dlRow(){
+			for(var i=1;i<=2;i++){
+				var tableObj = document.getElementById("m");
+				var newRow = tableObj.insertRow(tableObj.rows.length-1);
+				var newTd0 = newRow.insertCell(0);
+				newTd0.innerHTML="幸福从天而降";
+				var newTd1=newRow.insertCell(1);
+				newTd1.innerHTML="&yen;18.50";
+				newTd1.style.textAlign="center";
+				alert("222");
+			}
+		}
+	</script>
+	<style type="text/css">
+		.ss{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<table id="m" border="1" cellspacing="0" width="300px">
+		<tr >
+			<td>书名</td>
+			<td>价格</td>
+		</tr>
+		<tr >
+			<td>看得见风景的房间</td>
+			<td style="text-align: center;">&yen;30.00</td>
+		</tr>
+		<tr>
+			<td>60个瞬间</td>
+			<td style="text-align: center;">&yen;32.00</td>
+		</tr>
+	</table>
+	<button ondblclick="dlRow()" onclick="addRow()" >增加一行</button>
+	<button onclick="removeRow()">删除第二行</button>
+	<button onclick="updateRow()">修改标题样式</bu+tton>
+	<button onclick="copyRow()">复制最后一行</button>
+</body>
+</html>

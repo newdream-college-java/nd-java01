@@ -1,0 +1,29 @@
+*{
+	margin:0px auto;
+	padding:0px;
+}
+ul{
+	list-style-type:none;
+}
+body{
+	width:1059px;
+	background: #DDDDDD;
+}
+.mainContentLeft{
+	float: left;
+	width:664px;
+	margin-top:10px;
+}
+.mainContentLeft .videoImg{
+	width:657px;
+	background: black;
+	float: left;
+	padding: 20px 40px;
+}
+.mainContentLeft .videoImg img{
+	width:654px;
+	text-align: center;
+}
+.clear{
+	clear:left;
+}

@@ -1,0 +1,66 @@
+BODY {
+	MARGIN-TOP: 7px; FONT-SIZE: 12px; FONT-FAMILY: "ËÎÌו",sans-serif
+}
+A:link {
+	COLOR: #000000
+}
+A:visited {
+	COLOR: #999999
+}
+A:hover {
+	COLOR: #cc0000
+}
+#head {
+	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 140px
+}
+#search_form {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 1px; MARGIN: 0px auto; WIDTH: 950px; PADDING-TOP: 1px; HEIGHT: 55px
+}
+.fontcolor_white {
+	FONT-SIZE: 12px; COLOR: #ffffff
+}
+#content {
+	FONT-SIZE: 12px; MARGIN: 0px auto; WIDTH: 950px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
+}
+#content A {
+	COLOR: #0033ff; TEXT-DECORATION: none
+}
+#foot A {
+	COLOR: #0033ff
+}
+#content A:hover {
+	COLOR: #ff3300
+}
+#foot A:hover {
+	COLOR: #ff3300
+}
+.fontcolor_blue {
+	FONT-SIZE: 12px; COLOR: blue
+}
+.font_bold {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px
+}
+.tableBorder {
+	BORDER-RIGHT: #ff9900 2px dashed; PADDING-LEFT: 5px; PADDING-TOP: 10px
+}
+.tablePad {
+	PADDING-LEFT: 10px
+}
+#foot {
+	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 93px; TEXT-ALIGN: center
+}
+.login_success1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 24px
+}
+.login_success2 {
+	FONT-SIZE: 36px
+}
+.login_success3 {
+	FONT-SIZE: 24px
+}
+.register_textBroader {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid
+}
+.register_table_line {
+	FONT-SIZE: 14px; LINE-HEIGHT: 35px; MARGIN-RIGHT: 5px; TEXT-ALIGN: right
+}
