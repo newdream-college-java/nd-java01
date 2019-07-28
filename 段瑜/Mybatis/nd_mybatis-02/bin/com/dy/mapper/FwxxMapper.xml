@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dy.mapper.FwxxMapper">
+	<select id="findAll" resultType="Fwxx">
+		select fwid,uid,jdid,qxid,lxid,shi,ting,fwxx,zj,title,date,telephone,concat from fwxx
+	</select>
+	<insert id="SaveFwxx">
+		insert into Fwxx(shi,date) values(#{shi},#{date})
+	</insert>
+	<update id="UpdateFwxx">
+		update fwxx set date=#{date} where fwid=#{fwid}
+	</update>
+	<delete id="DeleteFwxx">
+		delete from fwxx where fwid=#{fwid}
+	</delete>
+</mapper>

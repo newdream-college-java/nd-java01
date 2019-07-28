@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dy.mapper.User1Mapper">
+	<select id="findAll" resultType="com.dy.entiy.User1">
+		select uid,uname,upass from user1
+	</select>
+	<insert id="saveUser1">
+		insert into user1(uname,upass) values(#{uname},#{upass})
+	</insert>
+	<update id="UpdateUser1">
+		update user1 set uname=#{uname} where uid=#{uid}
+	</update>
+	<delete id="DeleteUser1">
+		delete from user1 where uid=#{uid}
+	</delete>
+</mapper>

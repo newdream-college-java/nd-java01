@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dy.mapper.FwlxMapper">
+	<select id="findAll" resultType="Fwlx">
+		select lxid,fwlx from fwlx
+	</select>
+	<insert id="SaveFwlx">
+		insert into fwlx(fwlx) values(#{fwlx})
+	</insert>
+	<update id="UpdateFwlx">
+		update fwlx set fwlx=#{fwlx} where lxid=#{lxid}
+	</update>
+	<delete id="DeleteFwlx">
+		delete from fwlx where lxid=#{lxid}
+	</delete>
+</mapper>

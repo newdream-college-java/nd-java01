@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dy.mapper.FwqxMapper">
+	<select id="findAll" resultType="Fwqx">
+		select qxid,qx from fwqx
+	</select>
+	<insert id="SaveFwqx">
+		insert into fwqx(qx) values(#{qx})
+	</insert>
+	<update id="UpdateFwqx">
+		update fwqx set qx=#{qx} where qxid=#{qxid}
+	</update>
+	<delete id="DeleteFwqx">
+		delete from fwqx where qxid=#{qxid}
+	</delete>
+</mapper>
