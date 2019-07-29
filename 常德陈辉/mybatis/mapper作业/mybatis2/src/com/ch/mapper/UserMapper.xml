@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.mapper.UserMapper">
+
+	<!-- 查询user中的数据 -->
+	<!-- sql片段 -->
+	<sql id="Base_Column_List">
+		id,username,birthday,sex,address
+        </sql>
+	<select id="findAll" resultType="user">
+		select
+		<include refid="Base_Column_List" />
+		from user
+	</select>
+	<!-- 查询items中的数据 -->
+	<sql id="Itens_list">
+		id,name,price,detail,pic,createtime
+       </sql>
+	<select id="find" resultType="Items">
+		select
+		<include refid="Itens_list" />
+		from items
+	</select>
+
+	<!-- 更改User表中的数据 -->
+	<update id="modify" parameterType="com.ch.entity.User">
+		<!--
+			update user set username = #{username}, birthday = #{birthday}, sex =
+			#{sex}, address = #{address} where id = #{id}
+		-->
+		update user
+		<set>
+			<if test="username !=null">username = #{username},</if>
+			<if test="birthday !=null">birthday = #{birthday},</if>
+			<if test="sex !=null">sex = #{sex},</if>
+			<if test="address !=null">address = #{address}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<!-- 添加user数据 -->
+	<insert id="insert" parameterType="user">
+		<selectKey keyProperty="id" order="AFTER" resultType="int">
+			Select last_insert_id()
+		</selectKey>
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="username !=null">username,</if>
+			<if test="birthday !=null">birthday,</if>
+			<if test="sex !=null">sex,</if>
+			<if test="address !=null">address,</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="username !=null">#{username},</if>
+			<if test="birthday !=null">#{birthday},</if>
+			<if test="sex !=null">#{sex},</if>
+			<if test="address !=null"> #{address}</if>
+		</trim>
+	</insert>
+	
+	<insert id="insertTest1" parameterType="test1">
+		<selectKey keyProperty="orderid" order="BEFORE" resultType="java.lang.String">
+			select uuid()
+		</selectKey>
+		insert into test1(orderid,number) values(#{orderid},#{number});
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

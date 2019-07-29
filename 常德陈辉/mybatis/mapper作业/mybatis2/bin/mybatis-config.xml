@@ -1,0 +1,46 @@
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 一、加载数据库信息 -->
+	<!-- 加载jdbc.properties数据库信息文件 -->
+	<properties resource="jdbc.properties">
+	</properties>
+	<!-- setting 设置 -->
+	<settings>
+		<!-- 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN 到经典 Java 属性名 aColumn 的类似映射。  -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		 <!-- 延迟加载总开关 -->
+        <setting name="lazyLoadingEnabled" value="true" />  
+        <!-- 设置按需加载 -->
+        <setting name="aggressiveLazyLoading" value="false" />
+	</settings>
+	<!-- 实体类的别名alias别名 -->
+	<typeAliases>
+		<typeAlias  type="com.ch.entity.User" alias="user"/>
+		<!-- 为路径下的所有实体类取别名 -->
+		<package name="com.ch.entity"/>
+	</typeAliases>
+	<environments default="development">
+		<!-- 对应的数据库信息 -->
+		<environment id="development">
+			<!-- 事务管理方式：采用jdbc -->
+			<transactionManager type="JDBC" />
+			<!-- 数据源的类型 -->
+			<dataSource type="POOLED">
+				<!-- 驱动 -->
+				<property name="driver" value="${driver}" />
+				<!-- 协议地址 -->
+				<property name="url" value="${url}" />
+				<!-- 用户名 -->
+				<property name="username" value="${username}" />
+				<!-- 密码 -->
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 二、sql映射文件-->
+	<mappers>
+		<package name="com.ch.mapper"/>
+	</mappers>
+</configuration>
