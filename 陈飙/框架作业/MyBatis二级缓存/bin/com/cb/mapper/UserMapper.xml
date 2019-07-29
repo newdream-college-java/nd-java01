@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cb.mapper.UserMapper">
+    <!-- 使用二级缓存: 简单使用 -->
+    <!-- <cache/> -->
+    <!-- 使用二级缓存: 高级使用 -->
+     <cache eviction="LRU" flushInterval="6000" size="1024" readOnly="true" />
+	
+	<!--<cache type="org.mybatis.caches.ehcache.EhcacheCache">
+	<property name="memoryStoreEvictionPolicy" value="FIFO"/>
+	<property name="maxElementsInMemory" value="1"/>
+	</cache>
+	
+	
+	--><!-- sql片段 -->
+	<sql id="Base_Column_List">
+		id,username,birthday,sex,address
+	</sql>
+	<select id="findALL" resultType="User"  flushCache="false">
+		select
+		<include refid="Base_Column_List" />
+		from user where id=#{id}
+	</select>
+	<update id="updateUser"  parameterType="User" >
+	       update user set username=#{username} where id=#{id}
+	</update>
+</mapper>
