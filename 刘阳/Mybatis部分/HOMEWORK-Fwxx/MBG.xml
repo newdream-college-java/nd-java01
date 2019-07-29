@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+ 
+<!-- 数据库驱动等配置 -->
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <jdbcConnection 
+    	driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://127.0.0.1:3306/mybatis?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true"
+        userId="root"
+        password="1997">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+<!-- 根据表生成实体类 -->
+    <javaModelGenerator targetPackage="com.yb.entity" targetProject=".\src">
+    <!-- 是否子包 -->
+      <property name="enableSubPackages" value="true" />
+       <!-- 是否去空格 -->
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+ <!-- 根据表生成mapper映射 -->
+    <sqlMapGenerator targetPackage="com.yb.mapper"  targetProject=".\config">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+<!-- 根据表生成mapper接口 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.yb.mapper"  targetProject=".\src">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table tableName="fwxx" domainObjectName="Fwxx" >
+     
+    </table>
+
+  </context>
+</generatorConfiguration>
