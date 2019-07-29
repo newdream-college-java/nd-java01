@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="jdbc.properties" />
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+	<typeAliases>
+	<!--实体类的别名，alias别名  -->
+	<!-- 方式二：自动将制定的包下的所有实体类取别名，别名是类名（不区分大小写） -->
+		<package name="com.dy.entiy"/>
+	</typeAliases>
+	 <environments default="development">
+	 	<environment id="development">	 	
+	 		<transactionManager type="jdbc"/>
+	 			<dataSource type="POOLED">
+			        <property name="driver" value="${driver}"/>
+			        <property name="url" value="${url}"/>
+			        <property name="username" value="${username}"/>
+			        <property name="password" value="${password}"/>
+			     </dataSource>	 		
+	 	</environment>
+	</environments>
+	<mappers>
+		<package name="com.dy.mapper"/>
+	</mappers>
+</configuration>
