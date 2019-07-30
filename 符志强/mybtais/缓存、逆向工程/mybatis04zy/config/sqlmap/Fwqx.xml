@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="newdream">
+	<sql id="qb">
+		qxid,qx 
+	</sql>
+	<select id="list" resultType="fwqx">
+		select <include refid="qb"/> from fwqx
+	</select>
+	<insert id="add" parameterType="entity.Fwqx">
+		<selectKey keyProperty="qxid" order="AFTER" resultType="int" >
+			select last_insert_id()
+		</selectKey>
+		insert into fwqx 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+
+			<if test="qx!=null">
+				qx,
+			</if>
+						</trim>
+			values
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="qx!=null">
+				#{qx},
+			</if>
+
+		</trim>
+	</insert>
+	<update id="update" parameterType="entity.Fwqx">
+				update fwqx 
+			<set>
+				<if test="qx!=null">
+				qx=#{qx},
+			</if>
+
+			</set>
+			where qxid=#{qxid}
+	</update>
+</mapper>

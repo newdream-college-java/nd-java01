@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- mapper:sql映射文件的根元素 
+    namespace:命名空间，隔离不同的sql映射
+-->
+<mapper namespace="newdream">
+    <!-- 编写增删改查的sql语句   -->
+    <!-- 
+        1）sql是为了构建statement对象
+        2）jdbc中可以构建statement对象，preparedStatement对象
+            statement对象(父接口)
+                | ======>preparedStatement对象(子接口)
+                      |=====>MappedStatement对象
+        3）mybatis中是创建MappedStatement对象
+        
+        4)id就是MappedStatement的唯一标示
+        
+        5)resultType: 查询的结果集封装成什么类的对象。同时还可以放入集合。
+            com.cc.entity.User
+      -->
+    <select id="findAllUser" resultType="entity.User">
+            select  id, username,birthday,sex,address from user
+    </select>
+    
+
+</mapper>

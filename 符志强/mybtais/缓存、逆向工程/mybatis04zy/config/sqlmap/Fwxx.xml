@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="newdream">
+	<sql id="qb">
+		fwid,uid,jdid,qxid,lxid,shi,ting,fwxx,zj,title,date,telephone,concat
+	</sql>
+	<select id="list" resultType="fwxx">
+		select <include refid="qb"/> from fwxx
+	</select>
+	<insert id="add" parameterType="entity.Fwxx">
+		<selectKey keyProperty="fwid" order="AFTER" resultType="int" >
+			select last_insert_id()
+		</selectKey>
+		insert into fwxx 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="uid!=null">
+				uid,
+			</if>
+			<if test="jdid!=null">
+				jdid,
+			</if>
+			<if test="qxid!=null">
+				qxid,
+			</if>
+			<if test="lxid!=null">
+				lxid,
+			</if>
+			<if test="shi!=null">
+				shi,
+			</if>
+			<if test="ting!=null">
+				ting,
+			</if>
+			<if test="fwxx!=null">
+				fwxx,
+			</if>
+			<if test="title!=null">
+				title,
+			</if>
+			<if test="date!=null">
+				date,
+			</if>
+			<if test="telephone!=null">
+				telephone,
+			</if>
+			<if test="concat!=null">
+				concat,
+			</if>
+		</trim>
+			values
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="uid!=null">
+				#{uid},
+			</if>
+			<if test="jdid!=null">
+				#{jdid},
+			</if>
+			<if test="qxid!=null">
+				#{qxid},
+			</if>
+			<if test="lxid!=null">
+				#{lxid},
+			</if>
+			<if test="shi!=null">
+				#{shi},
+			</if>
+			<if test="ting!=null">
+				#{ting},
+			</if>
+			<if test="fwxx!=null">
+				#{fwxx},
+			</if>
+			<if test="title!=null">
+				#{title},
+			</if>
+			<if test="date!=null">
+				#{date},
+			</if>
+			<if test="telephone!=null">
+				#{telephone},
+			</if>
+			<if test="concat!=null">
+				#{concat},
+			</if>
+		</trim>
+	</insert>
+	<update id="update" parameterType="entity.Fwxx">
+				update fwxx 
+			<set>
+			<if test="uid!=null">
+				uid=#{uid},
+			</if>
+			<if test="jdid!=null">
+				jdid=#{jdid},
+			</if>
+			<if test="qxid!=null">
+				qxid=#{qxid},
+			</if>
+			<if test="lxid!=null">
+				lxid=#{lxid},
+			</if>
+			<if test="shi!=null">
+				shi=#{shi},
+			</if>
+			<if test="ting!=null">
+				ting=#{ting},
+			</if>
+			<if test="fwxx!=null">
+				fwxx=#{fwxx},
+			</if>
+			<if test="title!=null">
+				title=#{title},
+			</if>
+			<if test="date!=null">
+				date=#{date},
+			</if>
+			<if test="telephone!=null">
+				telephone=#{telephone},
+			</if>
+			<if test="concat!=null">
+				concat=#{concat},
+			</if>
+			</set>
+			where fwid=#{fwid}
+	</update>
+</mapper>

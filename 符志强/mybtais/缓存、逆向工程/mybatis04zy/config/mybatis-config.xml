@@ -1,0 +1,43 @@
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 一、加载数据库信息 -->
+	<!-- 加载jdbc.properties数据库信息文件 -->
+	<properties resource="jdbc.properties">
+	</properties>
+	<settings>
+	        <!-- 开启二级缓存 -->
+           <setting name="cacheEnabled" value="true"/>
+     </settings>
+	<!-- 取别名 -->
+	<typeAliases>
+		<!-- 自己取别名 -->
+		<!-- <typeAlias type="com.yb.entity.User" alias="User"/>-->
+		<!-- 自动取别名，别名为类名 -->
+		<package name="entity"/>
+	</typeAliases>
+	<environments default="development">
+		<!-- 对应的数据库信息 -->
+		<environment id="development">
+			<!-- 事务管理方式：采用jdbc -->
+			<transactionManager type="JDBC" />
+			<!-- 数据源的类型 -->
+			<dataSource type="POOLED">
+				<!-- 驱动 -->
+				<property name="driver" value="${driver}" />
+				<!-- 协议地址 -->
+				<property name="url" value="${url}" />
+				<!-- 用户名 -->
+				<property name="username" value="${username}" />
+				<!-- 密码 -->
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 二、sql映射文件-->
+	<mappers>
+	   <package name="mapper"/>
+	</mappers>	
+</configuration>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- 命名空间 -->
+<mapper namespace="mapper.HcMapper">
+<cache eviction="LRU" flushInterval="6000" size="1024" readOnly="true"/>
+  <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+            <property name="memoryStoreEvictionPolicy" value="FIFO"/>
+            <property name="maxElementsInMemory" value="1"/>
+            </cache>
+ <sql id="Base_Column_List">
+             id,name,price,pic,createtime,detail 
+        </sql>
+	<select id="hc" resultType="Items">
+		SELECT 
+		 <include refid="Base_Column_List"/>
+		FROM
+		  items 
+		WHERE  id=#{Id}
+    </select>
+    <update id="update" parameterType="entity.Items">
+				update items 
+			<set>
+				<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="price!=null">
+				price=#{price},
+			</if>
+				<if test="pic!=null">
+				pic=#{pic},
+			</if>
+			<if test="createtime!=null">
+				createtime=#{createtime},
+			</if>
+			<if test="detail!=null">
+				detail=#{detail},
+			</if>
+			</set>
+			where id=#{id}
+	</update>
+</mapper>
