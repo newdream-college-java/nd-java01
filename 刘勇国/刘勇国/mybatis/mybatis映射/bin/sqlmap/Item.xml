@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="newdream">
+	<!-- 查询所有信息 -->
+	<!--  
+	<select id="findAllItems" resultType="com.cc.entity.Items">
+		select id,name,price,detail,pic,createtime from items
+	</select>
+		下面的方法是用别名,把整个entity包下所有实体类自动取别名，别名为类名,不区分大小写
+	-->
+	<select id="findAllItems" resultType="Items">
+		select id,name,price,detail,pic,createtime from items
+	</select>
+	<!-- 按id删除信息 -->
+	<delete id="deleteById" parameterType="int">
+		delete from items where id=#{id}
+	</delete>
+	<insert id="addItems" parameterType="com.cc.entity.Items">
+		<selectKey keyProperty="id" order="AFTER" resultType="int">
+			select last_insert_id()
+		</selectKey>
+		insert into items
+		<trim  prefix="(" suffix=")"  suffixOverrides=",">
+            <if test="id !=null">
+                id,
+            </if>
+            <if test="name!=null">
+                name,
+            </if>
+            <if test="price!=null">
+                price,
+            </if>
+            <if test="detail!=null">
+                detail,
+            </if>
+            <if test="pic!=null">
+                pic,
+            </if>
+            <if test="createtime!=null">
+                createtime,
+            </if>
+        </trim>
+         values
+         <trim  prefix="(" suffix=")"  suffixOverrides=",">
+            <if test="id !=null">
+                #{id},
+            </if>
+            <if test="name!=null">
+                #{name},
+            </if>
+            <if test="price!=null">
+                #{price},
+            </if>
+            <if test="detail!=null">
+                #{detail},
+            </if>
+            <if test="pic!=null">
+                #{pic},
+            </if>
+            <if test="createtime!=null">
+                #{createtime},
+            </if>
+        </trim>
+	</insert>
+	
+	<insert id="save" parameterType="Test1">
+		<selectKey keyProperty="orderid" order="BEFORE" resultType="java.lang.String">
+			select uuid()
+		</selectKey>
+		insert into test1(orderid,number) values(#{orderid},#{number})
+	</insert>
+		
+	
+	<!-- 按照id更新数据 -->
+	
+	<update id="updateById" parameterType="Items">
+		update items 
+		<set>
+			<if test="id!=null">
+				id=#{id},
+			</if>
+			<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="price!=null">
+				price=#{price},
+			</if>
+			<if test="detail!=null">
+				detail=#{detail},
+			</if>
+			<if test="pic!=null">
+				pic=#{pic},
+			</if>
+			<if test="createtime!=null">
+				createtime=#{createtime},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+</mapper>

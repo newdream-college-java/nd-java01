@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="newdream">
+	<!-- 查询所有信息 -->
+	<!--  
+	<select id="findAllItems" resultType="com.cc.entity.Items">
+		select id,name,price,detail,pic,createtime from items
+	</select>
+		下面的方法是用别名,把整个entity包下所有实体类自动取别名，别名为类名,不区分大小写
+	-->
+	<select id="findAllOrderdetail" resultType="Orderdetail">
+		select id,orders_id,items_id,items_num from Orderdetail
+	</select>
+	<select id="findOrdertetailById"  parameterType="int" resultType="Orderdetail">
+		select id,orders_id,items_id,items_num from Orderdetail where id =#{id}
+	</select>
+</mapper>
