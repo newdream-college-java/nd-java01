@@ -1,9 +1,11 @@
-package com.yb.mapper;
+package com.dy.mapper;
 
-import com.yb.entity.Fwlx;
-import com.yb.entity.FwlxExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+
+import com.dy.entity.Fwlx;
+import com.dy.entity.FwlxExample;
 
 public interface FwlxMapper {
     long countByExample(FwlxExample example);

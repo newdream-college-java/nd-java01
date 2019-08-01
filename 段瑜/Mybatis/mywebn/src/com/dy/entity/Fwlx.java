@@ -1,4 +1,4 @@
-package com.yb.entity;
+package com.dy.entity;
 
 public class Fwlx {
     private Integer lxid;

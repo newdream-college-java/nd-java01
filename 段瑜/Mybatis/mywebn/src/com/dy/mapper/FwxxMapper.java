@@ -1,7 +1,7 @@
-package com.yb.mapper;
+package com.dy.mapper;
 
-import com.yb.entity.Fwxx;
-import com.yb.entity.FwxxExample;
+import com.dy.entity.Fwxx;
+import com.dy.entity.FwxxExample;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.yb.servlet;
+package com.dy.servlet;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,10 +14,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.dy.entity.Fwxx;
+import com.dy.entity.FwxxExample;
+import com.dy.mapper.FwxxMapper;
 import com.github.pagehelper.PageHelper;
-import com.yb.entity.Fwxx;
-import com.yb.entity.FwxxExample;
-import com.yb.mapper.FwxxMapper;
 
 public class FwxxListServlet extends HttpServlet {
 	/**

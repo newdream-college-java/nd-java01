@@ -14,7 +14,7 @@
 		<!-- 自己取别名 -->
 		<!-- <typeAlias type="com.yb.entity.User" alias="User"/>-->
 		<!-- 自动取别名，别名为类名 -->
-		<package name="com.yb.entity"/>
+		<package name="com.dy.entity"/>
 	</typeAliases>
 	<!-- 数据库信息配置 -->
 	<plugins>
@@ -37,6 +37,6 @@
 	</environments>
 	<!-- sql映射 -->
 	<mappers>
-		<package name="com.yb.mapper"/>
+		<package name="com.dy.mapper"/>
 	</mappers>
 </configuration>

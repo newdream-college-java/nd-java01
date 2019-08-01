@@ -5,19 +5,19 @@
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>FwxxListServlet</servlet-name>
-    <servlet-class>com.yb.servlet.FwxxListServlet</servlet-class>
+    <servlet-class>com.dy.servlet.FwxxListServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>FwxxAddServlet</servlet-name>
-    <servlet-class>com.yb.servlet.FwxxAddServlet</servlet-class>
+    <servlet-class>com.dy.servlet.FwxxAddServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>FwxxRemoveServlet</servlet-name>
-    <servlet-class>com.yb.servlet.FwxxRemoveServlet</servlet-class>
+    <servlet-class>com.dy.servlet.FwxxRemoveServlet</servlet-class>
   </servlet>
 
 

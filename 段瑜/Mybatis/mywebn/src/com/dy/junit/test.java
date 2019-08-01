@@ -1,4 +1,4 @@
-package com.yb.junit;
+package com.dy.junit;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,11 +15,11 @@ import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
+import com.dy.entity.Fwxx;
+import com.dy.entity.FwxxExample;
+import com.dy.mapper.FwxxMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.yb.entity.Fwxx;
-import com.yb.entity.FwxxExample;
-import com.yb.mapper.FwxxMapper;
 
 public class test {
 	@Test

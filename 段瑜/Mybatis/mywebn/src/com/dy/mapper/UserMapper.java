@@ -1,7 +1,8 @@
-package com.yb.mapper;
+package com.dy.mapper;
 
-import com.yb.entity.User;
-import com.yb.entity.UserExample;
+import com.dy.entity.User;
+import com.dy.entity.UserExample;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

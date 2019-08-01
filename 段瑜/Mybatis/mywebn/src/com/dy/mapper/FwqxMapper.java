@@ -1,7 +1,8 @@
-package com.yb.mapper;
+package com.dy.mapper;
 
-import com.yb.entity.Fwqx;
-import com.yb.entity.FwqxExample;
+import com.dy.entity.Fwqx;
+import com.dy.entity.FwqxExample;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

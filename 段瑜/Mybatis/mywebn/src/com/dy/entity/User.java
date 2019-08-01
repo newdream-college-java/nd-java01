@@ -1,4 +1,4 @@
-package com.yb.entity;
+package com.dy.entity;
 
 public class User {
     private Integer uid;
