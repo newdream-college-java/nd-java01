@@ -1,0 +1,195 @@
+一、spring核心之 aop（重点）
+        aop:    Aspect Oriented Programming  面向切面编程 ，是一种思想。
+        oop:   Object Orinted programming     面向对象编程 ，是一个思想。
+        
+      总结：
+            oop：纵向抽取
+            好处：1）提高可重用性
+                        2）提高可扩展和可维护
+                        3）多态
+            aop：横向向抽取
+            好处：1）提高可重用性
+                        2）提高可扩展和可维护
+  二、aop怎么玩？
+        aop底层原理：动态代理技术    jdk动态代理和cglib动态代理
+        
+        代理========>经纪人、中介
+        
+  三、动态代理(重点)
+  黑客入侵
+  1）jdk黑客：    只能入侵实现接口的对象。     针对接口实现类 
+        jdk接口：InvocationHandler
+  2）cglib黑客：针对类(aspect包---spring提供的)
+        aopalliance:  MethodInteceptor 当类实现接口内部用的jdk黑客  如果类没有实现接口  使用cglib动态代理
+  
+  四、aop的术语
+        连接点  
+        切点
+        通知/增强
+        切面
+        植入
+  
+  
+  五、mybatis的事务控制
+        1、mybatis的事务：JDBC|Manage   默认不会自动提交。
+        
+        2、spring集成mybatis的事务：事务默认是自动提交。
+        mybatis-spring-xxx.jar包
+        
+        本质：将事务交给了spring管理
+        
+ 六、事务
+ 3.1.事务:
+    3.1.1.事务概念
+            事务:是逻辑上一组操作，要么全都成功，要么全都失败.
+            事物目的就是解决数据不一致的问题。
+    
+    3.1.2.事务特性:
+    3.1.2.1.ACID:
+            原子性:事务不可分割
+            一致性:事务执行的前后，数据完整性保持一致.
+            隔离性:一个事务执行的时候，不应该受到其他事务的打扰
+            持久性:一旦结束，数据就永久的保存到数据库.
+
+3.1.2.2.事务3类读问题
+            如果不考虑隔离性，事务由3类读问题
+            脏读      :一个事务读到另一个事务未提交数据
+            不可重复读   :一个事务读到另一个事务已经提交数据（update）导致一个事务多次查询结
+            果不一致
+            虚读      :一个事务读到另一个事务已经提交数据（insert）导致一个事务多次查询结果          不一致
+
+3.1.2.3.事务的隔离级别:
+            设置事务的隔离级别，从某种程度上可以有效解决事务特性引起的3类读问题
+            
+            未提交读:以上情况都有可能发生。
+            已提交读:避免脏读，但不可重复读，虚读是有可能发生。
+            可重复读:避免脏读，不可重复读，但是虚读有可能发生。
+            串行的:避免以上所有情况.
+3.2.Spring中事务管理:
+    分层开发：事务处在Service层.
+    3.2.1.Spring提供事务管理API:
+            3.2.1.1.PlatformTransactionManager:平台事务管理器.
+                commit(TransactionStatus status) 
+                getTransaction(TransactionDefinition definition) 
+                rollback(TransactionStatus status) 
+    3.2.1.2.TransactionDefinition:事务定义
+                ISOLation_XXX:事务隔离级别.
+                PROPAGATION_XXX:事务的传播行为.(不是JDBC中有的，为了解决实际开发问题.)
+                过期时间:
+   3.2.1.3.TransactionStatus:事务状态
+            是否有保存点
+            是否一个新的事务
+            事务是否已经提交
+    3.2.1.4.三者关系
+            PlatformTransactionManager通过TransactionDefinition设置事务相关信息管理事务，管理事务过程中，产生一些事务状态:状态由TransactionStatus记录.
+    3.2.2.API详解:
+            Spring为不同的持久化框架提供了不同PlatformTransactionManager接口实现
+            org.springframework.jdbc.datasource.DataSourceTransactionManager    使用Spring JDBC或iBatis 进行持久化数据时使用
+
+            org.springframework.orm.hibernate3.HibernateTransactionManager  使用Hibernate3.0版本进行持久化数据时使用
+            
+            org.springframework.orm.jpa.JpaTransactionManager       使用JPA进行持久化时使用
+            
+            org.springframework.jdo.JdoTransactionManager   当持久化机制是Jdo时使用
+            
+            org.springframework.transaction.jta.JtaTransactionManager
+                使用一个JTA实现来管理事务，在一个事务跨越多个资源时必须使用
+  
+ 七、spring事务的实现
+   1、手动事务(演示 了解)
+           接口： DataSourceTransactionManager
+           事务管理模板类：transactionTemplate
+           
+ 第1步：业务的层的哪些方法需要事务(黑客)。
+            UserInfoServiceImpl1.zz(int from ,int to ,int money);
+ 第2步：xml中配置事务管理器 (不同的orm框架 事务管理的方式不同)
+            (orm框架：mybatis,hibernate,jpa,jdbcTemplate......)
+        <bean  id="txTransaction" class="org.springframework.jdbc.datasource.DataSourceTransactionManager  ">
+            <property name="dataSource" ref="dataSource"/>
+        </bean>
+  第3步：在业务类定义TransatcionTemplate事务模板类
+            new  TransatcionTemplate(事务管理器);
+     
+   第4步：在需要事务管理的方法中
+                 transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+
+                protected void doInTransactionWithoutResult(TransactionStatus status) {
+                    try {
+                        updateOperation1();//持久层操作1   扣二狗子的300
+                        updateOperation2();//持久层操作2   增加付自强300
+                    } catch (SomeBusinessException ex) {
+                        status.setRollbackOnly();
+                    }
+                }
+            });
+  第5步：测试,调用业务类的方法
+    @Autowired
+    
+    private IUserInfoService iUserInfoService;
+    @Test
+    public void testZZ() {
+        iUserInfoService.zz(1, 200, 300);//没有代理  调用的就是目标对象的目标方法
+    }
+        
+   
+   2、申明式事务(开发)
+   
+   第1步：业务的层的哪些方法需要事务(黑客)。
+            UserInfoServiceImpl1.zz(int from ,int to ,int money);
+   第2步：xml中配置事务管理器 (不同的orm框架 事务管理的方式不同)
+            (orm框架：mybatis,hibernate,jpa,jdbcTemplate......)
+        <bean  id="txTransaction" class="org.springframework.jdbc.datasource.DataSourceTransactionManager  ">
+            <property name="dataSource" ref="dataSource"/>
+        </bean>
+ 第3步：xml配置中定义切面
+    <!-- 1.切面 -->
+    <tx:advice id="ndAdvice"  transaction-manager="txTransaction">
+            <tx:attributes>
+                <!-- 哪个方法需要使用什么事务：哪个屁眼需要插入黑板刷
+                zz*:所有以zz开始的方法名的所有方法
+                *zz: 所有以zz结束的方法名的所有方法
+                -->
+                <tx:method name="zz*" />
+                <!-- *  其他方法使用默认事务   事务是只读的，就表名事务内不能对数据进行更新。-->
+                <tx:method name="*"  read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+    第4步：xml配置根据切点+增强   ，自动生成业务方法的代理对象
+        
+   
+   面试题：手动事务与申明式事务区别？
+    1.手动式针对单个方法进行增强，如果有多个方法，每个方法都要手动调用transactionTemplate
+    2. 声明式事务通过aop的原理进行增强方法的方式
+ 
+ 
+  
+  8月1日：作业
+  1、租房   2、选择题  3、spring继承mybatis自己实现一遍
+  4、mybatis动态sql的选择题错题进行整理
+  
+  今日各位的日志中，请详细标注好上述4个作业的完成情况。
+  
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                    
+    
