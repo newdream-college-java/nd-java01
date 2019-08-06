@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dy.mapper.OrderdetailMapper">
+	<resultMap type="com.dy.entiy.OrderDetail" id="DetailMapOrders">
+		<result property="id" column="orderdetail_id"/>		
+		<result property="itemsNum" column="items_num"/>
+		<result property="itemsId" column="items_id"/>
+		<association property="orders" javaType="com.dy.entiy.Orders">
+			<result property="id" column="id"/>
+			<result property="user_id" column="user_id"/>
+			<result property="createtime" column="createtime"/>
+			<result property="note" column="note"/>
+			<result property="number" column="number"/>
+		</association>
+	</resultMap>
+	<select id="DetaMapOrders" resultMap="DetailMapOrders">
+		select 
+			orderdetail.id orderdetail_id,
+			orderdetail.items_num,
+			orderdetail.items_id,
+			orders.*
+		FROM
+			orderdetail,orders
+		WHERE
+			orders.id=orderdetail.orders_id
+			and orderdetail.id=2
+	</select>
+</mapper>

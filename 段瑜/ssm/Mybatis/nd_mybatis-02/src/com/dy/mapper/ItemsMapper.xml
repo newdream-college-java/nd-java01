@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dy.mapper.ItemsMapper">
+    <sql id="Base_Items_List">
+    	id,name,price,detail,pic,createtime
+    </sql>
+    <select id="imtesAll" resultType="Items">
+    select <include refid="Base_Items_List"/> from  items
+     </select>
+     <update id="modifyItems">
+     	update items set name=#{name} where id=#{id}
+     </update>
+     <insert id="saveItems" parameterType="com.dy.entiy.Items">
+     	<selectKey keyProperty="id" order="AFTER" resultType="int">
+     	 select LAST_INSERT_ID()
+     	</selectKey>
+     	insert into items(name,price,detail,createtime) values(#{name},#{price},#{detail},#{createtime})
+     </insert>
+     <delete id="deleteItems">
+     	delete from items where id=#{id}<!-- 使用$符号会可能造成sql注入 -->
+     </delete>
+     <resultMap type="Items" id="ItemsMapDetail">
+     	<result property="name" column="items_name"/>
+		<result property="detail" column="items_detail"/>
+		<result property="id" column="items_id"/>
+		<result property="price" column="items_price"/>
+		<result property="pic" column="items_pic"/>
+		<result property="createtime" column="createtime"/>
+		<collection property="orderdetail" ofType="OrderDetail">
+			<result property="id" column="orderdetail_id"/>
+			<result property="itemsId" column="items_id"/>
+			<result property="itemsNum" column="items_num"/>
+		</collection>
+     </resultMap>
+     <select id="ItemsfindDetail" resultMap="ItemsMapDetail">
+     	select 
+			orderdetail.id orderdetail_id,
+			orderdetail.items_num,
+			orderdetail.items_id,
+			items.*
+		FROM
+			orderdetail,items
+		WHERE
+			items.id=orderdetail.items_id
+			and items.id=#{id}
+     </select>
+</mapper>

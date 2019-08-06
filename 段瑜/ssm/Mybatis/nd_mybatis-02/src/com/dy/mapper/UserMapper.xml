@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dy.mapper.UserMapper">
+	<sql id="Use">
+		id,username,sex,birthday,address
+	</sql>
+	<select id="findAll" resultType="User1">
+		select <include refid="Use"/> from user
+	</select>
+	<insert id="addUser">
+		insert into user(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
+	</insert>
+	<delete id="DeleteUser">
+		delete from user where id=#{id}
+	</delete>
+	<update id="UpdateUser">
+		Update user set username=#{username} where id=#{id}
+	</update>
+	<resultMap type="User" id="UserMapItems">
+		<result property="username" column="username"/>
+		<result property="sex" column="sex"/>
+		<collection property="orders" ofType="Orders">
+			<result property="id" column="id"/>
+			<result property="user_id" column="user_id"/>
+			<result property="createtime" column="createtime"/>
+			<result property="note" column="note"/>
+			<result property="number" column="number"/>
+			<collection property="orderDetail" ofType="OrderDetail">
+				<result property="id" column="orderdetail_id"/>
+				<result property="itemsId" column="items_id"/>
+				<result property="itemsNum" column="items_num"/>
+				<association property="items" javaType="Items">
+					<result property="name" column="items_name"/>
+					<result property="detail" column="items_detail"/>
+				</association>
+			</collection>
+		</collection>
+	</resultMap>
+	<select id="findUserAll" resultMap="UserMapItems">
+		SELECT 
+			  orders.*,
+			  user.username,
+			  user.sex ,
+			  orderdetail.id orderdetail_id,
+			  orderdetail.items_num,
+			  orderdetail.items_id,
+			  items.name items_name,
+			  items.detail items_detail
+			FROM
+			  orders,
+			  USER,
+			  orderdetail,
+			  items
+			WHERE orders.user_id = user.id  
+			AND orders.id = orderdetail.orders_id 
+			AND items.id = orderdetail.items_id	
+			and user.id=#{user.id}
+	</select>
+	<resultMap type="User" id="UserMapperItems">
+		<result property="username" column="username"/>
+		<result property="sex" column="sex"/>
+		<collection property="items" ofType="Items">
+			<result property="name" column="items_name"/>
+			<result property="detail" column="items_detail"/>
+			<collection property="user" ofType="User">
+				<result property="username" column="username"/>
+				<result property="sex" column="sex"/>
+			</collection>
+		</collection>
+	</resultMap>
+	<select id="selectUserItems" resultMap="UserMapperItems">
+		select 
+	user.username,
+	user.sex,
+	items.name items_name,
+	items.detail items_datail
+	from 
+		orders,
+		user,
+		orderdetail,
+		items
+	where 
+	 	orders.user_id=user.id
+		and orders.id=orderdetail.orders_id
+		and items.id=orderdetail.items_id
+	</select>
+	<resultMap type="User" id="UserMapOrder">
+		<result property="username" column="username"/>
+		<result property="sex" column="sex"/>
+			<collection property="orders" ofType="Orders">
+				<result property="id" column="id"/>
+				<result property="user_id" column="user_id"/>
+				<result property="createtime" column="createtime"/>
+				<result property="note" column="note"/>
+				<result property="number" column="number"/>
+			</collection>
+	</resultMap>
+	<select id="UserMapOrder" resultMap="UserMapOrder">
+		select 
+			user.username,
+			user.sex,
+			orders.*
+		from 
+			user,orders
+		where
+			user.id=orders.user_id
+			and user.id=#{id}
+	</select>
+</mapper>
