@@ -1,0 +1,10 @@
+	1.做这个SSM框架项目懂得了整个SSM的流程
+	2.懂得了mybatis和spring的xml的配置spring-datasource.xml
+	3.懂得了springmvc的xml的配置spring-web.xml
+	4.知道了service层的，持久层，web层各自对应的职务
+	5.web.xml对应的中央处理器，和适配器，映射器，渲染器
+	6.对静态资源有了了解，是对资源的放行使得可以获得
+	7.对springmvc的分页是怎么配置。怎么写懂了
+	8.对springmvc的高级查询知道了怎么写
+	9.对springmvc的绑定数据知道了3种方法
+	10.知道了springmvc的json
