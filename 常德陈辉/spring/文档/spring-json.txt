@@ -1,0 +1,54 @@
+Spring 5.x集成json
+第1步：到jackson包
+jackson-annotations-2.9.2.jar
+jackson-core-2.9.2.jar
+jackson-databind-2.9.2.jar
+第2步：在注解适配器中配置json转换类
+<!--注解适配器-->
+<bean
+class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+<property name="messageConverters">
+<list>
+<bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+<bean
+class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+</bean>
+</list>
+</property>
+</bean>
+或者使用注解配置
+
+
+第3步：通过@RequestBody和@ResponseBody编写接口
+@RequestMapping("/login2")
+@ResponseBody
+public Users login2( @RequestBody Users users ) {
+      System.out.println(users);
+      //1,使用id和username查询数据
+        List<Users> loginUsers = iUsersService.checkUser(users);
+        return loginUsers.get(0);
+}
+
+@RequestMapping("/login")
+@ResponseBody
+public List<Users> login( @RequestBody Users users ) {
+        System.out.println(users);
+      //1,使用id和username查询数据
+        List<Users> loginUsers = iUsersService.checkUser(users);
+        return loginUsers;
+}
+
+@RequestMapping("/login3")
+ @ResponseBody
+    public Map<String, Users> login3( @RequestBody Users users ) {
+        System.out.println(users);
+      //1,使用id和username查询数据
+        List<Users> loginUsers = iUsersService.checkUser(users);
+        Map<String, Users> map =new HashMap<String, Users>();
+        map.put("u1",loginUsers.get(0));
+        map.put("u2",loginUsers.get(1));
+        return map;
+    }
+
+
+第4步：通过postman工具
