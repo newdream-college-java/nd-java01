@@ -1,0 +1,213 @@
+**1,页面显示时的分页**
+http://47.104.135.201:8080/news/list.do  (需要get请求)
+
+ >request
+
+    pageNum(default=1)
+    pageSize(default=10)
+
+>request
+
+success
+
+    {
+        "status": 0,
+        "msg": "查询成功",
+        "data":{
+            "pageNum": 1,
+            "pageSize": 2,
+            "size": 2,
+            "orderBy": null,
+            "startRow": 1,
+            "endRow": 2,
+            "total": 3,
+            "pages": 2,
+            "list":[
+                {  "id": 1, "channelid": 1, "title": "标题", "author": "作者",…},
+                {"id": 2, "channelid": 1, "title": "二狗子", "author": "可芯",…}
+            ],
+        "firstPage": 1,
+        "prePage": 0,
+        "nextPage": 2,
+        "lastPage": 2,
+        "isFirstPage": true,
+        "isLastPage": false,
+        "hasPreviousPage": false,
+        "hasNextPage": true,
+        "navigatePages": 8,
+        "navigatepageNums":[1,2 ]
+        }
+    }
+
+fail
+
+
+    {
+        "status": 0,
+        "msg": "查询失败",
+        "data":{
+            "pageNum": 1,
+            "pageSize": 2,
+            "size": 2,
+            "orderBy": null,
+            "startRow": 1,
+            "endRow": 2,
+            "total": 3,
+            "pages": 2,
+            "list":[],
+        "firstPage": 1,
+        "prePage": 0,
+        "nextPage": 2,
+        "lastPage": 2,
+        "isFirstPage": true,
+        "isLastPage": false,
+        "hasPreviousPage": false,
+        "hasNextPage": true,
+        "navigatePages": 8,
+        "navigatepageNums":[ ]
+        }
+    }
+
+
+
+**2,新闻显示单个详细（按照id查询）**
+http://47.104.135.201:8080/news/accordingKeyList.do?id=2（需要get请求）
+
+/kzych/news/accordingKeyList
+
+>request
+
+	id
+
+>request
+
+success 
+
+	{
+		"status": 0,
+		"msg": "单个查询成功",
+		"data":{
+			"id": 2,
+			"channelid": 1,
+			"title": "二狗子",
+			"author": "可芯",
+			"publishdate": 1519785476000,
+			"img": "dfv",
+			"hit": 1001,
+			"istop": 1,
+			"commentNum": 2,
+			"iscomment": 0,
+			"comefrom": "网络图片",
+			"isdelete": 1,
+			"status": 0,
+			"content": "其实是一个人的外号",
+			"keyword": "狗子",
+			"staticurl": "sds",
+			"sourceurl": "1sfs"
+	}
+}
+
+fail
+
+
+	pretty 
+	{
+	"status": 0,
+	"msg": "单个查询失败没有该id"
+	}
+
+
+**4.新闻按照标题模糊查询 并且分页**
+http://47.104.135.201:8080/news/dimListPage.do?pageSize=1&pageNum=1&title=二狗子（需要post请求）
+
+kzych/news/dimListPage.do
+
+>request
+
+	pageSize(default=2)
+	pageNum(default=1)
+	title
+	
+>request
+
+success
+
+	{
+		"status": 0,
+		"msg": "单个查询成功",
+		"data":[
+		{
+			"id": 3,
+			"channelid": 2,
+			"title": "三狗子",
+			"author": "杨大妈",
+			"publishdate": 1520988872000,
+			"img": "fsfsef",
+			"hit": 20,
+			"istop": 1,
+			"commentNum": null,
+			"iscomment": 0,
+			"comefrom": "网咯图片",
+			"isdelete": 1,
+			"status": 0}
+		]
+	}
+
+
+**5.点赞**
+http://47.104.135.201:8080/news/hit.do?id=1（需要get请求）
+
+/kzych/news/hit.do
+> request
+
+	id
+
+> request
+
+success
+
+	{
+	"status": 0,
+	"msg": "点赞成功成功"
+	}
+
+fail
+
+	{
+	"status": 0,
+	"msg": "点赞失败"
+	}
+
+**6，添加评论 **
+http://47.104.135.201:8080/comment/create.do?content=小猪佩奇&commentId=1  (需要post请求)
+
+/kzych/comment/create.do
+
+> request
+
+    content
+    commentId
+
+> response
+
+success
+
+    {
+    "status": 0,
+	"msg": "评论成功"
+    }
+
+
+fail
+
+	{
+	"status": 1,
+	"msg": "评论失败"
+	}
+
+或
+
+{
+"status": 0,
+"msg": "请先登入"
+}
